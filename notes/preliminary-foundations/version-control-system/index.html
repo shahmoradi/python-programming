@@ -7,30 +7,30 @@
 <meta name="description" content="This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version cont...">
 <meta name="keywords" content="version_control_systemVCSgitmercurialgithubbitbucket,  version, control, system">
 <title>A professional programmer uses Version Control System (VCS) | Scientific Computing with Python</title>
-<link rel="stylesheet" href="/css/prismOkaidia.css">
-<script src="/js/prismOkaidia.js"></script>
+<link rel="stylesheet" href="/python/css/prismOkaidia.css">
+<script src="/python/js/prismOkaidia.js"></script>
 <!--
-<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/python/css/syntax.css">
 -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/python/css/bootstrap.min.css">
 <!--
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/modern-business.css">
+<link rel="stylesheet" href="/python/css/modern-business.css">
 -->
 <!-- Latest compiled and minified CSS -->
 <!-- 
-<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/python/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  -->
-<link rel="stylesheet" href="/css/customstyles.css">
-<link rel="stylesheet" href="/css/boxshadowproperties.css">
+<link rel="stylesheet" href="/python/css/customstyles.css">
+<link rel="stylesheet" href="/python/css/boxshadowproperties.css">
 <!-- most color styles are extracted out to here -->
-<link rel="stylesheet" href="/css/theme-cdslab.css">
+<link rel="stylesheet" href="/python/css/theme-cdslab.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/python/js/jquery.navgoco.min.js"></script>
 <!-- make sidebar non-accordion -->
-<script src="/js/lockScrollbarPosition.js"></script>
+<script src="/python/js/lockScrollbarPosition.js"></script>
 <!-- make sidebar non-accordion -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -55,16 +55,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
-<script src="/js/toc.js"></script>
-<script src="/js/customscripts.js"></script>
-<link rel="shortcut icon" href="/images/favicon.ico">
+<script src="/python/js/toc.js"></script>
+<script src="/python/js/customscripts.js"></script>
+<link rel="shortcut icon" href="/python/images/favicon.ico">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/python/feed.xml">
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -123,7 +123,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="fa fa-book fa-lg navbar-brand" href="/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
+            <a class="fa fa-book fa-lg navbar-brand" href="/python/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -183,13 +183,13 @@
                         <input type="text" id="search-input" placeholder="search...">
                         <ul id="results-container"></ul>
                     </div>
-                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
+                    <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
                     <script type="text/javascript">
                             SimpleJekyllSearch.init({
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
-                                dataSource: "/search.json",
-                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="A professional programmer uses Version Control System (VCS)">{title}</a></li>',
+                                dataSource: "/python/search.json",
+                                searchResultTemplate: '<li><a href="{url}" title="A professional programmer uses Version Control System (VCS)">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -438,11 +438,11 @@ $('#toc').on('click', 'a', function() {
     
     <h2 id="useful-links-for-future-reference">Useful links for future reference</h2>
 <ul>
-  <li><a href="/notes/preliminary-foundations/version-control-system/linuxRef.pdf" target="_blank">Linux commands cheat-sheet</a></li>
-  <li><a href="/notes/preliminary-foundations/version-control-system/progit.en.pdf" target="_blank">Git reference manual (2009)</a></li>
-  <li><a href="/notes/preliminary-foundations/version-control-system/github-git-cheat-sheet.pdf" target="_blank">Github’s Git cheat-sheet</a></li>
-  <li><a href="/notes/preliminary-foundations/version-control-system/atlassian_git_cheatsheet.pdf" target="_blank">Atlassian’s Git cheat-sheet</a></li>
-  <li><a href="/notes/preliminary-foundations/version-control-system/markdown-cheatsheet-online.pdf" target="_blank">Markdown language cheat-sheet</a></li>
+  <li><a href="/python/notes/preliminary-foundations/version-control-system/linuxRef.pdf" target="_blank">Linux commands cheat-sheet</a></li>
+  <li><a href="/python/notes/preliminary-foundations/version-control-system/progit.en.pdf" target="_blank">Git reference manual (2009)</a></li>
+  <li><a href="/python/notes/preliminary-foundations/version-control-system/github-git-cheat-sheet.pdf" target="_blank">Github’s Git cheat-sheet</a></li>
+  <li><a href="/python/notes/preliminary-foundations/version-control-system/atlassian_git_cheatsheet.pdf" target="_blank">Atlassian’s Git cheat-sheet</a></li>
+  <li><a href="/python/notes/preliminary-foundations/version-control-system/markdown-cheatsheet-online.pdf" target="_blank">Markdown language cheat-sheet</a></li>
   <li><a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank">Advanced Git cheatsheet</a></li>
 </ul>
 
@@ -492,7 +492,7 @@ Depending on how the project is maintained and shared with others, VCS is classi
   <li><strong>Local VCS</strong><br />
  The simplest form of project version control, and probably the oldest method is <em>local VCS</em> where the VCS software keeps detailed track of the evolution of individual files in the project <em>only on a local storage device or computer</em>. A prime example of such version control software is the GNU <a href="https://www.gnu.org/software/rcs/" target="_blank">Revision Control System (RCS)</a>. Such VCS is able to avoid problems 1-4 mentioned above. The following figure illustrates the inner workings of a local VCS.<br />
  <br />
- <img src="/notes/preliminary-foundations/version-control-system/localVCS.png" alt="Local Version Control" /><br />
+ <img src="/python/notes/preliminary-foundations/version-control-system/localVCS.png" alt="Local Version Control" /><br />
  <br />
  <strong>Major Caveats:</strong>
     <ol>
@@ -504,7 +504,7 @@ Depending on how the project is maintained and shared with others, VCS is classi
   <li><strong>Centralized VCS (CVCS)</strong><br />
  Since collaborative effort is at the heart of almost every large-scale project, a new generation of VCS has been developed that go beyond the capabilities of local VCS. These VCS have a central repository that is accessible by all members of the project’s team. This central repository contains all of the project’s information and its development history and clients (team members) can check out and work on individual files of the project. For many years this style of VCS used to be the dominant method of software version control. Prime examples include <a href="https://en.wikipedia.org/wiki/Concurrent_Versions_System" target="_blank">Concurrent Versions System (CVS)</a>, <a href="https://en.wikipedia.org/wiki/Perforce_Helix" target="_blank">Perforce Helix</a> and <a href="https://en.wikipedia.org/wiki/Apache_Subversion" target="_blank">Apache Subversion(SVN)</a>. The following figure illustrates the inner workings of a CVCS.<br />
  <br />
- <img src="/notes/preliminary-foundations/version-control-system/centralizedVCS.png" alt="Centralized Version Control" /><br />
+ <img src="/python/notes/preliminary-foundations/version-control-system/centralizedVCS.png" alt="Centralized Version Control" /><br />
  <br />
  <strong>Major Caveats:</strong>
     <ol>
@@ -516,7 +516,7 @@ Depending on how the project is maintained and shared with others, VCS is classi
   <li><strong>Distributed VCS (DVCS)</strong><br />
  In order to resolve the caveats of the aforementioned VCS, several new VCS, known as <em>distributed VCS</em>, have been developed within the first decade of the new millennium. With these VCS, each client has an entire copy of the central database at their own local storage device. Thus, every <strong>clone</strong> of the central repository that is with each client, is a full backup of all of the project’s data and history.  Consequently, if the central server/repository fails for any reason, the local repository of the team member that has the most recent clone of the project database, can be used to restore the central repository. <strong>This VCS paradigm is currently the most popular class of VCS</strong>. We will be using a major implementation of it known as <a href="https://git-scm.com/" target="_blank"><strong>Git</strong></a> throughout this course. Other major DVCS implementations include <a href="https://www.mercurial-scm.org/" target="_blank"><strong>Mercurial</strong></a>, <a href="https://bazaar.canonical.com/en/" target="_blank"><strong>Bazaar</strong></a>, and <a href="http://darcs.net/" target="_blank"><strong>Darcs</strong></a>. The following figure illustrates the inner working of a DVCS.<br />
  <br />
- <img src="/notes/preliminary-foundations/version-control-system/distributedVCS.png" alt="Distributed Version Control" /><br />
+ <img src="/python/notes/preliminary-foundations/version-control-system/distributedVCS.png" alt="Distributed Version Control" /><br />
  <br /></li>
 </ol>
 
@@ -1422,7 +1422,7 @@ If you are sure you want to delete it, run <span class="s1">'git branch -D test'
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
          Site last generated: Jul 9, 2019 <br />
-        <p><img src="http://localhost:4000/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>
