@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This note aims at providing an overview of data-input methods in Python.">
+<meta name="keywords" content="data_inputIO,  data input, IO, python">
+<title>Data input methods | Scientific Computing with Python</title>
+<link rel="stylesheet" href="/css/prismOkaidia.css">
+<script src="/js/prismOkaidia.js"></script>
+<!--
+<link rel="stylesheet" href="/css/syntax.css">
+-->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/modern-business.css">
+-->
+<!-- Latest compiled and minified CSS -->
+<!-- 
+<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ -->
+<link rel="stylesheet" href="/css/customstyles.css">
+<link rel="stylesheet" href="/css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="/css/theme-cdslab.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<!-- make sidebar non-accordion -->
+<script src="/js/lockScrollbarPosition.js"></script>
+<!-- make sidebar non-accordion -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.sidenav').navgoco({
+              accordion: false,
+              caret: '<span class="caret"></span>',
+              openClass: 'open',
+              save: true,
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+    });
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/customscripts.js"></script>
+<link rel="shortcut icon" href="/images/favicon.ico">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/feed.xml">
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div id="sticky" class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-book fa-lg navbar-brand" href="/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
+                        
+                        
+                        
+                        <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://www.cdslab.org/scientific-computing-with-matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Data input methods page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: "/search.json",
+                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="Data input methods">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+<ul id="mysidebar" class="sidenav">
+    <!--
+    -->
+    <li class="sidebarTitle">Table of Contents </li>
+    
+        
+            
+        
+            
+                <li>
+                    <a title="Overview" href="#">Overview</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Preface" href="/notes/overview/preface/index.html">Preface</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 1" href="/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Version control system" href="/notes/preliminary-foundations/version-control-system/index.html">Version control system</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Programming history" href="/notes/preliminary-foundations/programming-history/index.html">Programming history</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Computer program structure" href="/notes/preliminary-foundations/computer-program-structure/index.html">Computer program structure</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Python for beginners" href="/notes/preliminary-foundations/python-for-beginners/index.html">Python for beginners</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="First Python program" href="/notes/values-variables-types/first-python-program/index.html">First Python program</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Values in Python" href="/notes/values-variables-types/values-in-python/index.html">Values in Python</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Variables in Python" href="/notes/values-variables-types/variables-in-python/index.html">Variables in Python</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Control constructs" href="#">Control constructs</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Branching" href="/notes/control-constructs/branching/index.html">Branching</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Looping" href="/notes/control-constructs/looping/index.html">Looping</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Program units" href="#">Program units</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Functions" href="/notes/program-units/functions/index.html">Functions</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Modules" href="/notes/program-units/modules/index.html">Modules</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li class="active"><a title="Data input methods" href="/notes/data-transfer/input/index.html">Data input methods</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Data output methods" href="/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+    
+    <!-- if you aren't using the accordion, uncomment this block:
+    -->
+    <p class="external">
+        <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+    </p>
+</ul>
+<!--
+This highlights the active parent class in the navgoco sidebar. 
+This is critical so that the parent expands when you're viewing a page.
+This must appear below the sidebar code above.
+Otherwise, if placed inside customscripts.js,
+the script runs before the sidebar code runs and the class never gets inserted.
+-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Data input methods</h1>
+</div>
+
+<div class="post-content">
+    
+        <div class="summary">This note aims at providing an overview of data-input methods in Python.</div>
+    
+    
+        <br>
+        
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+    <p>So far in this course, we have indirectly discussed several methods of getting input information from the user, and several methods of outputting the result in a Python program. This lecture, attempts at formalizing all the previous discussions and introduce more general efficient methods of the code interaction with users. Let’s begin with an example code, explaining the meaning of input/output (I/O) in Python,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.1822118800390509
+</code></pre></div></div>
+
+<p>In the above code, $a,b,x$ are examples of input data to a code, and $y$ is an example of code output. In such case as in the above, the input data is said to be <strong>hardcoded</strong> in the program.</p>
+
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> 
+    <b>In general, in any programming language, including Python you should always avoid hardcoding input information into your program.</b><br /><br />
+    If data is hardcoded, then every time it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.</div>
+
+<p>In general, input data can be fed to a program in four different ways:</p>
+<ol>
+  <li>let the user answer questions in a dialog in the <strong>terminal window</strong>,</li>
+  <li>let the user provide input on the <strong>command line</strong>,</li>
+  <li>let the user provide input data in a <strong>file</strong>,</li>
+  <li>let the user write input data in a <strong>graphical interface</strong>.</li>
+</ol>
+
+<h2 id="input-data-from-terminal-window">Input data from terminal window</h2>
+
+<p>We have already introduced and used this method frequently in previous lectures, via the Python’s builtin function <code class="highlighter-rouge">input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'input the values for a,b,x (comma separated): '</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input the values for a,b,x (comma separated): 0.1,1,0.6
+0.1822118800390509
+</code></pre></div></div>
+
+<h2 id="input-data-from-command-line">Input data from command line</h2>
+
+<p>This approach, which we discussed in previous lecture, is most popular in Unix-like environments, where most users are accustomed to using Bash command line. However, it can be readily used in Windows environment as well. For this approach, there is a Python module <code class="highlighter-rouge">sys</code> that can accomplish what we desire,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+Now if you save this code in a <a href="http://localhost:4000/lecture/8/input_via_sys.py" target="_blank">file</a>, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python input_via_sys.py 0.1 1 0.6
+0.1822118800390509
+</code></pre></div></div>
+<p><br /></p>
+
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> 
+    <b>Pay attention to the convention for the input command-line arguments.</b><br /><br />
+        <b>1.</b> As you see in the above example, the name of the program is considered as the first command line argument (<code>sys.argv[0]</code>). Also the arguments must be separated by a white space, and should appear in the proper order.<br /><br />
+        <b>2.</b> If one value has a white space (e.g., a string value with white space character in it), then it has to be contained in quotation marks <code>''</code> or <code>""</code>.<br /><br />
+        <b>3.</b> Also note that all input command-line arguments are taken as string values. Therefore, you will have to convert them to the proper type (e.g., float, int, …) once they are read from the command line.</div>
+
+<p><br /></p>
+
+<h3 id="variable-number-of-command-line-arguments">Variable number of command line arguments</h3>
+
+<p>If the number of input arguments on the command line is not known a priori, then you can get a list of all input arguments using <code class="highlighter-rouge">sys.argv[1:]</code> and then use a for-loop to loop over individual elements of it, or use <code class="highlighter-rouge">len()</code> function to find the total number of input arguments.<br />
+<br /></p>
+
+<h3 id="option-value-pairs-as-command-line-input">Option-value pairs as command-line input</h3>
+
+<p>Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
+<script type="math/tex">y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.</script>
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code class="highlighter-rouge">argparse</code> Python module. Details of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
+
+<h2 id="input-data-from-file">Input data from file</h2>
+
+<p>In cases where the input data is large, the command-line arguments and input from terminal window are not efficient anymore. In such cases, the most common approach is to let the code read input data from a file, the path to which is most often given to the code from the command line or the terminal window.</p>
+
+<h3 id="reading-a-file-line-by-line">Reading a file line by line</h3>
+
+<p>To read a file, say <a href="http://localhost:4000/lecture/8/data.in" target="_blank">this file</a>, one first needs to open it,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">myfile</span><span class="o">.</span>
+     <span class="n">myfile</span><span class="o">.</span><span class="nb">buffer</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">detach</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">fileno</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">line_buffering</span> <span class="n">myfile</span><span class="o">.</span><span class="n">newlines</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">readline</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">seekable</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">writable</span>
+     <span class="n">myfile</span><span class="o">.</span><span class="n">close</span>          <span class="n">myfile</span><span class="o">.</span><span class="n">encoding</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">flush</span>          <span class="n">myfile</span><span class="o">.</span><span class="n">mode</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">read</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span>      <span class="n">myfile</span><span class="o">.</span><span class="n">tell</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">write</span>
+     <span class="n">myfile</span><span class="o">.</span><span class="n">closed</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">errors</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">isatty</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">name</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">readable</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">seek</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">truncate</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">writelines</span>
+
+</code></pre></div></div>
+<p><br />
+The function <code class="highlighter-rouge">open</code> creates a file object, stored in the variable <code class="highlighter-rouge">myfile</code>. The second input argument to <code class="highlighter-rouge">open</code>, <code class="highlighter-rouge">'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
+
+<p>Now you can use a for loop to read the data in this file line by line:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre></div></div>
+
+<p>What is printed here, is actually the content of <code class="highlighter-rouge">data.in</code> file, line by line.</p>
+
+<h3 id="alternative-method-of-reading-a-data-file">Alternative method of reading a data file</h3>
+
+<p>Instead of reading one line at a time, as in the above, we can load all lines into a single list of strings,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">lines</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="nb">list</span>
+</code></pre></div></div>
+<p><br />
+Note that each element of <code class="highlighter-rouge">line</code> contains one line of the file.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">lines</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="p">[</span><span class="s">'1</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'3</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'4</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'5</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'6</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'7</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'88</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'65</span><span class="se">\n</span><span class="s">'</span><span class="p">]</span>
+</code></pre></div></div>
+<p><br />
+The action of the method <code class="highlighter-rouge">readlines()</code> is equivalent to a for-loop like the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="o">...</span><span class="p">:</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="o">...</span><span class="p">:</span>     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">lines</span>
+    <span class="o">...</span><span class="p">:</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="p">[</span><span class="s">'1</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'3</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'4</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'5</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'6</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'7</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'88</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'65</span><span class="se">\n</span><span class="s">'</span><span class="p">]</span>
+</code></pre></div></div>
+<p><br />
+or this <em>list comprehension</em> format,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">]</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">lines</span>
+    <span class="o">...</span><span class="p">:</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="p">[</span><span class="s">'1</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'3</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'4</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'5</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'6</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'7</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'88</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'65</span><span class="se">\n</span><span class="s">'</span><span class="p">]</span>
+</code></pre></div></div>
+<p><br />
+Now suppose you were to calculate the mean of the numbers in <a href="http://localhost:4000/lecture/8/data.in" target="_blank">this file</a>. You could simply use the following list comprehension code to do so,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+<span class="mf">22.375</span>
+</code></pre></div></div>
+<p><br />
+Note that once you read the file, you can close it using,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="the-with-statement">The <em>with</em> statement</h3>
+
+<p>More often in modern Python code you may see the <code class="highlighter-rouge">with</code> statement for reading a file, like the following</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="o">...</span><span class="p">:</span>     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="o">...</span><span class="p">:</span>         <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span>
+<span class="mi">1</span>
+
+<span class="mi">3</span>
+
+<span class="mi">4</span>
+
+<span class="mi">5</span>
+
+<span class="mi">6</span>
+
+<span class="mi">7</span>
+
+<span class="mi">88</span>
+
+<span class="mi">65</span>
+</code></pre></div></div>
+<p><br />
+This is technically equivalent to,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="o">...</span><span class="p">:</span>     <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="o">...</span><span class="p">:</span>
+<span class="mi">1</span>
+
+<span class="mi">3</span>
+
+<span class="mi">4</span>
+
+<span class="mi">5</span>
+
+<span class="mi">6</span>
+
+<span class="mi">7</span>
+
+<span class="mi">88</span>
+
+<span class="mi">65</span>
+</code></pre></div></div>
+<p><br />
+The difference here is that with the modern <code class="highlighter-rouge">with</code> statement, there is no need to close the file in the end.</p>
+
+<h3 id="the-old-while-true-construction">The old <em>while True</em> construction</h3>
+
+<p>The call <code class="highlighter-rouge">myfile.readline()</code> returns a string containing the text at the current line. A new <code class="highlighter-rouge">myfile.readline()</code> statement will read the next line. If the file reaches the end, then <code class="highlighter-rouge">myfile.readline()</code> returns an empty string, the end of the file has
+reached and the code must stop further reading of the file. The traditional way of telling the code to stop at the end of the file is a <code class="highlighter-rouge">while</code> loop like the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">36</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="o">...</span><span class="p">:</span>     <span class="n">line</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+    <span class="o">...</span><span class="p">:</span>         <span class="k">break</span>
+    <span class="o">...</span><span class="p">:</span>     <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="mi">1</span>
+
+<span class="mi">3</span>
+
+<span class="mi">4</span>
+
+<span class="mi">5</span>
+
+<span class="mi">6</span>
+
+<span class="mi">7</span>
+
+<span class="mi">88</span>
+
+<span class="mi">65</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="reading-an-entire-file-as-a-single-string">Reading an entire file as a single string</h3>
+
+<p>While the <code class="highlighter-rouge">readlines()</code> method returns a list of lines in the file, the <code class="highlighter-rouge">read()</code> method returns a string containing the entire content of the file.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">In</span> <span class="p">[</span><span class="mi">37</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">s</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">38</span><span class="p">]:</span> <span class="n">s</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">38</span><span class="p">]:</span> <span class="s">'1</span><span class="se">\n</span><span class="s">3</span><span class="se">\n</span><span class="s">4</span><span class="se">\n</span><span class="s">5</span><span class="se">\n</span><span class="s">6</span><span class="se">\n</span><span class="s">7</span><span class="se">\n</span><span class="s">88</span><span class="se">\n</span><span class="s">65</span><span class="se">\n</span><span class="s">'</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">39</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">88</span>
+<span class="mi">65</span>
+</code></pre></div></div>
+<p><br />
+The major advantage of this method of reading file content is that you can then immediately apply string methods directly on the file content.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">48</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+    <span class="o">...</span><span class="p">:</span> <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="o">...</span><span class="p">:</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">49</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+<span class="mf">22.375</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="converting-user-input-to-live-python-objects">Converting user input to live Python objects</h3>
+
+<p>One of the cool features in Python I/O is that you can provide text containing valid Python code as input to a program and then
+turn that text into <em>live Python objects</em> as if the text were lines of code written directly into the program beforehand. This is a very powerful tool for letting users specify function formulas, for instance, as input to a program. The program code itself has no knowledge about the kind of function the user wants to work with, yet at run time the user’s desired formula enters the computations. To achieve the goal, one can use Python’s <strong>magic functions</strong>, a.k.a. <strong>special methods</strong>.</p>
+
+<h4 id="the-magic-eval-function">The magic <em>eval</em> function</h4>
+
+<p>The <code class="highlighter-rouge">eval</code> function takes a <strong>string as argument</strong> and <strong>evaluates</strong> this string as a <strong>Python expression</strong>. The result of an expression is an <strong>object</strong>. For example,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'1+2'</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="mi">3</span>
+</code></pre></div></div>
+<p><br />
+This is equivalent to typing,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="mi">3</span>
+</code></pre></div></div>
+<p><br />
+or another example,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'a+b'</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">c</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="mi">3</span>
+</code></pre></div></div>
+<p><br />
+or,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'sqrt(4)'</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="mf">2.0</span>
+</code></pre></div></div>
+<p><br />
+But, note that in all of the above examples, the <code class="highlighter-rouge">eval</code> function <strong>evaluates</strong> a Python expression, that is, this function <strong>cannot execute</strong> a Python statement.</p>
+
+<p>Now the cool thing about this function is that, you can directly apply it to the user input. For example, suppose the user is asked to input a Python expression and then the code is supposed to evaluate the input just like a simple calculator,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Input an arithmetic expression to evaluate: '</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input an arithmetic expression to evaluate: 2 + 3.0/5 + exp(7)
+1099.2331584284584
+</code></pre></div></div>
+
+<h4 id="the-magic-exec-function">The magic <em>exec</em> function</h4>
+
+<p>Similar to the <code class="highlighter-rouge">eval</code> function, there is also an <code class="highlighter-rouge">exec</code> magic function that executes a string containing an arbitrary
+Python code, not just a Python expression. This is a powerful idea since it now enables the user to write a formula as input to the program, available to the program in the form of a string object. The program can then convert this formula to a callable Python code, or function, using the magic <code class="highlighter-rouge">exec</code> function.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="k">exec</span><span class="p">(</span><span class="s">'import math'</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">exec</span><span class="p">(</span><span class="s">'a=1; b=2; c=a+b'</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+One could even input a full function definition to the exec function,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myFuncString</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Input a Python function definition of interest: '</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">exec</span><span class="p">(</span><span class="n">myFuncString</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input a Python function definition of interest, named func: def func(x): return 2*x + 1  
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
+</code></pre></div></div>
+
+<p>Now, since this is such a useful functionality in Python, there is already a package written <code class="highlighter-rouge">scitools</code>, that converts an input expression to a Python function,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scitools.StringFunction</span> <span class="kn">import</span> <span class="n">StringFunction</span>
+<span class="n">myfuncString</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Input a Python expression to build your requested Python function: '</span><span class="p">)</span>
+<span class="n">myfunc</span> <span class="o">=</span> <span class="n">StringFunction</span><span class="p">(</span><span class="n">myfuncString</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+The only major caveat with this module is that, at the moment, it only works with Python 2.x, and not Python 3. So, the above code will not work on your Python 3 platform.</p>
+
+<p><br /><br /></p>
+
+
+    <div class="tags">
+        
+            <b>Tags: </b>
+            
+            
+                
+            
+                
+            
+        
+    </div>
+    
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+<hr class="shaded"/>
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
+         Site last generated: Jul 9, 2019 <br />
+        <p><img src="http://localhost:4000/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

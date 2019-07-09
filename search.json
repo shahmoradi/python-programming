@@ -1,0 +1,314 @@
+[
+
+    
+
+    
+    {
+        "title": "branching and functions",
+        "tags": "python",
+        "keywords": "python",
+        "url": "/version-control-system.html",
+        "summary": "This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Branching and If-constructs",
+        "tags": "branching",
+        "keywords": "branching, control constructs, if-block, python",
+        "url": "/notes/control-constructs/branching/index.html",
+        "summary": "This note aims at explaining the concepts of branching statements and if-blocks."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Computer program structure",
+        "tags": "computerprogramcontentsdebuggingerror",
+        "keywords": "computer, program, contents, debugging, error",
+        "url": "/notes/preliminary-foundations/computer-program-structure/index.html",
+        "summary": "This lecture aims at introducing the fundamental elements of a computer program, including Python programs, as well as the common types of errors that could occur in computer programming."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Data input methods",
+        "tags": "data_inputIO",
+        "keywords": "data input, IO, python",
+        "url": "/notes/data-transfer/output/index.html",
+        "summary": "This note aims at providing an overview of data-input methods in Python."
+    }
+    ,
+    
+
+    
+
+    
+    {
+        "title": "First Python program",
+        "tags": "firstPythonprogram",
+        "keywords": "first, Python, program",
+        "url": "/notes/values-variables-types/first-python-program/index.html",
+        "summary": "This lecture aims at introducing the fundamental elements of a computer program, including Python programs, as well as the common types of errors that could occur in computer programming."
+    }
+    ,
+    
+
+    
+    {
+        "title": "",
+        "tags": "",
+        "keywords": "",
+        "url": "/css/footer-cdslab.css",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Functions in Python",
+        "tags": "function",
+        "keywords": "function, python",
+        "url": "/notes/program-units/functions/index.html",
+        "summary": "This note aims at explaining the concepts of functions as program units."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Scientific Computing with Python",
+        "tags": "frontpage",
+        "keywords": "frontpage",
+        "url": "/index.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Data input methods",
+        "tags": "data_inputIO",
+        "keywords": "data input, IO, python",
+        "url": "/notes/data-transfer/input/index.html",
+        "summary": "This note aims at providing an overview of data-input methods in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Loops and iteration constructs",
+        "tags": "loopsfor_loopwhile_loopiteration",
+        "keywords": "loops, for loop, while loop, iteration",
+        "url": "/notes/control-constructs/looping/index.html",
+        "summary": "This note aims at explaining the concept of iterations and loop constructs in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Python modules",
+        "tags": "pythonmodules",
+        "keywords": "python, modules",
+        "url": "/notes/program-units/modules/index.html",
+        "summary": "This note aims at explaining the concept of modules in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "News",
+        "tags": "",
+        "keywords": "news, blog, updates, release notes, announcements",
+        "url": "/news.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "News",
+        "tags": "",
+        "keywords": "news, blog, updates, release notes, announcements",
+        "url": "/news_archive.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Data input methods",
+        "tags": "data_inputIO",
+        "keywords": "data input, IO, python",
+        "url": "/notes/data-transfer/output/index.html",
+        "summary": "This note aims at providing an overview of data-input methods in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Preface",
+        "tags": "authoraudienceFortranCinteroperation",
+        "keywords": "author about python scientific computing audience",
+        "url": "/notes/overview/preface/index.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+
+    
+    {
+        "title": "A Brief History of Programming",
+        "tags": "programminghistory",
+        "keywords": "programming, history",
+        "url": "/notes/preliminary-foundations/programming-history/index.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Python for beginners",
+        "tags": "pythonbeginner",
+        "keywords": "python, beginner",
+        "url": "/notes/preliminary-foundations/python-for-beginners/index.html",
+        "summary": "This lecture aims at providing an introduction to Python programming for beginners, how to install the most popular Python implementations, different Python distributions currently available, how to write Jupyter notebooks, and how to perform simple arithmetic operations in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Release Note 1",
+        "tags": "release_note",
+        "keywords": "Release Note",
+        "url": "/notes/overview/release-note-1/index.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    {
+        "title": "Values in Python",
+        "tags": "valuetypePython",
+        "keywords": "value, type, Python",
+        "url": "/notes/values-variables-types/values-in-python/index.html",
+        "summary": "This note aims at introducing the basic value types in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Values in Python",
+        "tags": "variabletypepython",
+        "keywords": "variable, type, python",
+        "url": "/notes/values-variables-types/variables-in-python/index.html",
+        "summary": "This note aims at introducing the variables and the basic variable types in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "A professional programmer uses Version Control System (VCS)",
+        "tags": "version_control_systemVCSgitmercurialgithubbitbucket",
+        "keywords": "version, control, system",
+        "url": "/notes/preliminary-foundations/version-control-system/index.html",
+        "summary": "This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version control software that is available today for professional collaborative programming."
+    }
+    ,
+    
+
+    
+    {
+        "title": "",
+        "tags": "",
+        "keywords": "",
+        "url": "/assets/css/style.css",
+        "summary": ""
+    }
+    ,
+    
+
+
+
+    {
+    "title": "Sample post",
+    "tags": "newsgetting_started",
+    "keywords": "",
+    "url": "/samplepost.html",
+    "summary": "This is some summary frontmatter for my sample post."
+    }
+    ,
+
+    {
+    "title": "Welcome to Jekyll!",
+    "tags": "news",
+    "keywords": "",
+    "url": "/myupdate.html",
+    "summary": ""
+    }
+    ,
+
+    {
+    "title": "Test post from last year",
+    "tags": "news",
+    "keywords": "",
+    "url": "/test-post-from-last-year.html",
+    "summary": ""
+    }
+    
+
+]

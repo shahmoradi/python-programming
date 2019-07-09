@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python.">
+<meta name="keywords" content="python,  python">
+<title>branching and functions | Scientific Computing with Python</title>
+<link rel="stylesheet" href="/css/prismOkaidia.css">
+<script src="/js/prismOkaidia.js"></script>
+<!--
+<link rel="stylesheet" href="/css/syntax.css">
+-->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/modern-business.css">
+-->
+<!-- Latest compiled and minified CSS -->
+<!-- 
+<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ -->
+<link rel="stylesheet" href="/css/customstyles.css">
+<link rel="stylesheet" href="/css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="/css/theme-cdslab.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<!-- make sidebar non-accordion -->
+<script src="/js/lockScrollbarPosition.js"></script>
+<!-- make sidebar non-accordion -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.sidenav').navgoco({
+              accordion: false,
+              caret: '<span class="caret"></span>',
+              openClass: 'open',
+              save: true,
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+    });
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/customscripts.js"></script>
+<link rel="shortcut icon" href="/images/favicon.ico">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/feed.xml">
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div id="sticky" class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-book fa-lg navbar-brand" href="/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
+                        
+                        
+                        
+                        <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://www.cdslab.org/scientific-computing-with-matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the branching and functions page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: "/search.json",
+                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="branching and functions">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+<ul id="mysidebar" class="sidenav">
+    <!--
+    -->
+    <li class="sidebarTitle">Table of Contents </li>
+    
+        
+            
+        
+            
+                <li>
+                    <a title="Overview" href="#">Overview</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Preface" href="/notes/overview/preface/index.html">Preface</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 1" href="/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Version control system" href="/notes/preliminary-foundations/version-control-system/index.html">Version control system</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Programming history" href="/notes/preliminary-foundations/programming-history/index.html">Programming history</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Computer program structure" href="/notes/preliminary-foundations/computer-program-structure/index.html">Computer program structure</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Python for beginners" href="/notes/preliminary-foundations/python-for-beginners/index.html">Python for beginners</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="First Python program" href="/notes/values-variables-types/first-python-program/index.html">First Python program</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Values in Python" href="/notes/values-variables-types/values-in-python/index.html">Values in Python</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Variables in Python" href="/notes/values-variables-types/variables-in-python/index.html">Variables in Python</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Control constructs" href="#">Control constructs</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Branching" href="/notes/control-constructs/branching/index.html">Branching</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Looping" href="/notes/control-constructs/looping/index.html">Looping</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Program units" href="#">Program units</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Functions" href="/notes/program-units/functions/index.html">Functions</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Modules" href="/notes/program-units/modules/index.html">Modules</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Data input methods" href="/notes/data-transfer/input/index.html">Data input methods</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Data output methods" href="/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+    
+    <!-- if you aren't using the accordion, uncomment this block:
+    -->
+    <p class="external">
+        <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+    </p>
+</ul>
+<!--
+This highlights the active parent class in the navgoco sidebar. 
+This is critical so that the parent expands when you're viewing a page.
+This must appear below the sidebar code above.
+Otherwise, if placed inside customscripts.js,
+the script runs before the sidebar code runs and the class never gets inserted.
+-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">branching and functions</h1>
+</div>
+
+<div class="post-content">
+    
+        <div class="summary">This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python.</div>
+    
+    
+        <br>
+        
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+    <p><br /></p>
+
+<h2 id="branching-in-python">Branching in Python</h2>
+<p>Consider the problem that we encountered in the last homework, where we defined a dictionary of people names and their roles in our class.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">class_dict</span>  <span class="o">=</span> <span class="p">{</span> 
+            <span class="p">,</span> <span class="s">'Christian-Andrew Bagby-wright'</span> <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Matthew Chrysler'</span>              <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Niyousha Davachi'</span>              <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Pauline Dredger'</span>               <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Marcos Guillen'</span>                <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Lauren Kuffel'</span>                 <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Shashank Kumbhare'</span>             <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Hany Mahdy'</span>                    <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Sarah Moorman'</span>                 <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Andrew Myers'</span>                  <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Joshua Osborne'</span>                <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Rebecca Proni'</span>                 <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">,</span> <span class="s">'Amir Shahmoradi'</span>               <span class="p">:</span> <span class="s">'instructor'</span>
+            <span class="p">,</span> <span class="s">'Carolina Vedovato'</span>             <span class="p">:</span> <span class="s">'student'</span>
+            <span class="p">}</span>
+</code></pre></div></div>
+<p><br />
+Now suppose we would like to write a Python script that, when executed, asks the user to input the full name of a person in our class and then outputs on screen, the role of the person in class. To do this, first we should get familiar with Python’s built-in function <code class="highlighter-rouge">input()</code>.</p>
+
+<blockquote>
+<b>ATTENTION: Python 2 Alert!</b><br /><br />
+In Python 2, the corresponding function is <code>raw_input()</code>. In Python 3, it is now renamed to <code>input()</code>.
+</blockquote>
+<!--
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>ATTENTION: Python 2 Alert!</b><br><br>
+        In Python 2, the corresponding function is <code>raw_input()</code>. In Python 3, it is now renamed to <code>input()</code>.
+    </div>
+</div>
+-->
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
+
+ <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">full</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">person</span><span class="p">:</span> <span class="n">Amir</span> <span class="n">Shahmoradi</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="s">'Amir Shahmoradi'</span>
+</code></pre></div></div>
+<p><br />
+The function <code class="highlighter-rouge">input()</code> is a Python built-in function that outputs the input string inside parantheses to the output screen, and then waits for the user to enter an input. This function reads a line from input, and converts it to a <strong>string</strong> (stripping a trailing newline), and returns that. One can also put the user’s input directly into a variable, which is the normal way of using this function.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">input_variable</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
+
+ <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">full</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">person</span><span class="p">:</span> <span class="n">Amir</span> <span class="n">Shahmoradi</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="nb">input</span>
+<span class="nb">input</span>          <span class="n">input_key</span>      <span class="n">input_variable</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">input_variable</span><span class="p">)</span>
+<span class="n">Amir</span> <span class="n">Shahmoradi</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">input_variable</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="nb">str</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">input_variable</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
+
+ <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">full</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">person</span><span class="p">:</span> <span class="mi">1234</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">input_variable</span><span class="p">)</span>   <span class="c"># whatever type the input is, it will be converted to string by Python interpreter</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="nb">str</span>
+</code></pre></div></div>
+<p><br />
+Now, back to our originally stated problem in the above, we want to write a program that takes in the name of a person from the command line and then tells the user some information about them, depending on their name. To achive this, we need to become familiar with the concept of <strong>branching</strong> in Python.  Specifically, we can achieve our goal by writing a <code class="highlighter-rouge">if-elif</code> statement in Python as in the following python script.</p>
+
+<p>The general syntax for <code class="highlighter-rouge">if</code> blocks in python is the following.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">expression1</span><span class="p">:</span>     <span class="c"># if expression1 is True</span>
+   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>         <span class="c"># execute the required Python statements</span>
+<span class="k">elif</span> <span class="n">expression2</span><span class="p">:</span>   <span class="c"># else if expression2 is True</span>
+   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>         <span class="c"># execute the required Python statements</span>
+<span class="k">elif</span> <span class="n">expression3</span><span class="p">:</span>   <span class="c"># else if expression3 is True</span>
+   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>         <span class="c"># execute the required Python statements</span>
+<span class="k">else</span><span class="p">:</span>               <span class="c"># else if neither of the above were True</span>
+   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+Note that the indentations at beginning of each of the statements is necessary, otherwise the Python interpreter will give you a syntax error. However, if it important to note also that the number of indentations is arbitrary.</p>
+
+<blockquote>
+    <b>ATTENTION!</b><br /><br />
+    I highly recommend you to be consistent in indentations of your Python code. The whole point of Python is to write a highly-human-readable code. and this requires you to write your code in the most consistent way possible. For example, I recommend you to always use either 2,3, or 4 white-space characters for indentations in your code, and
+    <br /><br />
+    <div style="text-align:center">
+        <b>AVOID USING <code>tab</code> CHARACTER AS INDENTATION IN YOUR CODES</b>
+    </div>
+    <br />
+    unless your editor automatically converts it to a pre-specified number of white-space characters. The <code>tab</code> character can create a huge mess in your Python codes, and some extra work to clean them up. <a href="http://www.secnetix.de/olli/Python/block_indentation.hawk" target="_blank">Here</a> is a good resource to learn more about indentations in Python
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+<span class="n">class_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'nicholas boeker'</span>  <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'bradley bridges'</span>  <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'sagar dhana'</span>      <span class="p">:</span> <span class="s">'student'</span> 
+           <span class="p">,</span> <span class="s">'travis driver'</span>    <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'eric gagliano'</span>    <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'christian garcia'</span> <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'matthew goree'</span>    <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'lucero herrera'</span>   <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'jake janssen'</span>     <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'michael langford'</span> <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'colin lewis'</span>      <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'mark loveland'</span>    <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'emilio mendiola'</span>  <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'kreshel nguyen'</span>   <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'russell philley'</span>  <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'caleb phillips'</span>   <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'joseph robbins'</span>   <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'bradley smith'</span>    <span class="p">:</span> <span class="s">'student'</span>
+           <span class="p">,</span> <span class="s">'vivek varier'</span>     <span class="p">:</span> <span class="s">'assistant'</span>
+           <span class="p">,</span> <span class="s">'amir shahmoradi'</span>  <span class="p">:</span> <span class="s">'instructor'</span>
+           <span class="p">}</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">class_dict</span><span class="p">:</span>    <span class="c"># First make sure the name is in our dictionary</span>
+    <span class="k">if</span> <span class="n">class_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="s">'instructor'</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span> <span class="s">'</span><span class="se">\n</span><span class="s">The name you enetered: {} belongs to the instructor of this course. His office hours are Mondays 3-4 p.m.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">class_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="s">'assistant'</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span> <span class="s">'</span><span class="se">\n</span><span class="s">The name you enetered: {} belongs to the Teaching Assistant of this course.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">class_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="s">'student'</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span> <span class="s">'</span><span class="se">\n</span><span class="s">The name you enetered: {} belongs to one of the amazing students in our class.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">The name you entered: {} does not correspond to any real person in this class. Make sure you are not looking for a ghost, as our class is ghost-free.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+Now, if we run the <a href="http://localhost:4000/lecture/5/map_names.py" target="_blank">file</a> containing this script, we will get something like the following,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./map_names.py
+
+ Please enter the full name of the person: amir shahmoradi
+
+The name you enetered: amir shahmoradi belongs to the instructor of this course. His office hours are Mondays 5-6 p.m.
+
+<span class="nv">$ </span>./map_names.py
+
+ Please enter the full name of the person: Harry Potter
+
+The name you entered: Harry Potter does not correspond to any real person <span class="k">in </span>our class. Make sure you are not looking <span class="k">for </span>a ghost, as our class is ghost-free.
+
+</code></pre></div></div>
+<p><br />
+Conditional <code class="highlighter-rouge">if</code> statement is the only built-in branching method in Python. However, it can be written in several different sytaxes, each of which can be useful in some circumstances:</p>
+
+<p><strong>1.</strong> One-line conditional <strong>statement</strong>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span> <span class="n">statement</span>
+</code></pre></div></div>
+<p><br />
+For example:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">'sqrt(2) &lt; 2</span><span class="se">\n</span><span class="s">Of course that was obvious!'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqrt(2) &lt; 2
+Of course that was obvious!
+</code></pre></div></div>
+
+<p><strong>2.</strong> multiple line (as stated above) conditional <strong>statement</strong>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">block</span> <span class="n">statements</span>
+<span class="k">elif</span><span class="p">:</span>
+    <span class="n">block</span> <span class="n">statements</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">block</span> <span class="n">statements</span>
+</code></pre></div></div>
+<p><br />
+<strong>3.</strong> Inline conditional <strong>expression</strong>: This is a particularly useful syntax for conditional value assignments in Python.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expression1</span> <span class="k">if</span> <span class="n">condition_is_met</span> <span class="k">else</span> <span class="n">expression2</span>
+</code></pre></div></div>
+<p><br />
+For example, instead of writing,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">value1</span>
+<span class="k">else</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">value2</span>
+</code></pre></div></div>
+<p><br />
+one can summarize it all in one line,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">value1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">value2</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+Note that the paratheses are not necessary, however, they are recommended for clarity. Here is an example code,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Input the name: '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">'This person is the course instructor'</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'amir'</span> <span class="k">else</span> <span class="s">'This person is not the course instructor'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input the name: amir
+This person is the course instructor
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="non-boolean-conditions-in-if-statements">Non-boolean conditions in if-statements</h3>
+<p>There is a rather interesting feature of conditions in Python if-statements, that allows the programmer to use a non-boolean variable or value type directly in place of the condition in if-statement. What really happens here is that, Python interpreter converts the non-boolean type to a boolean value, when it occurs in place of an if-statement condition.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">5.6</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'The condition in this if statement is automatically converted from float to boolean'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The condition in this if statement is automatically converted from float to boolean
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">0.0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'A float value of zero is converted to False'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="mf">0.0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'A float value of zero is converted to False'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A float value of zero is converted to False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">0.000000000000000000000000000000000000000000000000000000000000000000001</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value of any precision is converted to True'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A float value of zero is converted to False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">1.e-323</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value of any precision is converted to True'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Any non-zero float value of any precision is converted to True
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">1.e-324</span><span class="p">:</span> <span class="c"># make sure you don't go beyond computer precision</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value smaller than the computer precision will be set to 0'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="mf">1.e-324</span><span class="p">:</span> <span class="c"># make sure you don't go beyond computer precision</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value smaller than the computer precision will be set to 0'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Any non-zero float value smaller than the computer precision will be set to 0
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'The same rules also hold for integers.'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The same rules also hold for integers.
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">""</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'An empty string is converted to boolean False'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="s">""</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'An empty string is converted to boolean False'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>An empty string is converted to boolean False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">" "</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'A non-empty string is converted to boolean True'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A non-empty string is converted to boolean True
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">[]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'An empty list is converted to boolean False'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="p">[]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'An empty list is converted to boolean False'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>An empty list is converted to boolean False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'A non-empty list is converted to boolean True'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A non-empty list is converted to boolean True
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="p">{}:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'The same rules also hold for sets and dictionaries.'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The same rules also hold for sets and dictionaries.
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">}:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'The same rules also hold for sets and dictionaries.'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The same rules also hold for sets and dictionaries.
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'The keyword None is also equivalent to False.'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The keyword None is also equivalent to False.
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">bool</span><span class="p">(</span><span class="s">"amir"</span><span class="p">)</span> <span class="c"># You can always get the boolean-conversion of a value or type using Python's built-in function bool().</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="functions-in-python">Functions in Python</h2>
+
+<p>In Python, like most other programming languages, <strong>function</strong> is a collection of programming statements that can be executed whenever and wherever  requested. Therefore, the definition of function in programming goes far beyond the mathematical definition of function. For example, programming functions can have no input or output.</p>
+
+<p>In Python, the syntax of a function is like the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">argument_1</span><span class="p">,</span> <span class="n">argument_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argument_N</span><span class="p">)</span>
+    <span class="n">python_statment_1</span>
+    <span class="n">python_statment_2</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">output</span>
+</code></pre></div></div>
+<p><br />
+Here, the line beginning with <code class="highlighter-rouge">def</code> is referred to as the <strong>function header</strong>, and the statements inside the function are called the <strong>function body</strong>. To use a function, it must be first defined like above, and then called where it is needed inside the code.<br />
+<strong>Example:</strong><br />
+Let’s write a Python function that takes in a temperature value in Centigrads and converts it to Fahrenheit.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+
+<span class="n">c_temp</span> <span class="o">=</span> <span class="mf">70.7</span>       <span class="c"># The hottest place on Earth, Lut Desert in Iran </span>
+<span class="n">f_temp</span> <span class="o">=</span> <span class="n">c2f</span><span class="p">(</span><span class="n">c_temp</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"""
+The hottest place on Earth as of 2005 is in the Lut Desert in Iran at {0} degrees Celsius.
+This corresponds to a temerature of {1} degrees Farenheiht!
+"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_temp</span><span class="p">,</span><span class="n">c2f</span><span class="p">(</span><span class="n">c_temp</span><span class="p">))</span> <span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The hottest place on Earth as of 2005 is in the Lut Desert in Iran at 70.7 degrees Celsius.
+This corresponds to a temerature of 159.26 degrees Farenheiht!
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="functions-with-no-input-arguments">Functions with no input arguments</h3>
+
+<p>We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about this course, when called.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_class_info</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">"Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin."</span>
+
+<span class="n">get_class_info</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.'
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="functions-with-no-output-return-value">Functions with no output (return value)</h3>
+
+<p>We can also modify the above function such that it does not return anything specifically.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_class_info</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span> <span class="s">"Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin."</span> <span class="p">)</span>
+
+<span class="n">get_class_info</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.
+</code></pre></div></div>
+
+<p>In such cases, you may have already noticed that we can readily skip the <code class="highlighter-rouge">return</code> statement. In reality, in such cases, what happens is that Python interpereter adds an invisible <code class="highlighter-rouge">return None</code> statement at the end of the function. <code class="highlighter-rouge">None</code> is a special reserved keyword of Python that represents <strong>nothing</strong> or <strong>empty data</strong> in Python. It is almost equivalent to the word <strong>void</strong> in languages like Java, C, and C++.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_class_info</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span> <span class="s">"Engineering Computation Lab (COE111L) is a new course that is offered at UT Austin."</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_class_info</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Engineering Computation Lab (COE111L) is a new course that is offered at UT Austin.
+</code></pre></div></div>
+
+<p>If you set a variable equal to this function, the value of the variable will be <code class="highlighter-rouge">None</code>, because the function returns nothing on the output.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">variable</span> <span class="o">=</span> <span class="n">get_class_info</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoneType
+None
+</code></pre></div></div>
+
+<h3 id="functions-with-multiple-input-arguments">Functions with multiple input arguments</h3>
+
+<p>Functions can take almost as many input arguments as we wish. Consider the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">exponent</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">base</span><span class="o">**</span><span class="n">exponent</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>32
+</code></pre></div></div>
+
+<h4 id="the-order-of-input-arguments-both-does-and-does-not-matter">The order of input arguments both does and does not matter!</h4>
+
+<p>Note that in the previous code, calling the function with the wrong order of input parameters, can lead to a catastrophe and wrng output.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">power</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>25
+</code></pre></div></div>
+
+<p>However, a really cool feature for function input arguments is that, when calling the function, you can also name the argument variable, and if you name them all, then the order by which the arguments appera becomes irrelevant.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">power</span><span class="p">(</span><span class="n">exponent</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>32
+</code></pre></div></div>
+
+<h3 id="functions-with-multiple-output-return-values">Functions with multiple output (return values)</h3>
+
+<p>Python funcitons can return more than one value. For this purpose, tuple variable types become a handy tool. Recall that making a tuple is as simple as writing a sequence of comma separated values/variable, like the following.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mytuple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">mytuple</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1, 2)
+tuple
+</code></pre></div></div>
+
+<p>Now, if you need to write a function that has multiple return value, you can simply return them all in one sequence of comma separated values/variables. For example, suppose a function takes in two numbers, and then outputs the quotient (the result of integer division) and the remainder of the integer division. An example such function would be like the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
+
+<span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(3, 2)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c"># By default, the output is a tuple</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tuple
+</code></pre></div></div>
+
+<p>By default, the output of this function is a tuple, since we are returning a tuple in the function. But we could also return the output as a list, or any other appropriate format we wish.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">))</span>   <span class="c"># convert the output to list before passing it to main program</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list
+</code></pre></div></div>
+
+<p>You can also save the output in a variable as well,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c"># You can also name the input variables to make sure you assign them in the correct order.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(3, 2)
+</code></pre></div></div>
+
+<p>or save the individual results in separate variables, like,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2
+</code></pre></div></div>
+
+<p>or save it in the form of a tuple or list,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2
+</code></pre></div></div>
+
+<h3 id="functions-with-optional-input-arguments">Functions with optional input arguments</h3>
+
+<p>Like many other high-level programming languages, Python allows you to have optional arguments in your input, which you can drop when calling the function. However, an optional argument must have a preassigned value in the function, otherwise dropping the variable at the time of function call will lead to a runtime error.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s">"This is the default message."</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span> <span class="s">"divmod({},{}) = "</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">))</span> <span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span> <span class="n">message</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c"># the optional input argument 'message' is set to its default value.</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>divmod(11,3) = (3, 2)
+This is the default message.
+</code></pre></div></div>
+
+<p>The above function, default the value of optional message argument to <code class="highlighter-rouge">"This is the default message."</code> since it is not given at the time of calling the function. The function’s <strong>optional input arguments</strong> whose values are initialized to a default value are more famously known in Python as <strong>keyword arguments</strong>.</p>
+
+<blockquote>
+    <b>ATTENTION:</b><br /><br />
+    Note that when the optional arguments are named and assigned a value at the time of function call, then their order of appearance in the function call does not matter. However, keep in mind that the **ordinary** or **positional** arguments should all appear in order and first, before the keyword arguments appear. However, the keyword arguments can appear in any order one may wish.
+</blockquote>
+<p><br /></p>
+
+<p>For the above example function, the following function calls would be valid,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+and the following would be invalid,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s">"A new message."</span><span class="p">)</span>   <span class="c"># This is invalid</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;ipython-input-36-27658299aa76&gt;", line 1
+    get_quotient_remainder(divisor=3,11,message="A new message.")   # This is invalid, the order is incorrect.
+                                    ^
+SyntaxError: positional argument follows keyword argument
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="s">"A new message."</span><span class="p">)</span>   <span class="c"># Also invalid, all arguments after the first named argument must appear with name as well.</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;ipython-input-37-1643cc8d6910&gt;", line 1
+    get_quotient_remainder(11,divisor=3,"A new message.")
+                                       ^
+SyntaxError: positional argument follows keyword argument
+</code></pre></div></div>
+
+<blockquote>
+    <b>ATTENTION:</b><br /><br />
+    Note that the keyword arguments must be always listed after the positional arguments in the function definition. Note also, as in the above examples, that the sequence of input arguments **at the time of function call** does not matter, so long as the names of all positional and keyword arguments are provided in the function call.
+</blockquote>
+
+<p>Note also, that the number input arguments at the time of call must be exactly the same as the number of arguments in the function definition.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">"A new message."</span><span class="p">,)</span>  <span class="c"># THis works even though, there is an extra comma at the end of the arguments of the function call.</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>divmod(11,3) = (3, 2)
+A new message.
+
+(3, 2)
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="local-and-global-variables-in-functions">Local and global variables in functions</h3>
+<p>Variables that are defined insde of a function, are by default invisible outside the function scope. For example, let’s consider  Let us reconsider the original function defined at the beginning of the lecture, which takes in a temperature value in Centigrads and converts it to Fahrenheit.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">return</span> <span class="n">converted_value</span>
+</code></pre></div></div>
+<p><br />
+Now, if the variable <code class="highlighter-rouge">converted_value</code> is called outside the function, it will result in a syntax error since it is undefined outside the function scope.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c2f</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>158.0
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">converted_value</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameError                                 Traceback (most recent call last)
+&lt;ipython-input-42-1aa75d9b79c4&gt; in &lt;module&gt;()
+----&gt; 1 converted_value
+
+NameError: name 'converted_value' is not defined
+</code></pre></div></div>
+
+<blockquote>
+    Local variables are created inside a function and destroyed when the program control goes back to the main code, outside the function.
+</blockquote>
+
+<p>Now suppose we had the following script,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">converted_value</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">c2f</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C inside function: 50
+Value of C outside function: 70
+</code></pre></div></div>
+
+<p>Clearly, the two values are not the same, even though the variable names are the same. But, if you really want to access the global variable <code class="highlighter-rouge">C</code> inside of the function, then you can use Python’s built-in function <code class="highlighter-rouge">globals()</code> which returns a <strong>dictionary</strong> of all global variables in the main program, and then use the keyword <code class="highlighter-rouge">'C'</code> to get its value inside the function.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dict
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>70
+</code></pre></div></div>
+
+<p>Now, the same function as above, but with the global variable value would give you,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">converted_value</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">c2f</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C inside function: 70
+Value of C outside function: 70
+</code></pre></div></div>
+
+<blockquote>
+    As a general rule, when there are <b>several variables with the same name</b>, Python interpreter <b>first</b> tries to look up the variable name among the <b>local variables</b>, <b>then</b> there is a search among <b>global variables</b>, and <b>finally</b> among built-in <b>Python functions</b>.  
+</blockquote>
+
+<p>In order to declare a variable inside the function global, use the keyword <code class="highlighter-rouge">global</code> as in the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="c"># global variables</span>
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># this is a new local variable</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># yields 20</span>
+
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># the global a is changed</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">f1</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># 20 is printed</span>
+<span class="n">f2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># 21 is printed</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20
+20
+21
+</code></pre></div></div>
+
+<p>Note that in function <code class="highlighter-rouge">f1</code>, $a = 21$ creates a local variable a. One may think the global <code class="highlighter-rouge">a</code> has changed, but it does not happen. However, in the second function <code class="highlighter-rouge">f2</code>, the globally declared variable is assigned a new value and therefore, the global value of <code class="highlighter-rouge">a</code> outside the function also changes. Test this script yourself and see what you get.</p>
+
+<blockquote>
+    Be careful with using global variables inside your functions, because if you do not define them prior to using the function, then you get a runtime error.
+</blockquote>
+<p><br />
+Here is an example of the error,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">a</span>    <span class="c"># a must be defined outside the function prior to function call</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">f2</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameError                                 Traceback (most recent call last)
+&lt;ipython-input-55-ea6f63a0f6d6&gt; in &lt;module&gt;()
+    3     return a*x + b
+    4 
+----&gt; 5 f2(3)
+
+&lt;ipython-input-55-ea6f63a0f6d6&gt; in f2(x)
+    1 def f2(x):
+    2     global a    # a must be defined outside the function prior to function call
+----&gt; 3     return a*x + b
+    4 
+    5 f2(3)
+
+NameError: name 'a' is not defined
+</code></pre></div></div>
+
+<h4 id="avoid-function-side-effects">Avoid function side-effects</h4>
+
+<p>A function in which the value of a global variable is changed while the global variable is not the intended output of the function, is called a <strong>function with side-effects</strong>. Here is an example,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># the global a is changed</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div></div>
+<p><br />
+In general, any <em>lasting effect</em> that occurs in a function, but not through its <code class="highlighter-rouge">return</code> value, is called a <strong>side effect</strong>. There are three ways to have side effects:</p>
+<ul>
+  <li>Changing the value of a mutable object.</li>
+  <li>Changing the binding (the storage space) of a global variable.</li>
+  <li>Printing out a value. This doesn’t change any objects or variable bindings, but it does have a potential lasting effect outside the function execution, because a person might see the output and be influenced by it.</li>
+</ul>
+
+<blockquote>
+    In general, avoid defining functions that have side-effects. In large codes and projects, side-effects can create complex semantic errors and become a hurdle for optimization and code debugging. 
+</blockquote>
+
+<p><br /></p>
+
+<h3 id="pythons-built-in-functions">Python’s built-in functions</h3>
+
+<p>Python has a number of built-in functions, which can be handy. <a href="https://docs.python.org/3/library/functions.html" target="_blank">Here</a> is a list of Python’s built-in functions along with a description of what they do.</p>
+
+<h3 id="function-docstring">function docstring</h3>
+
+<p>There is a convention in Python to insert a documentation string right after the <code class="highlighter-rouge">def</code> line of the function definition (the function header). The documentation string, known as a <strong>doc string</strong> or <strong>docstring</strong>, should contain a short description of the purpose of the function and explain what the different arguments and return values are. Doc strings are usually enclosed in triple double quotes <code class="highlighter-rouge">"""</code>, which allow the string to span several lines.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="s">"""
+    This function converts Celsius degrees (C) to Fahrenheit.
+    Uses global variable C.
+    """</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">converted_value</span>
+</code></pre></div></div>
+<p><br />
+The docstring is then stored in <code class="highlighter-rouge">__doc__</code> attribute of the function, and can be called like the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c2f</span><span class="o">.</span><span class="n">__doc__</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\n    This function converts Celsius degrees (C) to Fahrenheit.\n    Uses global variable C.\n    '
+</code></pre></div></div>
+
+<p>If you’d like to get the formatted docstring, use Python’s <code class="highlighter-rouge">help()</code> function,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">c2f</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Help on function c2f in module __main__:
+
+c2f(C)
+    This function converts Celsius degrees (C) to Fahrenheit.
+    Uses global variable C.
+</code></pre></div></div>
+
+<p>One can also use <code class="highlighter-rouge">"</code> in place of <code class="highlighter-rouge">"""</code>, although less conventional. But then for multiple lines of docstring, one has to use line continuation.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="s">"</span><span class="se">\
+</span><span class="s">    This function converts Celsius degrees (C) to Fahrenheit.</span><span class="se">\
+</span><span class="s">    Uses global variable C.</span><span class="se">\
+</span><span class="s">    "</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">converted_value</span>
+</code></pre></div></div>
+<blockquote>
+    Note that the docstring must appear before any statement in the function body.
+</blockquote>
+
+<h3 id="functions-as-input-arguments-to-functions">Functions as input arguments to functions</h3>
+
+<p>In happens frequently in scientific programming, that a function needs to use another arbitrary function provided by the user to perform some specific tasks with it inside the function. For example, programs doing calculus frequently need to have functions as arguments in functions. For example,</p>
+<ul>
+  <li>a Python function that finds the root of a mathematical function, given as input argument.</li>
+  <li>a Python function that differentiates of a mathematical function, given as input argument.</li>
+  <li>a Python function that integrates a mathematical function, given as input argument.</li>
+  <li>a Python function that solves a mathematical differential equation, given as input argument.</li>
+</ul>
+
+<p>In such cases, Python functions need to have the mathematical function as an input argument with some name(e.g., <code class="highlighter-rouge">func</code>). Like Fortran, this is straightforward in Python and hardly needs any explanation, but in most other languages special constructions must be used for transferring a function to another function as argument. For example, suppose we want to compute numerically the second-derivative of a user given mathematical function,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">func</code> input argument is like any other argument, i.e., a name for an object, here a function
+object that we can call as we normally call functions. An an application, suppose we want to calculate the second derivative of a quadratic function $g(x)$ of the following form at $x=2$,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">diff2nd_g</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span> <span class="s">"g’’(x=</span><span class="si">%</span><span class="s">f)=</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diff2nd_g</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g’’(x=2.000000)=2.001954
+</code></pre></div></div>
+
+<h3 id="function-composition">Function composition</h3>
+
+<p>The ability to call one function from within another function is called <strong>composition</strong>. Suppose we have a function <code class="highlighter-rouge">distance</code> that calculates the distance between two points on a 2D plane. and another function that takes in a value for radius, and then calculates the corresponding area for that radius.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">area</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.141592653589793
+</code></pre></div></div>
+
+<h4 id="recursive-functions">Recursive functions</h4>
+
+<p>Now, note that the function being called inside the other, does not necessarily have to be a different function. It could be the same function calling itself repeatedly, <strong>until a condition is met</strong> (otherwise this would be an endless function call to itself for eternity). For example, a function that would calculate the factorial of an input integer would be like the following,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="nb">float</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'The input number {} is not an integer!'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">factorial</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24
+The input number 4.5 is not an integer!
+</code></pre></div></div>
+
+<h3 id="lambda-functions">Lambda functions</h3>
+
+<p>There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined <code class="highlighter-rouge">g(x)</code> in the <a href="#functions-as-input-arguments-to-functions">example above</a>. Here is a compact version of it,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
+</code></pre></div></div>
+<p><br />
+This code is equivalent to the original code that wrote before,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
+</code></pre></div></div>
+<p><br />
+In general, a function of the form,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">expression</span>
+</code></pre></div></div>
+<p><br />
+can be converted to the compact form,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">...</span><span class="p">:</span> <span class="n">expression</span>
+</code></pre></div></div>
+<p><br />
+Lambda functions are very useful for defining simple functions in the argument list that is passed to another function. For example, recall our <code class="highlighter-rouge">diff2nd</code> function that we defined in the above,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">diff2nd_g</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span> <span class="s">"g’’(x=</span><span class="si">%</span><span class="s">f)=</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diff2nd_g</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g’’(x=2.000000)=2.001954
+</code></pre></div></div>
+
+<p>Now instead of defining <code class="highlighter-rouge">g(x)</code> separately when calling <code class="highlighter-rouge">diff2nd</code> function, we can use the following compact form,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="p">(</span> <span class="s">"g’’(x=</span><span class="si">%</span><span class="s">f)=</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diff2nd</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g’’(x=2.000000)=2.001954
+</code></pre></div></div>
+
+<p>Lambda functions may also take <strong>keyword arguments</strong>. For example,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d2</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.5</span><span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="mf">1.2</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+This format is particularly useful, if the lambda function contains a constant that is repeatedly used in the expression of the function, the value of which may need to be updated in future runs of the code, or later on in the same code.</p>
+
+<p><br /><br /></p>
+
+    <div class="tags">
+        
+            <b>Tags: </b>
+            
+            
+                
+            
+        
+    </div>
+    
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+<hr class="shaded"/>
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
+         Site last generated: Jul 9, 2019 <br />
+        <p><img src="http://localhost:4000/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
