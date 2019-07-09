@@ -127,28 +127,6 @@
 
     
     {
-        "title": "News",
-        "tags": "",
-        "keywords": "news, blog, updates, release notes, announcements",
-        "url": "/news.html",
-        "summary": ""
-    }
-    ,
-    
-
-    
-    {
-        "title": "News",
-        "tags": "",
-        "keywords": "news, blog, updates, release notes, announcements",
-        "url": "/news_archive.html",
-        "summary": ""
-    }
-    ,
-    
-
-    
-    {
         "title": "Data input methods",
         "tags": "data_inputIO",
         "keywords": "data input, IO, python",
@@ -217,28 +195,6 @@
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
     {
         "title": "Values in Python",
         "tags": "valuetypePython",
@@ -279,36 +235,9 @@
         "url": "/assets/css/style.css",
         "summary": ""
     }
-    ,
+    
     
 
 
-
-    {
-    "title": "Sample post",
-    "tags": "newsgetting_started",
-    "keywords": "",
-    "url": "/samplepost.html",
-    "summary": "This is some summary frontmatter for my sample post."
-    }
-    ,
-
-    {
-    "title": "Welcome to Jekyll!",
-    "tags": "news",
-    "keywords": "",
-    "url": "/myupdate.html",
-    "summary": ""
-    }
-    ,
-
-    {
-    "title": "Test post from last year",
-    "tags": "news",
-    "keywords": "",
-    "url": "/test-post-from-last-year.html",
-    "summary": ""
-    }
-    
 
 ]
