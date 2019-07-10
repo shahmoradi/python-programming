@@ -189,7 +189,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="{url}" title="branching and functions">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="branching and functions">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -216,7 +216,7 @@
 <ul id="mysidebar" class="sidenav">
     <!--
     -->
-    <li class="sidebarTitle">Table of Contents </li>
+    <li class="sidebarTitle">Table of Pages </li>
     
         
             
@@ -418,7 +418,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -561,7 +561,7 @@ Note that the indentations at beginning of each of the statements is necessary, 
     <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">The name you entered: {} does not correspond to any real person in this class. Make sure you are not looking for a ghost, as our class is ghost-free.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
 </code></pre></div></div>
 <p><br />
-Now, if we run the <a href="/lecture/5/map_names.py" target="_blank">file</a> containing this script, we will get something like the following,</p>
+Now, if we run the <a href="https://www.cdslab.org/lecture/5/map_names.py" target="_blank">file</a> containing this script, we will get something like the following,</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./map_names.py
 
  Please enter the full name of the person: amir shahmoradi
@@ -1288,8 +1288,8 @@ This format is particularly useful, if the lambda function contains a constant t
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 9, 2019 <br />
-        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+         Site last generated: Jul 10, 2019 <br />
+        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>

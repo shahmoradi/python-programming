@@ -189,7 +189,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="{url}" title="Python for beginners">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Python for beginners">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -216,7 +216,7 @@
 <ul id="mysidebar" class="sidenav">
     <!--
     -->
-    <li class="sidebarTitle">Table of Contents </li>
+    <li class="sidebarTitle">Table of Pages </li>
     
         
             
@@ -418,7 +418,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -442,7 +442,7 @@ $('#toc').on('click', 'a', function() {
 <p>Python was developed close to the beginning of the 1990’, by <a href="https://en.wikipedia.org/wiki/Guido_van_Rossum" target="_blank">Guido van Rossum</a>, a former employee of <a href="https://en.wikipedia.org/wiki/Google" target="_blank">Google</a>, who is now an employee of <a href="https://en.wikipedia.org/wiki/Dropbox_(service)" target="_blank">Dropbox</a>. The name of the language is attribution to the British sketch comedy <a href="https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus" target="_blank">Monty Python’s Flying Circus</a>. As of 2016 Python seems to be the fastest growing language for data science. Python has the following features and attributes.</p>
 
 <ul>
-  <li><strong>Python is a fourth-generation, high-level programming language.</strong> Remember from our <a href="/lecture/0-programming-history" target="_blank">zeroth lecture</a>, that a high-level programming language provides a high level of programming abstraction from details of computer and machine code. For comparison, Fortran, C, and C++ are considered high, medium, and low -level programming languages respectively.<br />
+  <li><strong>Python is a fourth-generation, high-level programming language.</strong> Remember from our <a href="https://www.cdslab.org/lecture/0-programming-history" target="_blank">zeroth lecture</a>, that a high-level programming language provides a high level of programming abstraction from details of computer and machine code. For comparison, Fortran, C, and C++ are considered high, medium, and low -level programming languages respectively.<br />
 <br /></li>
   <li><strong>Python is general-purpose programming language</strong>, meaning that it is designed to be used for writing software in a wide variety of application domains, such as <em>scientific computation</em>, <em>web and internet development</em>, <em>education</em>, <em>Software Development</em>. For more information, visit <a href="https://www.python.org/about/apps/" target="_blank">this page</a>.<br />
 <br /></li>
@@ -972,8 +972,8 @@ Table 2: Some useful shortcuts for Jupyter cells in <i>edit mode</i> (Press <cod
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 9, 2019 <br />
-        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+         Site last generated: Jul 10, 2019 <br />
+        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content="authoraudienceFortranCinteroperation,  author about python scientific computing audience">
+<meta name="keywords" content="authoraudienceFortranCinteroperationoutcomes,  author about python scientific computing audience outcomes">
 <title>Preface | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
@@ -189,7 +189,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="{url}" title="Preface">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Preface">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -216,7 +216,7 @@
 <ul id="mysidebar" class="sidenav">
     <!--
     -->
-    <li class="sidebarTitle">Table of Contents </li>
+    <li class="sidebarTitle">Table of Pages </li>
     
         
             
@@ -416,7 +416,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -436,12 +436,11 @@ $('#toc').on('click', 'a', function() {
     
     <p><br /></p>
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> The fact that you have reached this page indicates your desire or need to learn the foundations of scientific computing and perhaps Data Science, you’re probably writing documentation of some kind. If this is indeed true, then I encourage you to I follow the <a alt="CDSLab social media" href="http://cdslab.org">Computational Data Science Lab’s social media</a>, 
-if you would like to stay updated with the latest trends, best practices and tips on Scientific Computing, Scientific Inference, Machine Learning, Deep Learning, and Data Science Techniques.</div>
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> The fact that you have reached this page indicates your desire or need to learn the foundations of scientific computing and perhaps Data Science. If this is indeed true, then I encourage you to follow the <a alt="CDSLab social media" href="http://cdslab.org">Computational Data Science Lab’s social media</a>, if you would like to stay updated with the latest trends, best practices and tips on Scientific Computing, Scientific Inference, Machine Learning, Deep Learning, and Data Science Techniques.</div>
 
 <h2 id="why-were-these-notes-developed">Why were these notes developed?</h2>
 
-<p>The notes presented here on this website grew out of the need for a free, unified, easily-accessible, and complete reference for scientific computing with Python for usage by a wide spectrum of undergraduate and graduate students in Science and Engineering fields. These notes have been and are still being continuously updated and improved since 2017. Example University courses that have relied on these notes as the course textbook include,</p>
+<p>The notes presented here on this website grew out of the need for a free, unified, easily-accessible, and complete reference for scientific computing with Python for usage by a wide spectrum of undergraduate and graduate students in Science and Engineering fields. Since 2017, these notes have been and are still being continuously updated and improved. Example University courses that have relied on these notes as the course textbook include,</p>
 
 <ol>
   <li><a href="https://www.cdslab.org/ECL2017S/" target="_blank">COE 301 (Spring 2017) - Engineering Computation lab (School of Engineering, Univ of Texas Austin)</a></li>
@@ -451,7 +450,7 @@ if you would like to stay updated with the latest trends, best practices and tip
 
 <h2 id="who-is-the-author">Who is the author?</h2>
 
-<p><a href="https://www.cdslab.org/people/" target="_blank">Amir Shahmoradi</a> is a physicist, astronomer, and bioinformatician by training and a science-lover in general, with extensive teaching &amp; research experience and background in high energy physics, astronomy and astrophysics, theoretical physics, statistics, data analysis and modeling, computational physics, Molecular Dynamics simulations, stochastic processes, Monte Carlo Methods, Bayesian probability theory, biomedical sciences and MRI data analysis, bioinformatics and evolutionary biology, in particular, viral evolution, protein dynamics and interactions. He holds a Ph.D. in Physics form the University of Texas at Austin and is currently a Physics and Data Science faculty member at the University of Texas at Arlington. He can be reached via his email at <a href="mailto:&quot;shahmoradi@utexas.edu&quot;">shahmoradi@utexas.edu</a> or <a href="https://www.cdslab.org" target="_blank">https://www.cdslab.org</a>.</p>
+<p><a href="https://www.cdslab.org/people/" target="_blank">Amir Shahmoradi</a> is a physicist, astronomer, bioinformatician by training and a science-lover in general, with extensive teaching &amp; research experience and background in high energy physics, astronomy and astrophysics, theoretical physics, statistics, data analysis and modeling, computational physics, Molecular Dynamics simulations, stochastic processes, Monte Carlo Methods, Bayesian probability theory, biomedical sciences and MRI data analysis, bioinformatics and evolutionary biology, in particular, viral evolution, protein dynamics and interactions. He holds a Ph.D. in Physics form the University of Texas at Austin and is currently a Physics and Data Science faculty member at the University of Texas at Arlington. He can be reached via his email at <a href="mailto:&quot;shahmoradi@utexas.edu&quot;">shahmoradi@utexas.edu</a> or <a href="https://www.cdslab.org" target="_blank">https://www.cdslab.org</a>.</p>
 
 <h2 id="who-is-the-audience">Who is the audience?</h2>
 
@@ -459,7 +458,7 @@ if you would like to stay updated with the latest trends, best practices and tip
 
 <h2 id="what-are-the-outcomes-upon-successful-completion">What are the outcomes upon successful completion?</h2>
 
-<p>This course, we will cover the principles of computer programming using Python programming language. Specifically, upon completion of this course students will be familiar with</p>
+<p>The contents of this course will cover the principles of computer programming using Python programming language, with an emphasis on scientific computing with Python. Specifically, upon completion of this course students will know,</p>
 
 <ol>
   <li>programming paradigms,</li>
@@ -479,6 +478,8 @@ if you would like to stay updated with the latest trends, best practices and tip
         
             <b>Tags: </b>
             
+            
+                
             
                 
             
@@ -516,8 +517,8 @@ if you would like to stay updated with the latest trends, best practices and tip
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 9, 2019 <br />
-        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+         Site last generated: Jul 10, 2019 <br />
+        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>

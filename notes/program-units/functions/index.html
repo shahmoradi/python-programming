@@ -189,7 +189,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="{url}" title="Functions in Python">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Functions in Python">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -216,7 +216,7 @@
 <ul id="mysidebar" class="sidenav">
     <!--
     -->
-    <li class="sidebarTitle">Table of Contents </li>
+    <li class="sidebarTitle">Table of Pages </li>
     
         
             
@@ -418,7 +418,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -436,7 +436,7 @@ $('#toc').on('click', 'a', function() {
 
     
     
-    <h2 id="functions-in-python">Functions in Python</h2>
+    <h2 id="what-is-a-function">What is a Function?</h2>
 
 <p>In Python, like most other programming languages, <strong>function</strong> is a collection of programming statements that can be executed whenever and wherever requested. Therefore, the definition of function in programming goes far beyond the mathematical definition of the function. For example, programming functions can have no input or output.</p>
 
@@ -470,13 +470,13 @@ This corresponds to a temperature of 159.26 degrees Fahrenheit!
 
 <h3 id="functions-with-no-input-arguments">Functions with no input arguments</h3>
 
-<p>We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about this course, when called.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_class_info</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">"Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data. Data science is the same concept as data mining and big data: use the most powerful hardware, the most powerful programming systems, and the most efficient algorithms to solve problems."</span>
+<p>We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about the Python programming language, when called.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_python_info</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">"Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace."</span>
 
-<span class="n">get_class_info</span><span class="p">()</span>
+<span class="n">get_python_info</span><span class="p">()</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data. Data science is the same concept as data mining and big data: use the most powerful hardware, the most powerful programming systems, and the most efficient algorithms to solve problems.'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.'
 </code></pre></div></div>
 
 <p><br /></p>
@@ -484,26 +484,26 @@ This corresponds to a temperature of 159.26 degrees Fahrenheit!
 <h3 id="functions-with-no-output-return-value">Functions with no output (return value)</h3>
 
 <p>We can also modify the above function such that it does not return anything specifically.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_class_info</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span> <span class="s">"Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data. Data science is the same concept as data mining and big data: use the most powerful hardware, the most powerful programming systems, and the most efficient algorithms to solve problems."</span> <span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_python_info</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span> <span class="s">"Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace."</span> <span class="p">)</span>
 
-<span class="n">get_class_info</span><span class="p">()</span>
+<span class="n">get_python_info</span><span class="p">()</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data. Data science is the same concept as data mining and big data: use the most powerful hardware, the most powerful programming systems, and the most efficient algorithms to solve problems.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.
 </code></pre></div></div>
 
 <p>In such cases, you may have already noticed that we can readily skip the <code class="highlighter-rouge">return</code> statement. In reality, in such cases, what happens is that Python interpreter adds an invisible <code class="highlighter-rouge">return None</code> statement at the end of the function. <code class="highlighter-rouge">None</code> is a special reserved keyword of Python that represents <strong>nothing</strong> or <strong>empty data</strong> in Python. It is almost equivalent to the word <strong>void</strong> in languages like Java, C, and C++.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_class_info</span><span class="p">():</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_python_info</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span> <span class="s">"Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data."</span> <span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_class_info</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_python_info</span><span class="p">()</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data.
 </code></pre></div></div>
 
 <p>If you set a variable equal to this function, the value of the variable will be <code class="highlighter-rouge">None</code>, because the function returns nothing on the output.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">variable</span> <span class="o">=</span> <span class="n">get_class_info</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">variable</span> <span class="o">=</span> <span class="n">get_python_info</span><span class="p">()</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
 </code></pre></div></div>
@@ -982,8 +982,8 @@ This format is particularly useful, if the lambda function contains a constant t
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 9, 2019 <br />
-        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+         Site last generated: Jul 10, 2019 <br />
+        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>

@@ -8,81 +8,25 @@
   
   
   <url>
-    <loc>/version-control-system.html</loc>
+    <loc>https://www.cdslab.org/version-control-system.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/control-constructs/branching/index.html</loc>
+    <loc>https://www.cdslab.org/notes/control-constructs/branching/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/preliminary-foundations/computer-program-structure/index.html</loc>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/computer-program-structure/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/data-transfer/output/index.html</loc>
-  </url>
-  
-  
-  
-  
-  
-  <url>
-    <loc>/notes/values-variables-types/first-python-program/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/css/footer-cdslab.css</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/notes/program-units/functions/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/notes/data-transfer/input/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/notes/control-constructs/looping/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/notes/program-units/modules/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/notes/data-transfer/output/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/notes/overview/preface/index.html</loc>
+    <loc>https://www.cdslab.org/notes/data-transfer/output/index.html</loc>
   </url>
   
   
@@ -90,19 +34,75 @@
   
   
   <url>
-    <loc>/notes/preliminary-foundations/programming-history/index.html</loc>
+    <loc>https://www.cdslab.org/notes/values-variables-types/first-python-program/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/preliminary-foundations/python-for-beginners/index.html</loc>
+    <loc>https://www.cdslab.org/css/footer-cdslab.css</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/overview/release-note-1/index.html</loc>
+    <loc>https://www.cdslab.org/notes/program-units/functions/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/data-transfer/input/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/control-constructs/looping/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/program-units/modules/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/data-transfer/output/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/overview/preface/index.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/programming-history/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/python-for-beginners/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/overview/release-note-1/index.html</loc>
   </url>
   
   
@@ -120,25 +120,25 @@
   
   
   <url>
-    <loc>/notes/values-variables-types/values-in-python/index.html</loc>
+    <loc>https://www.cdslab.org/notes/values-variables-types/values-in-python/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/values-variables-types/variables-in-python/index.html</loc>
+    <loc>https://www.cdslab.org/notes/values-variables-types/variables-in-python/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/notes/preliminary-foundations/version-control-system/index.html</loc>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/version-control-system/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/assets/css/style.css</loc>
+    <loc>https://www.cdslab.org/assets/css/style.css</loc>
   </url>
   
   

@@ -16,6 +16,8 @@
     font-size:16px;
 }
 
+h1,h2,h3,h4,h5,h6 {text-align:left;}
+
 h3 {color: var(--redpink); }
 h4 {color: var(--grey128); }
 
@@ -179,3 +181,13 @@ li.sidebarTitle {
     border-color: var(--cream);
 }
 
+
+
+@media all and (max-width: 900px) {
+.video-wrapper {
+	width: auto;
+	max-width: auto;
+}
+.center { margin: 0 auto; width: 900px; max-width: auto;}
+}
+/* End of fluid video embedding aspect ratio */

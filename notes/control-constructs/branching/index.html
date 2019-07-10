@@ -189,7 +189,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="{url}" title="Branching and If-constructs">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Branching and If-constructs">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -216,7 +216,7 @@
 <ul id="mysidebar" class="sidenav">
     <!--
     -->
-    <li class="sidebarTitle">Table of Contents </li>
+    <li class="sidebarTitle">Table of Pages </li>
     
         
             
@@ -418,7 +418,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -504,7 +504,7 @@ Now, back to our originally stated problem in the above, we want to write a prog
 Note that the indentations at the beginning of each of the statements are necessary, otherwise the Python interpreter will give you a syntax error. However, it is important to note also that the number of indentations is arbitrary.</p>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> 
-    I highly recommend you to be consistent in indentations of your Python code. The whole point of Python is to write a highly-human-readable code. and this requires you to write your code in the most consistent way possible. For example, I recommend you to always use either 2,3, or 4 white-space characters for indentations in your code, and <b>AVOID USING <a href="https://en.wikipedia.org/wiki/Tab_key" target="_blank">TAB CHARACTER</a> AS INDENTATION IN YOUR CODES</b> unless your editor automatically converts it to a pre-specified number of white-space characters. The <code>tab</code> character can create a huge mess in your Python codes, and some extra work to clean them up. <a href="http://www.secnetix.de/olli/Python/block_indentation.hawk" target="_blank">Here</a> is a good resource to learn more about indentations in Python.</div>
+    I highly recommend you to be consistent in indentations of your Python code. The whole point of Python is to write a highly-human-readable code. This requires you to write your code in the most consistent way possible. For example, I recommend you to always use either 2,3, or 4 white-space characters for indentations in your code (4-spaces is ideal in my opinion for Python and most other programming languages). Also, <b>AVOID USING <a href="https://en.wikipedia.org/wiki/Tab_key" target="_blank">TAB CHARACTER</a> AS INDENTATION IN YOUR CODES</b> unless your editor automatically converts it to a pre-specified number of white-space characters. The <code>tab</code> character can create a huge mess in your Python codes, and some extra work to clean them up. <a href="http://www.secnetix.de/olli/Python/block_indentation.hawk" target="_blank">Here</a> is a good resource to learn more about indentations in Python.</div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
 <span class="n">class_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'nicholas boeker'</span>  <span class="p">:</span> <span class="s">'student'</span>
@@ -738,8 +738,8 @@ This person is the course instructor
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-        <span>Page last updated:</span> July 9, 2019<br/> Site last generated: Jul 9, 2019 <br />
-        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+        <span>Page last updated:</span> July 9, 2019<br/> Site last generated: Jul 10, 2019 <br />
+        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>

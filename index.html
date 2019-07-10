@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="frontpage,  frontpage">
-<title>Scientific Computing with Python | Scientific Computing with Python</title>
+<title> | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -171,7 +171,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Scientific Computing with Python page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
 
 </li>
 
@@ -189,7 +189,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="{url}" title="Scientific Computing with Python">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -216,7 +216,7 @@
 <ul id="mysidebar" class="sidenav">
     <!--
     -->
-    <li class="sidebarTitle">Table of Contents </li>
+    <li class="sidebarTitle">Table of Pages </li>
     
         
             
@@ -403,7 +403,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Scientific Computing with Python</h1>
+   <h1 class="post-title-main"></h1>
 </div>
 
 <div class="post-content">
@@ -416,7 +416,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -434,7 +434,24 @@ $('#toc').on('click', 'a', function() {
 
     
     
-    <figure><a class="no_icon" target="_blank" rel="noopener" href="/notes/overview/preface/index.html"><img class="docimage" src="images/python.jpg" alt="Python" style="width:1200px" /></a><figcaption></figcaption></figure>
+    <!-- include.src must be given relative to site.baseurl, which is the project's root directory -->
+
+<div>
+    <figure style="display:block;text-align:center;width=1200px">
+        
+            
+                <a href="/notes/overview/preface/index.html">
+            
+        
+            <img src="images/python.jpg" alt="Python" />
+        
+        </a>
+        
+        
+            <figcaption style="display:block;text-align:justify;margin-right:auto;margin-left:auto"></figcaption>
+        
+    </figure>
+</div>
 
 
     <div class="tags">
@@ -470,8 +487,8 @@ $('#toc').on('click', 'a', function() {
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 9, 2019 <br />
-        <p><img src="/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+         Site last generated: Jul 10, 2019 <br />
+        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
         </div>
     </div>
 </footer>
