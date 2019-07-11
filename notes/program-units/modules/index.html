@@ -14,14 +14,9 @@
 -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/python/css/bootstrap.min.css">
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="/python/css/modern-business.css">
--->
-<!-- Latest compiled and minified CSS -->
-<!-- 
-<link rel="stylesheet" href="/python/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- -->
+
+
+
 <link rel="stylesheet" href="/python/css/customstyles.css">
 <link rel="stylesheet" href="/python/css/boxshadowproperties.css">
 <!-- most color styles are extracted out to here -->
@@ -55,6 +50,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<!--
+-->
 <script src="/python/js/toc.js"></script>
 <script src="/python/js/customscripts.js"></script>
 <link rel="shortcut icon" href="/python/images/favicon.ico">
@@ -418,7 +415,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -1048,8 +1045,10 @@ The <code class="highlighter-rouge">time.clock()</code> function returns the CPU
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-        <span>Page last updated:</span> July 9, 2019<br/> Site last generated: Jul 10, 2019 <br />
-        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+        <span>Page last updated:</span> July 9, 2019<br/> Site last generated: Jul 11, 2019 <br />
+        <p>
+            <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
+        </p>
         </div>
     </div>
 </footer>

@@ -14,14 +14,9 @@
 -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/python/css/bootstrap.min.css">
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="/python/css/modern-business.css">
--->
-<!-- Latest compiled and minified CSS -->
-<!-- 
-<link rel="stylesheet" href="/python/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- -->
+
+
+
 <link rel="stylesheet" href="/python/css/customstyles.css">
 <link rel="stylesheet" href="/python/css/boxshadowproperties.css">
 <!-- most color styles are extracted out to here -->
@@ -55,6 +50,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<!--
+-->
 <script src="/python/js/toc.js"></script>
 <script src="/python/js/customscripts.js"></script>
 <link rel="shortcut icon" href="/python/images/favicon.ico">
@@ -416,7 +413,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 $( document ).ready(function() {
   // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4 ,h5,h6' });
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4,h5,h6' });
 
 /* this offset helps account for the space taken up by the floating toolbar. */
 $('#toc').on('click', 'a', function() {
@@ -703,16 +700,25 @@ $('#toc').on('click', 'a', function() {
 
 <p>Some programming languages have been designed to target a specific market. For example, in the mid 20th century, there were two prominent languages <a href="https://en.wikipedia.org/wiki/Fortran" target="_blank">Fortran</a> for numerical and scientific computation, and <a href="https://en.wikipedia.org/wiki/COBOL" target="_blank">COBOL</a> for business problems. In the field of scientific computation, Fortran (FORmula TRANslation), first released in 1956, is undoubtedly the most influential programming language of all human history and the oldest high-level programming language that is still in active everyday use. Among all programming languages, Fortran is the only one that specifically targets scientists and engineers as its audience. Here is a history of Fortran by its original developers:</p>
 
-<div class="center"><div class="video-wrapper"><div class="video-container">
-    <iframe width="853" height="480" src="https://www.youtube.com/embed/KohboWwrsXg?rel=0" frameborder="0" allowfullscreen=""></iframe>
-</div></div></div>
-<p><br /></p>
+<div class="center">
+    <div class="video-wrapper">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/KohboWwrsXg?rel=0" frameborder="0" allowfullscreen="">
+            </iframe>
+        </div>
+    </div>
+</div>
 
 <p>And there is of course, no doubt about the importance of general-purpose programming language <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank">C</a> and its descendant <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank">C++</a>. Specifically, C++ grew out of interest is developing a language that is universal, that is, can be used for any purpose (business, OS development, scientific computation), that could also reduce the cost of code maintenance and software development. In the beginning, C++ codes were rather slow and inefficient, but more recently the language has significantly caught up with the two high-performance computing (HPC) languages C and Fortran. Here is a short video describing the origin of C++ by its own inventor:</p>
 
-<div class="center"><div class="video-wrapper"><div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JBjjnqG0BP8" frameborder="0" allowfullscreen=""></iframe>
-</div></div></div>
+<div class="center">
+    <div class="video-wrapper">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/JBjjnqG0BP8" frameborder="0" allowfullscreen="">
+            </iframe>
+        </div>
+    </div>
+</div>
 <p><br /></p>
 
 <p>Both C and C++, as well as Fortran are still widely used every day. These three languages are anonymously present in the lives of virtually all humans every day. For example, all climate and weather prediction software, as of today, rely on HPC kernels that have been written and are still written in Fortran. Similarly, almost every operating system that you use on your electronic devices, has some connection to C or C++.</p>
@@ -787,8 +793,10 @@ $('#toc').on('click', 'a', function() {
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 10, 2019 <br />
-        <p><img src="/python/images/logo.png" }}" alt="cdslab.org" width="100px" /></p>
+         Site last generated: Jul 11, 2019 <br />
+        <p>
+            <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
+        </p>
         </div>
     </div>
 </footer>
