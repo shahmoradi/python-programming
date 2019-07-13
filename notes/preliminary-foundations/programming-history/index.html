@@ -62,6 +62,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 <link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/python/feed.xml">
+
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -408,23 +409,20 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
         <br>
         
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
 <script>
-$( document ).ready(function() {
-  // Handler for .ready() called.
-
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4,h5,h6' });
-
-/* this offset helps account for the space taken up by the floating toolbar. */
-$('#toc').on('click', 'a', function() {
-  var target = $(this.getAttribute('href'))
-    , scroll_target = target.offset().top
-
-  $(window).scrollTop(scroll_target - 10);
-  return false
-})
-  
-});
+    $( document ).ready(function() {
+        // Handler for .ready() called.
+        $('#toc').toc({ minimumHeaders: 0 
+                      , listType: 'ol'
+                      , showSpeed: 0
+                      , headers: 'h2,h3,h4,h5,h6'
+        });
+        /* the following offset helps account for the space taken up by the floating toolbar. */
+        $('#toc').on('click', 'a', function() {
+            var target = $(this.getAttribute('href')), scroll_target = target.offset().top$(window).scrollTop(scroll_target - 10);
+            return false
+        })
+    });
 </script>
 
 <div id="toc"></div>
@@ -435,7 +433,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="post_toc"></div>
 
-<h3 id="programming-glossary">Programming glossary</h3>
+<h2 id="programming-glossary">Programming glossary</h2>
 
 <p>The following table contains some technical programming phrases that are often used and heard in the field of computer science and programming, that you need to be familiar with as well.</p>
 
@@ -578,7 +576,7 @@ $('#toc').on('click', 'a', function() {
     </figcaption>
 </figure>
 
-<h3 id="how-to-express-algorithms-in-machine-language">How to express algorithms in machine language?</h3>
+<h2 id="how-to-express-algorithms-in-machine-language">How to express algorithms in machine language?</h2>
 
 <p>To answer this question, we have to first understand that all human knowledge can be divided into two classes: declarative and imperative (procedural). As implicitly described by their names, <strong>declarative knowledge</strong> involves statements of fact. For example,</p>
 
@@ -607,7 +605,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>It took a while until the early computer scientists noticed that they could design computers in such a way that the algorithm itself could be treated as part of the input data to the computer. In other words, one could build a <a href="https://en.wikipedia.org/wiki/Turing_machine" target="_blank">general-purpose machine</a>, that could take any computer algorithm as input and given its own basic set of operations (basically, if-conditional, goto, and memory access) could perform the algorithm. Such machines, which are nowadays in everyday use, are called <strong>stored-program computers</strong>.</p>
 
-<h3 id="programming-language-generations">Programming language generations</h3>
+<h2 id="programming-language-generations">Programming language generations</h2>
 
 <p>Initially computers had to be programmed by what is called <a href="https://en.wikipedia.org/wiki/Machine_code" target="_blank">machine code</a> or <a href="https://en.wikipedia.org/wiki/Machine_code" target="_blank">machine language</a>, a set of instructions for the Central Processing Unit (CPU)  of the computer, comprising a long sequence of binary digital zeros and ones. Any interaction with computer hardware, even nowadays, has to be first converted to machine code in order to become comprehensible by the computer hardware. The coding in this language is, however, very tedious and time-consuming, and non-portable. As a result, immediately after the development of the first generation of computers, the first generation of programming languages also came to exist, most notably, the <a href="https://en.wikipedia.org/wiki/Assembly_language" target="_blank">Assembly language</a> in the late 1940s. Many more programming languages have been since developed that provide higher and higher levels of <a href="https://en.wikipedia.org/wiki/Abstraction_(software_engineering)" target="_blank">programming abstraction</a> by hiding more complexities of the machine code interaction with machine hardware from the front-end computer software and users.</p>
 
@@ -640,7 +638,7 @@ $('#toc').on('click', 'a', function() {
 </figure>
 <p><br /></p>
 
-<h3 id="programming-language-paradigms">Programming language paradigms</h3>
+<h2 id="programming-language-paradigms">Programming language paradigms</h2>
 
 <p>Programming paradigms are a way to classify programming languages based on their features. There are several programming paradigms such as,
 <br /></p>
@@ -696,7 +694,7 @@ $('#toc').on('click', 'a', function() {
 </figure>
 <p><br /></p>
 
-<h3 id="programming-language-purpose">Programming language purpose</h3>
+<h2 id="programming-language-purpose">Programming language purpose</h2>
 
 <p>Some programming languages have been designed to target a specific market. For example, in the mid 20th century, there were two prominent languages <a href="https://en.wikipedia.org/wiki/Fortran" target="_blank">Fortran</a> for numerical and scientific computation, and <a href="https://en.wikipedia.org/wiki/COBOL" target="_blank">COBOL</a> for business problems. In the field of scientific computation, Fortran (FORmula TRANslation), first released in 1956, is undoubtedly the most influential programming language of all human history and the oldest high-level programming language that is still in active everyday use. Among all programming languages, Fortran is the only one that specifically targets scientists and engineers as its audience. Here is a history of Fortran by its original developers:</p>
 
@@ -723,7 +721,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Both C and C++, as well as Fortran are still widely used every day. These three languages are anonymously present in the lives of virtually all humans every day. For example, all climate and weather prediction software, as of today, rely on HPC kernels that have been written and are still written in Fortran. Similarly, almost every operating system that you use on your electronic devices, has some connection to C or C++.</p>
 
-<h3 id="a-final-personal-remark">A final, personal remark</h3>
+<h2 id="a-final-personal-remark">A final, personal remark</h2>
 
 <p>Sometimes science acts like humans: it finds a matching partner (a programming language), then they flourish together, make a love story and occasionally decline together as well, with the only difference that polygamy is allowed in science, like Fortran’s marriage with Aerospace and <a href="https://en.wikipedia.org/wiki/Plasma_(physics)" target="_blank">Plasma physics</a>:</p>
 
@@ -793,7 +791,7 @@ $('#toc').on('click', 'a', function() {
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 11, 2019 <br />
+         Site last generated: Jul 13, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>

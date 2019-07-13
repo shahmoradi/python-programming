@@ -62,9 +62,26 @@ h4 {color: var(--grey128); }
     background-color: var(--grey065);  /* sidebar selected default color */
 }
 
+div.navbar-collapse .dropdown-menu {
+    border-radius:5px;
+}
+
+/* automatically open the menu on hover */
+div.navbar-collapse .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+div.navbar-collapse .dropdown-menu > li {
+    border-radius:5px;
+}
+
 div.navbar-collapse .dropdown-menu > li > a:hover {
-    background-color: var(--cream);
+    background-color: var(--cream);   /* navbar dropdown menu item background color */
+    border-radius:5px;
+    color: white;
     /*
+    color: #f0f0f0;
+    background-color: var(--cream);
     background-color: var(--greyblue);
     */
 }
@@ -86,7 +103,10 @@ a[data-toggle="tooltip"] {
 
 .navbar-inverse {
     background-color: black;    /* navigation bar background color */
-    border-color: var(--deepblue);
+    /*
+    border-color: var(--deepblue)
+    border-color: var(--golden);
+    */
 }
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
     color: var(--golden); /* navigation bar font color golden */
@@ -97,6 +117,7 @@ a[data-toggle="tooltip"] {
 
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
     background-color: var(--cream);    /* navigation bar hover background color when accordion closed */
+    border-radius:5px;
      /*
      color: #f0f0f0;
      */
@@ -118,22 +139,32 @@ a.navbar-brand:hover {
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: var(--deepblue);
-    color: #ffffff;
+    background-color: var(--cream);
+    color: white; /* #ffffff */
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    /*
     border-color: #248ec2 !important;
+    */
+    border-color: var(--cream) !important;
 }
 
 .btn-primary {
     color: #ffffff;
+    background-color: var(--cream);
+    border-color: var(--cream);
+    /*
     background-color: var(--greyblue);
     border-color: var(--greyblue);
+    */
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    /*
     background-color: var(--greyblue);
+    */
+    background-color: var(--cream);
 }
 
 .btn-primary:hover,
@@ -141,10 +172,22 @@ a.navbar-brand:hover {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    /* background-color: #248ec2; */
-    background-color: var(--cream);
+    /*
+    background-color: #248ec2;
     border-color: var(--greyblue);
+    */
+    background-color: var(--cream);
+    border-color: var(--cream);
 }
+
+div.navbar-collapse .dropdown:hover .dropdown-toggle {
+    /* keep the dropdown botton selected as long as dropdown is shown */
+    background-color: var(--cream);
+    border-color: var(--cream);
+    color: white;
+    border-radius:5px;
+}
+
 
 .printTitle {
     color: var(--deepblue) !important;
@@ -174,7 +217,7 @@ li.sidebarTitle {
 }
 
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: var(--deepblue);
+    background-color: var(--cream); /* navbar background color in collapsed mode */
 }
 
 .navbar-inverse .navbar-toggle {

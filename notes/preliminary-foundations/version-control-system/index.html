@@ -62,6 +62,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 <link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/python/feed.xml">
+
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -410,23 +411,20 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
         <br>
         
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
 <script>
-$( document ).ready(function() {
-  // Handler for .ready() called.
-
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4,h5,h6' });
-
-/* this offset helps account for the space taken up by the floating toolbar. */
-$('#toc').on('click', 'a', function() {
-  var target = $(this.getAttribute('href'))
-    , scroll_target = target.offset().top
-
-  $(window).scrollTop(scroll_target - 10);
-  return false
-})
-  
-});
+    $( document ).ready(function() {
+        // Handler for .ready() called.
+        $('#toc').toc({ minimumHeaders: 0 
+                      , listType: 'ol'
+                      , showSpeed: 0
+                      , headers: 'h2,h3,h4,h5,h6'
+        });
+        /* the following offset helps account for the space taken up by the floating toolbar. */
+        $('#toc').on('click', 'a', function() {
+            var target = $(this.getAttribute('href')), scroll_target = target.offset().top$(window).scrollTop(scroll_target - 10);
+            return false
+        })
+    });
 </script>
 
 <div id="toc"></div>
@@ -681,11 +679,11 @@ You need to do this only once if you pass the <code class="highlighter-rouge">--
 
 <p>Now at this point, there are two ways for project initialization. We will go through both here. A good detailed tutorial can be found <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository" target="_blank">here</a>.</p>
 
-<h4 id="1-remote-project-initialization-on-github"><strong>1. Remote project initialization (on Github)</strong></h4>
+<h4 id="remote-project-initialization-on-github">Remote project initialization (on Github)</h4>
 
 <p>With this method you first initialize an empty project on Github, and then clone the project from the remote (Github) repository to your local device, using the <code class="highlighter-rouge">git clone</code> command, discussed later below. To create a remote repository on Github, login to your Github account and follow the instructions on <a href="https://help.github.com/articles/create-a-repo/" target="_blank">this page</a>.</p>
 
-<h4 id="2-local-project-initialization"><strong>2. Local project initialization</strong></h4>
+<h4 id="local-project-initialization">Local project initialization</h4>
 
 <p>Local project initialization is done by the following git command:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git init
@@ -734,7 +732,7 @@ You can generate keys for your local device by following the instructions given 
 to see a list of all possible Git commands. Note that every Git command begins with <code class="highlighter-rouge">git</code>. Despite the long list of Git commands, you will likely use only five of them on an everyday basis. Not that the rest are unimportant, but with these five basic commands you will be at least able to develop and index your project and communicate with your remote repository as well as your colleagues. In order to understand these five, we will have to recall the three states of a project’s files, described earlier <a href="#gitAreas">above</a>.</p>
 
 <p><a name="git-status"></a></p>
-<h3 id="1-check-the-status-of-the-project">1. Check the status of the project</h3>
+<h3 id="git-status-check-the-status-of-the-project"><strong>git status</strong>: Check the status of the project</h3>
 
 <p>First of all, you can check the status of your git project at any time by typing the following command in the git-bash prompt window, assuming the command line is already on the project’s directory.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
@@ -742,7 +740,7 @@ to see a list of all possible Git commands. Note that every Git command begins w
 <p><br /></p>
 
 <p><a name="git-add"></a></p>
-<h3 id="2-add-files-to-the-staging-area">2. Add files to the staging area</h3>
+<h3 id="git-add-add-files-to-the-staging-area"><strong>git add</strong>: Add files to the staging area</h3>
 
 <p>In order to add any of the modified or new files to the <a href="#stagingArea">staging area</a>, use</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add &lt;file name&gt;
@@ -766,7 +764,7 @@ The first command stages the new and modified files, but not the deleted files. 
 <p>The full documentation for <code class="highlighter-rouge">git add</code> can be found <a href="https://git-scm.com/docs/git-add" target="_blank">here</a>.</p>
 
 <p><a name="git-commit"></a></p>
-<h3 id="3-commit-the-staged-files-to-the-local-repository">3. Commit the staged files to the local repository</h3>
+<h3 id="git-commit-commit-the-staged-files-to-the-local-repository"><strong>git commit</strong>: Commit the staged files to the local repository</h3>
 
 <p>The stages files can be committed (i.e., submitted permanently) to the local repository by</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit
@@ -795,7 +793,7 @@ The <code class="highlighter-rouge">-a</code> and <code class="highlighter-rouge
 <p>The full documentation for <code class="highlighter-rouge">git commit</code> can be found <a href="https://git-scm.com/docs/git-commit" target="_blank">here</a>.</p>
 
 <p><a name="git-push"></a></p>
-<h3 id="4-push-the-changes-in-local-repository-to-the-remote-repository">4. Push the changes in local repository to the remote repository</h3>
+<h3 id="git-push-push-the-changes-in-local-repository-to-the-remote-repository"><strong>git push</strong>: Push the changes in local repository to the remote repository</h3>
 
 <p>Now, in order to <em>push</em> all your commits from the local repository to the remote repository, in order to place permanently there and be able to share it with others, use</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git push <span class="nt">--all</span>
@@ -806,7 +804,7 @@ We have not yet talked about <strong>git branches</strong>, but what the above c
 <p>The full documentation for <code class="highlighter-rouge">git push</code> can be found <a href="https://git-scm.com/docs/git-push" target="_blank">here</a>.</p>
 
 <p><a name="git-pull"></a></p>
-<h3 id="5-pull-the-latest-project-revision-from-the-remote-to-the-local-repository">5. Pull the latest project revision from the remote to the local repository</h3>
+<h3 id="git-pull-pull-the-latest-project-revision-from-the-remote-to-the-local-repository"><strong>git pull</strong>: Pull the latest project revision from the remote to the local repository</h3>
 
 <p>Sometimes, your project collaborators might be working simultaneously but independently on the project. In such cases, whenever you want to restart your work on your project, you may want to first <em>pull</em> the latest revision of the project – that is not available yet in your local repository – from the remote to your local repository. To do so, you can simply use</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull
@@ -817,7 +815,7 @@ There are some important details about <code class="highlighter-rouge">git pull<
 <p>The full documentation for <code class="highlighter-rouge">git pull</code> can be found <a href="https://git-scm.com/docs/git-pull" target="_blank">here</a>.</p>
 
 <p><a name="git-summary"></a></p>
-<h3 id="git-commands-summary">Git commands summary</h3>
+<h3 id="summary-of-main-git-commands">Summary of main Git commands</h3>
 <p>All in all, the most trivial, but also the most useful git commands are the following:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
 <span class="nv">$ </span>git add <span class="nt">--all</span>
@@ -1426,7 +1424,7 @@ If you are sure you want to delete it, run <span class="s1">'git branch -D test'
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 11, 2019 <br />
+         Site last generated: Jul 13, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>

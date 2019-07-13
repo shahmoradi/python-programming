@@ -282,12 +282,25 @@ ul#results-container a:hover {
 #toc {
     text-align: left;
 }
-div#toc ul li {
+div#toc ol li {
     margin: 8px 0px 8px 22px;
     font-size: 90%;
     list-style: square;
 }
-div#toc ul {
+
+div#toc ol {
+    counter-reset: number;
+}
+div#toc ol li:before {
+    content: counters(number, ".")" ";
+    counter-increment: number
+}
+div#toc ol li ol li:before {
+    content: counters(number, ".")" ";
+    counter-increment: number
+}
+
+div#toc ol {
     background-color: whitesmoke;
     padding: 5px;
     border-radius: 5px;
@@ -295,16 +308,57 @@ div#toc ul {
     color: gray;
 }
 
-div#toc ul li ul {
+div#toc ol li ol {
     padding-left:8px;
 
 }
 
-div#toc ul li ul li::before {
+/* uncomment this for default behavior of TOC (itemized list instead of numbered)
+div#toc ol li ol li::before {
     content: "–  ";
 }
+*/
 
-div#toc >ul::before {
+/************************************************************************/
+/* automatically enumerate html headers correponding to the TOC numbers */
+/************************************************************************/
+
+h2 { counter-reset: h3counter; }
+h3 { counter-reset: h4counter; }
+h4 { counter-reset: h5counter; }
+h5 { counter-reset: h6counter; }
+
+body {
+    counter-reset: h2counter;
+}
+h1 {
+    counter-reset: h2counter;
+}
+h2:before {
+    content: counter(h2counter) ".\0000a0\0000a0";
+    counter-increment: h2counter;
+}
+h3:before {
+    content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+    counter-increment: h3counter;
+}
+
+h4:before {
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
+    counter-increment: h4counter;
+}
+h5:before {
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "." counter(h5counter) ".\0000a0\0000a0";
+    counter-increment: h5counter;
+}
+h5:before {
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "." counter(h5counter) "." counter(h6counter) ".\0000a0\0000a0";
+    counter-increment: h6counter;
+}
+
+/* end automatically enumerate html headers correponding to the TOC numbers */
+
+div#toc >ol::before {
     content: "Table of Contents";
     font-weight: 500;
     color: #555;
@@ -791,9 +845,16 @@ ol li ul li {list-style-type: disc;}
 
 li img {clear:both; }
 
-div#toc ul li ul li {
+div#toc ol li {
     list-style-type: none;
     margin: 5px 0px 0px 0px;
+    margin-left:10px;
+}
+
+div#toc ol li ol li {
+    list-style-type: none;
+    margin: 5px 0px 0px 0px;
+    margin-left:10px;
 }
 
 .tab-content {

@@ -1,6 +1,50 @@
 [
 
     
+    {
+        "title": "Lecture 8: Python - I/O, error handling, and testing frameworks",
+        "tags": "",
+        "keywords": "",
+        "url": "/notes/2017-04-05-8-python-io-error-handling-unit-testing.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Lecture 9: Python - array computing and plotting",
+        "tags": "",
+        "keywords": "",
+        "url": "/notes/2017-04-12-9-python-array-computing-plotting.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability",
+        "tags": "",
+        "keywords": "",
+        "url": "/notes/2017-04-19-10-python-advanced-io-monte-carlo-interoperability.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Lecture 11: Python advanced topics - decorators and classes",
+        "tags": "",
+        "keywords": "",
+        "url": "/notes/2017-04-26-11-python-advanced-decorator-class.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
 
     
     {
@@ -37,7 +81,7 @@
 
     
     {
-        "title": "Data input methods",
+        "title": "Error Handling",
         "tags": "data_inputIO",
         "keywords": "data input, IO, python",
         "url": "/notes/data-transfer/output/index.html",
