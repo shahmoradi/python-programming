@@ -843,7 +843,9 @@ h4 {color: #808080; font-weight:normal; font-size:120%; font-style:italic;}
 ol li ol li {list-style-type: lower-alpha;}
 ol li ul li {list-style-type: disc;}
 
-li img {clear:both; }
+ol li ol li {list-style-type: lower-alpha;}
+
+li {text-align:left; }
 
 div#toc ol li {
     list-style-type: none;
@@ -1171,15 +1173,15 @@ span.soft {
         text-align: center;
         */
     }
+    /* default setup for the maximum img width and height on doc pages.
     .col-md-9 img {
-        /* default setup for the maximum img width and height on doc pages.
         max-width: 700px;
         max-height: 700px;
         max-width: 100%;
         max-height: 100%;
         text-align: center;
-        */
     }
+    */
     .col-md-9 figcaption {
         width:var(--figCaptionWidth);
         /*
