@@ -507,6 +507,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <p>This will result in the creation of <a href="https://www.cdslab.org/lecture/8/data.out" target="_blank">a new file</a> named <code class="highlighter-rouge">data.out</code> which contains the value of <code class="highlighter-rouge">mean</code> variable. Note that the addition of the character <code class="highlighter-rouge">'\n'</code> at the end of the <code class="highlighter-rouge">write</code> statement is necessary, otherwise the next write to the file will not appear on a new line.</p>
 
 <h2 id="writing-a-table-of-data-to-a-file">Writing a table of data to a file</h2>
+
 <p>Now suppose you were to write the following list to an output file,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.29619813</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.29619813</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span> <span class="p">],</span>
 <span class="p">[</span> <span class="mf">0.29619813</span><span class="p">,</span> <span class="mf">0.11697778</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11697778</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.29619813</span><span class="p">],</span>
@@ -523,14 +524,14 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p>This code would result in the creation of an <a href="https://www.cdslab.org/lecture/8/table.out" target="_blank">output file</a> named <code class="highlighter-rouge">table.out</code> which contain the content of <code class="highlighter-rouge">data</code> variable, in a nice formatted style as the following,</p>
+<p>This code would result in the creation of an <a href="/python/notes/data-transfer/output/table.out" target="_blank">output file</a> named <code class="highlighter-rouge">table.out</code> which contain the content of <code class="highlighter-rouge">data</code> variable, in a nice formatted style as the following,</p>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    0.75000000    0.29619813   -0.29619813   -0.75000000
     0.29619813    0.11697778   -0.11697778   -0.29619813
    -0.29619813   -0.11697778    0.11697778    0.29619813
    -0.75000000   -0.29619813    0.29619813    0.75000000
 </code></pre></div></div>
 
-<h3 id="writing-data-in-html-format">Writing data in HTML format</h3>
+<h2 id="writing-data-in-html-format">Writing data in HTML format</h2>
 
 <p>Doing research at a professional level requires reporting the results professionally as well. That is, the results of the project, including the final report itself have to be <strong>auto-generated</strong> and <strong>reproducile</strong> as much as possible, and reachable to the widest audience, which nowadays means, availibility on the World-Wide Web.</p>
 
@@ -550,7 +551,8 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;/BODY&gt;&lt;/HTML&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>This code will generate an HTML file, which you can view in browser <a href="/python/notes/data-transfer/output/SampleProjectReport.html" target="_blank">here</a>.</p>
+<p>This code will generate an HTML file, which you can view in your browser <a href="/python/notes/data-transfer/output/SampleProjectReport.html" target="_blank">here</a>.</p>
+
 
     <div class="tags">
         

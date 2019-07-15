@@ -504,7 +504,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h2 id="input-data-from-the-terminal-window">Input data from the terminal window</h2>
 
-<p>We have already introduced and used this method frequently in previous lectures, via the Python’s builtin function <code class="highlighter-rouge">input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
+<p>We have already introduced and used this method frequently in previous notes, via the Python’s builtin function <code class="highlighter-rouge">input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
 <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'input the values for a,b,x (comma separated): '</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -516,7 +516,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h2 id="input-data-from-the-command-line">Input data from the command line</h2>
 
-<p>This approach, which we discussed in the previous lecture, is most popular in Unix-like environments, where most users are accustomed to using the Bash command line. However, it can be readily used in the Windows environment as well. For this approach, there is a Python module <code class="highlighter-rouge">sys</code> that can accomplish what we desire,</p>
+<p>This approach, which we discussed in the previous notes, is most popular in Unix-like environments, where most users are accustomed to using the Bash command line. However, it can be readily used in the Windows environment as well. For this approach, there is a Python module <code class="highlighter-rouge">sys</code> that can accomplish what we desire,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -524,7 +524,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Now if you save this code in a <a href="https://www.cdslab.org/lecture/8/input_via_sys.py" target="_blank">file</a>, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,</p>
+<p>Now if you save this code in a file named <a href="input_via_sys.py" target="_blank">input_via_sys.py</a>, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python input_via_sys.py 0.1 1 0.6
 0.1822118800390509
 </code></pre></div></div>
@@ -554,7 +554,7 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 
 <h3 id="reading-a-file-line-by-line">Reading a file line by line</h3>
 
-<p>To read a file, say <a href="https://www.cdslab.org/lecture/8/data.in" target="_blank">this file</a>, one first needs to open it,</p>
+<p>To read a file, say <a href="/python/notes/data-transfer/input/data.in" target="_blank">this file</a>, one first needs to open it,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
@@ -625,7 +625,7 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 <span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="p">[</span><span class="s">'1</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'3</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'4</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'5</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'6</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'7</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'88</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">'65</span><span class="se">\n</span><span class="s">'</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p>Now suppose you were to calculate the mean of the numbers in <a href="https://www.cdslab.org/lecture/8/data.in" target="_blank">this file</a>. You could simply use the following list comprehension code to do so,</p>
+<p>Now suppose you were to calculate the mean of the numbers in <a href="/python/notes/data-transfer/input/data.in" target="_blank">this file</a>. You could simply use the following list comprehension code to do so,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
     <span class="o">...</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
 <span class="mf">22.375</span>
@@ -745,7 +745,7 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 
 <p>It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly <code class="highlighter-rouge">*.csv</code> and Microsoft Excel files (e.g., <code class="highlighter-rouge">*.xls</code> data files), or also frequently, from an <code class="highlighter-rouge">*.xml</code> data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be <a href="http://www.python-excel.org/" target="_blank">this webpage</a>, also <a href="http://pbpython.com/excel-pandas-comp.html" target="_blank">Pandas module</a>.</p>
 
-<p>For CSV files, Python standard library has a solution. Suppose you want to read <a href="https://www.cdslab.org/lecture/10/data_input.csv" target="_blank">this CSV file</a>. A Python solution would be the following,</p>
+<p>For CSV files, Python standard library has a solution. Suppose you want to read <a href="/python/notes/data-transfer/input/data_input.csv" target="_blank">this CSV file</a>. A Python solution would be the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data_input.csv'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">counter</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">myfile</span><span class="p">)):</span>
