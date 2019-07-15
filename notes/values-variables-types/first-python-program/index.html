@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -438,7 +484,6 @@ The traditional first program in Python language has the following form.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
 <span class="n">Hello</span> <span class="n">World</span><span class="err">!</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <p><a name="ways-to-run-python-program"></a></p>
 <h2 id="methods-of-running-a-python-program">Methods of running a Python program</h2>
@@ -455,14 +500,16 @@ As the program size grows, it wiser to put all of your Python scripts into a sin
 print ('Hello World!')
 </span><span class="no">EOF
 </span></code></pre></div>    </div>
-    <p><br />
-Then you can use call python interpreter from the Bash command line to execute your Python code.</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python firstPythonCode.py
+  </li>
+</ol>
+
+<p>Then you can use call python interpreter from the Bash command line to execute your Python code.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python firstPythonCode.py
 python firstPythonCode.py
 Hello World!
-</code></pre></div>    </div>
-    <p><br /></p>
-  </li>
+</code></pre></div></div>
+
+<ol>
   <li><strong>Running Python code inside a Python file from the Bash command line as a standalone executable:</strong><br />
 You can also avoid typing the name of the interpreter (<code class="highlighter-rouge">python</code>) in order to run your code by adding the following <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)" target="_blank">shebang</a> at the top of your Python script, like the following.<br />
 <br />
@@ -472,23 +519,25 @@ print ('Hello World!')
 print ('This is a Python script with Shebang!')
 </span><span class="no">EOF
 </span></code></pre></div>    </div>
-    <p><br />
-The result is that now you can run your Python script without the interpreter’s name, as an executable file:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./firstPythonCodeWithShebang.py
+  </li>
+</ol>
+
+<p>The result is that now you can run your Python script without the interpreter’s name, as an executable file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./firstPythonCodeWithShebang.py
 Hello World!
 This is a Python script with Shebang!
-</code></pre></div>    </div>
-    <p><br />
-Note that <em>shebang</em> directive only works under Unix/Linux operating systems and command prompts (not windows). When a Python script with a shebang is run as a program, the program loader parses the rest of the script’s initial line as an interpreter directive. The specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script.<br />
+</code></pre></div></div>
+
+<p>Note that <em>shebang</em> directive only works under Unix/Linux operating systems and command prompts (not windows). When a Python script with a shebang is run as a program, the program loader parses the rest of the script’s initial line as an interpreter directive. The specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script.<br />
 <br />
 On the other hand, if you try to run your original code (without Shebang) as an executable without Python interpreter name, you will get an error message like the following,</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir@CCBB-Amir MINGW64 ~
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir@CCBB-Amir MINGW64 ~
 <span class="nv">$ </span>./firstPythonCode.py
 ./firstPythonCode.py: line 1: syntax error near unexpected token <span class="sb">`</span><span class="s1">'Hello World!''
 ./firstPythonCode.py: line 1: `print ('</span>Hello World!<span class="s1">')'</span>
-</code></pre></div>    </div>
-    <p><br /></p>
-  </li>
+</code></pre></div></div>
+
+<ol>
   <li><strong>Running Python code inside a Python file by first compiling it to bytecode from the command line:</strong><br />
 You can also compile your Python script into a bytecode. This is, however, a topic of a future lecture.<br />
 <br /></li>
@@ -593,12 +642,14 @@ It does not harm!
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 14, 2019 <br />
+         Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
 </footer>
 
 

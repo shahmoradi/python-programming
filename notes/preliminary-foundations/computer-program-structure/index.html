@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -522,13 +568,15 @@ A program, whether interpreted or compiled, can be successfully run only if it i
                     <span class="o">^</span>
 <span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">Missing</span> <span class="n">parentheses</span> <span class="ow">in</span> <span class="n">call</span> <span class="n">to</span> <span class="s">'print'</span>
 </code></pre></div>    </div>
-    <p><br />
-The syntactically correct usage of <code class="highlighter-rouge">print</code> in Python 3 would be,</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
-<span class="n">Hello</span> <span class="n">World</span><span class="err">!</span>
-</code></pre></div>    </div>
-    <p><br /></p>
   </li>
+</ol>
+
+<p>The syntactically correct usage of <code class="highlighter-rouge">print</code> in Python 3 would be,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
+<span class="n">Hello</span> <span class="n">World</span><span class="err">!</span>
+</code></pre></div></div>
+
+<ol>
   <li><strong>runtime error</strong><br />
 <br />
 Runtime errors or sometimes also named <strong>exceptions</strong> are a class of programming errors that can be detected only at the time of running the code, that is, they are not syntax errors. Examples include:<br />
@@ -552,14 +600,14 @@ In Python 2,
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="mi">0</span>
 </code></pre></div>    </div>
-    <p><br />
-Whereas, you might have really meant a <strong>float division</strong> by using <code class="highlighter-rouge">/</code>, as in Python 3,</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mf">0.2857142857142857</span>
-</code></pre></div>    </div>
-    <p><br /><br /></p>
   </li>
 </ol>
+
+<p>Whereas, you might have really meant a <strong>float division</strong> by using <code class="highlighter-rouge">/</code>, as in Python 3,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mf">0.2857142857142857</span>
+</code></pre></div></div>
+<p><br /><br /></p>
 
     <div class="tags">
         
@@ -602,12 +650,14 @@ Whereas, you might have really meant a <strong>float division</strong> by using 
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 14, 2019 <br />
+         Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
 </footer>
 
 

@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -444,8 +490,8 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">output</span>
 </code></pre></div></div>
-<p><br />
-Here, the line beginning with <code class="highlighter-rouge">def</code> is referred to as the <strong>function header</strong>, and the statements inside the function are called the <strong>function body</strong>. To use a function, it must be first defined like above and then called where it is needed inside the code.<br />
+
+<p>Here, the line beginning with <code class="highlighter-rouge">def</code> is referred to as the <strong>function header</strong>, and the statements inside the function are called the <strong>function body</strong>. To use a function, it must be first defined like above and then called where it is needed inside the code.<br />
 <strong>Example:</strong><br />
 Let’s write a Python function that takes in a temperature value in Centigrade and converts it to Fahrenheit.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
@@ -614,8 +660,8 @@ This is the default message.
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-and the following would be invalid,</p>
+
+<p>and the following would be invalid,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s">"A new message."</span><span class="p">)</span>   <span class="c"># This is invalid</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;ipython-input-36-27658299aa76&gt;", line 1
@@ -651,8 +697,8 @@ A new message.
     <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
     <span class="k">return</span> <span class="n">converted_value</span>
 </code></pre></div></div>
-<p><br />
-Now, if the variable <code class="highlighter-rouge">converted_value</code> is called outside the function, it will result in a syntax error since it is undefined outside the function scope.</p>
+
+<p>Now, if the variable <code class="highlighter-rouge">converted_value</code> is called outside the function, it will result in a syntax error since it is undefined outside the function scope.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c2f</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>158.0
@@ -766,8 +812,8 @@ NameError: name 'a' is not defined
     <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># the global a is changed</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div></div>
-<p><br />
-In general, any <em>lasting effect</em> that occurs in a function, but not through its <code class="highlighter-rouge">return</code> value, is called a <strong>side effect</strong>. There are three ways to have side effects:</p>
+
+<p>In general, any <em>lasting effect</em> that occurs in a function, but not through its <code class="highlighter-rouge">return</code> value, is called a <strong>side effect</strong>. There are three ways to have side effects:</p>
 <ul>
   <li>Changing the value of a mutable object.</li>
   <li>Changing the binding (the storage space) of a global variable.</li>
@@ -794,8 +840,8 @@ In general, any <em>lasting effect</em> that occurs in a function, but not throu
     <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">converted_value</span>
 </code></pre></div></div>
-<p><br />
-The docstring is then stored in <code class="highlighter-rouge">__doc__</code> attribute of the function, and can be called like the following,</p>
+
+<p>The docstring is then stored in <code class="highlighter-rouge">__doc__</code> attribute of the function, and can be called like the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c2f</span><span class="o">.</span><span class="n">__doc__</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\n    This function converts Celsius degrees (C) to Fahrenheit.\n    Uses global variable C.\n    '
@@ -897,22 +943,22 @@ The input number 4.5 is not an integer!
 <p>There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined <code class="highlighter-rouge">g(x)</code> in the <a href="#functions-as-input-arguments-to-functions">example above</a>. Here is a compact version of it,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
 </code></pre></div></div>
-<p><br />
-This code is equivalent to the original code that wrote before,</p>
+
+<p>This code is equivalent to the original code that wrote before,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
 </code></pre></div></div>
-<p><br />
-In general, a function of the form,</p>
+
+<p>In general, a function of the form,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">expression</span>
 </code></pre></div></div>
-<p><br />
-can be converted to the compact form,</p>
+
+<p>can be converted to the compact form,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">...</span><span class="p">:</span> <span class="n">expression</span>
 </code></pre></div></div>
-<p><br />
-Lambda functions are very useful for defining simple functions in the argument list that is passed to another function. For example, recall our <code class="highlighter-rouge">diff2nd</code> function that we defined in the above,</p>
+
+<p>Lambda functions are very useful for defining simple functions in the argument list that is passed to another function. For example, recall our <code class="highlighter-rouge">diff2nd</code> function that we defined in the above,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r</span>
@@ -941,8 +987,8 @@ Lambda functions are very useful for defining simple functions in the argument l
 <p>Lambda functions may also take <strong>keyword arguments</strong>. For example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d2</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.5</span><span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="mf">1.2</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-This format is particularly useful, if the lambda function contains a constant that is repeatedly used in the expression of the function, the value of which may need to be updated in future runs of the code, or later on in the same code.</p>
+
+<p>This format is particularly useful, if the lambda function contains a constant that is repeatedly used in the expression of the function, the value of which may need to be updated in future runs of the code, or later on in the same code.</p>
 
 <p><br /><br /></p>
 
@@ -979,12 +1025,14 @@ This format is particularly useful, if the lambda function contains a constant t
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 14, 2019 <br />
+         Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
 </footer>
 
 

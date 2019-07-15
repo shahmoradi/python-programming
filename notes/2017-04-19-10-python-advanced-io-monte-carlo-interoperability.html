@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -420,9 +466,11 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <div class="post_toc"></div>
 
 <h2 id="more-on-io-in-python">More on IO in Python</h2>
+
 <p>There are a few topics and methods of <a href="https://en.wikipedia.org/wiki/Input/output" target="_blank">input/output (IO)</a> in Python that we have not discussed yet, such as reading data from special data files, or web pages. Such problems, happen almost daily in a scientific research career, even in High Performance Computing, and Python’s capability to easily handle such IO problems is indeed one of the main reasons for Python’s popularity.</p>
 
 <h3 id="reading-data-from-special-data-files">Reading data from special data files</h3>
+
 <p>It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly <code class="highlighter-rouge">*.csv</code> and Microsoft Excel files (e.g., <code class="highlighter-rouge">*.xls</code> data files), or also frequently, from an <code class="highlighter-rouge">*.xml</code> data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be <a href="http://www.python-excel.org/" target="_blank">this webpage</a>, also <a href="http://pbpython.com/excel-pandas-comp.html" target="_blank">Pandas module</a>.</p>
 
 <p>For CSV files, Python standard library has a solution. Suppose you want to read <a href="https://www.cdslab.org/lecture/10/jec_pdb_r4s.csv" target="_blank">this CSV file</a>. A Python solution would be the following,</p>
@@ -454,8 +502,8 @@ the script runs before the sidebar code runs and the class never gets inserted.
         <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">counter</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">:</span> <span class="k">break</span>
 </code></pre></div></div>
-<p><br />
-The output of the code is <a href="https://www.cdslab.org/lecture/10/jec_out.csv" target="_blank">this file</a> (If you run this code on Windows machines, you will probably get an extra empty line between each row in the csv file).</p>
+
+<p>The output of the code is <a href="https://www.cdslab.org/lecture/10/jec_out.csv" target="_blank">this file</a> (If you run this code on Windows machines, you will probably get an extra empty line between each row in the csv file).</p>
 
 <p>For <code class="highlighter-rouge">*.xml</code> files, Python standard library has a package <a href="https://docs.python.org/3/library/xml.etree.elementtree.html" target="_blank">ElementTree</a>, which you can use for both parsing and writing xml data files.</p>
 
@@ -468,8 +516,8 @@ The output of the code is <a href="https://www.cdslab.org/lecture/10/jec_out.csv
 <span class="k">with</span> <span class="n">ur</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">myurl</span><span class="p">)</span> <span class="k">as</span> <span class="n">webfile</span><span class="p">:</span>
     <span class="n">webcontent</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">webfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 </code></pre></div></div>
-<p><br />
-Now the variable <code class="highlighter-rouge">webcontent</code> is a list, whose elements are each row in the html file for this page.</p>
+
+<p>Now the variable <code class="highlighter-rouge">webcontent</code> is a list, whose elements are each row in the html file for this page.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">webcontent</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['<span class="cp">&lt;!DOCTYPE html&gt;</span>\n',
@@ -489,8 +537,8 @@ Now the variable <code class="highlighter-rouge">webcontent</code> is a list, wh
 <span class="n">myurl</span> <span class="o">=</span> <span class="s">'https://www.cdslab.org/ECL2017S/about'</span>
 <span class="n">ur</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">myurl</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">'about.html'</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-This will output <a href="https://www.cdslab.org/lecture/10/about.html" target="_blank">this file</a> in your current working diretory of Python.</p>
+
+<p>This will output <a href="https://www.cdslab.org/lecture/10/about.html" target="_blank">this file</a> in your current working diretory of Python.</p>
 
 <p>Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content of web pages.<br />
 <br /></p>
@@ -520,8 +568,8 @@ This will output <a href="https://www.cdslab.org/lecture/10/about.html" target="
     <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;p&gt;Chances of survival for this rat are virtually zero.&lt;/p&gt;&lt;br&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
     <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;/BODY&gt;&lt;/HTML&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-This code will generate an HTML file, which you can view in browser <a href="https://www.cdslab.org/lecture/10/SampleProjectReport.html" target="_blank">here</a>.</p>
+
+<p>This code will generate an HTML file, which you can view in browser <a href="https://www.cdslab.org/lecture/10/SampleProjectReport.html" target="_blank">here</a>.</p>
 
 <h2 id="random-numbers-in-python">Random numbers in Python</h2>
 <p>One of the most important topics in todays’s science and computer simulation is <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank">random number generation</a> and <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulation</a> methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard <code class="highlighter-rouge">random</code> module:</p>
@@ -536,8 +584,8 @@ This code will generate an HTML file, which you can view in browser <a href="htt
 <span class="n">rnd</span><span class="o">.</span><span class="n">NV_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">SystemRandom</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">getstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">seed</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">RECIP_BPF</span>       <span class="n">rnd</span><span class="o">.</span><span class="n">TWOPI</span>           <span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">lognormvariate</span>  <span class="n">rnd</span><span class="o">.</span><span class="n">random</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">setstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">vonmisesvariate</span>
 </code></pre></div></div>
-<p><br />
-As you see in the list of available methods in <code class="highlighter-rouge">random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
+
+<p>As you see in the list of available methods in <code class="highlighter-rouge">random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c"># Beta variate with the input parameters</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="mf">0.9281984408820623</span>
 
@@ -547,8 +595,8 @@ As you see in the list of available methods in <code class="highlighter-rouge">r
 <span class="n">In</span> <span class="p">[</span><span class="mi">55</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># random variable from gamma distribution with parameters 1,1.</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">55</span><span class="p">]:</span> <span class="mf">0.5364897808236537</span>
 </code></pre></div></div>
-<p><br />
-Recall that if you needed help on a method or function in Python, you could use <code class="highlighter-rouge">help()</code>,</p>
+
+<p>Recall that if you needed help on a method or function in Python, you could use <code class="highlighter-rouge">help()</code>,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">61</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span><span class="p">)</span>
 <span class="n">Help</span> <span class="n">on</span> <span class="n">method</span> <span class="n">weibullvariate</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">random</span><span class="p">:</span>
 
@@ -557,12 +605,12 @@ Recall that if you needed help on a method or function in Python, you could use 
 
     <span class="n">alpha</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">scale</span> <span class="n">parameter</span> <span class="ow">and</span> <span class="n">beta</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">parameter</span><span class="o">.</span>
 </code></pre></div></div>
-<p><br />
-To generate <code class="highlighter-rouge">float</code> random numbers between the given input bounds,</p>
+
+<p>To generate <code class="highlighter-rouge">float</code> random numbers between the given input bounds,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>    <span class="c"># generate a random float between 50 and 100</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="mf">65.59688328558263</span>
 </code></pre></div></div>
-<p><br /></p>
+
 <blockquote>
 <b>ATTENTION: </b><br /><br />
 Alwasy make sure you import modules with unique names, as different modules with similar component names may overwrite each other. For example <code>import random</code> followed by <code>from numpy import *</code> wil cause the <code>random</code> module to be overwritten by <code>numpy.random</code> module.
@@ -572,13 +620,13 @@ Also pay attention to sublte differences between similar functions, with the sam
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,</p>
+
+<p>will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-will draw a random integer form the interval $[1,6]$. Also note that <code class="highlighter-rouge">randint()</code> from module <code class="highlighter-rouge">random</code> is a scalar function, whereas the numpy’s version is vectorized.</p>
+
+<p>will draw a random integer form the interval $[1,6]$. Also note that <code class="highlighter-rouge">randint()</code> from module <code class="highlighter-rouge">random</code> is a scalar function, whereas the numpy’s version is vectorized.</p>
 
 <h3 id="the-deterministic-aspect-of-randomness-in-python">The deterministic aspect of randomness in Python</h3>
 <p>There is a truth about random numbers and random number generators and algorithms, not only in Python, but in all programming languages, and that is, <strong>true random numbers do not exist in the world of programming</strong>. What we call a seuqence of random numbers, is simply a sequence of numbers that we, the user, to the best of our knowledge, don’t know how it was generated, and therefore, <strong>the sequence looks random to us, bu not the to the developer of the algorithm!</strong>. To prove this, type the following code in a Python session,</p>
@@ -597,8 +645,8 @@ will draw a random integer form the interval $[1,6]$. Also note that <code class
 <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-You notice that everytime the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code class="highlighter-rouge">np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
+
+<p>You notice that everytime the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code class="highlighter-rouge">np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
 
 <p>You can even test the same code on a different computer, and as long as you set the seed of the random number generator to a specific value (here 42), <code class="highlighter-rouge">np.random.seed(42)</code>, you will the same sequence of random numbers. So afterall, random numbers are not random at all, as they can be generated detrerministically, however, they mimic the behavior of true random numbers. The ability to set the seed for a random number generator is actually very useful, since it enables us to replicate the work of a code, exactly it has been done in the past. In particular, this is very useful for code debugging. However, beware of cases were you need to get a different result, everytime you run the code. If you set the random seed of the random generator to to a fixed value, right at the beginning of the code, you will never get a random behavior.</p>
 
@@ -699,8 +747,8 @@ Table 1: Some useful functions and their functionalities in <code>random</code> 
     <span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
     <span class="k">return</span> <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-Now, each time the function is called, it returns a random value for one throw of a virtual die,</p>
+
+<p>Now, each time the function is called, it returns a random value for one throw of a virtual die,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">throwFairDie</span><span class="p">()</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="mi">6</span>
 
@@ -713,8 +761,8 @@ Now, each time the function is called, it returns a random value for one throw o
 <span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">throwFairDie</span><span class="p">()</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="mi">1</span>
 </code></pre></div></div>
-<p><br />
-This is likely one of the simplest examples of <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulations</a>. Now suppose we wanted to make sure that the die is fair, meaning that each number (out of 6 possibilities) only appears with a frequency of $1/6$ over many throws of the die. To test this hypothesis, we could write the following code,</p>
+
+<p>This is likely one of the simplest examples of <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulations</a>. Now suppose we wanted to make sure that the die is fair, meaning that each number (out of 6 possibilities) only appears with a frequency of $1/6$ over many throws of the die. To test this hypothesis, we could write the following code,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="k">def</span> <span class="nf">throwFairDie</span><span class="p">():</span>
@@ -733,8 +781,8 @@ This is likely one of the simplest examples of <a href="https://en.wikipedia.org
     <span class="n">meanDieValue</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c"># Now normalize the very last try to the total number of tries.</span>
     <span class="k">return</span> <span class="n">meanDieValue</span>
 </code></pre></div></div>
-<p><br />
-What this function does, is that it throws a die for given input number of times (n=10000 by default if not given as input), and then calculates for each new try, how many times each of the die values have occurred so far, and then finally outputs all the result as numpy <code class="highlighter-rouge">double</code> array, each row of which contains the number of successes for each of the 6 die values. Normally, if the die is fair, you would expect that with more tries, the average number of successes for each try would converge more and more to the canonical value $1/6\sim0.1667$. We can test this, by calling the function with a large number of tries, and checking the values in the last row of the output array,</p>
+
+<p>What this function does, is that it throws a die for given input number of times (n=10000 by default if not given as input), and then calculates for each new try, how many times each of the die values have occurred so far, and then finally outputs all the result as numpy <code class="highlighter-rouge">double</code> array, each row of which contains the number of successes for each of the 6 die values. Normally, if the die is fair, you would expect that with more tries, the average number of successes for each try would converge more and more to the canonical value $1/6\sim0.1667$. We can test this, by calling the function with a large number of tries, and checking the values in the last row of the output array,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span> <span class="n">getMeanDieValue</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="p">)</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[ 0.1645  0.1668  0.1683  0.1664  0.169   0.165 ]]
@@ -770,8 +818,8 @@ What this function does, is that it throws a die for given input number of times
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'diceThrowsN{}.png'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
-<p><br />
-You can see the output of the above code in the following figure,</p>
+
+<p>You can see the output of the above code in the following figure,</p>
 <figure>
 	<img src="https://www.cdslab.org/lecture/10/diceThrowsN100000.png" width="900" />
 </figure>
@@ -823,12 +871,14 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 14, 2019 <br />
+         Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
 </footer>
 
 

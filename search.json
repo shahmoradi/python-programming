@@ -2,28 +2,6 @@
 
     
     {
-        "title": "Lecture 8: Python - I/O, error handling, and testing frameworks",
-        "tags": "",
-        "keywords": "",
-        "url": "/notes/2017-04-05-8-python-io-error-handling-unit-testing.html",
-        "summary": ""
-    }
-    ,
-    
-
-    
-    {
-        "title": "Lecture 9: Python - array computing and plotting",
-        "tags": "",
-        "keywords": "",
-        "url": "/notes/2017-04-12-9-python-array-computing-plotting.html",
-        "summary": ""
-    }
-    ,
-    
-
-    
-    {
         "title": "Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability",
         "tags": "",
         "keywords": "",
@@ -44,17 +22,6 @@
     ,
     
 
-    
-
-    
-    {
-        "title": "branching and functions",
-        "tags": "python",
-        "keywords": "python",
-        "url": "/version-control-system.html",
-        "summary": "This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python."
-    }
-    ,
     
 
     
@@ -81,11 +48,11 @@
 
     
     {
-        "title": "Error Handling",
-        "tags": "data_inputIO",
-        "keywords": "data input, IO, python",
-        "url": "/notes/data-transfer/output/index.html",
-        "summary": "This note aims at providing an overview of data-input methods in Python."
+        "title": "Exception handling",
+        "tags": "unit_testingerror_handling",
+        "keywords": "unit testing, error handling, python",
+        "url": "/notes/exceptions-errors/exception-handling/index.html",
+        "summary": "This note aims at discussing how to deal with exceptions in Python. An <b>exception</b> is an event which occurs during the execution of a program and disrupts the normal flow of the program's instructions. The process to deal with such exceptional events in the program is called <b>Exception handling</b>."
     }
     ,
     
@@ -240,6 +207,17 @@
 
     
     {
+        "title": "Unit testing",
+        "tags": "unit_testingerror_handling",
+        "keywords": "unit testing, error handling, python",
+        "url": "/notes/exceptions-errors/unit-testing/index.html",
+        "summary": "This note aims at providing a brief introduction to the concept of Unit Testing in computer programming and the unit testing frameworks in Python."
+    }
+    ,
+    
+
+    
+    {
         "title": "Values in Python",
         "tags": "valuetypePython",
         "keywords": "value, type, Python",
@@ -262,11 +240,33 @@
 
     
     {
+        "title": "Vectorization and array computing",
+        "tags": "vectorizationarray_computingFortranperformancescientific_computing",
+        "keywords": "vectorization, array_computing, Fortran, performance, scientific_computing",
+        "url": "/notes/scientific-computing/vectorization/index.html",
+        "summary": "Vectorization, an extremely important concept in high-performance scientific computing, is the process of simultaneous execution of a set of computer instructions. This is contrary to the idea of looping and iteration which performs all program instructions sequentially. Vectorization can lead to significant runtime speed-up of the code."
+    }
+    ,
+    
+
+    
+    {
         "title": "A professional programmer uses Version Control System (VCS)",
         "tags": "version_control_systemVCSgitmercurialgithubbitbucket",
         "keywords": "version, control, system",
         "url": "/notes/preliminary-foundations/version-control-system/index.html",
         "summary": "This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version control software that is available today for professional collaborative programming."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Visualization and plotting",
+        "tags": "visualizationplottingcurvefigurematplotlibpython",
+        "keywords": "visualization, plotting, curve, figure, matplotlib, python",
+        "url": "/notes/scientific-computing/visualization/index.html",
+        "summary": "This note attempts to provide a summary of the myriad of the existing methods of data visualization in Python."
     }
     ,
     

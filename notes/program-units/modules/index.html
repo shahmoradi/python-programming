@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -454,26 +500,25 @@ time end up with multiple identical versions of the same function. When you want
 <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="mf">2.718281828459045</span>
 </code></pre></div></div>
-<p><br />
-In its simplest form, the import has the following syntax:</p>
+
+<p>In its simplest form, the import has the following syntax:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">module1</span><span class="p">[,</span> <span class="n">module2</span><span class="p">[,</span><span class="o">...</span> <span class="n">moduleN</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-like,</p>
+
+<p>like,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span><span class="p">,</span> <span class="n">cmath</span><span class="p">,</span> <span class="n">numpy</span>
 </code></pre></div></div>
-<p><br />
-The standard approach for calling the names and definitions (variables, functions, …) inside the module is using the module-name prefix, like the above examples. To call the module names without the prefix, use the following module import statement,</p>
+
+<p>The standard approach for calling the names and definitions (variables, functions, …) inside the module is using the module-name prefix, like the above examples. To call the module names without the prefix, use the following module import statement,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="mi">120</span>
 </code></pre></div></div>
-<p><br />
-To import only specific names, use the format like the following,</p>
+
+<p>To import only specific names, use the format like the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">factorial</span><span class="p">,</span><span class="n">erf</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <p>This will import the four math modules names <code class="highlighter-rouge">pi,e,factorial,erf</code>. You could also change the name of the input module, or specific names from it, upon importing the module into your code, using <code class="highlighter-rouge">import as</code> statement,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -486,7 +531,6 @@ To import only specific names, use the format like the following,</p>
 <span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">dble</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="mf">13.0</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> A module can contain executable statements as well as function definitions. These statements are intended to initialize the module. They are executed <b>only the first time the module name is encountered in an import statement</b>.</div>
 
@@ -555,7 +599,6 @@ To import only specific names, use the format like the following,</p>
  <span class="s">'tanh'</span><span class="p">,</span>
  <span class="s">'trunc'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h2 id="python-standard-modules">Python standard Modules</h2>
 <p>Python comes with a set of standard modules as its library, the so-called <a href="https://docs.python.org/3/library/" target="_blank"><strong>Python Standard Library</strong></a>. Some of these modules are built into the Python interpreter; these provide access to operations that are not part of the core of the language but are nevertheless built in, for efficiency and other reasons.</p>
@@ -576,8 +619,8 @@ To import only specific names, use the format like the following,</p>
 <p>When a Python module is called from the Bash command prompt like,</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python mycode.py
 </code></pre></div></div>
-<p><br />
-the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a <a href="/python/notes/program-units/modules/find_primes.py" target="_blank">script</a> that finds and reports all prime numbers smaller than a given input number $n$.</p>
+
+<p>the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a <a href="/python/notes/program-units/modules/find_primes.py" target="_blank">script</a> that finds and reports all prime numbers smaller than a given input number $n$.</p>
 
 <p>When you execute this code as astandalone Python script, it will ask you for an integer, to give you all integers that are smaller than the input number. Now suppose you wanted to import this script as a Python module into your code. If you do so, the Python interpreter would run all statements in this script and asks you to input an integer, before importing the rest of the functions in this script.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">find_primes</span>
@@ -592,33 +635,33 @@ the code in the module will be executed, just as if you imported it inside anoth
 <span class="mi">3</span>
 <span class="mi">2</span>
 </code></pre></div></div>
-<p><br />
-This may not be necessarily what we want to do. For example, we may only want to use the functions <code class="highlighter-rouge">get_primes</code> and <code class="highlighter-rouge">is_prime</code> in this script, without asking the user to input an integer and finding all smaller primes. The solution is to put the part of the code in the script that we don’t want to be executed as module, that is,</p>
+
+<p>This may not be necessarily what we want to do. For example, we may only want to use the functions <code class="highlighter-rouge">get_primes</code> and <code class="highlighter-rouge">is_prime</code> in this script, without asking the user to input an integer and finding all smaller primes. The solution is to put the part of the code in the script that we don’t want to be executed as module, that is,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Enter an integer number: '</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'n = '</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s"> Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-inside the following if-block,</p>
+
+<p>inside the following if-block,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">'Enter an integer number: '</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'n = '</span><span class="p">))</span>
     <span class="k">print</span><span class="p">(</span><span class="s">'Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
     <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-When the code is run as a standalone script, the <code class="highlighter-rouge">__name__</code> property of the code is set to <code class="highlighter-rouge">__main__</code>. However, when the script is imported as a module inside another code, the <code class="highlighter-rouge">__name__</code> property is automatically set to the name of the module <code class="highlighter-rouge">find_primes</code>. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named <code class="highlighter-rouge">mod_find_primes.py</code> and can be downloaded from <a href="/python/notes/program-units/modules/mod_find_primes.py" target="_blank">here</a>.</p>
+
+<p>When the code is run as a standalone script, the <code class="highlighter-rouge">__name__</code> property of the code is set to <code class="highlighter-rouge">__main__</code>. However, when the script is imported as a module inside another code, the <code class="highlighter-rouge">__name__</code> property is automatically set to the name of the module <code class="highlighter-rouge">find_primes</code>. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named <code class="highlighter-rouge">mod_find_primes.py</code> and can be downloaded from <a href="/python/notes/program-units/modules/mod_find_primes.py" target="_blank">here</a>.</p>
 <pre><code class="language-Python">In [6]: import mod_find_primes
 In [7]: mod_find_primes.__name__
 Out[7]: 'mod_find_primes'
 </code></pre>
-<p><br />
-You could also import specific names or funcitons from your own module, for example</p>
+
+<p>You could also import specific names or funcitons from your own module, for example</p>
 <pre><code class="language-Python">In [11]: from mod_find_primes import is_prime
 </code></pre>
-<p><br />
-In summary,</p>
+
+<p>In summary,</p>
 
 <div class="bs-callout bs-callout-danger">
     <b>Add test blocks to your modules</b><br /><br />
@@ -642,8 +685,8 @@ In summary,</p>
         <span class="k">print</span><span class="p">(</span><span class="s">'Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
         <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-Now if you run this code, from the Bash command line, or inside IPython, like the following,</p>
+
+<p>Now if you run this code, from the Bash command line, or inside IPython, like the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">run</span> <span class="n">cmd_find_primes</span><span class="o">.</span><span class="n">py</span>
 
     <span class="n">Error</span><span class="p">:</span> <span class="n">Exactly</span> <span class="n">two</span> <span class="n">arguments</span> <span class="n">must</span> <span class="n">be</span> <span class="n">given</span> <span class="n">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span><span class="o">.</span>
@@ -654,8 +697,8 @@ Now if you run this code, from the Bash command line, or inside IPython, like th
 
 <span class="nb">SystemExit</span><span class="p">:</span>      <span class="n">Program</span> <span class="n">stopped</span><span class="o">.</span>
 </code></pre></div></div>
-<p><br />
-The code will expect you to enter an integer right after the nbame of the script,</p>
+
+<p>The code will expect you to enter an integer right after the nbame of the script,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">run</span> <span class="n">cmd_find_primes</span><span class="o">.</span><span class="n">py</span> <span class="mi">13</span>
 <span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">prime</span> <span class="n">numbers</span> <span class="n">smaller</span> <span class="n">than</span> <span class="mi">13</span><span class="p">:</span>
 <span class="mi">13</span>
@@ -665,8 +708,8 @@ The code will expect you to enter an integer right after the nbame of the script
 <span class="mi">3</span>
 <span class="mi">2</span>
 </code></pre></div></div>
-<p><br />
-In general, I recommend you to use the <code class="highlighter-rouge">sys</code> module for input arguments instead of Python’s <code class="highlighter-rouge">input()</code> function.</p>
+
+<p>In general, I recommend you to use the <code class="highlighter-rouge">sys</code> module for input arguments instead of Python’s <code class="highlighter-rouge">input()</code> function.</p>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> 
     <b>Modules and main functions</b><br /><br />
@@ -713,16 +756,16 @@ In general, I recommend you to use the <code class="highlighter-rouge">sys</code
  <span class="s">'get_primes'</span><span class="p">,</span>
  <span class="s">'is_prime'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-However, more often than not, you may want to have variables in your module, that are only to be used inside the module and not be accessed by the user. The convention is to start the names of these variables by an underscore. For example,</p>
+
+<p>However, more often than not, you may want to have variables in your module, that are only to be used inside the module and not be accessed by the user. The convention is to start the names of these variables by an underscore. For example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">_course</span> <span class="o">=</span> <span class="s">"Python programming"</span>
 </code></pre></div></div>
-<p><br />
-This however, does not prevent the import of the variable <code class="highlighter-rouge">_course</code> into your code from your the <a href="/python/notes/program-units/modules/mod_cmd_find_primes_del.py" target="_blank">module</a> containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,</p>
+
+<p>This however, does not prevent the import of the variable <code class="highlighter-rouge">_course</code> into your code from your the <a href="/python/notes/program-units/modules/mod_cmd_find_primes_del.py" target="_blank">module</a> containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">del</span> <span class="n">_course</span>
 </code></pre></div></div>
-<p><br />
-such that the <a href="" target="_blank">module</a> containing the above statement will give,</p>
+
+<p>such that the <a href="" target="_blank">module</a> containing the above statement will give,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">mod_cmd_find_primes_del</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="nb">dir</span><span class="p">(</span> <span class="n">mod_cmd_find_primes_del</span> <span class="p">)</span>
@@ -738,7 +781,6 @@ such that the <a href="" target="_blank">module</a> containing the above stateme
  <span class="s">'get_primes'</span><span class="p">,</span>
  <span class="s">'is_prime'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <p>However, note that if you import all definitions in <a href="/python/notes/program-units/modules/mod_cmd_find_primes_all.py" target="_blank">your module</a> as standalone definitions like the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">mod_cmd_find_primes_all</span> <span class="kn">import</span> <span class="o">*</span>
@@ -776,12 +818,12 @@ such that the <a href="" target="_blank">module</a> containing the above stateme
  <span class="s">'is_prime'</span><span class="p">,</span>
  <span class="s">'quit'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-you see that the variable <code class="highlighter-rouge">_course</code> is not imported. In general, to avoid confusion, it is best to define an <code class="highlighter-rouge">__all__</code> variable in your module, which contains a list of all variable and function names that are to be imported as standalone definitions using <code class="highlighter-rouge">from mymodule import *</code>. For example, add the following to the above module,</p>
+
+<p>you see that the variable <code class="highlighter-rouge">_course</code> is not imported. In general, to avoid confusion, it is best to define an <code class="highlighter-rouge">__all__</code> variable in your module, which contains a list of all variable and function names that are to be imported as standalone definitions using <code class="highlighter-rouge">from mymodule import *</code>. For example, add the following to the above module,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">'get_primes'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-Upong importing this module, now only the function <code class="highlighter-rouge">get_prime</code> will be imported and not <code class="highlighter-rouge">_course</code> or <code class="highlighter-rouge">is_prime</code>.</p>
+
+<p>Upong importing this module, now only the function <code class="highlighter-rouge">get_prime</code> will be imported and not <code class="highlighter-rouge">_course</code> or <code class="highlighter-rouge">is_prime</code>.</p>
 
 <h3 id="the-path-to-your-modules">The path to your modules</h3>
 <p>When you create a module, if it is in the current directory of your code, then it will be automatcally found by the Python interpreter. This is however, not generally the case if your module lives in another directory than the current working directory of Python interpreter. To add the module’s directory to the path of your Python interpreter, use the following,</p>
@@ -828,8 +870,8 @@ Upong importing this module, now only the function <code class="highlighter-roug
  <span class="s">'C:</span><span class="se">\\</span><span class="s">Program Files</span><span class="se">\\</span><span class="s">Anaconda3</span><span class="se">\\</span><span class="s">lib</span><span class="se">\\</span><span class="s">site-packages</span><span class="se">\\</span><span class="s">IPython</span><span class="se">\\</span><span class="s">extensions'</span><span class="p">,</span>
  <span class="s">'C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Amir</span><span class="se">\\</span><span class="s">.ipython'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-In the above, we added the path to our module to the list of all paths the Python interpreter will search, in order to find the module requested to be imported (Note that <code class="highlighter-rouge">’the path to your module’</code> is not a real system path, this was just an example).</p>
+
+<p>In the above, we added the path to our module to the list of all paths the Python interpreter will search, in order to find the module requested to be imported (Note that <code class="highlighter-rouge">’the path to your module’</code> is not a real system path, this was just an example).</p>
 
 <h2 id="some-useful-python-modules">Some useful Python modules</h2>
 
@@ -927,17 +969,18 @@ The word "Aerospace" appears only 1 times in the text
 <p>This is also a subclass of dictionary data type, which provides all the methods provided by <code class="highlighter-rouge">dict</code>, but which also retains the order by which elements are added to the dictionary,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 </code></pre></div></div>
-<p><br />
-However, you can define a <code class="highlighter-rouge">defaultdict</code> dictionary which will assign a default value to all keys that do not exist, and automatically adds them to the dictionary. A normal dictionary does not conserve the order by which elements were added to the dictionary,</p>
+
+<p>However, you can define a <code class="highlighter-rouge">defaultdict</code> dictionary which will assign a default value to all keys that do not exist, and automatically adds them to the dictionary. A normal dictionary does not conserve the order by which elements were added to the dictionary,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-    1 1
-    3 3
-    5 5
-    6 6</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 1
+3 3
+5 5
+6 6
+</code></pre></div></div>
 
 <p>To get save order of the elements, you can use <code class="highlighter-rouge">OrderedDict</code>,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span> <span class="k">as</span> <span class="n">od</span>
@@ -994,8 +1037,8 @@ However, you can define a <code class="highlighter-rouge">defaultdict</code> dic
 <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>   <span class="c"># get the final CPU time</span>
 <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>  <span class="c"># This is the time spent on the task being timed.</span>
 </code></pre></div></div>
-<p><br />
-The <code class="highlighter-rouge">time.clock()</code> function returns the CPU time spent in the program since its start. If the interest is in the total time, also including reading and writing files, <code class="highlighter-rouge">time.time()</code> is the appropriate function to call. Now suppose you had a list of functions that performed the same task, but using different methods, and you wanted to time their performance. Since in Python, functions are ordinary objects, making a list of functions is no more special than making a list of strings or numbers. You can therefore, create a list of function names and call them one by one, inside a loop, and time each one repectively.</p>
+
+<p>The <code class="highlighter-rouge">time.clock()</code> function returns the CPU time spent in the program since its start. If the interest is in the total time, also including reading and writing files, <code class="highlighter-rouge">time.time()</code> is the appropriate function to call. Now suppose you had a list of functions that performed the same task, but using different methods, and you wanted to time their performance. Since in Python, functions are ordinary objects, making a list of functions is no more special than making a list of strings or numbers. You can therefore, create a list of function names and call them one by one, inside a loop, and time each one repectively.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="n">functions</span> <span class="o">=</span> <span class="p">[</span><span class="n">func1</span><span class="p">,</span> <span class="n">func2</span><span class="p">,</span> <span class="n">func3</span><span class="p">,</span> <span class="n">func4</span><span class="p">,</span><span class="n">func5</span><span class="p">,</span> <span class="n">func6</span><span class="p">,</span> <span class="n">func7</span><span class="p">,</span> <span class="n">func8</span><span class="p">,</span><span class="n">func9</span><span class="p">,</span> <span class="n">func10</span><span class="p">]</span>
 <span class="n">timings</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># timings[i] holds CPU time for functions[i]</span>
@@ -1006,7 +1049,7 @@ The <code class="highlighter-rouge">time.clock()</code> function returns the CPU
     <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>
     <span class="n">timings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cpu_time</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br /></p>
+
 
     <div class="tags">
         
@@ -1043,12 +1086,14 @@ The <code class="highlighter-rouge">time.clock()</code> function returns the CPU
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-        <span>Page last updated:</span> July 9, 2019<br/> Site last generated: Jul 14, 2019 <br />
+        <span>Page last updated:</span> July 9, 2019<br/> Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
 </footer>
 
 

@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title>Lecture 9: Python - array computing and plotting | Scientific Computing with Python</title>
+<meta name="description" content="Vectorization, an extremely important concept in high-performance scientific computing, is the process of simultaneous execution of a set of computer instruc...">
+<meta name="keywords" content="vectorizationarray_computingFortranperformancescientific_computing,  vectorization, array_computing, Fortran, performance, scientific_computing">
+<title>Vectorization and array computing | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -169,7 +169,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Lecture 9: Python - array computing and plotting page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Vectorization and array computing page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
 
 </li>
 
@@ -187,7 +187,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Lecture 9: Python - array computing and plotting">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Vectorization and array computing">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li class="active"><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -400,37 +446,50 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
-            <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+            <div class="post-header">
+   <h1 class="post-title-main">Vectorization and array computing</h1>
+</div>
 
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Lecture 9: Python - array computing and plotting</h1>
-        <p class="post-meta"><time datetime="" itemprop="datePublished"></time> 
-
-        </p>
-
-
-    </header>
-
-    <div class="post-content" itemprop="articleBody">
-
+<div class="post-content">
+    
+        <div class="summary">Vectorization, an extremely important concept in high-performance scientific computing, is the process of simultaneous execution of a set of computer instructions. This is contrary to the idea of looping and iteration which performs all program instructions sequentially. Vectorization can lead to significant runtime speed-up of the code.</div>
+    
+    
+        <br>
         
+<script>
+    $( document ).ready(function() {
+        // Handler for .ready() called.
+        $('#toc').toc({ minimumHeaders: 0 
+                      , listType: 'ol'
+                      , showSpeed: 0
+                      , headers: 'h2,h3,h4,h5,h6'
+        });
+        /* the following offset helps account for the space taken up by the floating toolbar. */
+        $('#toc').on('click', 'a', function() {
+            var target = $(this.getAttribute('href')), scroll_target = target.offset().top$(window).scrollTop(scroll_target - 10);
+            return false
+        })
+    });
+</script>
 
-        <p>This lecture focuses on array computing and code vectorization, as well as methods of plotting data in Python.</p>
+<div id="toc"></div>
 
-<div class="post_toc"></div>
+    
+    
+    <h2 id="is-python-the-optimal-choice-of-programming-language-for-scientific-computing">Is Python the optimal choice of programming language for scientific computing?</h2>
+
+<p>With regards to the capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opinion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new programming languages such as <a href="https://en.wikipedia.org/wiki/Julia_(programming_language)" target="_blank">Julia</a> have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" target="_blank">Go language</a>.</p>
+
+<p>Regardless of personal opinions, the fact is that Python was not originally intended for scientific computing. However, an enormous number of Python packages have been developed with the dawn of the new millennium specifically for the purpose of numerical computing and data analysis, making Python one of the most popular languages world-wide for scientific inference and data analysis. In addition, many prominent implementations of Python are also open-source or available free of charge as opposed to rival programming languages such as MATLAB and Mathematica. These considerations together make Python a viable choice for <em>high-level</em> scientific computing, parallel to MATLAB, Mathematica, Julia, and other high-level programming languages for scientific computing and data analysis.</p>
 
 <h2 id="vectorization-and-array-computing">Vectorization and array computing</h2>
 
-<p>With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opinion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new programming languages such as <a href="https://en.wikipedia.org/wiki/Julia_(programming_language)" target="_blank">Julia</a> have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" target="_blank">Go language</a>.</p>
+<p>So far in the notes, you may have noticed that all numerical vector calculations were either performed with lists, tuples, or dictionaries. Sadly, Python standard does not have an intrinsic special way of defining and manipulating numerical vectors and arrays, unlike most High-Performance Computing (HPC) languages for scientific computations (such as Fortran, Ada, or C). However, there are powerful Python modules that enable a Python programmer to use Python efficiently for numerical analysis as well.</p>
 
-<p>So far in this course, you may have noticed that all numerical vector calculations were either performed with lists, tuples, or dictionaries. Sadly, Python standard does not have an intrinsic special way of defining and manipulating numerical vectors and arrays, unlike most High Performance Computing (HPC) languages for scientific computations (such as Fortran, Ada, or C). However, there are powerful Python modules that enable a Python programmer to use Python efficiently for numerical analysis as well.</p>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> If you expect to use Python heavily and mostly for scientific computation in the future, you should keep in mind that as of 2019, Python’s built-in list, tuple and dictionary types can be very slow for number crunching.</div>
 
-<blockquote>
-If you expect to use Python heavily and mostly for scientific computation in future, you should keep in mind that Python's builtin list, tuple and dictionary types can be very slow for number crunching. 
-</blockquote>
-<p><br /></p>
-
-<h3 id="vectors-arrays-and-the-numerical-python-numpy-package">Vectors, arrays and the Numerical Python (numpy) package</h3>
+<h2 id="vectors-arrays-and-the-numerical-python-numpy-package">Vectors, arrays and the Numerical Python (numpy) package</h2>
 
 <p>In Python, a list can be <strong>heterogeneous</strong> meaning that not all its elements are of the same type. An <strong>array object</strong> in Python can be viewed as a variant of a list, but with the following assumptions:</p>
 <ul>
@@ -447,8 +506,8 @@ array</strong>. It means that a part of the computer’s memory is marked for be
 <p>To create a numpy array, you will have to first import it,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 </code></pre></div></div>
-<p><br />
-The tradition is to import <code class="highlighter-rouge">numpy</code> as <code class="highlighter-rouge">np</code>. To convert a list to a numpy array,</p>
+
+<p>The tradition is to import <code class="highlighter-rouge">numpy</code> as <code class="highlighter-rouge">np</code>. To convert a list to a numpy array,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -461,20 +520,20 @@ The tradition is to import <code class="highlighter-rouge">numpy</code> as <code
 <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-To create a new <strong>array of length n, filled with zeros</strong>,</p>
+
+<p>To create a new array of length $n$, filled with zeros,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-Note that numpy automatically identifies the appropriate type for all array elements, whether <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, or etc.</p>
+
+<p>Note that numpy automatically identifies the appropriate type for all array elements, whether <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, or etc.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="mi">2</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">int32</span>
 </code></pre></div></div>
-<p><br />
-Even if there is a single <code class="highlighter-rouge">float</code> element in the list, then all elements in the list will be converted to float in the numpy array by default,</p>
+
+<p>Even if there is a single <code class="highlighter-rouge">float</code> element in the list, then all elements in the list will be converted to float in the numpy array by default,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">int32</span>
 
@@ -485,8 +544,8 @@ Even if there is a single <code class="highlighter-rouge">float</code> element i
 <span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">float64</span>
 </code></pre></div></div>
-<p><br />
-If you want to get the desired element type, then you will have to ask numpy for it explicitly,</p>
+
+<p>If you want to get the desired element type, then you will have to ask numpy for it explicitly,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">4.9</span><span class="p">,</span><span class="mf">5.0</span><span class="p">]</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>   <span class="c"># convert all elements in the list to integer</span>
@@ -494,8 +553,8 @@ If you want to get the desired element type, then you will have to ask numpy for
 <span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-You can see the full list of input arguments to np.array function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html" target="_blank">here</a>.</p>
+
+<p>You can see the full list of input arguments to np.array function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html" target="_blank">here</a>.</p>
 
 <p>A similar function <code class="highlighter-rouge">np.zeros_like(c)</code> generates an array of zeros where the length of the generated array is that of the input array c and the element type is the same as those in c.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
@@ -505,8 +564,8 @@ You can see the full list of input arguments to np.array function <a href="https
 <span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-Often one wants an array to have $n$ elements with uniformly distributed values in an interval $[p,q]$. The numpy function <code class="highlighter-rouge">linspace</code> creates such arrays,</p>
+
+<p>Often one wants an array to have $n$ elements with uniformly distributed values in an interval $[p,q]$. The numpy function <code class="highlighter-rouge">linspace</code> creates such arrays,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">36</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">37</span><span class="p">]:</span> <span class="n">a</span>
@@ -525,10 +584,10 @@ Often one wants an array to have $n$ elements with uniformly distributed values 
          <span class="mf">84.76923077</span><span class="p">,</span>   <span class="mf">86.67307692</span><span class="p">,</span>   <span class="mf">88.57692308</span><span class="p">,</span>   <span class="mf">90.48076923</span><span class="p">,</span>
          <span class="mf">92.38461538</span><span class="p">,</span>   <span class="mf">94.28846154</span><span class="p">,</span>   <span class="mf">96.19230769</span><span class="p">,</span>   <span class="mf">98.09615385</span><span class="p">,</span>  <span class="mf">100.</span>        <span class="p">])</span>
 </code></pre></div></div>
-<p><br /></p>
 
-<h3 id="vectorization">Vectorization</h3>
-<p>Loops over very long arrays may run slowly. An advantage of arrays is that, with arrays, loops can be avoided the whole array be manipulated directly and simultaneously. If you are a Fortran programmer, you are likely already quite familiar with the powerful idea of array computing and vectorization. If not, then consider the following example,</p>
+<h2 id="vectorized-computing-vs-looping">Vectorized computing vs. looping</h2>
+
+<p>Loops over very long arrays may run slowly. An advantage of arrays is that, with arrays, loops can be avoided the whole array be manipulated directly and simultaneously. If you are a programmer, you are likely already quite familiar with the powerful idea of array computing and vectorization. If not, then consider the following example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">39</span><span class="p">]:</span> <span class="n">x</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">39</span><span class="p">]:</span>
@@ -545,56 +604,58 @@ Often one wants an array to have $n$ elements with uniformly distributed values 
         <span class="mf">1.8</span> <span class="p">,</span>  <span class="mf">1.82</span><span class="p">,</span>  <span class="mf">1.84</span><span class="p">,</span>  <span class="mf">1.86</span><span class="p">,</span>  <span class="mf">1.88</span><span class="p">,</span>  <span class="mf">1.9</span> <span class="p">,</span>  <span class="mf">1.92</span><span class="p">,</span>  <span class="mf">1.94</span><span class="p">,</span>  <span class="mf">1.96</span><span class="p">,</span>
         <span class="mf">1.98</span><span class="p">,</span>  <span class="mf">2.</span>  <span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-Now, if you wanted to calculate the <code class="highlighter-rouge">sin</code> of the elements of <code class="highlighter-rouge">x</code> in the traditional way, you would do,</p>
+
+<p>Now, if you wanted to calculate the <code class="highlighter-rouge">sin</code> of the elements of <code class="highlighter-rouge">x</code> in the traditional way, you would do,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">41</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">42</span><span class="p">]:</span> <span class="n">sinX</span> <span class="o">=</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-This approach however, can be quite time consuming and computationally costly, because <strong>for-loops are very slow in Python</strong>, up to a few hundred times than what you get in Fortran or C.</p>
 
-<p>A more appropriate solution to the above problem is use the <code class="highlighter-rouge">sin</code> function from numpy module, which enables vectorization,</p>
+<p>This approach, however, can be a quite time-consuming and computationally costly, because <strong>for-loops are very slow in Python</strong>, up to a few hundred times than what you get in Fortran or C.</p>
+
+<p>A more appropriate solution to the above problem is to use the <code class="highlighter-rouge">sin</code> function from the numpy module, which enables vectorization,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sinX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-You see, with the above numpy call, there is no need for a for-loop. The above Python code is an example of a <strong>vectorized code</strong> and the previous code which contained for-loop is an example <strong>scalar code</strong>. The numpy functions are capable of handling arrays as input. Compare the performance of the two codes in the above example,</p>
+
+<p>You see, with the above numpy call, there is no need for a for-loop. The above Python code is an example of a <strong>vectorized code</strong> and the previous code which contained for-loop is an example <strong>scalar code</strong>. The numpy functions are capable of handling arrays as input. Compare the performance of the two codes in the above example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">The</span> <span class="n">slowest</span> <span class="n">run</span> <span class="n">took</span> <span class="mf">11.73</span> <span class="n">times</span> <span class="n">longer</span> <span class="n">than</span> <span class="n">the</span> <span class="n">fastest</span><span class="o">.</span> <span class="n">This</span> <span class="n">could</span> <span class="n">mean</span> <span class="n">that</span> <span class="n">an</span> <span class="n">intermediate</span> <span class="n">result</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">cached</span><span class="o">.</span>
 <span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">2.21</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
 </code></pre></div></div>
-<p><br /></p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">23.1</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
 </code></pre></div></div>
-<p><br />
-The vectorized code in this example appears to be more than one order of magnitude (more than 10 times) faster than faster than the scalar version of the code.</p>
 
-<p><strong>Why is the vectorized code faster in Python?</strong><br />
-The reason is that numpy uses precompiled Fortran and C loops to loop over the elements of the input array. loops in Fortran and C have far less overhead than loops in Python. Similar to the above example, you can define your own functions that are also vectorized, for example,</p>
+<p>The vectorized code in this example appears to be more than one order of magnitude (more than 10 times) faster than the scalar version of the code.</p>
+
+<h3 id="why-is-the-vectorized-code-faster-in-python">Why is the vectorized code faster in Python?</h3>
+
+<p>The reason is that numpy uses precompiled Fortran and C loops to loop over the elements of the input array. loops in Fortran and C have far less overhead than loops in Python. Similar to the above example, you can define your own functions that are also vectorized, for example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-The numpy package also has a method for <strong>Automatic vectorization</strong> of scalar functions (function that only take scalar arguments), for example,</p>
+
+<p>The numpy package also has a method for <strong>Automatic vectorization</strong> of scalar functions (function that only take scalar arguments), for example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">func_scalar</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-However, for serious programming, I do not recommend you to use this numpy functionality as it can be slow and inefficient.</p>
 
-<h4 id="vectorization-of-if-blocks">vectorization of if-blocks</h4>
-<p>For vectorization of calculations involving booleans and if conditions, the solution can be problem dependent, but one common easy way of addressing simple boolean problems could be <code class="highlighter-rouge">where</code> method in numpy package. For example, suppose you have an list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
+<p>However, for serious programming, I do not recommend you to use this numpy functionality as it can be slow and inefficient.</p>
+
+<h2 id="vectorization-of-if-blocks">vectorization of if-blocks</h2>
+
+<p>For vectorization of calculations involving booleans and if conditions, the solution can be problem dependent, but one common easy way of addressing simple boolean problems could be <code class="highlighter-rouge">where</code> method in numpy package. For example, suppose you have a list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">57</span><span class="p">]:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">58</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">58</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br /></p>
 
-<h4 id="aliasing-vs-copying-arrays">Aliasing vs. copying arrays</h4>
-<p>If you recall from <a href="https://www.cdslab.org/lecture/5-python-variables-assignments#aliasing-vs-copying" target="_blank">lecture </a>, there is a difference between aliasing and copying sequence objects in Python. The same rules also hold for numpy arrays, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
+<h2 id="aliasing-vs-copying-arrays">Aliasing vs. copying arrays</h2>
+
+<p>If you recall from <a href="../../values-variables-types/variables-in-python/index.html#aliasing-vs-copying" target="_blank">the previous notes</a>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">63</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -607,8 +668,8 @@ However, for serious programming, I do not recommend you to use this numpy funct
 <span class="n">In</span> <span class="p">[</span><span class="mi">67</span><span class="p">]:</span> <span class="n">b</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">67</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-otherwise a simple equality assignment like <code class="highlighter-rouge">b = a</code> will only create an alias for numpy array <code class="highlighter-rouge">a</code>.</p>
+
+<p>otherwise a simple equality assignment like <code class="highlighter-rouge">b = a</code> will only create an alias for numpy array <code class="highlighter-rouge">a</code>.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">68</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">69</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
@@ -618,13 +679,14 @@ otherwise a simple equality assignment like <code class="highlighter-rouge">b = 
 <span class="n">In</span> <span class="p">[</span><span class="mi">71</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">71</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br /></p>
 
-<h4 id="in-place-arithmetic-in-python">In-place arithmetic in Python</h4>
-<p>Consider two arrays <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> of the same shape. The expression <code class="highlighter-rouge">a += b</code> means <code class="highlighter-rouge">a = a + b</code>. There are however hidden differences between the two. In the statement <code class="highlighter-rouge">a = a + b</code>, the sum <code class="highlighter-rouge">a + b</code> is first computed, yielding a new array, and then the name <code class="highlighter-rouge">a</code> is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement <code class="highlighter-rouge">a += b</code>, elements of <code class="highlighter-rouge">b</code> are added directly into the elements of <code class="highlighter-rouge">a</code> (in memory). There is no hidden intermediate array as in <code class="highlighter-rouge">a = a + b</code>. This implies that <strong><code class="highlighter-rouge">a += b</code> is more efficient than <code class="highlighter-rouge">a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators, perform <strong>in-place arithmetic</strong> in arrays.</p>
+<h2 id="in-place-arithmetic-in-python">In-place arithmetic in Python</h2>
 
-<h4 id="allocating-arrays-in-python">Allocating arrays in Python</h4>
-<p>We have already seen in the above that the <code class="highlighter-rouge">np.zeros</code> function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or has to match another existing array’s shape and type <code class="highlighter-rouge">b</code>. There are two ways of achieving this goal,</p>
+<p>Consider two arrays <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> of the same shape. The expression <code class="highlighter-rouge">a += b</code> means <code class="highlighter-rouge">a = a + b</code>. There are however hidden differences between the two. In the statement <code class="highlighter-rouge">a = a + b</code>, the sum <code class="highlighter-rouge">a + b</code> is first computed, yielding a new array, and then the name <code class="highlighter-rouge">a</code> is bound to this new array. The old array is lost unless there are other names assigned to this array. In the statement <code class="highlighter-rouge">a += b</code>, elements of <code class="highlighter-rouge">b</code> are added directly into the elements of <code class="highlighter-rouge">a</code> (in memory). There is no hidden intermediate array as in <code class="highlighter-rouge">a = a + b</code>. This implies that <strong><code class="highlighter-rouge">a += b</code> is more efficient than <code class="highlighter-rouge">a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators perform <strong>in-place arithmetic</strong> in arrays.</p>
+
+<h2 id="allocating-arrays-in-python">Allocating arrays in Python</h2>
+
+<p>We have already seen in the above that the <code class="highlighter-rouge">np.zeros</code> function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or have to match another existing array’s shape and type <code class="highlighter-rouge">b</code>. There are two ways of achieving this goal,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">66</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">66</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 
@@ -649,20 +711,21 @@ otherwise a simple equality assignment like <code class="highlighter-rouge">b = 
 <span class="n">a</span><span class="o">.</span><span class="n">argmin</span>       <span class="n">a</span><span class="o">.</span><span class="n">choose</span>       <span class="n">a</span><span class="o">.</span><span class="n">ctypes</span>       <span class="n">a</span><span class="o">.</span><span class="n">dtype</span>        <span class="n">a</span><span class="o">.</span><span class="n">flatten</span>      <span class="n">a</span><span class="o">.</span><span class="nb">max</span>          <span class="n">a</span><span class="o">.</span><span class="n">nonzero</span>      <span class="n">a</span><span class="o">.</span><span class="n">real</span>         <span class="n">a</span><span class="o">.</span><span class="n">setfield</span>     <span class="n">a</span><span class="o">.</span><span class="n">std</span>          <span class="n">a</span><span class="o">.</span><span class="n">tofile</span>       <span class="n">a</span><span class="o">.</span><span class="n">view</span>
 <span class="n">a</span><span class="o">.</span><span class="n">argpartition</span> <span class="n">a</span><span class="o">.</span><span class="n">clip</span>         <span class="n">a</span><span class="o">.</span><span class="n">cumprod</span>      <span class="n">a</span><span class="o">.</span><span class="n">dump</span>         <span class="n">a</span><span class="o">.</span><span class="n">getfield</span>     <span class="n">a</span><span class="o">.</span><span class="n">mean</span>         <span class="n">a</span><span class="o">.</span><span class="n">partition</span>    <span class="n">a</span><span class="o">.</span><span class="n">repeat</span>       <span class="n">a</span><span class="o">.</span><span class="n">setflags</span>     <span class="n">a</span><span class="o">.</span><span class="n">strides</span>      <span class="n">a</span><span class="o">.</span><span class="n">tolist</span>
 </code></pre></div></div>
-<p><br />
-Notice how the attribute <code class="highlighter-rouge">a.dtype</code> (dtype standing for data type), and <code class="highlighter-rouge">x.shape</code> (a tuple) were used in the above example. The shape attribute in array objects holds the shape, i.e., the size of each dimension. The method <code class="highlighter-rouge">size</code> returns the total number of elements in the array.</p>
+
+<p>Notice how the attribute <code class="highlighter-rouge">a.dtype</code> (dtype standing for data type), and <code class="highlighter-rouge">x.shape</code> (a tuple) were used in the above example. The shape attribute in array objects holds the shape, i.e., the size of each dimension. The method <code class="highlighter-rouge">size</code> returns the total number of elements in the array.</p>
 
 <p>Sometimes one may also want to ensure that an object is an array, and if not, turn it into an array. The <code class="highlighter-rouge">np.asarray</code> function is useful in such cases,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-Note that one could have also use,</p>
+
+<p>Note that one could have also used,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-There is no difference in the output, but note that the second approach does one redundant step, because in the first approach, if the input object is already an array, then there is no need in converting it to an array.</p>
 
-<h4 id="multidimensional-numpy-arrays">Multidimensional NumPy arrays</h4>
+<p>There is no difference in the output, but note that the second approach does one redundant step, because in the first approach, if the input object is already an array, then there is no need in converting it to an array.</p>
+
+<h2 id="multidimensional-numpy-arrays">Multidimensional NumPy arrays</h2>
+
 <p>Creating multidimensional arrays is very much the same as vectors in numpy. The only thing to keep in mind is that the shape of the array is given as a tuple to <code class="highlighter-rouge">np.array()</code>. For example, to initialize a 3D array of size (0:3,0:5,0:2), you would do,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">86</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
@@ -686,8 +749,8 @@ There is no difference in the output, but note that the second approach does one
         <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
         <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]]])</span>
 </code></pre></div></div>
-<p><br />
-The arrays created so far have been of type <code class="highlighter-rouge">ndarray</code>. NumPy also has a matrix type called <code class="highlighter-rouge">matrix</code> or <code class="highlighter-rouge">mat</code> for one- and two-dimensional arrays. One-dimensional arrays are then extended with one extra dimension such that they become matrices, i.e., either a row vector or a column vector,</p>
+
+<p>The arrays created so far have been of type <code class="highlighter-rouge">ndarray</code>. NumPy also has a matrix type called <code class="highlighter-rouge">matrix</code> or <code class="highlighter-rouge">mat</code> for one- and two-dimensional arrays. One-dimensional arrays are then extended with one extra dimension such that they become matrices, i.e., either a row vector or a column vector,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">99</span><span class="p">]:</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">100</span><span class="p">]:</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="c"># or np.mat(x1)</span>
@@ -703,8 +766,8 @@ The arrays created so far have been of type <code class="highlighter-rouge">ndar
 <span class="n">In</span> <span class="p">[</span><span class="mi">104</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">104</span><span class="p">]:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrixlib</span><span class="o">.</span><span class="n">defmatrix</span><span class="o">.</span><span class="n">matrix</span>
 </code></pre></div></div>
-<p><br />
-A special feature of matrix objects in NumPy is that the multiplication operator represents the matrix-matrix, vector-matrix, or matrix-vector product as we know from linear algebra. However, keep in mind that <strong>the multiplication operator between standard ndarray objects is different from multiplication between numpy matrices</strong>. The <code class="highlighter-rouge">ndarray</code> multiplication is simply a vectorized version of scalar multiplication,</p>
+
+<p>A special feature of matrix objects in NumPy is that the multiplication operator represents the matrix-matrix, vector-matrix, or matrix-vector product as we know from linear algebra. However, keep in mind that <strong>the multiplication operator between standard ndarray objects is different from multiplication between numpy matrices</strong>. The <code class="highlighter-rouge">ndarray</code> multiplication is simply a vectorized version of scalar multiplication,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">105</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">106</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
@@ -712,8 +775,8 @@ A special feature of matrix objects in NumPy is that the multiplication operator
 <span class="n">In</span> <span class="p">[</span><span class="mi">107</span><span class="p">]:</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">107</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 </code></pre></div></div>
-<p><br />
-whereas, the matrix multiplication would yield,</p>
+
+<p>whereas, the matrix multiplication would yield,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">108</span><span class="p">]:</span> <span class="n">aMat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">109</span><span class="p">]:</span> <span class="n">bMat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -727,11 +790,12 @@ whereas, the matrix multiplication would yield,</p>
         <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
 </code></pre></div></div>
-<p><br />
-If you intend to use Python and MATLAB together for your projects, then I recommend you to consider programming with matrices in Python instead of <code class="highlighter-rouge">ndarray</code> objects, because the matrix type in Python behaves quite similar to matrices in MATLAB.
+
+<p>If you intend to use Python and MATLAB together for your projects, then I recommend you to consider programming with matrices in Python instead of <code class="highlighter-rouge">ndarray</code> objects, because the matrix type in Python behaves quite similar to matrices in MATLAB.
 Numpy has a lot more to offer for linear algebra operation, that far beyond the scope of this lecture. More information about algebraic operations in NumPy can be found <a href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html" target="_blank">here</a>.</p>
 
-<h4 id="symbolic-linear-algebra">Symbolic linear algebra</h4>
+<h2 id="symbolic-linear-algebra">Symbolic linear algebra</h2>
+
 <p>There also a package <a href="http://www.sympy.org/en/index.html" target="_blank">SymPy</a> that supports symbolic computations for linear algebra operations as well,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">116</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="n">sym</span>
 
@@ -763,136 +827,27 @@ Numpy has a lot more to offer for linear algebra operation, that far beyond the 
    <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
    <span class="p">[</span><span class="mi">1</span><span class="p">]])])]</span>
 </code></pre></div></div>
-<p><br />
-A tutorial on <code class="highlighter-rouge">sympy</code> can be found <a href="http://docs.sympy.org/dev/tutorial/matrices.html" target="_blank">here</a>.</p>
 
-<h2 id="curve-plotting-in-python">Curve plotting in Python</h2>
-<p>The workhorse of plotting in Python is <a href="https://matplotlib.org/" target="_blank">Matplotlib</a> which is a Python 2D plotting library capable of producing publication quality figures. The usage of matplotlib is very similar to MATLAB.</p>
+<p>A tutorial on <code class="highlighter-rouge">sympy</code> can be found <a href="http://docs.sympy.org/dev/tutorial/matrices.html" target="_blank">here</a>.</p>
 
-<h3 id="matplotlib-the-workhorse-of-plotting-in-python">Matplotlib, the workhorse of plotting in Python</h3>
-<p>To see how plotting with Matplotlib works, let’s start with a simple example of 2D curve plotting,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span> <span class="c"># 51 points between 0 and 3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c"># allocate y with float elements</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
-<p><br />
-If you try the above code in IPython, the out on screen would be something like the following,</p>
-<figure>
-	<img src="https://www.cdslab.org/lecture/9/simple_curve_screen.png" width="900" />
-</figure>
-<p>You can also save the figure output as a file by,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x1bff2e479e8</span><span class="o">&gt;</span><span class="p">]</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'simple_curve.pdf'</span><span class="p">)</span> <span class="c"># produces PDF file.</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'simple_curve.png'</span><span class="p">)</span> <span class="c"># produces PNG file.</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">pwd</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="s">'C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Amir'</span>  <span class="c"># files are saved here</span>
-</code></pre></div></div>
-<p><br />
-Just like MATLAB, the figures could be also decorated with axis labels, plot title, legend and a lot more, in a syntax very much like MATLAB,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x^2*exp(-x^2)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'A simple Matplotlib decorated plot'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'simple_curve_decorated.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
-<p><br />
-which outputs <a href="https://www.cdslab.org/lecture/9/simple_curve_decorated.png" target="_blank">this file</a> in your current directory,</p>
-
-<figure>
-	<img src="https://www.cdslab.org/lecture/9/simple_curve_decorated.png" width="900" />
-</figure>
-
-<h4 id="plotting-multiple-curves-in-one-figure">Plotting multiple curves in one figure</h4>
-<p>Again, similar to MATLAB, this can be achieved by the statement <code class="highlighter-rouge">hold('on')</code> like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span> <span class="c"># 51 points between 0 and 3</span>
-<span class="n">yf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c"># allocate y with float elements</span>
-<span class="n">yg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c"># allocate y with float elements</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="n">yf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">yg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yf</span><span class="p">,</span> <span class="s">'r-'</span><span class="p">)</span>   <span class="c"># plot with color red, as line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hold</span><span class="p">(</span><span class="s">'on'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="s">'bo'</span><span class="p">)</span>   <span class="c"># # plot with color blue, as points</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x^2*exp(-x^2)'</span> <span class="p">,</span> <span class="s">'x*exp(-x)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'multiple Matplotlib curves in a decorated plot'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'multiple_curves_decorated.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
-<p><br />
-The output of the code is a PNG figure <a href="https://www.cdslab.org/lecture/9/multiple_curves_decorated.png" target="_blank">available here</a>.</p>
-
-<figure>
-	<img src="https://www.cdslab.org/lecture/9/multiple_curves_decorated.png" width="900" />
-</figure>
-
-<p>If you need to discontinue multiple plots on the same figure, again, as in MATLAB, you use <code class="highlighter-rouge">hold('off')</code>.</p>
-
-<h4 id="subplots-in-matplotlib">Subplots in Matplotlib</h4>
-<p>Suppose you wanted to generate the same curves as in the above example, but each in a different plot, but in the same figure. One way to do this would be like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>            <span class="c"># generates a new figure as in MATLAB</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># create a 2-row, 1-column subplot, and this is the 1st subplot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yf</span><span class="p">,</span> <span class="s">'r-'</span><span class="p">)</span>   <span class="c"># plot with color red, as line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c"># this is the 2nd subplot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="s">'bo'</span><span class="p">)</span>   <span class="c"># plot with color blue, as points</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x*exp(-x)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'an example Matplotlib subplot'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'two_by_one_subplot.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
-<p><br />
-The output of the code is a PNG figure <a href="https://www.cdslab.org/lecture/9/two_by_one_subplot.png" target="_blank">available here</a>.</p>
-
-<figure>
-	<img src="https://www.cdslab.org/lecture/9/two_by_one_subplot.png" width="900" />
-</figure>
-
-<p>Note that since the decorations appeared only for the second subplot, only the second one in the figure above is decorated with plot title, legend, etc. Also, note that the <code class="highlighter-rouge">figure()</code> method creates a new plot window on the screen.</p>
-
-<h3 id="other-plotting-packages">Other plotting packages</h3>
-<p>For more complicated 2D/3D or vector field plotting, you may find Matplotlib inadequate. To address these inadequacies, other packages have been developed which provide interface to more advanced plotting software such as, MATLAB, Gnuplot, Grace, OpenDX, VTK, and others.</p>
-
-<h4 id="easyviz-from-scitools">Easyviz from SciTools</h4>
-<p>Because each of the above mentioned visualization software has its own plotting syntax, a Python module <code class="highlighter-rouge">easyviz</code> has been developed which provides a universal interface for any of the above mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using <code class="highlighter-rouge">eazyvis</code>. Just like Matplotlib, the syntax of <code class="highlighter-rouge">eazyvis</code> has been also purposefully made very similar to MATLAB.</p>
-
-<p>The Easyviz module is part of the <a href="https://github.com/hplgit/scitools" target="_blank">SciTools package</a>, which consists of a set of Python tools building on Numerical Python, ScientificPython, the comprehensive SciPy environment, and other packages for scientific computing with Python. However, keep in mind that <strong>SciTools strictly requires <a href="http://python.org" target="_blank">Python v2.7</a> and <a href="http://numpy.org" target="_blank">Numerical Python</a></strong>.</p>
-
-<h4 id="mayavi-visualization-package">Mayavi visualization package</h4>
-<p><a href="http://docs.enthought.com/mayavi/mayavi/" target="_blank">Mayavi</a> is another advanced, free, scientific data visualizer for Python, with emphasis on <strong>three-dimensional visualization techniques</strong>. The package is written in Python, and uses the <a href="http://www.vtk.org/" target="_blank">Visualization Toolkit (VTK)</a> in C++ for rendering graphics. Since VTK can be configured with different backends, so can Mayavi. Mayavi is cross
-platform and runs on most platforms like Mac OS X, Windows, and Linux.</p>
-
-<p><br /><br /></p>
-
+    <div class="tags">
+        
+            <b>Tags: </b>
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
     </div>
-
-
-
-</article>
-
-
+    
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -910,19 +865,64 @@ platform and runs on most platforms like Mac OS X, Windows, and Linux.</p>
 
 
 
-
+</div>
 <hr class="shaded"/>
-
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 14, 2019 <br />
+         Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 </footer>
 
 

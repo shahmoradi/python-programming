@@ -845,7 +845,7 @@ ol li ul li {list-style-type: disc;}
 
 ol li ol li {list-style-type: lower-alpha;}
 
-li {text-align:left; }
+li {text-align:left;}
 
 div#toc ol li {
     list-style-type: none;
@@ -1114,6 +1114,13 @@ span.soft {
 @media (min-width: 990px) {
     #mysidebar {
         position: fixed;
+        overflow-y: scroll;
+        bottom: 0;
+        top: 50px;
+    }
+    ul#mysidebar {
+        position: fixed;
+        width: 225px;
         overflow-y: scroll;
         bottom: 0;
         top: 50px;
@@ -1477,3 +1484,8 @@ h4.panel-title {
     }
 }
 
+/* add margin to the code boxes */
+.highlight {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}

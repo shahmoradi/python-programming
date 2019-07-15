@@ -221,7 +221,7 @@
         
             
                 <li>
-                    <a title="Overview" href="#">Overview</a>
+                    <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
                         
                                 
@@ -244,7 +244,7 @@
         
             
                 <li>
-                    <a title="Preliminary foundations" href="#">Preliminary foundations</a>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
                     <ul>
                         
                                 
@@ -281,7 +281,7 @@
         
             
                 <li>
-                    <a title="Values, variables, and types" href="#">Values, variables, and types</a>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
                     <ul>
                         
                                 
@@ -311,7 +311,7 @@
         
             
                 <li>
-                    <a title="Control constructs" href="#">Control constructs</a>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
                     <ul>
                         
                                 
@@ -334,7 +334,7 @@
         
             
                 <li>
-                    <a title="Program units" href="#">Program units</a>
+                    <a title="Program units" href="#"><b>Program units</b></a>
                     <ul>
                         
                                 
@@ -357,7 +357,7 @@
         
             
                 <li>
-                    <a title="Data transfer (I/O)" href="#">Data transfer (I/O)</a>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
                     <ul>
                         
                                 
@@ -370,6 +370,52 @@
                                 
                                     
                                         <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -577,7 +623,6 @@ is located at the height 1.23 m.
  <span class="s">'with'</span><span class="p">,</span>
  <span class="s">'yield'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <p>Note that all keywords except <code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">False</code> and <code class="highlighter-rouge">None</code> are in lowercase and they must be written as lowercase. To understand the meaning and function of each of these keywords, see <a href="https://www.programiz.com/python-programming/keyword-list" target="_blank">this page</a>.</p>
 
@@ -589,8 +634,8 @@ is located at the height 1.23 m.
 The convention in Python programming is to separate multiple words in Python variable names by underscore. For example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">an_example_long_variable_name</span> <span class="o">=</span> <span class="mi">123</span>
 </code></pre></div></div>
-<p><br />
-Of course, this is totally a convension. But I highly recommend you to follow the conventions that everyone else follows, so that you can understand other people’s codes and others can understand your code easily. 
+
+<p>Of course, this is totally a convension. But I highly recommend you to follow the conventions that everyone else follows, so that you can understand other people’s codes and others can understand your code easily. 
 <br /></p>
 
 <p><strong>2. Underscore meaning in Python interpreter</strong><br />
@@ -688,8 +733,8 @@ Such names are special method names used by Python. This is just a convention, t
 <span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span>   <span class="c"># 120.5 is not a whole number! (it would be True if a = 120.0)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="bp">False</span>
 </code></pre></div></div>
-<p><br />
-You can repeat the above for a complex number and see what you get.</p>
+
+<p>You can repeat the above for a complex number and see what you get.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span>
@@ -698,7 +743,6 @@ You can repeat the above for a complex number and see what you get.</p>
 <span class="n">In</span> <span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h3 id="string-variables">String variables</h3>
 <p>Just as with numbers, string is another variable/value type in Python with many handy features that come withit. For example, if you create a string variable or value, fllowed by <code class="highlighter-rouge">.</code> and then press <code class="highlighter-rouge">tab</code> you will see a long list of methods that can be applied on the string,</p>
@@ -719,7 +763,6 @@ You can repeat the above for a complex number and see what you get.</p>
 <span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">my_string</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="s">'THIS IS A sTRING'</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="strings-are-immutable">Strings are immutable</h4>
 <p>Although strings (both values and variables) can be indexed letter by letter, keep in mind that they cannot be changed (mutated) to something new. In other words, string are immutable.</p>
@@ -733,22 +776,21 @@ You can repeat the above for a complex number and see what you get.</p>
 
 <span class="nb">TypeError</span><span class="p">:</span> <span class="s">'str'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
 </code></pre></div></div>
-<p><br />
-The correct way of doing this would be through the indirect use of string methods or string slicing.</p>
+
+<p>The correct way of doing this would be through the indirect use of string methods or string slicing.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">my_string</span> <span class="o">=</span> <span class="n">my_string</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">my_string</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="c"># mutating my_string: add a space between first and last names.</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">my_string</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="s">'Amir  Shahmoradi'</span>
 </code></pre></div></div>
-<p><br />
-It is often very useful to know the length of a string. This can be done using <code class="highlighter-rouge">len()</code> function.</p>
+
+<p>It is often very useful to know the length of a string. This can be done using <code class="highlighter-rouge">len()</code> function.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">32</span><span class="p">]:</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">32</span><span class="p">]:</span> <span class="mi">16</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="mi">5</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="testing-if-a-string-is-part-of-another-string">Testing if a string is part of another string</h4>
 
@@ -765,8 +807,8 @@ It is often very useful to know the length of a string. This can be done using <
 <span class="n">Out</span><span class="p">[</span><span class="mi">51</span><span class="p">]:</span> <span class="bp">True</span>
 
 </code></pre></div></div>
-<p><br />
-To know more about string values and variables in general, visit <a href="https://docs.python.org/2/tutorial/introduction.html#strings" target="_blank">this page</a>.</p>
+
+<p>To know more about string values and variables in general, visit <a href="https://docs.python.org/2/tutorial/introduction.html#strings" target="_blank">this page</a>.</p>
 
 <h3 id="list-variables">List variables</h3>
 <p>List is another standard variable in type in Python and is composed of an ordered set of values (elements), each of which is identified by an index. Lists are defined by brackets <code class="highlighter-rouge">[]</code>.</p>
@@ -799,7 +841,6 @@ To know more about string values and variables in general, visit <a href="https:
 <span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="n">myList</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># Creat list in reverse order.</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">),</span> <span class="s">'Amir'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> <b>Lists vs. Strings</b><br />You may have already noticed that lists behave very similar to strings in Python. In fact, both List and String are examples of ordered sets in Python known as <b>sequence</b>. The only difference between list and python is that the elements of strings have to be all of type character, whereas lists do not have such restriction, as seen in the example above.</div>
 
@@ -848,7 +889,6 @@ To know more about string values and variables in general, visit <a href="https:
 <span class="n">In</span> <span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c"># but the third element in the list, is itself a list, so it does have a length</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="mi">2</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="operations-on-lists">Operations on lists</h4>
 <p>Two mathematics operations <code class="highlighter-rouge">+</code> and <code class="highlighter-rouge">*</code> are also meaningful for lists, just as it is for string sequences.</p>
@@ -865,8 +905,8 @@ To know more about string values and variables in general, visit <a href="https:
 <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="p">(</span><span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br />
-In addition, once a list is created, by default, a list of pre-defined operations (methods) are available to act on the list content. To access these methods, again use <code class="highlighter-rouge">.</code> notation, just as you did for strings before.</p>
+
+<p>In addition, once a list is created, by default, a list of pre-defined operations (methods) are available to act on the list content. To access these methods, again use <code class="highlighter-rouge">.</code> notation, just as you did for strings before.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">list1</span><span class="o">.</span>
 <span class="n">list1</span><span class="o">.</span><span class="n">append</span>  <span class="n">list1</span><span class="o">.</span><span class="n">clear</span>   <span class="n">list1</span><span class="o">.</span><span class="n">copy</span>    <span class="n">list1</span><span class="o">.</span><span class="n">count</span>   <span class="n">list1</span><span class="o">.</span><span class="n">extend</span>  <span class="n">list1</span><span class="o">.</span><span class="n">index</span>   <span class="n">list1</span><span class="o">.</span><span class="n">insert</span>  <span class="n">list1</span><span class="o">.</span><span class="n">pop</span>     <span class="n">list1</span><span class="o">.</span><span class="n">remove</span>  <span class="n">list1</span><span class="o">.</span><span class="n">reverse</span> <span class="n">list1</span><span class="o">.</span><span class="n">sort</span>
 
@@ -905,8 +945,8 @@ In addition, once a list is created, by default, a list of pre-defined operation
 <span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">list1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c"># This time counting 1, gives 4, since the list was extended by 3 more '1'.</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="mi">4</span>
 </code></pre></div></div>
-<p><br />
-<a href="https://linuxconfig.org/python-list-methods" target="_blank">Here</a> is a useful reference for available list methods in Python.</p>
+
+<p><a href="https://linuxconfig.org/python-list-methods" target="_blank">Here</a> is a useful reference for available list methods in Python.</p>
 
 <h4 id="lists-are-mutable-unlike-strings">Lists are mutable (unlike Strings)</h4>
 <p>Another major difference between list sequences and string sequences in Python is that the elements of lists can be changed (mutated) to something new.</p>
@@ -925,7 +965,6 @@ In addition, once a list is created, by default, a list of pre-defined operation
 <span class="n">In</span> <span class="p">[</span><span class="mi">31</span><span class="p">]:</span> <span class="n">people</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">31</span><span class="p">]:</span> <span class="p">[</span><span class="s">'Jake'</span><span class="p">,</span> <span class="s">'Travis'</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="deleting-list-elements">Deleting list elements</h4>
 <p>Deleting list elements can be done by either value of the element, or using its index, like the following,</p>
@@ -946,7 +985,6 @@ In addition, once a list is created, by default, a list of pre-defined operation
 <span class="n">In</span> <span class="p">[</span><span class="mi">144</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">144</span><span class="p">]:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="concatenating-a-list-of-strings">Concatenating a list of strings</h4>
 <p>If a list is all string values, you can use the following string method <code class="highlighter-rouge">.join()</code> to concatenate the content og the list.</p>
@@ -955,7 +993,6 @@ In addition, once a list is created, by default, a list of pre-defined operation
 <span class="n">In</span> <span class="p">[</span><span class="mi">156</span><span class="p">]:</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">156</span><span class="p">]:</span> <span class="s">'The weather is rainy today and cold only 22 F.'</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h3 id="tuple-variables">Tuple variables</h3>
 <p>Tuples are a type of Python variables very similar to list sequences, except that they are <strong>immutable</strong>, meaning that, once generated, they cannot be changed. Another difference is that, tuples use parentheses for definition, whereas lists use square brackets.</p>
@@ -979,14 +1016,13 @@ In addition, once a list is created, by default, a list of pre-defined operation
 <span class="n">In</span> <span class="p">[</span><span class="mi">40</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">single_element_tuple</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">40</span><span class="p">]:</span> <span class="nb">int</span>
 </code></pre></div></div>
-<p><br />
-Creating a tuple is as simple as putting different comma-separated values. Optionally you can put these comma-separated values between parentheses also.</p>
+
+<p>Creating a tuple is as simple as putting different comma-separated values. Optionally you can put these comma-separated values between parentheses also.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="n">tuple2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>   <span class="c"># another way of creating a tuple</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">47</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">tuple2</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">47</span><span class="p">]:</span> <span class="nb">tuple</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="modifying-the-content-of-tuples">Modifying the content of Tuples</h4>
 <p>Tuples are an example of data structure in Python, used for organizing and grouping data. Once a tuple is created, its content cannot be changed or manipulated anymore. However, its elements can be called just like lists.</p>
@@ -1016,8 +1052,8 @@ Creating a tuple is as simple as putting different comma-separated values. Optio
 
 <span class="nb">ValueError</span><span class="p">:</span> <span class="nb">tuple</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">tuple</span>
 </code></pre></div></div>
-<p><br />
-Moreover, although the content of tuple cannot be changed, there is nothing to prevent the programmer from redefining the tuple with new content,</p>
+
+<p>Moreover, although the content of tuple cannot be changed, there is nothing to prevent the programmer from redefining the tuple with new content,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">106</span><span class="p">]:</span> <span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'amir'</span><span class="p">,</span> <span class="s">'Jake'</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">107</span><span class="p">]:</span> <span class="n">tuple1</span>
@@ -1028,8 +1064,8 @@ Moreover, although the content of tuple cannot be changed, there is nothing to p
 <span class="n">In</span> <span class="p">[</span><span class="mi">109</span><span class="p">]:</span> <span class="n">tuple1</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">109</span><span class="p">]:</span> <span class="p">(</span><span class="s">'Travis'</span><span class="p">,</span> <span class="s">'Caleb'</span><span class="p">,</span> <span class="s">'Lucero'</span><span class="p">,</span> <span class="s">'Jake'</span><span class="p">)</span>
 </code></pre></div></div>
-<p><br />
-But pay attention that the above, all the terms in the assigment must be a tuple, otherwise you will get an error like the following (e.g., a single member of a tuple, is not a tuple by itself),</p>
+
+<p>But pay attention that the above, all the terms in the assigment must be a tuple, otherwise you will get an error like the following (e.g., a single member of a tuple, is not a tuple by itself),</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">110</span><span class="p">]:</span> <span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'amir'</span><span class="p">,</span> <span class="s">'Jake'</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">111</span><span class="p">]:</span> <span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Travis'</span><span class="p">,</span><span class="s">'Caleb'</span><span class="p">,</span><span class="s">'Lucero'</span><span class="p">)</span> <span class="o">+</span> <span class="n">tuple1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># Note that tuple1[-1] is a string, and not a tuple!</span>
@@ -1046,8 +1082,8 @@ But pay attention that the above, all the terms in the assigment must be a tuple
 <span class="n">In</span> <span class="p">[</span><span class="mi">113</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">tuple1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:])</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">113</span><span class="p">]:</span> <span class="nb">tuple</span>
 </code></pre></div></div>
-<p><br />
-Note also the difference between <code class="highlighter-rouge">+</code> operations in the above tuple redefinition, and <code class="highlighter-rouge">,</code> operations below,</p>
+
+<p>Note also the difference between <code class="highlighter-rouge">+</code> operations in the above tuple redefinition, and <code class="highlighter-rouge">,</code> operations below,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">126</span><span class="p">]:</span> <span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'amir'</span><span class="p">,</span> <span class="s">'Jake'</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">127</span><span class="p">]:</span> <span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Travis'</span><span class="p">,</span><span class="s">'Caleb'</span><span class="p">,</span><span class="s">'Lucero'</span><span class="p">)</span> <span class="o">+</span> <span class="n">tuple1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
@@ -1062,8 +1098,8 @@ Note also the difference between <code class="highlighter-rouge">+</code> operat
 <span class="n">In</span> <span class="p">[</span><span class="mi">131</span><span class="p">]:</span> <span class="n">tuple1</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">131</span><span class="p">]:</span> <span class="p">((</span><span class="s">'Travis'</span><span class="p">,</span> <span class="s">'Caleb'</span><span class="p">,</span> <span class="s">'Lucero'</span><span class="p">),</span> <span class="p">(</span><span class="s">'Jake'</span><span class="p">,))</span>
 </code></pre></div></div>
-<p><br />
-Tuples can be <strong>heterogeneous</strong>, as in the above example, meaning that each member of tuple can be a tuple itself, a list, or any other variable type.</p>
+
+<p>Tuples can be <strong>heterogeneous</strong>, as in the above example, meaning that each member of tuple can be a tuple itself, a list, or any other variable type.</p>
 
 <h3 id="dictionary-variables">Dictionary variables</h3>
 <p>The past three data types discussed in the previous secitons — strings, lists, and tuples — are of type <strong>sequence</strong>. For sequences, we have seen above that we use integers as indices to access the values these variables contain. Dictionaries are yet another built-in variable type in Python. A dictionary variable is a sequence of pairs of {key: value}. Instead of using numbers to index elements (as in list, string, tuple), dictionaries use keys in order to retrieve the key’s value.  The keys can be any immutable type (string, number and tuple). Values can be any type (heterogeneous, mutable), just like the elements of a list or tuple. Dictionaries are also called <strong>associative arrays</strong> since they associate a key with a value. One way to create a dictionary is to start with the empty dictionary and add <code class="highlighter-rouge">key:value</code> pairs.</p>
@@ -1083,8 +1119,8 @@ Tuples can be <strong>heterogeneous</strong>, as in the above example, meaning t
 <span class="n">In</span> <span class="p">[</span><span class="mi">166</span><span class="p">]:</span> <span class="n">age</span><span class="p">[</span><span class="s">'Lucero'</span><span class="p">]</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">166</span><span class="p">]:</span> <span class="mi">19</span>
 </code></pre></div></div>
-<p><br />
-Some important features of dictionaries are the following:</p>
+
+<p>Some important features of dictionaries are the following:</p>
 <ul>
   <li>A dictionary is a collection of key-value pairs.</li>
   <li>A dictionary is a set of key:value pairs.</li>
@@ -1113,8 +1149,8 @@ Some important features of dictionaries are the following:</p>
 <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">dic</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="p">{</span><span class="s">'Jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'Travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'amir'</span><span class="p">:</span> <span class="s">'teacher'</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br />
-<strong>2.</strong> Create a dictionary from a list if tuples, using Python’s built-in function <code class="highlighter-rouge">dict()</code>. The input argument of <code class="highlighter-rouge">dict()</code> is <strong>a list of tuples</strong>,</p>
+
+<p><strong>2.</strong> Create a dictionary from a list if tuples, using Python’s built-in function <code class="highlighter-rouge">dict()</code>. The input argument of <code class="highlighter-rouge">dict()</code> is <strong>a list of tuples</strong>,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">month</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="p">[</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">,</span> <span class="s">'Jan'</span><span class="p">)</span> \
    <span class="o">...</span><span class="p">:</span>               <span class="p">,</span> <span class="p">(</span> <span class="mi">2</span> <span class="p">,</span> <span class="s">'Feb'</span><span class="p">)</span> \
    <span class="o">...</span><span class="p">:</span>               <span class="p">,</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="s">'Mar'</span><span class="p">)</span> \
@@ -1146,8 +1182,8 @@ Some important features of dictionaries are the following:</p>
 <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">month</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="s">'May'</span>
 </code></pre></div></div>
-<p><br />
-But, be careful to not override the Python’s function <code class="highlighter-rouge">dict()</code> by your user-defined variable or function of the same name, otherwise you will get an error like the following,</p>
+
+<p>But, be careful to not override the Python’s function <code class="highlighter-rouge">dict()</code> by your user-defined variable or function of the same name, otherwise you will get an error like the following,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">new_dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'teacher'</span><span class="p">)])</span>   <span class="c"># This will give error because dict is not pointing to the built-in function dict() anymore! It was overridden by the above assignment.</span>
@@ -1158,8 +1194,8 @@ But, be careful to not override the Python’s function <code class="highlighter
 
 <span class="nb">TypeError</span><span class="p">:</span> <span class="s">'int'</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">callable</span>
 </code></pre></div></div>
-<p><br />
-<strong>3.</strong> Create a dictionary from two lists in parallel. Let’s say the keys and values of our desired dictionary, each are in the form of a list. The question is now, if there is an easy Pythonic way to combine these two lists of keys and values to get a dictionary? The answer is yes, and it is achieved by a Python function named <a href="https://docs.python.org/2/library/functions.html#zip" target="_blank"><code class="highlighter-rouge">zip()</code></a>.</p>
+
+<p><strong>3.</strong> Create a dictionary from two lists in parallel. Let’s say the keys and values of our desired dictionary, each are in the form of a list. The question is now, if there is an easy Pythonic way to combine these two lists of keys and values to get a dictionary? The answer is yes, and it is achieved by a Python function named <a href="https://docs.python.org/2/library/functions.html#zip" target="_blank"><code class="highlighter-rouge">zip()</code></a>.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">person</span> <span class="o">=</span> <span class="p">[</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'jake'</span><span class="p">,</span><span class="s">'travis'</span><span class="p">]</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">role</span> <span class="o">=</span> <span class="p">[</span><span class="s">'teacher'</span><span class="p">,</span><span class="s">'student'</span><span class="p">,</span><span class="s">'student'</span><span class="p">]</span>
@@ -1172,7 +1208,6 @@ But, be careful to not override the Python’s function <code class="highlighter
 <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">person_role_dict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="p">{</span><span class="s">'amir'</span><span class="p">:</span> <span class="s">'teacher'</span><span class="p">,</span> <span class="s">'jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="manipulating-dictionary-variables">Manipulating dictionary variables</h4>
 <p><strong>1. Removing a dictionary key-value pair</strong><br />
@@ -1185,8 +1220,8 @@ This can be done using Python’s <code class="highlighter-rouge">del</code> com
 <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">person_role_dict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="p">{</span><span class="s">'jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br />
-<strong>2. Adding a dictionary key</strong></p>
+
+<p><strong>2. Adding a dictionary key</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">person_role_dict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="p">{</span><span class="s">'jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">}</span>
 
@@ -1195,20 +1230,20 @@ This can be done using Python’s <code class="highlighter-rouge">del</code> com
 <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">person_role_dict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="p">{</span><span class="s">'amir'</span><span class="p">:</span> <span class="s">'teacher'</span><span class="p">,</span> <span class="s">'jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br />
-<strong>2. Changing the value of a key</strong></p>
+
+<p><strong>2. Changing the value of a key</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">person_role_dict</span><span class="p">[</span><span class="s">'amir'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'instructor'</span> <span class="c"># changing the value of the key 'amir'</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">person_role_dict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="p">{</span><span class="s">'amir'</span><span class="p">:</span> <span class="s">'instructor'</span><span class="p">,</span> <span class="s">'jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br />
-<strong>3. Getting the length of dictionary (number of key-value pairs)</strong></p>
+
+<p><strong>3. Getting the length of dictionary (number of key-value pairs)</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="nb">len</span><span class="p">(</span><span class="n">person_role_dict</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="mi">3</span>
 </code></pre></div></div>
-<p><br />
-<strong>4. Using dictionary methods</strong><br />
+
+<p><strong>4. Using dictionary methods</strong><br />
 Just as with other Python variable types, typing the name of a dictionary that is already defined, followed by <code class="highlighter-rouge">.</code> followed by pressing the <code class="highlighter-rouge">tab</code> key (in a good Python editor) will show you the list of methods that can act on the dictionary.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="n">person_role_dict</span><span class="o">.</span>
                            <span class="n">person_role_dict</span><span class="o">.</span><span class="n">clear</span>      <span class="n">person_role_dict</span><span class="o">.</span><span class="n">get</span>        <span class="n">person_role_dict</span><span class="o">.</span><span class="n">pop</span>        <span class="n">person_role_dict</span><span class="o">.</span><span class="n">update</span>
@@ -1239,7 +1274,6 @@ Just as with other Python variable types, typing the name of a dictionary that i
 <span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">person_role_dict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="p">{</span><span class="s">'jake'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span> <span class="s">'travis'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h4 id="dictionary-representation-of-sparse-matrices">Dictionary representation of sparse matrices</h4>
 <p>We already discussed in the above, the usefulness of nested lists in creating matrices. Now suppose we have a sparse matrix, whose most elements are zero, except a few non-zero elements. An alternative to using nested lists, which can also take less memory of the device, is to use a dictionary representation of the sparse matrix.</p>
@@ -1258,7 +1292,6 @@ Just as with other Python variable types, typing the name of a dictionary that i
 <span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">sparseMatrixDict</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">8</span><span class="p">}</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h3 id="set-variables">Set variables</h3>
 <p>Besides all the aforementioned variable types in Python, there is another Python variable type that is useful for constructing and manipulating <strong>unordered collection of unique elements</strong>. Common uses of sets include <strong>membership testing</strong>, <strong>removing duplicates from a sequence</strong>, and <strong>computing standard math operations on sets</strong> such as intersection, union, difference, and symmetric difference.</p>
@@ -1286,15 +1319,15 @@ Just as with other Python variable types, typing the name of a dictionary that i
 
 <span class="nb">TypeError</span><span class="p">:</span> <span class="n">unhashable</span> <span class="nb">type</span><span class="p">:</span> <span class="s">'list'</span>
 </code></pre></div></div>
-<p><br />
-Sets can be also simply created by <code class="highlighter-rouge">{}</code>.</p>
+
+<p>Sets can be also simply created by <code class="highlighter-rouge">{}</code>.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">71</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">72</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">72</span><span class="p">]:</span> <span class="nb">set</span>
 </code></pre></div></div>
-<p><br />
-The <strong>frozenset type</strong> is <strong>immutable</strong> and <strong>hashable</strong> (i.e., its contents cannot be altered after it is created). It can therefore be used as a dictionary key or as an element of another set.</p>
+
+<p>The <strong>frozenset type</strong> is <strong>immutable</strong> and <strong>hashable</strong> (i.e., its contents cannot be altered after it is created). It can therefore be used as a dictionary key or as an element of another set.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">69</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="s">'amir'</span> <span class="p">]</span> <span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">70</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span>
@@ -1304,8 +1337,8 @@ The <strong>frozenset type</strong> is <strong>immutable</strong> and <strong>ha
 <span class="n">In</span> <span class="p">[</span><span class="mi">70</span><span class="p">]:</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">70</span><span class="p">]:</span> <span class="nb">frozenset</span>
 </code></pre></div></div>
-<p><br />
-<strong>Note</strong> that mutable types can neither appear in a set nor a frozenset. You can obtain more information about sets and frozensets and the methods that can act on them in the <a href="https://docs.python.org/2.4/lib/types-set.html" target="_blank">Python library reference</a>.
+
+<p><strong>Note</strong> that mutable types can neither appear in a set nor a frozenset. You can obtain more information about sets and frozensets and the methods that can act on them in the <a href="https://docs.python.org/2.4/lib/types-set.html" target="_blank">Python library reference</a>.
 <br /></p>
 
 <h2 id="assignment-statements-in-python">Assignment statements in Python</h2>
@@ -1323,7 +1356,6 @@ The <strong>frozenset type</strong> is <strong>immutable</strong> and <strong>ha
 <span class="n">In</span> <span class="p">[</span><span class="mi">53</span><span class="p">]:</span> <span class="n">a</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">53</span><span class="p">]:</span> <span class="mi">2</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h3 id="aliasing-vs-copying">Aliasing vs. copying</h3>
 <p>It is very important to understand the difference between <strong>alias</strong> assignment statements and <strong>copy</strong> assignment statements. As far as assignments are concerned, all data types in Python can be divided into two categories:</p>
@@ -1346,7 +1378,6 @@ The <strong>frozenset type</strong> is <strong>immutable</strong> and <strong>ha
 <span class="n">In</span> <span class="p">[</span><span class="mi">84</span><span class="p">]:</span> <span class="n">y</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">84</span><span class="p">]:</span> <span class="mi">1</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <p>For <strong>container data types</strong>, an assignment in the form of copy can be computationally and memory-wise very expensive, and so it makes sense, when an assignment involves container types as values, then the new name would only <strong>point</strong> to the original container. In other words, the new assignment provides an <strong>alias</strong> for the container value.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">85</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
@@ -1375,8 +1406,8 @@ The <strong>frozenset type</strong> is <strong>immutable</strong> and <strong>ha
 <span class="n">In</span> <span class="p">[</span><span class="mi">94</span><span class="p">]:</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>     <span class="c"># Despite not being identical, a and b still have the same value.</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">94</span><span class="p">]:</span> <span class="bp">True</span>
 </code></pre></div></div>
-<p><br />
-If you want to get a copy of a container object, instead of an alias for it, you should use the <code class="highlighter-rouge">copy</code> method of the container object.</p>
+
+<p>If you want to get a copy of a container object, instead of an alias for it, you should use the <code class="highlighter-rouge">copy</code> method of the container object.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">97</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">98</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>   <span class="c"># Copy the content of a into b</span>
@@ -1387,7 +1418,7 @@ If you want to get a copy of a container object, instead of an alias for it, you
 <span class="n">In</span> <span class="p">[</span><span class="mi">100</span><span class="p">]:</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">100</span><span class="p">]:</span> <span class="bp">True</span>
 </code></pre></div></div>
-<p><br /></p>
+
 <div class="bs-callout bs-callout-danger"><b>Conclusion:</b><br /> So, keep in mind that, assignments in which the value to be assigned is a container type (e.g., list, dict, set) will result in an alias, and not a fresh copy of the original value.</div>
 
 <h3 id="multiple-simultaneous-assignments-in-one-line">Multiple simultaneous assignments in one line</h3>
@@ -1403,15 +1434,15 @@ If you want to get a copy of a container object, instead of an alias for it, you
 <span class="n">In</span> <span class="p">[</span><span class="mi">104</span><span class="p">]:</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">104</span><span class="p">]:</span> <span class="bp">True</span>
 </code></pre></div></div>
-<p><br />
-Here, an integer object is created with the value 1, and all three variables are assigned to the same memory location. This is also true for container variable types.</p>
+
+<p>Here, an integer object is created with the value 1, and all three variables are assigned to the same memory location. This is also true for container variable types.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">105</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">106</span><span class="p">]:</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="ow">is</span> <span class="n">c</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">106</span><span class="p">]:</span> <span class="bp">True</span>
 </code></pre></div></div>
-<p><br />
-You can also assign multiple objects to multiple variables all in the same asignment statement. But keep in mind that the number of assignments on both sides of equal sign must be equal.</p>
+
+<p>You can also assign multiple objects to multiple variables all in the same asignment statement. But keep in mind that the number of assignments on both sides of equal sign must be equal.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"amir"</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span>
@@ -1424,8 +1455,8 @@ You can also assign multiple objects to multiple variables all in the same asign
 <span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s">'amir'</span>
 <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
 </code></pre></div></div>
-<p><br />
-Here, two integer objects with values 1 and 2 are assigned to variables a and b respectively, and one string object with the value “amir” is assigned to the variable c. This form of assignment in the above is basically like setting the tuple <code class="highlighter-rouge">(a,b,c) = (1,2,"amir")</code>. This is why it is important that both sides of the equal sign have the same number of elements. Here are some other examples:</p>
+
+<p>Here, two integer objects with values 1 and 2 are assigned to variables a and b respectively, and one string object with the value “amir” is assigned to the variable c. This form of assignment in the above is basically like setting the tuple <code class="highlighter-rouge">(a,b,c) = (1,2,"amir")</code>. This is why it is important that both sides of the equal sign have the same number of elements. Here are some other examples:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
@@ -1464,7 +1495,6 @@ Here, two integer objects with values 1 and 2 are assigned to variables a and b 
 <span class="n">In</span> <span class="p">[</span><span class="mi">67</span><span class="p">]:</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">67</span><span class="p">]:</span> <span class="bp">True</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <h3 id="value-swapping">Value swapping</h3>
 <p>The traditional way of swapping values of two variables in mostprogramming languages is like the following,</p>
@@ -1484,8 +1514,8 @@ Here, two integer objects with values 1 and 2 are assigned to variables a and b 
 <span class="n">In</span> <span class="p">[</span><span class="mi">74</span><span class="p">]:</span> <span class="n">b</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">74</span><span class="p">]:</span> <span class="mi">5</span>
 </code></pre></div></div>
-<p><br />
-With either Python lists or tuples, this swapping can be achived neatly in just one line of code,</p>
+
+<p>With either Python lists or tuples, this swapping can be achived neatly in just one line of code,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">75</span><span class="p">]:</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">76</span><span class="p">]:</span> <span class="n">a</span>
@@ -1502,7 +1532,6 @@ With either Python lists or tuples, this swapping can be achived neatly in just 
 <span class="n">In</span> <span class="p">[</span><span class="mi">80</span><span class="p">]:</span> <span class="n">b</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">80</span><span class="p">]:</span> <span class="mi">5</span>
 </code></pre></div></div>
-<p><br /></p>
 
 <p><br /><br /></p>
 
@@ -1543,12 +1572,14 @@ With either Python lists or tuples, this swapping can be achived neatly in just 
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 14, 2019 <br />
+         Site last generated: Jul 15, 2019 <br />
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
+    <!--Mathjax LaTeX engine-->
+    
 </footer>
 
 
