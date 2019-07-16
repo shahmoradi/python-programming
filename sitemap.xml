@@ -32,6 +32,12 @@
   
   
   <url>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/encapsulation/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>https://www.cdslab.org/notes/exceptions-errors/exception-handling/index.html</loc>
   </url>
   
@@ -70,6 +76,18 @@
   
   
   <url>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/instantiation/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/interoperation/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>https://www.cdslab.org/notes/control-constructs/looping/index.html</loc>
   </url>
   
@@ -77,6 +95,12 @@
   
   <url>
     <loc>https://www.cdslab.org/notes/program-units/modules/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/monte-carlo/index.html</loc>
   </url>
   
   
@@ -103,6 +127,12 @@
   
   <url>
     <loc>https://www.cdslab.org/notes/preliminary-foundations/python-for-beginners/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/random-numbers/index.html</loc>
   </url>
   
   

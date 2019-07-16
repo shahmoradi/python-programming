@@ -390,6 +390,7 @@ li.dropdownActive a {
 
 .navbar-inverse .navbar-nav > li > a {
     background-color: transparent;
+    border-radius:5px;
     margin-top:10px;
 }
 
@@ -675,6 +676,7 @@ figure {
     text-align:var(--textalign);
     margin-left:auto;
     margin-right:auto;
+    margin-bottom:1.5rem;
 }
 
 img {
@@ -774,6 +776,7 @@ button.cursorNorm {
 
 a.dropdown-toggle, .navbar-inverse .navbar-nav > li > a  {
     margin-left: 10px;
+    border-radius:5px;
 }
 
 hr.faded {
@@ -880,6 +883,16 @@ li.activeSeries {
     color: #444;
 }
 
+div.callout{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+div.alert{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
 div.alert code, h2 code {
     background-color: transparent !important;
 }
@@ -961,6 +974,7 @@ ol.series li {
 /* not sure if using this ...*/
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     border-color: #248ec2 !important;
+    border-radius:5px;
 }
 
 #mysidebar .nav ul {
@@ -1100,8 +1114,22 @@ span.soft {
 }
 
 @media (max-width: 767px) {
+    .navbar-inverse .navbar-nav .open .dropdown-menu {
+        margin-left:auto;
+        margin-right:auto;
+    }
     .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        border-radius:5px;
         color: #444;
+        float: none;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+        background-color: var(--cream);
+        color: white;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+        background-color: var(--cream);
+        color: white;
     }
 }
 
@@ -1474,10 +1502,12 @@ h4.panel-title {
     }
     .navbar-nav>li {
         float: none;
+        border-radius:5px;
     }
     .navbar-nav>li>a {
         padding-top: 10px;
         padding-bottom: 10px;
+        border-radius:5px;
     }
     .collapse.in{
         display:block !important;

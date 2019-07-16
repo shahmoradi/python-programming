@@ -75,6 +75,10 @@ div.navbar-collapse .dropdown-menu > li {
     border-radius:5px;
 }
 
+div.navbar-collapse .dropdown-menu > li > a {
+    border-radius:5px;
+}
+
 div.navbar-collapse .dropdown-menu > li > a:hover {
     background-color: var(--cream);   /* navbar dropdown menu item background color */
     border-radius:5px;

@@ -48,6 +48,17 @@
 
     
     {
+        "title": "Encapsulation",
+        "tags": "objectclassencapsulationdata_hidingobject_oriented_programmingpython",
+        "keywords": "object, class, encapsulation, data hiding, object-oriented programming, python",
+        "url": "/notes/object-oriented-programming/encapsulation/index.html",
+        "summary": "This note provides a brief review of the notion of encapsulation and data hiding in Object-Oriented Programming (OOP) paradigm via Python."
+    }
+    ,
+    
+
+    
+    {
         "title": "Exception handling",
         "tags": "unit_testingerror_handling",
         "keywords": "unit testing, error handling, python",
@@ -116,6 +127,28 @@
 
     
     {
+        "title": "Instantiation",
+        "tags": "objectclassinstantiationobject_oriented_programmingpython",
+        "keywords": "object, class, instantiation, object_oriented_programming, python",
+        "url": "/notes/object-oriented-programming/instantiation/index.html",
+        "summary": "This note attempts to provide a brief introduction to the concepts of instantiation, objects, and classes in Object-Oriented Programming (OOP) paradigm via Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Interoperation with other programming languages",
+        "tags": "random_numberspython",
+        "keywords": "random_numbers, python",
+        "url": "/notes/scientific-computing/interoperation/index.html",
+        "summary": "This note attempts to provide a brief introduction to performing simple Monte Carlo simulations via Python."
+    }
+    ,
+    
+
+    
+    {
         "title": "Loops and iteration constructs",
         "tags": "loopsfor_loopwhile_loopiteration",
         "keywords": "loops, for loop, while loop, iteration",
@@ -132,6 +165,17 @@
         "keywords": "python, modules",
         "url": "/notes/program-units/modules/index.html",
         "summary": "This note aims at explaining the concept of modules in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Monte Carlo simulation",
+        "tags": "random_numbersmonte_carlopython",
+        "keywords": "random_numbers, Monte Carlo, simulation, python",
+        "url": "/notes/scientific-computing/monte-carlo/index.html",
+        "summary": "This note attempts to provide a brief introduction to performing simple Monte Carlo simulations via Python."
     }
     ,
     
@@ -178,6 +222,17 @@
         "keywords": "python, beginner",
         "url": "/notes/preliminary-foundations/python-for-beginners/index.html",
         "summary": "This note aims at providing an introduction to Python programming for beginners, how to install the most popular Python implementations, different Python distributions currently available, how to write Jupyter notebooks, and how to perform simple arithmetic operations in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Random numbers",
+        "tags": "random_numberspython",
+        "keywords": "random_numbers, python",
+        "url": "/notes/scientific-computing/random-numbers/index.html",
+        "summary": "This note attempts to provide a summary of some of the most widely-used approaches for generating random numbers in Python."
     }
     ,
     

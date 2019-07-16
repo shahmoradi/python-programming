@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title>Lecture 11: Python advanced topics - decorators and classes | Scientific Computing with Python</title>
+<meta name="description" content="This note provides a brief review of the notion of encapsulation and data hiding in Object-Oriented Programming (OOP) paradigm via Python.">
+<meta name="keywords" content="objectclassencapsulationdata_hidingobject_oriented_programmingpython,  object, class, encapsulation, data hiding, object-oriented programming, python">
+<title>Encapsulation | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -169,7 +169,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Lecture 11: Python advanced topics - decorators and classes page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Encapsulation page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
 
 </li>
 
@@ -187,7 +187,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Lecture 11: Python advanced topics - decorators and classes">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Encapsulation">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -459,7 +459,7 @@
                         
                                 
                                     
-                                        <li><a title="Encapsulation" href="/python/notes/object-oriented-programming/encapsulation/index.html">Encapsulation</a></li>
+                                        <li class="active"><a title="Encapsulation" href="/python/notes/object-oriented-programming/encapsulation/index.html">Encapsulation</a></li>
                                     
                                     
                                 
@@ -511,171 +511,48 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
-            <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+            <div class="post-header">
+   <h1 class="post-title-main">Encapsulation</h1>
+</div>
 
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Lecture 11: Python advanced topics - decorators and classes</h1>
-        <p class="post-meta"><time datetime="" itemprop="datePublished"></time> 
-
-        </p>
-
-
-    </header>
-
-    <div class="post-content" itemprop="articleBody">
-
+<div class="post-content">
+    
+        <div class="summary">This note provides a brief review of the notion of encapsulation and data hiding in Object-Oriented Programming (OOP) paradigm via Python.</div>
+    
+    
+        <br>
         
+<script>
+    $( document ).ready(function() {
+        // Handler for .ready() called.
+        $('#toc').toc({ minimumHeaders: 0 
+                      , listType: 'ol'
+                      , showSpeed: 0
+                      , headers: 'h2,h3,h4,h5,h6'
+        });
+        /* the following offset helps account for the space taken up by the floating toolbar. */
+        $('#toc').on('click', 'a', function() {
+            var target = $(this.getAttribute('href')), scroll_target = target.offset().top$(window).scrollTop(scroll_target - 10);
+            return false
+        })
+    });
+</script>
 
-        <p>This lecture discusses some further important topics in Python: Decorators and Classes.</p>
+<div id="toc"></div>
 
-<div class="post_toc"></div>
-
-<h2 id="pyton-decorators">Pyton Decorators</h2>
-<p>In simple words, Python decorators are functions that can modify (e.g., add to) the functionalities of other functions. As will be described below, decorators are particularly useful in making your code shorter. To understand the workings of decorators, we will have to recall a few properties of functions in Python.</p>
-
-<p>Firstly, since every entity in Python is an object, including functions, almost everything, including functions can be assigned to a variable. For example, the simple function,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Amir'</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s">'Hello '</span> <span class="o">+</span> <span class="n">name</span>
-</code></pre></div></div>
-
-<p>can be assigned to a new variable,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greet</span> <span class="o">=</span> <span class="n">hello</span>
-</code></pre></div></div>
-
-<p>which is also a function,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greet</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;function __main__.hello&gt;
-</code></pre></div></div>
-
-<p>and more importantly, it is not attached to the original function <code class="highlighter-rouge">hello()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">del</span> <span class="n">hello</span>
-<span class="n">hello</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-6-b1946ac92492&gt; in &lt;module&gt;()
-----&gt; 1 hello
-
-NameError: name 'hello' is not defined
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greet</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;function __main__.hello&gt;
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greet</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Hello Amir'
-</code></pre></div></div>
-
-<h3 id="functions-inside-other-functions">Functions inside other functions</h3>
-<p>Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Amir'</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'This is from inside function hello()'</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s">'</span><span class="se">\t</span><span class="s"> This is from inside function greet() inside function hello()'</span>
     
-    <span class="k">def</span> <span class="nf">welcome</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s">'</span><span class="se">\t</span><span class="s"> This is from inside function welcome() inside function hello()'</span>
-    
-    <span class="k">print</span><span class="p">(</span><span class="n">greet</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">welcome</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"This is from inside function hello()"</span><span class="p">)</span>
-</code></pre></div></div>
+    <h2 id="encapsulation-and-data-hiding">Encapsulation and data hiding</h2>
 
-<p>So now, if you type,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hello</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is from inside function hello()
-    This is from inside function greet() inside function hello()
-    This is from inside function welcome() inside function hello()
-This is from inside function hello()
-</code></pre></div></div>
+<p>Classes can be used for many purposes in scientific programming and computation. One of the most frequently encountered tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. These functions, together with all of their essential and auxiliary variables have to be frequently passed to other functions to perform some tasks. Implementing such problems using purely procedural programming tools that we have learned so far can lead to the development of an unsafe, unclean, and undesired codebase, which is not easy to work with either. To understand why and how this happens, consider the following scientific problem.</p>
 
-<p>Another cool feature to know about, is that you can have functions both as input and return values to and from another function. We have seen this already in previous lectures, where we discussed functions for the first time.</p>
+<h2 id="a-common-programming-challenge-in-numerical-computing">A common programming challenge in numerical computing</h2>
 
-<p>With this in mind, let’s create a function like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorateThisFunction</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<p>Consider a function that takes in some parameters as input, for example, the equation of motion a stone when it is thrown upward in the air. The physics equation describing this motion is $y(t) = v_0t-\frac{1}{2}gt^2$. Physically speaking, this equation gives the position $y$ from the ground of the physical object stone, as a function of time. Therefore, in physics, $y$ is viewed as a function of $t$.</p>
 
-    <span class="k">def</span> <span class="nf">wrapInputFunction</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Some decorating code can be executed here, before calling the input function"</span><span class="p">)</span>
+<p>However, mathematically speaking, $y$ also depends on two other parameters, $v_0$ and $g$, although it is unnatural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.</p>
 
-        <span class="n">func</span><span class="p">()</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s">"Some decorating code can be executed here, after calling the input function"</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">wrapInputFunction</span>
-
-<span class="k">def</span> <span class="nf">needsDecorator</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s"> This function needs a Decorator"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>So now,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">needsDecorator</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This function needs a Decorator
-</code></pre></div></div>
-
-<p>Now, it can happen in your programming that you need to do a specific set of tasks for a function repeatedly, so you may prefer to redefine/reassign your function to your decorated function, such that whenever you call your function by its own name, it is always returned in the modified (decorated) state. For example, see what happens with,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">needsDecorator</span> <span class="o">=</span> <span class="n">decorateThisFunction</span><span class="p">(</span><span class="n">needsDecorator</span><span class="p">)</span>   <span class="c"># Reassign needsDecorator to the new decorated state</span>
-</code></pre></div></div>
-
-<p>which upon calling outputs,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">needsDecorator</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Some decorating code can be executed here, before calling the input function
-    This function needs a Decorator
-Some decorating code can be executed here, after calling the input function
-</code></pre></div></div>
-
-<p>What happened above is that we wrapped the function and modified its behavior using a simple <strong>decorator</strong>. We could have also assigned this new modified (decorated) state of the function to a variable with other name than the function name itself. For example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test</span> <span class="o">=</span> <span class="n">decorateThisFunction</span><span class="p">(</span><span class="n">needsDecorator</span><span class="p">)</span>
-<span class="n">test</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Some decorating code can be executed here, before calling the input function
-    This function needs a Decorator
-Some decorating code can be executed here, after calling the input function
-</code></pre></div></div>
-
-<p>But, you should have done this <strong>before</strong> reassigning the function name <code class="highlighter-rouge">needsDecorator</code> to its new, decorated, state. If you do this after the reassignment, then this is what you get,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test</span> <span class="o">=</span> <span class="n">decorateThisFunction</span><span class="p">(</span><span class="n">needsDecorator</span><span class="p">)</span>
-<span class="n">test</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Some decorating code can be executed here, before calling the input function
-Some decorating code can be executed here, before calling the input function
-    This function needs a Decorator
-Some decorating code can be executed here, after calling the input function
-Some decorating code can be executed here, after calling the input function
-</code></pre></div></div>
-
-<p>In other word, you decorate your already-decorated function <code class="highlighter-rouge">needsDecorator()</code>, one more time by passing it to <code class="highlighter-rouge">decorateThisFunction()</code>.  Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the <strong>Decorator syntax</strong>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@decorateThisFunction</span>
-<span class="k">def</span> <span class="nf">needsDecorator</span><span class="p">():</span>
-    <span class="k">print</span> <span class="s">"This function needs a Decorator"</span>
-</code></pre></div></div>
-
-<p>The above statement is an exact equivalent to,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">needsDecorator</span> <span class="o">=</span> <span class="n">decorateThisFunction</span><span class="p">(</span><span class="n">needsDecorator</span><span class="p">)</span>   <span class="c"># Reassign needsDecorator to the new decorated state</span>
-</code></pre></div></div>
-
-<p>which we used before to decorate our function.</p>
-
-<p>You may wonder what the use of decorators could be. Decorators can be a handy tool for functionalities that have to be repeated for many functions. For example, <a href="https://en.wikipedia.org/wiki/Profiling_(computer_programming)" target="_blank">Porofiling</a> and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.</p>
-
-<h2 id="pyton-classes">Pyton classes</h2>
-
-<p>The concept of Python class, as in almost any other programming language, relates to packing <strong>a set of variables</strong> together <strong>with a set of functions</strong> operating on the data. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Object Oriented Programming (OOP)</a>, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem, or a code that is easier to extend and maintain in large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).</p>
-
-<p>Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until the actually learn what a class is, just as we have made progress in this class so far, without knowing about classes.</p>
-
-<p>Classes can be used for many purposes in scientific programming and computation. One of the most frequently encountered tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.</p>
-
-<h3 id="a-common-programming-challenge-in-numerical-computing">A common programming challenge in numerical computing</h3>
-<p>To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
-It would then be better to write $y(t;v_0). Here is an implementation of this function,</p>
+<p>It would then be better to write $y(t;v_0)$. Here is an implementation of this function,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
     <span class="k">return</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
@@ -688,8 +565,8 @@ It would then be better to write $y(t;v_0). Here is an implementation of this fu
 
 <p>But, here is the catch with this problem of differentiation. The <code class="highlighter-rouge">diff</code> function works with any function <code class="highlighter-rouge">f</code> that takes <strong>only</strong> one argument. In other words, if we want to input <code class="highlighter-rouge">y</code> to <code class="highlighter-rouge">diff</code>, then we will have to redefine <code class="highlighter-rouge">y</code> to take only one argument.  You may wonder why not change <code class="highlighter-rouge">diff</code>. For this simple problem, this could be a solution. But, with larger problems, you are more likely to use sophisticated routines and modules that have been already developed and many of these routines take a function as input that only has one input variable. This is quite often the case with high-performance integration routines.</p>
 
-<p>One, perhaps bad, solution to the above problem is to use <strong>global variables</strong>. The requirement is thus to define Python implementations of mathematical functions of one variable with one argument, the independent variable,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<p>One perhaps-bad solution to the above problem is to use <strong>global variables</strong>. The requirement is thus to define Python implementations of mathematical functions of one variable with one argument, the independent variable,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">,</span><span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
     <span class="k">return</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
 </code></pre></div></div>
@@ -699,7 +576,7 @@ It would then be better to write $y(t;v_0). Here is an implementation of this fu
 <span class="n">dy</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The use of global variables is in general considered bad programming. Why global variables are problematic in the present case can be illustrated when there is need to work with several versions of a function. Suppose we want to work with two versions of $y(t;v_0)$, one with $v_0=1$ and one with $v_0=5$. Every time we call <code class="highlighter-rouge">y</code>, we must remember which version of the function we work with, and set <code class="highlighter-rouge">v0</code> accordingly prior to the call,</p>
+<p>The use of global variables is in general considered bad programming. Why global variables are problematic in the present case can be illustrated when there is a need to work with several versions of a function. Suppose we want to work with two versions of $y(t;v_0)$, one with $v_0=1$ and one with $v_0=5$. Every time we call <code class="highlighter-rouge">y</code>, we must remember which version of the function we work with, and set <code class="highlighter-rouge">v0</code> accordingly prior to the call,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </code></pre></div></div>
@@ -715,14 +592,15 @@ It would then be better to write $y(t;v_0). Here is an implementation of this fu
     <span class="k">return</span> <span class="n">v0_2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
 </code></pre></div></div>
 
-<p>Now we need to initialize <code class="highlighter-rouge">v0_1</code> and <code class="highlighter-rouge">v0_2</code> once, and then we can work with <code class="highlighter-rouge">y1</code> and <code class="highlighter-rouge">y2</code>. However, if we need $100$ <code class="highlighter-rouge">v0</code> parameters, we need $100$ functions. This is tedious to code, error prone, difficult to administer, and simply a really bad solution to a programming problem.</p>
+<p>Now we need to initialize <code class="highlighter-rouge">v0_1</code> and <code class="highlighter-rouge">v0_2</code> once, and then we can work with <code class="highlighter-rouge">y1</code> and <code class="highlighter-rouge">y2</code>. However, if we need $100$ <code class="highlighter-rouge">v0</code> parameters, we need $100$ functions. This is tedious to code, error-prone, difficult to administer, and simply a really bad solution to a programming problem.</p>
 
 <p><strong>So, is there a good remedy?</strong> The answer is yes: the class concept solves all the problems described above.</p>
 
-<h4 id="class-representation-of-a-function">Class representation of a function</h4>
-<p>A class as contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.</p>
+<h3 id="class-representation-of-a-function">Class representation of a function</h3>
 
-<p>Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, constitute the data. A Python function, say <code class="highlighter-rouge">value(t)</code>, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, while <code class="highlighter-rouge">t</code> is an argument. A programmer experienced with classes will then suggest to collect the data <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, and the function <code class="highlighter-rouge">value(t)</code>, together as a <strong>class</strong>. In addition, a class usually has another function, called <strong>constructor</strong> for <strong>initializing the data</strong>. The constructor is always named <code class="highlighter-rouge">__init__</code>. Every <strong>class must have a name</strong>, often <strong>starting with a capital</strong>, so we choose <code class="highlighter-rouge">Y</code> as the name since the class represents a mathematical function with name <code class="highlighter-rouge">y</code>. The next step is to implement this class in Python. A complete class code <code class="highlighter-rouge">Y</code> for our problem here would look as follows in Python:</p>
+<p>A class contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.</p>
+
+<p>Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, constitute the data. A Python function, say <code class="highlighter-rouge">value(t)</code>, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, while <code class="highlighter-rouge">t</code> is an argument. A programmer experienced with classes will then suggest collecting the data <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, and the function <code class="highlighter-rouge">value(t)</code>, together as a <strong>class</strong>. In addition, a class usually has another function, called <strong>constructor</strong> for <strong>initializing the data</strong>. The constructor is always named <code class="highlighter-rouge">__init__</code>. Every <strong>class must have a name</strong>, often <strong>starting with a capital</strong>, so we choose <code class="highlighter-rouge">Y</code> as the name since the class represents a mathematical function with name <code class="highlighter-rouge">y</code>. The next step is to implement this class in Python. A complete class code <code class="highlighter-rouge">Y</code> for our problem here would look as follows in Python:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Y</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v0</span> <span class="o">=</span> <span class="n">v0</span>
@@ -731,12 +609,11 @@ It would then be better to write $y(t;v_0). Here is an implementation of this fu
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
 </code></pre></div></div>
 
-<p><strong>A class creates a new data type</strong>, here of name <code class="highlighter-rouge">Y</code>, so when we use the class to make objects, those objects are of type Y. <strong>All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes</strong>, and each time the user creates on these variable types, one instance os these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an <strong>instance</strong>. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance bound to the variable name y:</p>
+<p><strong>A class creates a new data type</strong>, here of name <code class="highlighter-rouge">Y</code>, so when we use the class to make objects, those objects are of type Y. <strong>All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes</strong>, and each time the user creates on these variable types, one instance of these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an <strong>instance</strong>. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance bound to the variable name y:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Seemingly, we <em>call the class <code class="highlighter-rouge">Y</code> as if it were a function</em>. Indeed, <code class="highlighter-rouge">Y(3)</code> is automatically translated by Python to a call to the constructor <code class="highlighter-rouge">__init__</code> in class Y. The arguments in the call, here only the number <code class="highlighter-rouge">3</code>, are always passed on as arguments to <code class="highlighter-rouge">__init__</code> after the <code class="highlighter-rouge">self</code> argument. That is, <code class="highlighter-rouge">v0</code> gets the value <code class="highlighter-rouge">3</code> and self is just dropped in the call. This may be confusing, but it is a rule that the self argument is never used in calls to functions in classes.
-With the instance <code class="highlighter-rouge">y</code>, we can compute the value of y(t=0.1;v_0=3) by the statement,</p>
+<p>Seemingly, we <em>call the class <code class="highlighter-rouge">Y</code> as if it were a function</em>. Indeed, <code class="highlighter-rouge">Y(3)</code> is automatically translated by Python to a call to the constructor <code class="highlighter-rouge">__init__</code> in class Y. The arguments in the call, here only the number <code class="highlighter-rouge">3</code>, are always passed on as arguments to <code class="highlighter-rouge">__init__</code> after the <code class="highlighter-rouge">self</code> argument. That is, <code class="highlighter-rouge">v0</code> gets the value <code class="highlighter-rouge">3</code> and self is just dropped in the call. This may be confusing, but it is a rule that the self argument is never used in calls to functions in classes. With the instance <code class="highlighter-rouge">y</code>, we can compute the value of y(t=0.1;v_0=3) by the statement,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -747,9 +624,10 @@ With the instance <code class="highlighter-rouge">y</code>, we can compute the v
 <p>We have already introduced the term <strong>instance</strong> for the object of a class. <strong>Functions</strong> in classes are commonly called <strong>methods</strong>, and <strong>variables (data)</strong> in classes are called <strong>data attributes</strong>. Methods are also known as <strong>method attributes</strong>. For example, in our sample class <code class="highlighter-rouge">Y</code> we have two methods or method attributes, <code class="highlighter-rouge">__init__</code> and <code class="highlighter-rouge">value</code>, two data attributes, <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, and four attributes in total (<code class="highlighter-rouge">__init__</code>, <code class="highlighter-rouge">value</code>, <code class="highlighter-rouge">v0</code>, <code class="highlighter-rouge">g</code>). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, <strong>the constructor
 must have the name <code class="highlighter-rouge">__init__</code>, otherwise it is not automatically called when new instances are created</strong>. You can do whatever you want in whatever method, but it is a common convention to <strong>use the constructor for initializing the variables in the class</strong>.</p>
 
-<p>So far, we have explained a method of writing our function of interest in a class style, which resolves the need to pass a auxiliary variable to a function explicitly. But if you look at the original problem that we had, you will notice that we still cannot use our class <code class="highlighter-rouge">Y</code> instance <code class="highlighter-rouge">y</code> as an argument to other functions similar to <code class="highlighter-rouge">diff()</code>. The final resolution to this problem is to add a <code class="highlighter-rouge">__call__</code> method to our originally defined <code class="highlighter-rouge">Y</code> class.</p>
+<p>So far, we have explained a method of writing our function of interest in a class style, which resolves the need to pass an auxiliary variable to a function explicitly. But if you look at the original problem that we had, you will notice that we still cannot use our class <code class="highlighter-rouge">Y</code> instance <code class="highlighter-rouge">y</code> as an argument to other functions similar to <code class="highlighter-rouge">diff()</code>. The final resolution to this problem is to add a <code class="highlighter-rouge">__call__</code> method to our originally defined <code class="highlighter-rouge">Y</code> class.</p>
 
-<h3 id="callable-objects">Callable objects</h3>
+<h2 id="callable-objects">Callable objects</h2>
+
 <p>If you recall, computing the value of the mathematical function represented by class <code class="highlighter-rouge">Y</code>, with <code class="highlighter-rouge">y</code> as the name of the instance, is performed by writing <code class="highlighter-rouge">y.value(t)</code>. If we could write just <code class="highlighter-rouge">y(t)</code>, the <code class="highlighter-rouge">y</code> instance would look as an ordinary function. Such a syntax is indeed possible and offered by the special method named <code class="highlighter-rouge">__call__</code>.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Y</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
@@ -769,19 +647,26 @@ must have the name <code class="highlighter-rouge">__init__</code>, otherwise it
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
 </code></pre></div></div>
 
-<p><br /><br />
-<strong>Reference</strong><br />
-<br />
-The book <a href="http://link.springer.com/book/10.1007%2F978-3-662-49887-3" target="_blank">A Primer on Scientific Programming with Python</a> by Hans Petter Langtangen, provides a good starting point on the use of Classes and OOP in Python from a scientific programming perspective. The examples provided in this lecture heavily rely on Langtangen’s notes on Python classes in his textbook in chapter 7. You can download a complete electronic copy of this book for free from Springer website, if you redirect to Springer page from <a href="http://www.lib.utexas.edu/" target="_blank">UT Austin library page</a>.</p>
-
-
+    <div class="tags">
+        
+            <b>Tags: </b>
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
     </div>
-
-
-
-</article>
-
-
+    
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -799,9 +684,8 @@ The book <a href="http://link.springer.com/book/10.1007%2F978-3-662-49887-3" tar
 
 
 
-
+</div>
 <hr class="shaded"/>
-
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
@@ -813,6 +697,50 @@ The book <a href="http://link.springer.com/book/10.1007%2F978-3-662-49887-3" tar
         </div>
     </div>
     <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </footer>
 

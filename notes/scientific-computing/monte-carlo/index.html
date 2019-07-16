@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="release_note,  Release Note">
-<title>Release Note 1 | Scientific Computing with Python</title>
+<meta name="description" content="This note attempts to provide a brief introduction to performing simple Monte Carlo simulations via Python.">
+<meta name="keywords" content="random_numbersmonte_carlopython,  random_numbers, Monte Carlo, simulation, python">
+<title>Monte Carlo simulation | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -169,7 +169,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Release Note 1 page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Monte Carlo simulation page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
 
 </li>
 
@@ -187,7 +187,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Release Note 1">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Monte Carlo simulation">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -233,7 +233,7 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                        <li><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
                                     
                                     
                                 
@@ -429,7 +429,7 @@
                         
                                 
                                     
-                                        <li><a title="Monte Carlo" href="/python/notes/scientific-computing/monte-carlo/index.html">Monte Carlo</a></li>
+                                        <li class="active"><a title="Monte Carlo" href="/python/notes/scientific-computing/monte-carlo/index.html">Monte Carlo</a></li>
                                     
                                     
                                 
@@ -512,10 +512,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Release Note 1</h1>
+   <h1 class="post-title-main">Monte Carlo simulation</h1>
 </div>
 
 <div class="post-content">
+    
+        <div class="summary">This note attempts to provide a brief introduction to performing simple Monte Carlo simulations via Python.</div>
     
     
         <br>
@@ -540,15 +542,99 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    <p>These series of note were originally developed for the Engineering Computation Lab course for senior Aerospace undergraduate students at the University of Texas at Austin.  The original website containing the notes is still <a href="https://cdslab.org/ECL2017S/" target="_blank">available here</a>, as of June 2019.</p>
+    <h3 id="monte-carlo-simulation-in-python">Monte Carlo simulation in Python</h3>
 
+<p>A Monte Carlo simulation is basically any simulation problem that somehow involves random numbers. Let’s start with an example of throwing a die repeatedly for N times. We can simulate the process of throwing a die by the following python code,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">throwFairDie</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
+    <span class="k">return</span> <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, each time the function is called, it returns a random value for one throw of a virtual die,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">throwFairDie</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="mi">6</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">throwFairDie</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="mi">1</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">throwFairDie</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="mi">4</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">throwFairDie</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>This is likely one of the simplest examples of <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulations</a>. Now suppose we wanted to make sure that the die is fair, meaning that each number (out of 6 possibilities) only appears with a frequency of $1/6$ over many throws of the die. To test this hypothesis, we could write the following code,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">throwFairDie</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
+    <span class="k">return</span> <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getMeanDieValue</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">meanDieValue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+    <span class="n">randomThrow</span> <span class="o">=</span> <span class="n">throwFairDie</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>        <span class="c"># assign the first value to the above array</span>
+    <span class="n">meanDieValue</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">randomThrow</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">1.0</span> <span class="c"># one try so far, one success for the die value that is obtained.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">randomThrow</span> <span class="o">=</span> <span class="n">throwFairDie</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">meanDieValue</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">randomThrow</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c"># add one success for the value obtained</span>
+        <span class="n">meanDieValue</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">+=</span> <span class="n">meanDieValue</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>    <span class="c"># combine the recent success with the total number of successes from previous tries.</span>
+        <span class="n">meanDieValue</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c"># Now normalize the values form the last try to the total number of tries.</span>
+    <span class="n">meanDieValue</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c"># Now normalize the very last try to the total number of tries.</span>
+    <span class="k">return</span> <span class="n">meanDieValue</span>
+</code></pre></div></div>
+
+<p>What this function does, is that it throws a die for given input number of times (n=10000 by default if not given as input), and then calculates for each new try, how many times each of the die values have occurred so far, and then finally outputs all the result as numpy <code class="highlighter-rouge">double</code> array, each row of which contains the number of successes for each of the 6 die values. Normally, if the die is fair, you would expect that with more tries, the average number of successes for each try would converge more and more to the canonical value $1/6\sim0.1667$. We can test this, by calling the function with a large number of tries, and checking the values in the last row of the output array,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span> <span class="n">getMeanDieValue</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[ 0.1645  0.1668  0.1683  0.1664  0.169   0.165 ]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span> <span class="n">getMeanDieValue</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100000</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[ 0.16488  0.1665   0.16635  0.16841  0.1661   0.16776]]
+</code></pre></div></div>
+
+<p>A better approach would be to plot the output as a function of the number of tries and see if the results for each of possible die outcomes do indeed converge to the canonical value or not.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">nDieValues</span> <span class="o">=</span> <span class="mi">6</span> <span class="c"># 6 possible values for a die throw</span>
+<span class="n">nTrial</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c"># total number of die throws</span>
+<span class="n">meanDieValues</span> <span class="o">=</span> <span class="n">getMeanDieValue</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">nTrial</span><span class="p">)</span>
+
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">trial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">nTrial</span><span class="o">+</span><span class="mi">1</span> <span class="p">,</span> <span class="n">nTrial</span> <span class="p">)</span>
+<span class="n">lineTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s">'r-'</span><span class="p">,</span><span class="s">'b-'</span><span class="p">,</span><span class="s">'g-'</span><span class="p">,</span><span class="s">'y-'</span><span class="p">,</span><span class="s">'b-'</span><span class="p">,</span><span class="s">'g-'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="n">nDieValues</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span> <span class="n">trial</span><span class="p">[:]</span> \
+            <span class="p">,</span> <span class="n">meanDieValues</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> \
+            <span class="p">,</span> <span class="n">lineTypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> \
+            <span class="p">)</span> <span class="c"># plot with color red, as line</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hold</span><span class="p">(</span><span class="s">'on'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'trial number'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'fraction of occurrence for each die number'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'die value: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">nTrial</span> <span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'N={} throws of a virtual die in Python'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'diceThrowsN{}.png'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>You can see the output of the above code in the following figure,</p>
+<figure>
+    <img src="diceThrowsN100000.png" width="900" />
+</figure>
 <p><br /></p>
-
 
     <div class="tags">
         
             <b>Tags: </b>
             
+            
+                
+            
+                
             
                 
             
@@ -585,6 +671,50 @@ the script runs before the sidebar code runs and the class never gets inserted.
         </div>
     </div>
     <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </footer>
 

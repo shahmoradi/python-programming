@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="This note attempts to provide a summary of the myriad of the existing methods of data visualization in Python.">
-<meta name="keywords" content="visualizationplottingcurvefigurematplotlibpython,  visualization, plotting, curve, figure, matplotlib, python">
-<title>Visualization and plotting | Scientific Computing with Python</title>
+<meta name="description" content="This note attempts to provide a summary of some of the most widely-used approaches for generating random numbers in Python.">
+<meta name="keywords" content="random_numberspython,  random_numbers, python">
+<title>Random numbers | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -169,7 +169,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Visualization and plotting page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Random numbers page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
 
 </li>
 
@@ -187,7 +187,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Visualization and plotting">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Random numbers">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -415,14 +415,14 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Random numbers" href="/python/notes/scientific-computing/random-numbers/index.html">Random numbers</a></li>
+                                        <li class="active"><a title="Random numbers" href="/python/notes/scientific-computing/random-numbers/index.html">Random numbers</a></li>
                                     
                                     
                                 
@@ -512,12 +512,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Visualization and plotting</h1>
+   <h1 class="post-title-main">Random numbers</h1>
 </div>
 
 <div class="post-content">
     
-        <div class="summary">This note attempts to provide a summary of the myriad of the existing methods of data visualization in Python.</div>
+        <div class="summary">This note attempts to provide a summary of some of the most widely-used approaches for generating random numbers in Python.</div>
     
     
         <br>
@@ -542,166 +542,178 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    <h2 id="overview-of-visualization-methods-and-tools-in-python">Overview of visualization methods and tools in Python</h2>
+    <h2 id="random-numbers-in-python">Random numbers in Python</h2>
 
-<p>Because of the very large community of Python programmers and users and due to the lack of a unique consistent standardized visualization package in Python, a myriad of Python visualization packages have been developed beginning with the new millennium. As a result, plotting and visualization with Python have become rather confusing and the appropriate choice of tools is not obvious to many, in particular beginning, programmers. As of 2017, there has been, however, some recent efforts to bring order, organization, and convergence to the heterogeneous landscape of visualization tools in Python.</p>
+<p>One of the most important topics in today’s science and computer simulation is <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank">random number generation</a> and <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulation</a> methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard <code class="highlighter-rouge">random</code> module:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">43</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
 
-<p>Aside from causing confusion, the availability of many options for visualization in Python can be considered one of its strengths as each of these tools tend to specialize on a specific type of visualization problems depending on the size of input data, type of plots needed, and the ultimate usage of the output visualization. For a summary classification of Python visualization tools see <a href="/python/notes/scientific-computing/visualization/pyviz.pdf" target="_blank">this pdf file</a>.</p>
+<span class="n">In</span> <span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>   <span class="c"># generates a random number in the half open interval [0,1)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="mf">0.012519922307372311</span>
 
-<figure>
-    <a href="https://www.youtube.com/watch?v=FytuB8nFHPQ"><img src="python_visualization_landscape.png" /></a>
-    <figcaption>
-        A diagram representing the current landscape of available visualizaiton tools in Python in 2017.
-    </figcaption>
-</figure>
+<span class="n">In</span> <span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">BPF</span>             <span class="n">rnd</span><span class="o">.</span><span class="n">Random</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">gauss</span>           <span class="n">rnd</span><span class="o">.</span><span class="n">normalvariate</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">randrange</span>       <span class="n">rnd</span><span class="o">.</span><span class="n">shuffle</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">LOG4</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">SG_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">getrandbits</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">paretovariate</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">sample</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">triangular</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">NV_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">SystemRandom</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">getstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">seed</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">RECIP_BPF</span>       <span class="n">rnd</span><span class="o">.</span><span class="n">TWOPI</span>           <span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">lognormvariate</span>  <span class="n">rnd</span><span class="o">.</span><span class="n">random</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">setstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">vonmisesvariate</span>
+</code></pre></div></div>
 
-<h2 id="matplotlib-the-workhorse-of-plotting-in-python"><code class="highlighter-rouge">matplotlib</code>, the workhorse of plotting in Python</h2>
+<p>As you see in the list of available methods in <code class="highlighter-rouge">random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c"># Beta variate with the input parameters</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="mf">0.9281984408820623</span>
 
-<p>The workhorse of visualization and plotting in Python is <a href="https://matplotlib.org/" target="_blank"><code class="highlighter-rouge">matplotlib</code></a> which is a Python 2D and 3D plotting library capable of producing publication quality figures. The main component of <code class="highlighter-rouge">matplotlib</code> is <code class="highlighter-rouge">pyplot</code>, a <code class="highlighter-rouge">matplotlib</code> module which provides a MATLAB-like interface for Python, while being free and open-source. As a result, the usage of <code class="highlighter-rouge">matplotlib</code> is very similar to MATLAB.</p>
+<span class="n">In</span> <span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>         <span class="c"># random variable from exponential distribution with mean 1.</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="mf">2.546912414260747</span>
 
-<p>There are many tutorials and example problems using <code class="highlighter-rouge">matplotlib</code> on the web that you can refer to. However, as a general recommendation, given the extreme heterogeneity of Python’s programmers’ community and the myriad of tools and approaches to visualization that are available in Python, I highly recommend using tools and recourses from reputable people/organizations that are known for the continuous work and development in Python. You don’t want to write a code that does not work in a few weeks or months because of the poor maintenance of the libraries upon which your code has been developed. Here is a tutorial on <code class="highlighter-rouge">matplotlib</code>, advertised by <a href="https://www.enthought.com/" target="_blank">Enthought</a>.</p>
+<span class="n">In</span> <span class="p">[</span><span class="mi">55</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># random variable from gamma distribution with parameters 1,1.</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">55</span><span class="p">]:</span> <span class="mf">0.5364897808236537</span>
+</code></pre></div></div>
 
-<div class="center">
-    <div class="video-wrapper">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/6gdNUDs6QPc" frameborder="0"></iframe>
-            &lt;/iframe&gt;
-        </div>
-    </div>
-</div>
+<p>Recall that if you need help on a method or function in Python, you could use <code class="highlighter-rouge">help()</code>,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">61</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span><span class="p">)</span>
+<span class="n">Help</span> <span class="n">on</span> <span class="n">method</span> <span class="n">weibullvariate</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">random</span><span class="p">:</span>
 
-<p>To see how plotting with <code class="highlighter-rouge">matplotlib</code> works, let’s start with a simple example of 2D curve plotting,</p>
+<span class="n">weibullvariate</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span> <span class="n">method</span> <span class="n">of</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span> <span class="n">instance</span>
+    <span class="n">Weibull</span> <span class="n">distribution</span><span class="o">.</span>
+
+    <span class="n">alpha</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">scale</span> <span class="n">parameter</span> <span class="ow">and</span> <span class="n">beta</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">parameter</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p>To generate <code class="highlighter-rouge">float</code> random numbers between the given input bounds,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>    <span class="c"># generate a random float between 50 and 100</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="mf">65.59688328558263</span>
+</code></pre></div></div>
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Alwasy make sure you import modules with unique names since different modules with similar component names may overwrite each other’s objects and methods in your active session of Python. For example <code>import random</code> followed by <code>from numpy import *</code> will cause the <code>random</code> module to be overwritten by <code>numpy.random</code> module.</div>
+
+<p>Also pay attention to sublte differences between similar functions, with the same names, but in different modules. For example,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span> <span class="c"># 51 points between 0 and 3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c"># allocate y with float elements</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>If you try the above code in IPython, the out on screen would be something like the following,</p>
-<figure>
-    <img src="simple_curve_screen.png" />
-</figure>
-<p>You can also save the figure output as a file by,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x1bff2e479e8</span><span class="o">&gt;</span><span class="p">]</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'simple_curve.pdf'</span><span class="p">)</span> <span class="c"># produces PDF file.</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'simple_curve.png'</span><span class="p">)</span> <span class="c"># produces PNG file.</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">pwd</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="s">'C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Amir'</span>  <span class="c"># files are saved here</span>
+<p>will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Just like MATLAB, the figures could be also decorated with axis labels, plot title, legend and a lot more, in a syntax very much like MATLAB,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x^2*exp(-x^2)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'A simple Matplotlib decorated plot'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'simple_curve_decorated.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>will draw a random integer form the interval $[1,6]$. Also note that <code class="highlighter-rouge">randint()</code> from module <code class="highlighter-rouge">random</code> is a scalar function, whereas the numpy’s version is vectorized.</p>
+
+<h2 id="the-deterministic-aspect-of-randomness-in-python">The deterministic aspect of randomness in Python</h2>
+
+<p>There is a truth about random numbers and random number generators and algorithms, not only in Python, but in all programming languages, and that is, <strong>true random numbers do not exist in the world of programming</strong>. What we call a sequence of random numbers, is simply a sequence of numbers that we, the user, to the best of our knowledge, don’t know how it was generated, and therefore, <strong>the sequence looks random to us, but not the to the developer of the algorithm!</strong>. To prove this, type the following code in a Python session,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div></div>
 
-<p>which outputs <a href="/python/notes/scientific-computing/visualization/simple_curve_decorated.png" target="_blank">this file</a> in your current directory,</p>
+<p>You notice that every time the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code class="highlighter-rouge">np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
 
-<figure>
-    <img src="simple_curve_decorated.png" />
-</figure>
+<p>You can even test the same code on a different computer, and as long as you set the seed of the random number generator to a specific value (here 42), <code class="highlighter-rouge">np.random.seed(42)</code>, you will the same sequence of random numbers. So after all, random numbers are not random at all, as they can be generated deterministically, however, they mimic the behavior of true random numbers. The ability to set the seed for a random number generator is actually very useful since it enables us to replicate the work of code, exactly it has been done in the past. In particular, this is very useful for code debugging. However, beware of cases where you need to get a different result, every time you run the code. If you set the random seed of the random generator to a fixed value, right at the beginning of the code, you will never get a random behavior.</p>
 
-<h3 id="plotting-multiple-curves-in-one-figure">Plotting multiple curves in one figure</h3>
-<p>Again, similar to MATLAB, this can be achieved by the statement <code class="highlighter-rouge">hold('on')</code> like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span> <span class="c"># 51 points between 0 and 3</span>
-<span class="n">yf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c"># allocate y with float elements</span>
-<span class="n">yg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c"># allocate y with float elements</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="n">yf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">yg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yf</span><span class="p">,</span> <span class="s">'r-'</span><span class="p">)</span>   <span class="c"># plot with color red, as line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hold</span><span class="p">(</span><span class="s">'on'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="s">'bo'</span><span class="p">)</span>   <span class="c"># # plot with color blue, as points</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x^2*exp(-x^2)'</span> <span class="p">,</span> <span class="s">'x*exp(-x)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'multiple Matplotlib curves in a decorated plot'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'multiple_curves_decorated.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<h2 id="drawing-a-random-element-from-a-list">Drawing a random element from a list</h2>
+
+<p>Suppose you have the following list,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">51</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mylist</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([   0.,    2.,    4.,    6.,    8.,   10.,   12.,   14.,   16.,
+         18.,   20.,   22.,   24.,   26.,   28.,   30.,   32.,   34.,
+         36.,   38.,   40.,   42.,   44.,   46.,   48.,   50.,   52.,
+         54.,   56.,   58.,   60.,   62.,   64.,   66.,   68.,   70.,
+         72.,   74.,   76.,   78.,   80.,   82.,   84.,   86.,   88.,
+         90.,   92.,   94.,   96.,   98.,  100.])
 </code></pre></div></div>
 
-<p>The output of the code is a PNG figure <a href="/python/notes/scientific-computing/visualization/multiple_curves_decorated.png" target="_blank">available here</a>.</p>
-
-<figure>
-    <img src="multiple_curves_decorated.png" />
-</figure>
-
-<p>If you need to discontinue multiple plots on the same figure, again, as in MATLAB, you use <code class="highlighter-rouge">hold('off')</code>.</p>
-
-<h3 id="subplots-in-matplotlib">Subplots in <code class="highlighter-rouge">matplotlib</code></h3>
-<p>Suppose you wanted to generate the same curves as in the above example, but each in a different plot, but in the same figure. One way to do this would be like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>            <span class="c"># generates a new figure as in MATLAB</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># create a 2-row, 1-column subplot, and this is the 1st subplot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yf</span><span class="p">,</span> <span class="s">'r-'</span><span class="p">)</span>   <span class="c"># plot with color red, as line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c"># this is the 2nd subplot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="s">'bo'</span><span class="p">)</span>   <span class="c"># plot with color blue, as points</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x*exp(-x)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'an example Matplotlib subplot'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'two_by_one_subplot.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>and now you wanted to draw a random element from the above list. You could do,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>80.0 
 </code></pre></div></div>
 
-<p>The output of the code is a PNG figure <a href="/python/notes/scientific-computing/visualization/two_by_one_subplot.png" target="_blank">available here</a>.</p>
+<p>This will give a random element from the list. You could also generate a random shuffling of the list by,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="n">mylist</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([  98.,   12.,   76.,   60.,   46.,   22.,   24.,   92.,   66.,
+         16.,    6.,   34.,   14.,    8.,   18.,   50.,   30.,   74.,
+          4.,    2.,   38.,   90.,   70.,   56.,   94.,   80.,   32.,
+         20.,   10.,   44.,   72.,   84.,    0.,   78.,  100.,   88.,
+         86.,   96.,   48.,   52.,   62.,   64.,   26.,   36.,   40.,
+         54.,   68.,   58.,   82.,   42.,   28.])
+</code></pre></div></div>
 
-<figure>
-    <img src="two_by_one_subplot.png" width="900" />
-</figure>
+<h2 id="summary-of-some-important-random-functions-in-python">Summary of some important random functions in Python</h2>
 
-<p>Note that since the decorations appeared only for the second subplot, only the second one in the figure above is decorated with plot title, legend, etc. Also, note that the <code class="highlighter-rouge">figure()</code> method creates a new plot window on the screen.</p>
+<p>As you may have noticed, since none of the random functions are builtin, things can get really confusing very easily, by simply mixing numpy’s random module with Python’s random module. The following helps to clarify some of the most important differences between these two modules.</p>
 
-<h2 id="other-plotting-packages">Other plotting packages</h2>
-
-<p>For more complicated 2D/3D or vector field plotting, you may find <code class="highlighter-rouge">matplotlib</code> inadequate. To address these inadequacies, other packages have been developed which provide an interface to more advanced plotting software such as, MATLAB, Gnuplot, Grace, OpenDX, VTK, and others.</p>
-
-<h3 id="easyviz-from-scitools">Easyviz from SciTools</h3>
-
-<p>Because each of the above-mentioned visualization software has its own plotting syntax, a Python module <code class="highlighter-rouge">easyviz</code> has been developed which provides a universal interface for any of the above-mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using <code class="highlighter-rouge">eazyvis</code>. Just like <code class="highlighter-rouge">matplotlib</code>, the syntax of <code class="highlighter-rouge">eazyvis</code> has been also purposefully made very similar to MATLAB.</p>
-
-<p>The Easyviz module is part of the <a href="https://github.com/hplgit/scitools" target="_blank">SciTools package</a>, which consists of a set of Python tools building on Numerical Python, ScientificPython, the comprehensive SciPy environment, and other packages for scientific computing with Python. However, keep in mind that <strong>SciTools strictly requires <a href="http://python.org" target="_blank">Python v2.7</a> and <a href="http://numpy.org" target="_blank">Numerical Python</a></strong>.</p>
-
-<h3 id="mayavi-visualization-package">Mayavi visualization package</h3>
-
-<p><a href="http://docs.enthought.com/mayavi/mayavi/" target="_blank">Mayavi</a> is another advanced, free, scientific data visualizer for Python, with emphasis on <strong>three-dimensional visualization techniques</strong>. The package is written in Python, and uses the <a href="http://www.vtk.org/" target="_blank">Visualization Toolkit (VTK)</a> in C++ for rendering graphics. Since VTK can be configured with different backends, so can Mayavi. Mayavi is cross-platform and runs on most platforms like Mac OS X, Windows, and Linux.</p>
-
-<h3 id="more-visualization-packages">More visualization packages</h3>
-
-<p>There are many more Python visualization packages that have not been discussed here, for example, <a href="https://bokeh.pydata.org/en/latest/" target="_blank">Bokeh</a>, <a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a>, <a href="https://holoviz.org/tutorial/" target="_blank">HoloViz</a>, etc, each one of which has been developed with a specific visualization goal in mind. For a list of tutorials on some of these packages, visit <a href="https://pyviz.org/tutorials/index.html" target="_blank">pyviz.org</a>.</p>
+<table class="center">
+    <caption class="title" style="padding-bottom:10px">
+        Table 1: Some useful functions and their functionalities in <code>random</code> and <code>numpy</code> modules
+    </caption>
+    <thead>
+        <tr>
+            <th>Purpose</th>
+            <th>random module</th>
+            <th>numpy.random module</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>random uniform numbers in $[0,1)$</td>
+            <td><code>random()</code></td>
+            <td><code>random(N)</code> (vectorized)</td>
+        </tr>
+        <tr>
+            <td>random uniform numbers in $[a,b)$</td>
+            <td><code>uniform(a,b)</code></td>
+            <td><code>uniform(a,b,N)</code> (vectorized)</td>
+        </tr>
+        <tr>
+            <td>random integers in $[a,b]$</td>
+            <td><code>randint(a,b)</code></td>
+            <td><code>randint(a,b+1,N)</code> (vectorized) <br /> <code>random_integers(a,b+1,N)</code> (vectorized) </td>
+        </tr>
+        <tr>
+            <td>random Gaussian deviate with parameters $[\mu, \sigma]=[m,s]$</td>
+            <td><code>gauss(m,s)</code></td>
+            <td><code>normal(m,s,N)</code> (vectorized)</td>
+        </tr>
+        <tr>
+            <td>setting random number generator seed $i$</td>
+            <td><code>seed(i)</code></td>
+            <td><code>seed(i)</code></td>
+        </tr>
+        <tr>
+            <td>shuffling list mylist</td>
+            <td><code>shuffle(mylist)</code></td>
+            <td><code>shuffle(mylist)</code></td>
+        </tr>
+        <tr>
+            <td>choose a random element from mylist</td>
+            <td><code>choice(mylist)</code></td>
+            <td> -- </td>
+        </tr>
+    </tbody>
+</table>
 
     <div class="tags">
         
             <b>Tags: </b>
             
-            
-                
-            
-                
-            
-                
-            
-                
             
                 
             
