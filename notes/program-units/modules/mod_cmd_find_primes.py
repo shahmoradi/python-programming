@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-This is a test module for ECL course.
+This is a test module for finding prime numbers.
 """
 
 _course = 'Python Programming'

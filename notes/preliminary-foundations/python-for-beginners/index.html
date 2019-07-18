@@ -108,7 +108,6 @@
         });
     </script>
     
-
 </head>
 <body>
 <!-- Navigation -->
@@ -128,57 +127,65 @@
                 <!-- toggle sidebar button -->
                 <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
                 <!-- entries without drop-downs appear here -->
-
-
-
-
+                
+                
                 
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">UTA<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">College of Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">Data Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/physics/" target="_blank" rel="noopener">Physics</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
                 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
-                        
-                        
-                        
-                        <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
-                        
-                        
-                    </ul>
-                </li>
                 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li><a href="https://www.cdslab.org/scientific-computing-with-matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-			<li>
-
-
-
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Python for beginners page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
-
-</li>
-
-		
                 <!--comment out this block if you want to hide search-->
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
-                        <input type="text" id="search-input" placeholder="search...">
+                        <input type="text" id="search-input" placeholder="keyword search...">
                         <ul id="results-container"></ul>
                     </div>
                     <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
@@ -218,8 +225,6 @@
     
         
             
-        
-            
                 <li>
                     <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
@@ -234,6 +239,20 @@
                                 
                                     
                                         <li><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 2" href="/python/notes/overview/release-note-2/index.html">Release note 2</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Search contents" href="/python/search.html">Search contents</a></li>
                                     
                                     
                                 
@@ -607,7 +626,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <ul>
   <li><a href="https://www.continuum.io/downloads" target="_blank"><strong>Anaconda</strong></a> from <a href="https://www.continuum.io/" target="_blank">Continuum Analytics</a>. According to the company, Anaconda is the leading open data science platform powered by Python. The open source version of Anaconda is a high-performance distribution of Python and R and includes over 100 of the most popular Python, R and Scala packages for data science. Additionally, the Anaconda user has access to over 720 packages that can be easily installed with <a href="https://en.wikipedia.org/wiki/Conda_(package_manager)" target="_blank">conda</a>. Conda is a language-agnostic package manager and environment management system that is developed and maintained by Continuum Analytics. The package Conda is itself written in Python.<br />
 <br />
-<strong><em>The Anaconda distribution of Python is the one that we will use throughout this course.</em></strong><br />
+<strong><em>The Anaconda distribution of Python is the one that we currently recommend and will use here.</em></strong><br />
 <br />
 The latest version of Anaconda includes an easy installation of Python (2.7.13, 3.4.5, 3.5.2, and/or 3.6.0) and updates of over 100 pre-built and tested scientific and analytic Python packages. These packages include <strong>NumPy</strong>, <strong>Pandas</strong>, <strong>SciPy</strong>, <strong>Matplotlib</strong>, and <strong>Jupyter</strong>. Over 620 more packages are available. You can install any of them with just one command,
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install package-name
@@ -678,7 +697,7 @@ In the following, both methods will be explained.</li>
     <figcaption style="text-align:justify">
     </figcaption>
 </figure>
-<p><strong>3.</strong> Now click on the <code class="highlighter-rouge">new</code> tab on the top-right part of the page, and choose <code class="highlighter-rouge">python 3</code>. If you have installed Python 2 as well, you will also see an option for <code class="highlighter-rouge">Python 2</code>. But, for this course proceed with <code class="highlighter-rouge">Python 3</code>.</p>
+<p><strong>3.</strong> Now click on the <code class="highlighter-rouge">new</code> tab on the top-right part of the page, and choose <code class="highlighter-rouge">python 3</code>. If you have installed Python 2 as well, you will also see an option for <code class="highlighter-rouge">Python 2</code>. But, for now proceed with <code class="highlighter-rouge">Python 3</code>.</p>
 <figure>
     <img src="jupyter3.png" width="900" />
     <figcaption style="text-align:justify">
@@ -706,9 +725,9 @@ In the following, both methods will be explained.</li>
 <h3 id="ipython--jupyter-helpful-commands">IPython / Jupyter helpful commands</h3>
 
 <p>Every time you start IPython on your local device, the following list of IPython commands is shown on the command line.</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir@CCBB-Amir MINGW64 ~
-$ ipython
-Python 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ipython
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
 Type "copyright", "credits" or "license" for more information.
 
 IPython 5.1.0 -- An enhanced Interactive Python.
@@ -720,10 +739,11 @@ In [1]:
 </code></pre></div></div>
 
 <p>Since Jupyter is an extension of IPython, these commands are also executable in Jupyter notebooks. Here is an example of the last command <code class="highlighter-rouge">&lt;object&gt;?</code>.</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In [14]: test = 'test'
 
-In [15]: test?
-Type:        str
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test</span> <span class="o">=</span> <span class="s">'test'</span>
+<span class="n">test</span><span class="err">?</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type:        str
 String form: test
 Length:      4
 Docstring:
@@ -739,155 +759,147 @@ encoding defaults to sys.getdefaultencoding().
 errors defaults to 'strict'.
 </code></pre></div></div>
 
-<div class="center">
-<div class="rcbox">
-<b>ATTENTION</b><br /><br />
- Note that each cell in Jupyter notebook, can contain either Python code or Markdown code, or any other code that you can select from the <i>code</i> dropdown menu at the top of the notebook.
-</div>
-</div>
-<p><br /></p>
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Note that each cell in Jupyter notebook, can contain either Python code or Markdown code, or any other code that you can select from the <i>code</i> dropdown menu at the top of the notebook.</div>
 
-<p><a name="jupyter-shortcuts"></a></p>
 <h3 id="jupyter-cheatsheet-and-keyboard-shortcuts">Jupyter cheatsheet and keyboard shortcuts</h3>
+
 <p>There are many useful keyboard shortcuts in  Jupyter that facilitate editing and revising your Jupyter notebook cells. A Jupyter cheatsheet can be downloaded from <a href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/#downloads" target="_blank">here</a>. The following table is a summary of some of the most useful shortcuts, adopted from Jupyter website.</p>
 
 <table class="center">
-<caption class="title" style="padding-bottom:10px">
-Table 1: Some useful shortcuts for Jupyter cells in <i>view mode</i> (Press <code>ESC</code> to switch to view mode).
-</caption>
-<thead>
-<tr>
-<th>keyboard shortcut</th>
-<th>Description of effect</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-    <td>Enter</td>
-    <td>enter edit mode</td>
-</tr>
-<tr>
-    <td>Shift + Enter</td>
-    <td>run cell, select below</td>
-</tr>
-<tr>
-    <td>Ctrl + Enter</td>
-    <td>run cell</td>
-</tr>
-<tr>
-    <td>Alt + Enter</td>
-    <td>run cell, insert below</td>
-</tr>
-<tr>
-    <td>Y</td>
-    <td>to code</td>
-</tr>
-<tr>
-    <td>M</td>
-    <td>to markdown</td>
-</tr>
-<tr>
-    <td>R</td>
-    <td>to raw</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>to heading 1</td>
-</tr>
-<tr>
-    <td>2,3,4,5,6</td>
-    <td>to heading 2,3,4,5,6</td>
-</tr>
-<tr>
-    <td>Up/K</td>
-    <td>select cell above</td>
-</tr>
-<tr>
-    <td>Down/J</td>
-    <td>select cell below</td>
-</tr>
-<tr>
-    <td>A/B</td>
-    <td>insert cell above/below</td>
-</tr>
-<tr>
-    <td>X</td>
-    <td>cut selected cell</td>
-</tr>
-<tr>
-    <td>C</td>
-    <td>copy selected cell</td>
-</tr>
-<tr>
-    <td>Shift + V</td>
-    <td>paste cell above</td>
-</tr>
-<tr>
-    <td>V</td>
-    <td>paste cell below</td>
-</tr>
-<tr>
-    <td>Z</td>
-    <td>undo last cell deletion</td>
-</tr>
-<tr>
-    <td>D,D</td>
-    <td>delete selected cell</td>
-</tr>
-<tr>
-    <td>Shift + M</td>
-    <td>merge cell below</td>
-</tr>
-<tr>
-    <td>Ctrl + S</td>
-    <td>Save and Checkpoint</td>
-</tr>
-<tr>
-    <td>L</td>
-    <td>toggle line numbers</td>
-</tr>
-<tr>
-    <td>O</td>
-    <td>toggle output</td>
-</tr>
-<tr>
-    <td>Shift + O</td>
-    <td>toggle output scrolling</td>
-</tr>
-<tr>
-    <td>Esc</td>
-    <td>close pager</td>
-</tr>
-<tr>
-    <td>H</td>
-    <td>show keyboard shortcut help dialog</td>
-</tr>
-<tr>
-    <td>I,I</td>
-    <td>interrupt kernel</td>
-</tr>
-<tr>
-    <td>0,0</td>
-    <td>restart kernel</td>
-</tr>
-<tr>
-    <td>Space</td>
-    <td>scroll down</td>
-</tr>
-<tr>
-    <td>Shift + Space</td>
-    <td>scroll up</td>
-</tr>
-<tr>
-    <td>Shift</td>
-    <td>ignore</td>
-</tr>
-
-</tbody>
+    <caption class="title" style="padding-bottom:10px">
+        Table 1: Some useful shortcuts for Jupyter cells in <i>view mode</i> (Press <code>ESC</code> to switch to view mode).
+    </caption>
+    <thead>
+        <tr>
+            <th>keyboard shortcut</th>
+            <th>Description of effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Enter</td>
+            <td>enter edit mode</td>
+        </tr>
+        <tr>
+            <td>Shift + Enter</td>
+            <td>run cell, select below</td>
+        </tr>
+        <tr>
+            <td>Ctrl + Enter</td>
+            <td>run cell</td>
+        </tr>
+        <tr>
+            <td>Alt + Enter</td>
+            <td>run cell, insert below</td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td>to code</td>
+        </tr>
+        <tr>
+            <td>M</td>
+            <td>to markdown</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>to raw</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>to heading 1</td>
+        </tr>
+        <tr>
+            <td>2,3,4,5,6</td>
+            <td>to heading 2,3,4,5,6</td>
+        </tr>
+        <tr>
+            <td>Up/K</td>
+            <td>select cell above</td>
+        </tr>
+        <tr>
+            <td>Down/J</td>
+            <td>select cell below</td>
+        </tr>
+        <tr>
+            <td>A/B</td>
+            <td>insert cell above/below</td>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td>cut selected cell</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>copy selected cell</td>
+        </tr>
+        <tr>
+            <td>Shift + V</td>
+            <td>paste cell above</td>
+        </tr>
+        <tr>
+            <td>V</td>
+            <td>paste cell below</td>
+        </tr>
+        <tr>
+            <td>Z</td>
+            <td>undo last cell deletion</td>
+        </tr>
+        <tr>
+            <td>D,D</td>
+            <td>delete selected cell</td>
+        </tr>
+        <tr>
+            <td>Shift + M</td>
+            <td>merge cell below</td>
+        </tr>
+        <tr>
+            <td>Ctrl + S</td>
+            <td>Save and Checkpoint</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>toggle line numbers</td>
+        </tr>
+        <tr>
+            <td>O</td>
+            <td>toggle output</td>
+        </tr>
+        <tr>
+            <td>Shift + O</td>
+            <td>toggle output scrolling</td>
+        </tr>
+        <tr>
+            <td>Esc</td>
+            <td>close pager</td>
+        </tr>
+        <tr>
+            <td>H</td>
+            <td>show keyboard shortcut help dialog</td>
+        </tr>
+        <tr>
+            <td>I,I</td>
+            <td>interrupt kernel</td>
+        </tr>
+        <tr>
+            <td>0,0</td>
+            <td>restart kernel</td>
+        </tr>
+        <tr>
+            <td>Space</td>
+            <td>scroll down</td>
+        </tr>
+        <tr>
+            <td>Shift + Space</td>
+            <td>scroll up</td>
+        </tr>
+        <tr>
+            <td>Shift</td>
+            <td>ignore</td>
+        </tr>
+    </tbody>
 </table>
 
-<p><br /><br /></p>
+<p><br /></p>
 
 <table class="center">
     <caption class="title" style="padding-bottom:10px">
@@ -1011,33 +1023,23 @@ Table 1: Some useful shortcuts for Jupyter cells in <i>view mode</i> (Press <cod
     </tbody>
 </table>
 
-    <div class="tags">
-        
-            <b>Tags: </b>
-            
-            
-                
-            
-                
-            
-        
-    </div>
     
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+    
+    <div style="margin-top:3rem">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+    
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
 </div>
@@ -1046,13 +1048,60 @@ Table 1: Some useful shortcuts for Jupyter cells in <i>view mode</i> (Press <cod
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 16, 2019 <br />
+            Site last generated: July 17, 2019 <br />
+            
+                <span>Page last updated:</span>July 9, 2019<br/>
+            
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
     <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </footer>
 

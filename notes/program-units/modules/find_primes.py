@@ -24,7 +24,9 @@ def get_primes(n):
         get_primes(n)
 
 
-print('Enter an integer number: ')
-n = int(input('n = '))
-print('\n Here is a list of all prime numbers smaller than {}:'.format(n))
-get_primes(n)
+if __name__ == "__main__":
+
+    print('Enter an integer number: ')
+    n = int(input('n = '))
+    print('\n Here is a list of all prime numbers smaller than {}:'.format(n))
+    get_primes(n)

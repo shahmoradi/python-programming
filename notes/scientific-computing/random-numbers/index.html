@@ -108,7 +108,6 @@
         });
     </script>
     
-
 </head>
 <body>
 <!-- Navigation -->
@@ -128,57 +127,65 @@
                 <!-- toggle sidebar button -->
                 <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
                 <!-- entries without drop-downs appear here -->
-
-
-
-
+                
+                
                 
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">UTA<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">College of Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">Data Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/physics/" target="_blank" rel="noopener">Physics</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
                 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
-                        
-                        
-                        
-                        <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
-                        
-                        
-                    </ul>
-                </li>
                 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li><a href="https://www.cdslab.org/scientific-computing-with-matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-			<li>
-
-
-
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Random numbers page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
-
-</li>
-
-		
                 <!--comment out this block if you want to hide search-->
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
-                        <input type="text" id="search-input" placeholder="search...">
+                        <input type="text" id="search-input" placeholder="keyword search...">
                         <ul id="results-container"></ul>
                     </div>
                     <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
@@ -218,8 +225,6 @@
     
         
             
-        
-            
                 <li>
                     <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
@@ -234,6 +239,20 @@
                                 
                                     
                                         <li><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 2" href="/python/notes/overview/release-note-2/index.html">Release note 2</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Search contents" href="/python/search.html">Search contents</a></li>
                                     
                                     
                                 
@@ -545,12 +564,14 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <h2 id="random-numbers-in-python">Random numbers in Python</h2>
 
 <p>One of the most important topics in today’s science and computer simulation is <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank">random number generation</a> and <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulation</a> methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard <code class="highlighter-rouge">random</code> module:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">43</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>   <span class="c"># generates a random number in the half open interval [0,1)</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="mf">0.012519922307372311</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
+<span class="n">rnd</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>   <span class="c"># generates a random number in the half open interval [0,1)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.012519922307372311
+</code></pre></div></div>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.&lt;</span><span class="n">press</span> <span class="n">tab</span><span class="o">&gt;</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">BPF</span>             <span class="n">rnd</span><span class="o">.</span><span class="n">Random</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">gauss</span>           <span class="n">rnd</span><span class="o">.</span><span class="n">normalvariate</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">randrange</span>       <span class="n">rnd</span><span class="o">.</span><span class="n">shuffle</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">LOG4</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">SG_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">getrandbits</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">paretovariate</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">sample</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">triangular</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">NV_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">SystemRandom</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">getstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">seed</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span>
@@ -558,39 +579,51 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>As you see in the list of available methods in <code class="highlighter-rouge">random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c"># Beta variate with the input parameters</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="mf">0.9281984408820623</span>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>         <span class="c"># random variable from exponential distribution with mean 1.</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="mf">2.546912414260747</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c"># Beta variate with the input parameters</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9281984408820623
+</code></pre></div></div>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">55</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># random variable from gamma distribution with parameters 1,1.</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">55</span><span class="p">]:</span> <span class="mf">0.5364897808236537</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>         <span class="c"># random variable from exponential distribution with mean 1.</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2.546912414260747
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># random variable from gamma distribution with parameters 1,1.</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.5364897808236537
 </code></pre></div></div>
 
 <p>Recall that if you need help on a method or function in Python, you could use <code class="highlighter-rouge">help()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">61</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span><span class="p">)</span>
-<span class="n">Help</span> <span class="n">on</span> <span class="n">method</span> <span class="n">weibullvariate</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">random</span><span class="p">:</span>
 
-<span class="n">weibullvariate</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span> <span class="n">method</span> <span class="n">of</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span> <span class="n">instance</span>
-    <span class="n">Weibull</span> <span class="n">distribution</span><span class="o">.</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Help on method weibullvariate in module random:
 
-    <span class="n">alpha</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">scale</span> <span class="n">parameter</span> <span class="ow">and</span> <span class="n">beta</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">parameter</span><span class="o">.</span>
+weibullvariate(alpha, beta) method of random.Random instance
+    Weibull distribution.
+
+    alpha is the scale parameter and beta is the shape parameter.
 </code></pre></div></div>
 
 <p>To generate <code class="highlighter-rouge">float</code> random numbers between the given input bounds,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>    <span class="c"># generate a random float between 50 and 100</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">64</span><span class="p">]:</span> <span class="mf">65.59688328558263</span>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>    <span class="c"># generate a random float between 50 and 100</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>65.59688328558263
 </code></pre></div></div>
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Alwasy make sure you import modules with unique names since different modules with similar component names may overwrite each other’s objects and methods in your active session of Python. For example <code>import random</code> followed by <code>from numpy import *</code> will cause the <code>random</code> module to be overwritten by <code>numpy.random</code> module.</div>
 
 <p>Also pay attention to sublte differences between similar functions, with the same names, but in different modules. For example,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </code></pre></div></div>
@@ -600,20 +633,23 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <h2 id="the-deterministic-aspect-of-randomness-in-python">The deterministic aspect of randomness in Python</h2>
 
 <p>There is a truth about random numbers and random number generators and algorithms, not only in Python, but in all programming languages, and that is, <strong>true random numbers do not exist in the world of programming</strong>. What we call a sequence of random numbers, is simply a sequence of numbers that we, the user, to the best of our knowledge, don’t know how it was generated, and therefore, <strong>the sequence looks random to us, but not the to the developer of the algorithm!</strong>. To prove this, type the following code in a Python session,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([4, 5, 3, 5, 5, 2])
+</code></pre></div></div>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([3, 3, 3, 5, 4, 3])
+</code></pre></div></div>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([4, 5, 3, 5, 5, 2])
 </code></pre></div></div>
 
 <p>You notice that every time the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code class="highlighter-rouge">np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
@@ -625,8 +661,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <p>Suppose you have the following list,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="n">mylist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">51</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mylist</span>
+<span class="n">mylist</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([   0.,    2.,    4.,    6.,    8.,   10.,   12.,   14.,   16.,
          18.,   20.,   22.,   24.,   26.,   28.,   30.,   32.,   34.,
@@ -637,6 +672,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>and now you wanted to draw a random element from the above list. You could do,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 </code></pre></div></div>
@@ -644,6 +680,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>This will give a random element from the list. You could also generate a random shuffling of the list by,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
 <span class="n">rnd</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="n">mylist</span>
@@ -710,33 +747,23 @@ the script runs before the sidebar code runs and the class never gets inserted.
     </tbody>
 </table>
 
-    <div class="tags">
-        
-            <b>Tags: </b>
-            
-            
-                
-            
-                
-            
-        
-    </div>
     
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+    
+    <div style="margin-top:3rem">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+    
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
 </div>
@@ -745,7 +772,10 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 16, 2019 <br />
+            Site last generated: July 17, 2019 <br />
+            
+                <span>Page last updated:</span>July 9, 2019<br/>
+            
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>

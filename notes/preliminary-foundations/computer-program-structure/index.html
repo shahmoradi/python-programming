@@ -108,7 +108,6 @@
         });
     </script>
     
-
 </head>
 <body>
 <!-- Navigation -->
@@ -128,57 +127,65 @@
                 <!-- toggle sidebar button -->
                 <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
                 <!-- entries without drop-downs appear here -->
-
-
-
-
+                
+                
                 
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">UTA<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">College of Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">Data Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/physics/" target="_blank" rel="noopener">Physics</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
                 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
-                        
-                        
-                        
-                        <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
-                        
-                        
-                    </ul>
-                </li>
                 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li><a href="https://www.cdslab.org/scientific-computing-with-matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-			<li>
-
-
-
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:shahmoradi@utexas.edu?subject=Scientific Computing with Python feedback&body=I have some feedback about the Computer program structure page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Contact</a>
-
-</li>
-
-		
                 <!--comment out this block if you want to hide search-->
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
-                        <input type="text" id="search-input" placeholder="search...">
+                        <input type="text" id="search-input" placeholder="keyword search...">
                         <ul id="results-container"></ul>
                     </div>
                     <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
@@ -218,8 +225,6 @@
     
         
             
-        
-            
                 <li>
                     <a title="Overview" href="#"><b>Overview</b></a>
                     <ul>
@@ -234,6 +239,20 @@
                                 
                                     
                                         <li><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 2" href="/python/notes/overview/release-note-2/index.html">Release note 2</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Search contents" href="/python/search.html">Search contents</a></li>
                                     
                                     
                                 
@@ -594,118 +613,99 @@ the script runs before the sidebar code runs and the class never gets inserted.
         <tr><td><b>tuple</b></td><td>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</td></tr>
     </tbody>
 </table>
-<p><br /></p>
 
-<p><a name="program-content"></a></p>
 <h2 id="the-contents-of-a-computer-program">The contents of a computer program</h2>
-<p>Although different programming languages look different in their syntax standards, virtually all programming languages are comprised of the following major compnents (instructions):</p>
+
+<p>Although different programming languages look different in their syntax standards, virtually all programming languages are comprised of the following major compnents (instructions):<br />
+<br /></p>
 <ol>
   <li><strong>input</strong><br />
   Virtually every program starts with some input data by the user, or the input data that is <a href="https://en.wikipedia.org/wiki/Hard_coding" target="_blank">hard-coded</a> in the program.<br />
-<br /></li>
+  <br /></li>
   <li><strong>mathematical/logical operations</strong><br />
   Virtually all programs involve some sort of mathematical or logical operations on the input data to the program.<br />
-<br /></li>
+  <br /></li>
   <li><strong>conditional execution</strong><br />
   In order to perform the above operations on data, most often (but not always) there is a need to check if some conditions are met in the program, and then perform specific programming instructions corresponding to each of the conditions.<br />
-<br /></li>
+  <br /></li>
   <li><strong>repetition / looping</strong><br />
   Frequently it is needed to perform a specific set of operations repeatedly in the program to achieve the program’s goal.<br />
-<br /></li>
+  <br /></li>
   <li><strong>output</strong><br />
-  At the end of the program, it is always needed to output the program result, either to a computer screen or to a file.<br />
-<br /></li>
+  At the end of the program, it is always needed to output the program result, either to a computer screen or to a file.</li>
 </ol>
 
-<p><a name="program-debugging"></a></p>
 <h2 id="debugging-a-program">Debugging a program</h2>
+
+<p>As it is obvious from its name, a <strong>bug</strong> in a computer program is annoying programming error that needs fixing in order for the program to become executable <strong>or</strong> to give out the correct answer. The process of removing program bugs is called debugging. There are basically three types of programming bugs (errors):</p>
+
+<h3 id="syntax-error">Syntax error</h3>
 <p><br />
-As it is obvious from its name, a <strong>bug</strong> in a computer program is annoying programming error that needs fixing in order for the program to become executable <strong>or</strong> to give out the correct answer. The process of removing program bugs is called debugging. There are basically three types of programming bugs (errors):</p>
-
-<ol>
-  <li><strong>syntax error</strong><br />
-<br />
 A program, whether interpreted or compiled, can be successfully run only if it is <em>syntactically correct</em>. Syntax errors are related to the structure and standard of the language, and the order by which the language <strong>tokens</strong> are allowed to appear in the code. For example, the following Python <code class="highlighter-rouge">print</code> statement is a syntax error in Python 3 standard, whereas it was considered to be the correct syntax for <code class="highlighter-rouge">print</code> in Python 2 standard.<br />
-<br />
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="k">print</span> <span class="s">'Hello World!'</span>
-  <span class="n">File</span> <span class="s">"&lt;ipython-input-21-10fdc521e430&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
- <span class="k">print</span> <span class="s">'Hello World!'</span>
-                    <span class="o">^</span>
-<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">Missing</span> <span class="n">parentheses</span> <span class="ow">in</span> <span class="n">call</span> <span class="n">to</span> <span class="s">'print'</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p>The syntactically correct usage of <code class="highlighter-rouge">print</code> in Python 3 would be,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
-<span class="n">Hello</span> <span class="n">World</span><span class="err">!</span>
+<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="s">'Hello World!'</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;ipython-input-21-10fdc521e430&gt;", line 1
+    print 'Hello World!'
+                       ^
+SyntaxError: Missing parentheses in call to 'print'
 </code></pre></div></div>
 
-<ol>
-  <li><strong>runtime error</strong><br />
-<br />
-Runtime errors or sometimes also named <strong>exceptions</strong> are a class of programming errors that can be detected only at the time of running the code, that is, they are not syntax errors. Examples include:<br />
-<br />
-    <ul>
-      <li>memory leaks (very common error in beginner C and C++ codes)</li>
-      <li>uninitialized memory</li>
-      <li>access request to an illegal memory address of the computer</li>
-      <li>security attack vulnerabilities</li>
-      <li>buffer overflow
-<br />
-These errors can be sometimes tricky to identify.<br />
-<br /></li>
-    </ul>
-  </li>
-  <li><strong>semantic error</strong>
-<br />
-Unlike syntax errors that comprise of something the compiler/interpreter does not understand, semantic errors do not cause any compiler/interpreter error messages. However, the resulting compiled/interpreted code will NOT do what it is intended to do. Semantic errors are the most dangerous types of programming errors, as they do not raise any error flag by the compiler/interpreter, yet the program will not do what it is intended to do, although the code may look perfectly fine on its face. A semantic error is almost synonymous with <strong>logical error</strong>. Dividing two integers using the regular division operator <code class="highlighter-rouge">/</code> in Python 2 and expecting the result to be real, would result in a semantic error. This is because, in Python 2 standard, the regular division operator is equivalent to <strong>integer division</strong> for integer operands:<br />
-<br />
-In Python 2,
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="mi">0</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
+<p>The syntactically-correct usage of <code class="highlighter-rouge">print</code> in Python 3 would be,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+</code></pre></div></div>
+
+<h3 id="runtime-error">Runtime error</h3>
+
+<p>Runtime errors or sometimes also named <strong>exceptions</strong> are a class of programming errors that can be detected only at the time of running the code, that is, they are not syntax errors. Examples include:</p>
+<ul>
+  <li>memory leaks (very common error in beginner C and C++ codes)</li>
+  <li>uninitialized memory</li>
+  <li>access request to an illegal memory address of the computer</li>
+  <li>security attack vulnerabilities</li>
+  <li>buffer overflow</li>
+</ul>
+
+<p>These errors can be sometimes tricky to identify.</p>
+
+<h3 id="semantic-error">Semantic error</h3>
+
+<p>Unlike syntax errors that comprise of something the compiler/interpreter does not understand, semantic errors do not cause any compiler/interpreter error messages. However, the resulting compiled/interpreted code will NOT do what it is intended to do. Semantic errors are the most dangerous types of programming errors, as they do not raise any error flag by the compiler/interpreter, yet the program will not do what it is intended to do, although the code may look perfectly fine on its face. A semantic error is almost synonymous with <strong>logical error</strong>. Dividing two integers using the regular division operator <code class="highlighter-rouge">/</code> in Python 2 and expecting the result to be real, would result in a semantic error. This is because, in Python 2 standard, the regular division operator is equivalent to <strong>integer division</strong> for integer operands:</p>
+
+<p>In Python 2,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
+</code></pre></div></div>
 
 <p>Whereas, you might have really meant a <strong>float division</strong> by using <code class="highlighter-rouge">/</code>, as in Python 3,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mf">0.2857142857142857</span>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="o">/</span><span class="mi">7</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.2857142857142857
 </code></pre></div></div>
 
-    <div class="tags">
-        
-            <b>Tags: </b>
-            
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        
-    </div>
     
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+    
+    <div style="margin-top:3rem">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+    
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
 </div>
@@ -714,13 +714,60 @@ In Python 2,
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-         Site last generated: Jul 16, 2019 <br />
+            Site last generated: July 17, 2019 <br />
+            
+                <span>Page last updated:</span>July 9, 2019<br/>
+            
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
         </p>
         </div>
     </div>
     <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </footer>
 
