@@ -1133,13 +1133,13 @@ span.soft {
     }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1000px) {
     #mysidebar {
         position: relative;
     }
 }
 
-@media (min-width: 990px) {
+@media (min-width: 1000px) {
     #mysidebar {
         position: fixed;
         overflow-y: scroll;
