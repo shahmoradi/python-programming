@@ -150,11 +150,11 @@
                         </li>
                     
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Tutorials<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 
                                 
-                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                <li><a href="https://www.cdslab.org/python/" target="_blank" rel="noopener">Scientific Computing with Python</a></li>
                                 
                                 
                             </ul>
@@ -246,13 +246,6 @@
                                 
                                     
                                         <li><a title="Release note 2" href="/python/notes/overview/release-note-2/index.html">Release note 2</a></li>
-                                    
-                                    
-                                
-                        
-                                
-                                    
-                                        <li><a title="Search contents" href="/python/search.html">Search contents</a></li>
                                     
                                     
                                 
