@@ -302,21 +302,21 @@
                         
                                 
                                     
-                                        <li><a title="First Python program" href="/python/notes/values-variables-types/first-python-program/index.html">First Python program</a></li>
+                                        <li><a title="First program" href="/python/notes/values-variables-types/first-python-program/index.html">First program</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Values in Python" href="/python/notes/values-variables-types/values-in-python/index.html">Values in Python</a></li>
+                                        <li><a title="Values" href="/python/notes/values-variables-types/values-in-python/index.html">Values</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Variables in Python" href="/python/notes/values-variables-types/variables-in-python/index.html">Variables in Python</a></li>
+                                        <li><a title="Variables" href="/python/notes/values-variables-types/variables-in-python/index.html">Variables</a></li>
                                     
                                     
                                 
@@ -735,7 +735,7 @@ array</strong>. It means that a part of the computer’s memory is marked for be
 
 <h2 id="aliasing-vs-copying-arrays">Aliasing vs. copying arrays</h2>
 
-<p>If you recall from <a href="../../values-variables-types/variables-in-python/index.html#aliasing-vs-copying" target="_blank">the previous notes</a>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
+<p>If you recall from <a href="../../values-variables-types/variables/index.html#aliasing-vs-copying" target="_blank">the previous notes</a>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>

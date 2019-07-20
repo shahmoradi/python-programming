@@ -53,7 +53,7 @@
         "title": "First Python program",
         "tags": "firstPythonprogram",
         "keywords": "first, Python, program",
-        "url": "/notes/values-variables-types/first-python-program/index.html",
+        "url": "/notes/values-variables-types/first-program/index.html",
         "summary": "This note aims at introducing simple programs and how to run the programs in different ways."
     }
     ,
@@ -283,7 +283,7 @@
         "title": "Values in Python",
         "tags": "valuetypePython",
         "keywords": "value, type, Python",
-        "url": "/notes/values-variables-types/values-in-python/index.html",
+        "url": "/notes/values-variables-types/values/index.html",
         "summary": "This note aims at introducing the basic value types in Python."
     }
     ,
@@ -294,7 +294,7 @@
         "title": "Variables in Python",
         "tags": "variabletypepython",
         "keywords": "variable, type, python",
-        "url": "/notes/values-variables-types/variables-in-python/index.html",
+        "url": "/notes/values-variables-types/variables/index.html",
         "summary": "This note aims at introducing the variables and the basic variable types in Python."
     }
     ,

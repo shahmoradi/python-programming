@@ -302,21 +302,21 @@
                         
                                 
                                     
-                                        <li><a title="First Python program" href="/python/notes/values-variables-types/first-python-program/index.html">First Python program</a></li>
+                                        <li><a title="First program" href="/python/notes/values-variables-types/first-python-program/index.html">First program</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Values in Python" href="/python/notes/values-variables-types/values-in-python/index.html">Values in Python</a></li>
+                                        <li><a title="Values" href="/python/notes/values-variables-types/values-in-python/index.html">Values</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Variables in Python" href="/python/notes/values-variables-types/variables-in-python/index.html">Variables in Python</a></li>
+                                        <li><a title="Variables" href="/python/notes/values-variables-types/variables-in-python/index.html">Variables</a></li>
                                     
                                     
                                 
