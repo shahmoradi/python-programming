@@ -154,6 +154,10 @@
                             <ul class="dropdown-menu">
                                 
                                 
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                
+                                
+                                
                                 <li><a href="https://www.cdslab.org/python/" target="_blank" rel="noopener">Scientific Computing with Python</a></li>
                                 
                                 
@@ -565,11 +569,11 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <p>Because of the goals for which the unit tests are designed, they are mostly written and used by the developers of the code.</p>
 
-<h3 id="unit-test-frameworks">Unit test frameworks</h3>
+<h2 id="unit-test-frameworks">Unit test frameworks</h2>
 
 <p>There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python.</p>
 
-<p>Just like the case for the choice of programming language, almost every programmer has a strong opinion their own as to which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, I had once an experienced Python programmer in my computer programming class, who did not like any of the existing unit-testing framworks in Python and wanted to write his own unit-test from scratch).</p>
+<p>Just like the case for the choice of programming language, almost every programmer has a strong opinion their own as to which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, I had once an experienced Python programmer in my computer programming class, who did not like any of the existing unit-testing frameworks in Python and wanted to write his own unit-test from scratch).</p>
 
 <p>The framework will provide a consistent testing structure to create maintainable tests with reproducible results. From a product-quality and business point of view, those are the most valuable reasons to use a unit test framework. When you write software, you should also think of a quick and simple way to develop and verify your logic in isolation. Once you make sure you have it working solidly by itself, then you can proceed to integrate it into the larger project solutions with great confidence.</p>
 
@@ -582,7 +586,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <p>which automate as much as possible the process of testing all of your codes, whenever required. The last, <code class="highlighter-rouge">pytest</code> appears to be the most popular unit testing framework as of today.</p>
 
-<h4 id="conventions-for-test-functions">Conventions for test functions</h4>
+<h2 id="conventions-for-test-functions">Conventions for test functions</h2>
 
 <p>The simplest way of using the testing frameworks (e.g., pytest or nose) is to write a set of test functions, scattered around in files, such that pytest or nose can automatically find and run all of these test functions. To achieve the goal, the test functions need to follow certain conventions:</p>
 <ol>
@@ -593,7 +597,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <br /></li>
 </ol>
 
-<h4 id="testing-function-accuracy">Testing function accuracy</h4>
+<h2 id="testing-function-accuracy">Testing function accuracy</h2>
 
 <p>Suppose we have written the following function which runs the Newton’s method for solving an algebraic equation of the form $f(x)=0$, and we would like to write a test function that ensures its correct behavior.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-7</span><span class="p">):</span>
@@ -604,7 +608,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span>
 </code></pre></div></div>
 
-<p>Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code class="highlighter-rouge">newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code class="highlighter-rouge">newton</code> is a float that depends on the machine precision, we cannot expect the function to output the exact same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the <code class="highlighter-rouge">sin(x)</code> function as the test input function to <code class="highlighter-rouge">newton()</code>,</p>
+<p>Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code class="highlighter-rouge">newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code class="highlighter-rouge">newton</code> is a float that depends on the machine precision, we cannot expect the function to output the same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the <code class="highlighter-rouge">sin(x)</code> function as the test input function to <code class="highlighter-rouge">newton()</code>,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_newton_sin</span><span class="p">():</span>
     
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
@@ -648,11 +652,11 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <p>One could also write exact tests for the function <code class="highlighter-rouge">newton</code> which test for an exact result which is known a priori, for example, a mathematical linear input function to <code class="highlighter-rouge">newton</code>.<br />
 <br /></p>
 
-<h4 id="testing-function-robustness">Testing function robustness</h4>
+<h2 id="testing-function-robustness">Testing function robustness</h2>
 
 <p>The above <code class="highlighter-rouge">newton</code> function is very basic and suffers from several problems:</p>
 <ul>
-  <li>for divergent iterations it will iterate forever,</li>
+  <li>for divergent iterations, it will iterate forever,</li>
   <li>it can divide by zero in f(x)/dfdx(x),</li>
   <li>it can perform integer division in f(x)/dfdx(x),</li>
   <li>it does not test whether the arguments have acceptable types and values.</li>
@@ -691,13 +695,11 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h2 id="summary-unit-testing">Summary: unit testing</h2>
 
-<p>Unit testing is a component of <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development (TDD)</a>, a pragmatic methodology that takes a meticulous approach to build a product by means of <em>continual testing and revision</em>.</p>
+<p>Unit testing is a component of <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development (TDD)</a>, a pragmatic methodology that takes a meticulous approach to build a product using <em>continual testing and revision</em>.</p>
 
-<p>Unit testing has a steep learning curve. The development team needs to learn what unit testing is, how to unit test, what to unit test and how to use automated software tools to facilitate the process on an on-going basis.  The great benefit to unit testing is that the earlier a problem is identified, the fewer compound errors occur. A compound error is one that doesn’t seem to break anything at first but eventually conflicts with something down the line and results in a problem.</p>
+<p>Unit testing has a steep learning curve. The programmer or the development-team needs to learn what unit testing is, how to unit test, what to unit test and how to use automated software tools to facilitate the process on an on-going basis.  The great benefit to unit testing is that the earlier a problem is identified, the fewer compound errors occur. A compound error is one that doesn’t seem to break anything at first but eventually conflicts with something down the line and results in a problem.</p>
 
-<p>There is a lot more to unit testing and the existing Python frameworks for it than we discussed here. However, covering all those topics would require a dedicated course for unit testing, which is certainly beyond the capacity of this course. But if you are interested to know more, I recommend you to refer to one of the three unit testing frameworks mentioned <a href="#unit-test-frameworks">above</a>. There are also books already written on this topic an example of which is available <a href="http://chimera.labs.oreilly.com/books/1234000000754/pr01.html" target="_blank">here</a>.</p>
-
-<p><br /><br /></p>
+<p>There is a lot more to unit testing and the existing Python frameworks for it than we discussed here. However, covering all those topics would require a dedicated course for unit testing, which is certainly beyond the capacity of this course. But if you are interested to know more, I recommend you to refer to one of the three unit-testing frameworks mentioned <a href="#unit-test-frameworks">above</a>. There are also many books already written on this topic.</p>
 
     
     
@@ -724,7 +726,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: July 19, 2019 <br />
+            Site last generated: July 20, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

@@ -54,7 +54,7 @@
         "tags": "firstPythonprogram",
         "keywords": "first, Python, program",
         "url": "/notes/values-variables-types/first-python-program/index.html",
-        "summary": "This lecture aims at introducing the fundamental elements of a computer program, including Python programs, as well as the common types of errors that could occur in computer programming."
+        "summary": "This note aims at introducing simple programs and how to run the programs in different ways."
     }
     ,
     
@@ -208,7 +208,7 @@
         "tags": "programminghistoryeniacfermiacpythonfortrancc++matlab",
         "keywords": "programming, history, eniac, fermiac, python, fortran, c, c++, matlab",
         "url": "/notes/preliminary-foundations/programming-history/index.html",
-        "summary": ""
+        "summary": "This note provides a brief history of the development of computers and computer programming languages and their mutual interaction with rapid developments in natural sciences in the 20th century."
     }
     ,
     
@@ -291,7 +291,7 @@
 
     
     {
-        "title": "Values in Python",
+        "title": "Variables in Python",
         "tags": "variabletypepython",
         "keywords": "variable, type, python",
         "url": "/notes/values-variables-types/variables-in-python/index.html",

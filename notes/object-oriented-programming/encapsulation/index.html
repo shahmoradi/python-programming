@@ -154,6 +154,10 @@
                             <ul class="dropdown-menu">
                                 
                                 
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                
+                                
+                                
                                 <li><a href="https://www.cdslab.org/python/" target="_blank" rel="noopener">Scientific Computing with Python</a></li>
                                 
                                 
@@ -609,7 +613,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h3 id="class-representation-of-a-function">Class representation of a function</h3>
 
-<p>A class contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.</p>
+<p>A class contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer. However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.</p>
 
 <p>Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, constitute the data. A Python function, say <code class="highlighter-rouge">value(t)</code>, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, while <code class="highlighter-rouge">t</code> is an argument. A programmer experienced with classes will then suggest collecting the data <code class="highlighter-rouge">v0</code> and <code class="highlighter-rouge">g</code>, and the function <code class="highlighter-rouge">value(t)</code>, together as a <strong>class</strong>. In addition, a class usually has another function, called <strong>constructor</strong> for <strong>initializing the data</strong>. The constructor is always named <code class="highlighter-rouge">__init__</code>. Every <strong>class must have a name</strong>, often <strong>starting with a capital</strong>, so we choose <code class="highlighter-rouge">Y</code> as the name since the class represents a mathematical function with name <code class="highlighter-rouge">y</code>. The next step is to implement this class in Python. A complete class code <code class="highlighter-rouge">Y</code> for our problem here would look as follows in Python:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Y</span><span class="p">:</span>
@@ -683,7 +687,7 @@ must have the name <code class="highlighter-rouge">__init__</code>, otherwise it
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: July 19, 2019 <br />
+            Site last generated: July 20, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

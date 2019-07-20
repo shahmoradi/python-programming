@@ -154,6 +154,10 @@
                             <ul class="dropdown-menu">
                                 
                                 
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">Scientific Computing with MATLAB</a></li>
+                                
+                                
+                                
                                 <li><a href="https://www.cdslab.org/python/" target="_blank" rel="noopener">Scientific Computing with Python</a></li>
                                 
                                 
@@ -556,21 +560,23 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <h2 id="objects-and-classes">Objects and classes</h2>
 
 <p>So far in the notes, we have seen the evolution of programming from simple variable definitions and tasks on the Python command line to writing scripts and functions, while passing scalar or compound variables (lists, arrays, dictionaries, …) to functions. It took a few decades since the development of the first high-level programming language, <a href="https://en.wikipedia.org/wiki/Fortran" target="_blank">Fortran</a>, for the computer scientists to realize that one could take the programming paradigms to an even higher level of combining functions and their input/output data into a single entity called <a href="https://en.wikipedia.org/wiki/Object_(computer_science)" target="_blank">object</a>. Let have another look at the diagram we saw before about the evolution of computer programming paradigms,</p>
+
 <figure>
     <img src="progEvol.png" />
 </figure>
 
 <p>But there is more to Object-Oriented Programming (OOP) than the simple concept of objects. As soon as we are talking about objects, one has to also specify the <strong>class</strong> to which the object belongs. For example, all dogs in the world belong to the generic class of dog. Similarly, in computer programming, including Python, one has to first define a class from which objects can be <strong>instantiated</strong> whenever needed in the program.</p>
 
-<p>The concept of Python class, as in almost any other programming language, relates to packing <strong>a set of variables</strong> together <strong>with a set of functions</strong> operating on the data. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that classes, and more generally, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Object Oriented Programming (OOP)</a>, are not necessary, and could be a hindrance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem or a code that is easier to extend and maintain large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).</p>
+<p>The concept of Python class, as in almost any other programming language, relates to packing <strong>a set of variables</strong> together <strong>with a set of functions</strong> operating on those variables. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that classes, and more generally, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Object Oriented Programming (OOP)</a>, are not necessary, and could be a hindrance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem or a code that is easier to extend and maintain large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).</p>
 
 <p>One of the greatest advantages that the OOP brings to programming is <a href="https://en.wikipedia.org/wiki/Code_reuse" target="_blank"><strong>code-reusability</strong></a>; Once we define a blueprint class, all objects belonging to that class can be easily instantiated from it and personalized. Therefore, <strong>the first step</strong> in OOP is to define the class of an object that we want to create and use.</p>
 
 <h2 id="defining-classes-in-python">Defining classes in Python</h2>
 
-<p>Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until the actually learn what a class is, just as we have made progress in this class so far, without knowing about classes.</p>
+<p>Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until they learn what a class is, just as we have made progress in this class so far, without knowing about classes.</p>
 
 <p>In Python, defining a class is as simple as the following syntax,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div></div>
@@ -578,6 +584,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <p>The above code creates a class <code class="highlighter-rouge">Dog</code> that does not have any <strong>attributes</strong> (variables that define different aspects of the object) or <strong>methods</strong> or <strong>functions</strong> (components of objects that define the tasks the object can do with or without the use of the object’s attributes). The Python keyword <code class="highlighter-rouge">class</code> declares the beginning of a class definition, and the <code class="highlighter-rouge">pass</code> statement is a null operation, meaning that when it is executed, nothing happens. It is simply a placeholder when a statement is required syntactically, but no code needs to be executed.</p>
 
 <p>Once the class is created, you could instantiate objects from the blueprint class,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 </code></pre></div></div>
 
@@ -586,6 +593,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> If you do not add <code class="highlighter-rouge">()</code> after the class name at the time of object instantiation, then you will simply create a copy of the class blueprint, and not an instance of the class.</div>
 
 <p>For example,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">my_dog</span><span class="p">)</span>
 </code></pre></div></div>
@@ -593,6 +601,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>You can confirm whether you have indeed instantiated an object from the class <code class="highlighter-rouge">Dog</code> via <code class="highlighter-rouge">type()</code> or <code class="highlighter-rouge">isinstance()</code> intrinsic functions in Python,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">my_dog</span><span class="p">)</span>
 </code></pre></div></div>
@@ -612,6 +621,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>or try the intrinsic attribute that comes automatically with all Python objects, containing the class name to which the object belongs,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 <span class="n">my_dog</span><span class="o">.</span><span class="n">__class__</span>
 </code></pre></div></div>
@@ -620,7 +630,8 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h2 id="class-attributes-vs-instance-attributes">Class attributes vs. instance attributes</h2>
 
-<p>The class <code class="highlighter-rouge">Dog</code> defined above has no use as it does not contain any attributes or methods. In practice, a dog has color, race, age, and so many other attributes. Besides, it can eat, run, sleep, bark, and so on.  Therefore</p>
+<p>The class <code class="highlighter-rouge">Dog</code> defined above has no use as it does not contain any attributes or methods. In practice, a dog has color, race, age, and so many other attributes. Besides, it can eat, run, sleep, bark, and so on.  Therefore,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
     <span class="c"># attributes</span>
     <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
@@ -630,6 +641,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>Now, note that all attributes defined this way must be preassigned a <strong>default value</strong>. However, once an object is instantiated from this class, one could change the default values to anything else. For example,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
 </code></pre></div></div>
@@ -637,11 +649,11 @@ the script runs before the sidebar code runs and the class never gets inserted.
 </code></pre></div></div>
 
 <p>can be modified to,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Coco"</span>
 <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="s">"Terrier"</span>
 <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s">"brown"</span>
-<span class="n">my_dog</span><span class="o">.</span><span class="n">age</span>
 <span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coco is a brown-color Terrier dog of age 3.
@@ -662,7 +674,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">'Coco'</span><span class="p">,</span><span class="s">'Terrier'</span><span class="p">,</span><span class="s">'brown'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coco is a brown-color Terrier dog of age 3.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coco is a brown-color Terrier-race dog of age 3.
 </code></pre></div></div>
 
 <p>In OOP terminology, this intrinsic class method is called the object <strong>contructor method</strong>. By convention, the <strong>first input argument</strong> to the constructor <code class="highlighter-rouge">__init__</code> is <strong>always</strong> the object itself, that is going to be instantiated, and is frequently named <code class="highlighter-rouge">self</code>. However, its name is arbitrary and can be set to anything, for example, <code class="highlighter-rouge">obj</code> standing for object,</p>
@@ -769,7 +781,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: July 19, 2019 <br />
+            Site last generated: July 20, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
