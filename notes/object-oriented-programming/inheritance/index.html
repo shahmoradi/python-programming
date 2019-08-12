@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="This note aims at providing a brief introduction to the concept of Unit Testing in computer programming and the unit testing frameworks in Python.">
-<meta name="keywords" content="unit_testingerror_handlingpython,  unit_testing, error_handling, python">
-<title>Unit testing | Scientific Computing with Python</title>
+<meta name="description" content="In brief, nheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **pare...">
+<meta name="keywords" content="objectclassinheritancechildparentobject_oriented_programmingpython,  object, class, inheritance, child, parent, object_oriented_programming, python">
+<title>Inheritance | Scientific Computing with Python</title>
 <link rel="stylesheet" href="/css/prismOkaidia.css">
 <script src="/js/prismOkaidia.js"></script>
 <!--
@@ -198,7 +198,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/search.json",
-                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="Unit testing">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="Inheritance">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -408,7 +408,7 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Unit testing" href="/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                        <li><a title="Unit testing" href="/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
                                     
                                     
                                 
@@ -482,7 +482,7 @@
                         
                                 
                                     
-                                        <li><a title="Inheritance" href="/notes/object-oriented-programming/inheritance/index.html">Inheritance</a></li>
+                                        <li class="active"><a title="Inheritance" href="/notes/object-oriented-programming/inheritance/index.html">Inheritance</a></li>
                                     
                                     
                                 
@@ -527,12 +527,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
                     <!-- Content Column -->
                     <div class="col-md-9" id="tg-sb-content">
                         <div class="post-header">
-   <h1 class="post-title-main">Unit testing</h1>
+   <h1 class="post-title-main">Inheritance</h1>
 </div>
 
 <div class="post-content">
     
-        <div class="summary">This note aims at providing a brief introduction to the concept of Unit Testing in computer programming and the unit testing frameworks in Python.</div>
+        <div class="summary">In brief, nheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**.</div>
     
     
         <br>
@@ -557,150 +557,205 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    <h2 id="code-verification-and-unit-testing">Code verification and unit testing</h2>
+    <h2 id="single-inheritance">Single inheritance</h2>
 
-<p>In the previous sections we discussed the process of creating modules and collecting all functions in one file as a personal user-defined <a href="../../program-units/modules/index.html" target="_blank">Python module</a> to be used later. As soon as the list of your codes and functions grow, you will need to have <strong>a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions</strong>. This is called <strong>unit testing</strong>: <em>a software development process in which the smallest testable parts of an application, called <strong>units</strong>, are individually and independently scrutinized for proper operation</em>. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.</p>
+<p>Consider the example Dog class that we already created in the previous notes. We know that dog is a sub-category, or <strong>sub-class</strong>, or a <strong>child class</strong> of another <strong>super-class</strong> or <strong>parent class</strong>, for example, the super-class of animals. Therefore, in a broader context, it makes sense to create an animal class which contains and defines the basic properties and methhods of the class Animal, and then inherit all the shared properties and methods of the Dog class directly from the Animal class, instead of redefining them from scratch for the Dog class specifically.</p>
 
-<p>The grand goal in unit testing is to reduce the risk of encountering potential problems when running the code in the smallest possible units of the code. This means,</p>
-<ol>
-  <li>ensuring the code has the <strong>correct behavior</strong> when given the proper input data.</li>
-  <li>ensuring the <strong>code robustness</strong> to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.</li>
-</ol>
+<p>Initially, this may seem redundant and useless, but consider the case where you need to develop multiple (sub-)classes, for example, Cat, Cow, Goat, …, all of which share many properties and methods. In such scenarios, it is highly advantaguous to have a super-class that contains all the sahred methods and properties, and then define child-classes that inherit all the shared properties and methods directly from the parent classs.</p>
 
-<p>Because of the goals for which the unit tests are designed, they are mostly written and used by the developers of the code.</p>
-
-<h2 id="unit-test-frameworks">Unit test frameworks</h2>
-
-<p>There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python.</p>
-
-<p>Just like the case for the choice of programming language, almost every programmer has a strong opinion their own as to which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, I had once an experienced Python programmer in my computer programming class, who did not like any of the existing unit-testing frameworks in Python and wanted to write his own unit-test from scratch).</p>
-
-<p>The framework will provide a consistent testing structure to create maintainable tests with reproducible results. From a product-quality and business point of view, those are the most valuable reasons to use a unit test framework. When you write software, you should also think of a quick and simple way to develop and verify your logic in isolation. Once you make sure you have it working solidly by itself, then you can proceed to integrate it into the larger project solutions with great confidence.</p>
-
-<p>Python offers three unit testing frameworks,</p>
-<ol>
-  <li><a href="https://docs.python.org/2/library/unittest.html" target="_blank"><strong>unittest</strong></a> (Python’s standard unit testing framework)</li>
-  <li><a href="http://nose.readthedocs.io/en/latest/index.html" target="_blank"><strong>nose</strong></a></li>
-  <li><a href="https://docs.pytest.org/en/latest/" target="_blank"><strong>pytest</strong></a></li>
-</ol>
-
-<p>which automate as much as possible the process of testing all of your codes, whenever required. The last, <code class="highlighter-rouge">pytest</code> appears to be the most popular unit testing framework as of today.</p>
-
-<h2 id="conventions-for-test-functions">Conventions for test functions</h2>
-
-<p>The simplest way of using the testing frameworks (e.g., pytest or nose) is to write a set of test functions, scattered around in files, such that pytest or nose can automatically find and run all of these test functions. To achieve the goal, the test functions need to follow certain conventions:</p>
-<ol>
-  <li>The name of a test function starts with <code class="highlighter-rouge">test_</code>.</li>
-  <li>A test function cannot take any arguments.</li>
-  <li>Any test must be formulated as a boolean condition.</li>
-  <li>An <code class="highlighter-rouge">AssertionError</code> exception is raised if the boolean condition is <code class="highlighter-rouge">False</code> (i.e., when the test fails).<br />
-<br /></li>
-</ol>
-
-<h2 id="testing-function-accuracy">Testing function accuracy</h2>
-
-<p>Suppose we have written the following function which runs the Newton’s method for solving an algebraic equation of the form $f(x)=0$, and we would like to write a test function that ensures its correct behavior.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-7</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># iteration counter</span>
-    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span>
+<p>The general syntax for sub-class definition is as simple as the following</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">childName</span><span class="p">(</span><span class="n">parrentName</span><span class="p">):</span>
+    <span class="c"># Here goes the list of all new, sub-class-specific properties and methods,</span>
+    <span class="c"># including the sub-class constructor.</span>
+    <span class="c"># ...</span>
 </code></pre></div></div>
 
-<p>Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code class="highlighter-rouge">newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code class="highlighter-rouge">newton</code> is a float that depends on the machine precision, we cannot expect the function to output the same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the <code class="highlighter-rouge">sin(x)</code> function as the test input function to <code class="highlighter-rouge">newton()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_newton_sin</span><span class="p">():</span>
-    
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
+<p>Here is an example Animal super-class, which has proeprties and methods that are shared among all animal sub-classes, for example, age, weight, alive/dead attributes and, eating, sleeping, … methods,</p>
 
-    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    
-    <span class="n">x_ref</span> <span class="o">=</span> <span class="mf">0.000769691024206</span>
-    <span class="n">f_x_ref</span> <span class="o">=</span> <span class="mf">0.000769690948209</span>
-    <span class="n">n_ref</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="o">=-</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-2</span><span class="p">)</span>
-    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1E-15</span> <span class="c"># tolerance for comparing real numbers</span>
-    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_ref</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="p">,</span> <span class="s">"The test for the value of x_0 failed"</span> <span class="c"># is x correct?</span>
-    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f_x_ref</span> <span class="o">-</span> <span class="n">f_x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="p">,</span> <span class="s">"The test for the function value failed"</span> <span class="c"># is f_x correct?</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">,</span> <span class="s">"The test for the number of iterations failed"</span> <span class="c"># is f_x correct? # is n correct?</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+
+    <span class="c"># Animal constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+        <span class="c"># instance attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">animal_is_alive</span> <span class="o">=</span> <span class="n">animal_is_alive</span>
+
+    <span class="c"># eating method</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">food</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">food</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">There is nothing to eat :-{{ </span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">food</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">Eating {}...yum yum yum...</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">food</span><span class="p">))</span>
+
+    <span class="c"># sleeping method</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">Sleeping...ZzZzZz....</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Note that in the above test function, the function name begins with <code class="highlighter-rouge">test_</code>, takes no arguments, and raises an <code class="highlighter-rouge">assertionError</code> at the end. Now if you run the test,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_newton_sin</span><span class="p">()</span>
+<p>Now, We could instantiate a dog from this <code class="highlighter-rouge">Animal</code> class,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p>you will notice that the function passed the test. However, if in the above test, we set <code class="highlighter-rouge">eps=1E-10</code>, and run the test again, you will get an assertion error like the following,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sleeping...ZzZzZz....
 
+
+There is nothing to eat :-{
+</code></pre></div></div>
+
+<p>However, a dog can do a lot more than what the generic <code class="highlighter-rouge">Animal</code> that we have defined above can do, for example, barking. Therefore, it makes more sense to define a child class <code class="highlighter-rouge">Dog</code> that is specifically for dogs,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">thisManyTimes</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">thisManyTimes</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'hop'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>No, we can redefine <code class="highlighter-rouge">Coco</code> as an instance of <code class="highlighter-rouge">Dog</code> rather than <code class="highlighter-rouge">Animal</code>,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hop hop hop
+</code></pre></div></div>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Notice in the above example that we did not define the constructor method for the new child class <code class="highlighter-rouge">Dog</code>. The constructor was automatically inherited from the parent class. It is however, a good practice to define unique constructors for all classes separately, like the following example.</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="c"># Dog constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">bark_sound</span> <span class="o">=</span> <span class="s">"hop"</span> <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bark_sound</span> <span class="o">=</span> <span class="n">bark_sound</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">)</span>
+
+    <span class="c"># barking method</span>
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">thisManyTimes</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">thisManyTimes</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bark_sound</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="s">"ruf"</span><span class="p">)</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruf ruf ruf
+</code></pre></div></div>
+
+<p>Notice in the above example that, the parent class’s constructor function <code class="highlighter-rouge">__init__</code> was called from inside of the child’s constructor method. Also, note the extra new attribute that ws added in the child’s constructor method <code class="highlighter-rouge">bark_sound</code> and how the rest of the old parameters are passed to the parent’s constructor.</p>
+
+<h2 id="multiple-inheritance">Multiple inheritance</h2>
+
+<p>It is also possible for a child class to inherit from multiple classes, just as in the real world where offsprings can have one or more parents. The syntax for multiple inherritance is as simple as the following,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">childClassName</span> <span class="p">(</span> <span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">,</span> <span class="o">...</span> <span class="p">)</span>
+    <span class="c"># Here goes all the new methods and attributes...</span>
+</code></pre></div></div>
+
+<p>Just as with the case of single inheritance, the child class inherits all attributes of all of its parents.</p>
+
+<h3 id="the-diamond-problem">The Diamond Problem</h3>
+
+<p>In the case of multiple inheritance, what if multiple parents have a method or attribute that has the same name? Which one should be inherited by the child class?</p>
+
+<p>This inheritance problem is known the <strong>diamond problem</strong> in Python programming. By convention, the child class inherits the attributes and methods that shared by more than one parent, <strong>only from the first parent from the left, that appears in the parent list in the child’s class definition</strong>. For example consider <code class="highlighter-rouge">MotherDog</code> and <code class="highlighter-rouge">FatherDog</code> classes from which <code class="highlighter-rouge">ChildDog</code> inherits methods and properties,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MotherDog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="c"># MotherDog constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span> <span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">)</span>
+
+    <span class="c"># MotherDog barking method</span>
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">thisManyTimes</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">thisManyTimes</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'hop'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">FatherDog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="c"># FatherDog constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">running_Speed</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running_Speed</span> <span class="o">=</span> <span class="n">running_Speed</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">)</span>
+
+    <span class="c"># FatherDog barking method</span>
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">thisManyTimes</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">thisManyTimes</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'ruf'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ChildDog</span><span class="p">(</span><span class="n">MotherDog</span><span class="p">,</span><span class="n">FatherDog</span><span class="p">):</span>
+
+    <span class="c"># ChildDog constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">running_Speed</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note that the implementation of barking method <code class="highlighter-rouge">bark()</code> is different in the two parent classes <code class="highlighter-rouge">MotherDog</code> and <code class="highlighter-rouge">FatherDog</code>, and that **since <code class="highlighter-rouge">MotherDog</code> appears first in the argument list to <code class="highlighter-rouge">ChildDog</code>, this child class will inherit the <code class="highlighter-rouge">bark()</code> method from the <code class="highlighter-rouge">MotherDog</code>,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">ChildDog</span><span class="p">()</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hop hop hop
+</code></pre></div></div>
+
+<p>If we redefined <code class="highlighter-rouge">ChildDog</code> as the following by swiching the position of <code class="highlighter-rouge">MotherDog</code> with <code class="highlighter-rouge">FatherDog</code> as the input to the class <code class="highlighter-rouge">ChildDog</code>,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ChildDog</span><span class="p">(</span><span class="n">FatherDog</span><span class="p">,</span><span class="n">MotherDog</span><span class="p">):</span>
+
+    <span class="c"># ChildDog constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">running_Speed</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>then, <code class="highlighter-rouge">Coco</code> will <code class="highlighter-rouge">bark</code> like <code class="highlighter-rouge">FatherDog</code>,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">ChildDog</span><span class="p">()</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruf ruf ruf ruf ruf ruf ruf ruf ruf ruf
+</code></pre></div></div>
+
+<p>Also, note that despite having the input attribute <code class="highlighter-rouge">running_Speed</code> to the <code class="highlighter-rouge">ChildDog</code> constructor, since it is not used or defined therein, it will not exist in any instances of <code class="highlighter-rouge">ChildDog</code>,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span><span class="o">.</span><span class="n">running_Speed</span>
+</code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-&lt;ipython-input-20-8be9faac8d8e&gt; in &lt;module&gt;()
-----&gt; 1 test_newton_sin()
+AttributeError                            Traceback (most recent call last)
+&lt;ipython-input-85-a2c3b0a91050&gt; in &lt;module&gt;
+----&gt; 1 Coco.running_Speed
 
-&lt;ipython-input-18-263651ba410f&gt; in test_newton_sin()
-     14     x, f_x, n = newton(f, dfdx, x=-pi/3, eps=1E-10)
-     15     tol = 1E-15 # tolerance for comparing real numbers
----&gt; 16     assert abs(x_ref - x) &lt; tol , "The test for the value of x_0 failed" # is x correct?
-     17     assert abs(f_x_ref - f_x) &lt; tol , "The test for the function value failed" # is f_x correct?
-     18     assert n == 3 , "The test for the number of iterations failed" # is f_x correct? # is n correct?
-
-AssertionError: The test for the value of x_0 failed
+AttributeError: 'ChildDog' object has no attribute 'running_Speed'
 </code></pre></div></div>
 
-<p>One could also write exact tests for the function <code class="highlighter-rouge">newton</code> which test for an exact result which is known a priori, for example, a mathematical linear input function to <code class="highlighter-rouge">newton</code>.<br />
-<br /></p>
+<p>Since <code class="highlighter-rouge">running_Speed</code> is only defined in the constructor method of <code class="highlighter-rouge">FatherDog</code>, you will need to explicitly call that constructor to define this property also for <code class="highlighter-rouge">ChildDog</code>,</p>
 
-<h2 id="testing-function-robustness">Testing function robustness</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ChildDog</span><span class="p">(</span><span class="n">FatherDog</span><span class="p">,</span><span class="n">MotherDog</span><span class="p">):</span>
 
-<p>The above <code class="highlighter-rouge">newton</code> function is very basic and suffers from several problems:</p>
-<ul>
-  <li>for divergent iterations, it will iterate forever,</li>
-  <li>it can divide by zero in f(x)/dfdx(x),</li>
-  <li>it can perform integer division in f(x)/dfdx(x),</li>
-  <li>it does not test whether the arguments have acceptable types and values.</li>
-</ul>
+    <span class="c"># ChildDog constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">animal_is_alive</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">running_Speed</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">)</span>
 
-<p>A more robust implementation dealing with these potential problems would look like the following:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-7</span><span class="p">,</span> <span class="n">maxit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span> <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span> <span class="s">'f is </span><span class="si">%</span><span class="s">s, should be function or class with __call__'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">dfdx</span><span class="p">):</span> <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span> <span class="s">'dfdx is </span><span class="si">%</span><span class="s">s, should be function or class with __call__'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">dfdx</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">maxit</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span> <span class="s">'maxit is </span><span class="si">%</span><span class="s">s, must be int'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">maxit</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="n">maxit</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span> <span class="s">'maxit=</span><span class="si">%</span><span class="s">d &lt;= 0, must be &gt; 0'</span> <span class="o">%</span> <span class="n">maxit</span> <span class="p">)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># iteration counter</span>
-    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">eps</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">maxit</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k">except</span> <span class="nb">ZeroDivisionError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nb">ZeroDivisionError</span><span class="p">(</span> <span class="s">'dfdx(</span><span class="si">%</span><span class="s">g)=</span><span class="si">%</span><span class="s">g - cannot divide by zero'</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">)</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span>
+        <span class="c"># Calling the constructor for the default parent class (in this case, FatherDog) to initialize running_Speed</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">animal_is_alive</span><span class="p">,</span> <span class="n">running_Speed</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Now, for this more robust code (than the earlier version: <code class="highlighter-rouge">newton</code>), we have to also write a set of tests, examining the robustness of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of <code class="highlighter-rouge">Newton</code> subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in Newton’s method. So we can set <code class="highlighter-rouge">maxit=12</code> in our robust <code class="highlighter-rouge">Newton</code> code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_Newton_divergence</span><span class="p">():</span>
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">tanh</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">tanh</span>
-    <span class="n">dfdx</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">10.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    
-    <span class="n">x</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-4</span><span class="p">,</span> <span class="n">maxit</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">12</span>
-    <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1E+50</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">ChildDog</span><span class="p">()</span>
+<span class="n">Coco</span><span class="o">.</span><span class="n">running_Speed</span>
 </code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_Newton_divergence</span><span class="p">()</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
 </code></pre></div></div>
 
-<p>The example above only tests for the robustness of <code class="highlighter-rouge">Newton()</code> in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.</p>
-
-<h2 id="summary-unit-testing">Summary: unit testing</h2>
-
-<p>Unit testing is a component of <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development (TDD)</a>, a pragmatic methodology that takes a meticulous approach to build a product using <em>continual testing and revision</em>.</p>
-
-<p>Unit testing has a steep learning curve. The programmer or the development-team needs to learn what unit testing is, how to unit test, what to unit test and how to use automated software tools to facilitate the process on an on-going basis.  The great benefit to unit testing is that the earlier a problem is identified, the fewer compound errors occur. A compound error is one that doesn’t seem to break anything at first but eventually conflicts with something down the line and results in a problem.</p>
-
-<p>There is a lot more to unit testing and the existing Python frameworks for it than we discussed here. However, covering all those topics would require a dedicated course for unit testing, which is certainly beyond the capacity of this course. But if you are interested to know more, I recommend you to refer to one of the three unit-testing frameworks mentioned <a href="#unit-test-frameworks">above</a>. There are also many books already written on this topic.</p>
+<p>The above discussion so far is just a glimpse of inheritance in Python. More advanced topics go beyond the scope and golas of these notes at the moment.</p>
 
     
     

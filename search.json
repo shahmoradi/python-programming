@@ -94,6 +94,17 @@
 
     
     {
+        "title": "Inheritance",
+        "tags": "objectclassinheritancechildparentobject_oriented_programmingpython",
+        "keywords": "object, class, inheritance, child, parent, object_oriented_programming, python",
+        "url": "/notes/object-oriented-programming/inheritance/index.html",
+        "summary": "In brief, nheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**."
+    }
+    ,
+    
+
+    
+    {
         "title": "Data input methods",
         "tags": "datainputIO",
         "keywords": "data, input, IO, python",

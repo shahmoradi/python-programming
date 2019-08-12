@@ -7,25 +7,25 @@
 <meta name="description" content="This note aims at discussing how to deal with exceptions in Python. An exception is an event which occurs during the execution of a program and disrupts the ...">
 <meta name="keywords" content="exception_handlingtry_exceptraisepython,  exception_handling, try_except, raise, python">
 <title>Exception handling | Scientific Computing with Python</title>
-<link rel="stylesheet" href="/python/css/prismOkaidia.css">
-<script src="/python/js/prismOkaidia.js"></script>
+<link rel="stylesheet" href="/css/prismOkaidia.css">
+<script src="/js/prismOkaidia.js"></script>
 <!--
-<link rel="stylesheet" href="/python/css/syntax.css">
+<link rel="stylesheet" href="/css/syntax.css">
 -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="/python/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 
 
 
-<link rel="stylesheet" href="/python/css/customstyles.css">
-<link rel="stylesheet" href="/python/css/boxshadowproperties.css">
+<link rel="stylesheet" href="/css/customstyles.css">
+<link rel="stylesheet" href="/css/boxshadowproperties.css">
 <!-- most color styles are extracted out to here -->
-<link rel="stylesheet" href="/python/css/theme-cdslab.css">
+<link rel="stylesheet" href="/css/theme-cdslab.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="/python/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
 <!-- make sidebar non-accordion -->
-<script src="/python/js/lockScrollbarPosition.js"></script>
+<script src="/js/lockScrollbarPosition.js"></script>
 <!-- make sidebar non-accordion -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -52,16 +52,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 <!--
 -->
-<script src="/python/js/toc.js"></script>
-<script src="/python/js/customscripts.js"></script>
-<link rel="shortcut icon" href="/python/images/favicon.ico">
+<script src="/js/toc.js"></script>
+<script src="/js/customscripts.js"></script>
+<link rel="shortcut icon" href="/images/favicon.ico">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/python/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -120,7 +120,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="fa fa-book fa-lg navbar-brand" href="/python/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
+            <a class="fa fa-book fa-lg navbar-brand" href="/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -192,13 +192,13 @@
                         <input type="text" id="search-input" placeholder="keyword search...">
                         <ul id="results-container"></ul>
                     </div>
-                    <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
+                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
                     <script type="text/javascript">
                             SimpleJekyllSearch.init({
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
-                                dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Exception handling">{title}</a></li>',
+                                dataSource: "/search.json",
+                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="Exception handling">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -235,21 +235,21 @@
                         
                                 
                                     
-                                        <li><a title="Preface" href="/python/notes/overview/preface/index.html">Preface</a></li>
+                                        <li><a title="Preface" href="/notes/overview/preface/index.html">Preface</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                        <li><a title="Release note 1" href="/notes/overview/release-note-1/index.html">Release note 1</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Release note 2" href="/python/notes/overview/release-note-2/index.html">Release note 2</a></li>
+                                        <li><a title="Release note 2" href="/notes/overview/release-note-2/index.html">Release note 2</a></li>
                                     
                                     
                                 
@@ -265,28 +265,28 @@
                         
                                 
                                     
-                                        <li><a title="Version control system" href="/python/notes/preliminary-foundations/version-control-system/index.html">Version control system</a></li>
+                                        <li><a title="Version control system" href="/notes/preliminary-foundations/version-control-system/index.html">Version control system</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Programming history" href="/python/notes/preliminary-foundations/programming-history/index.html">Programming history</a></li>
+                                        <li><a title="Programming history" href="/notes/preliminary-foundations/programming-history/index.html">Programming history</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Computer program structure" href="/python/notes/preliminary-foundations/computer-program-structure/index.html">Computer program structure</a></li>
+                                        <li><a title="Computer program structure" href="/notes/preliminary-foundations/computer-program-structure/index.html">Computer program structure</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Python for beginners" href="/python/notes/preliminary-foundations/python-for-beginners/index.html">Python for beginners</a></li>
+                                        <li><a title="Python for beginners" href="/notes/preliminary-foundations/python-for-beginners/index.html">Python for beginners</a></li>
                                     
                                     
                                 
@@ -302,21 +302,21 @@
                         
                                 
                                     
-                                        <li><a title="First program" href="/python/notes/values-variables-types/first-program/index.html">First program</a></li>
+                                        <li><a title="First program" href="/notes/values-variables-types/first-program/index.html">First program</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Values" href="/python/notes/values-variables-types/values/index.html">Values</a></li>
+                                        <li><a title="Values" href="/notes/values-variables-types/values/index.html">Values</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Variables" href="/python/notes/values-variables-types/variables/index.html">Variables</a></li>
+                                        <li><a title="Variables" href="/notes/values-variables-types/variables/index.html">Variables</a></li>
                                     
                                     
                                 
@@ -332,14 +332,14 @@
                         
                                 
                                     
-                                        <li><a title="Branching" href="/python/notes/control-constructs/branching/index.html">Branching</a></li>
+                                        <li><a title="Branching" href="/notes/control-constructs/branching/index.html">Branching</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Looping" href="/python/notes/control-constructs/looping/index.html">Looping</a></li>
+                                        <li><a title="Looping" href="/notes/control-constructs/looping/index.html">Looping</a></li>
                                     
                                     
                                 
@@ -355,14 +355,14 @@
                         
                                 
                                     
-                                        <li><a title="Functions" href="/python/notes/program-units/functions/index.html">Functions</a></li>
+                                        <li><a title="Functions" href="/notes/program-units/functions/index.html">Functions</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Modules" href="/python/notes/program-units/modules/index.html">Modules</a></li>
+                                        <li><a title="Modules" href="/notes/program-units/modules/index.html">Modules</a></li>
                                     
                                     
                                 
@@ -378,14 +378,14 @@
                         
                                 
                                     
-                                        <li><a title="Data input methods" href="/python/notes/data-transfer/input/index.html">Data input methods</a></li>
+                                        <li><a title="Data input methods" href="/notes/data-transfer/input/index.html">Data input methods</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                        <li><a title="Data output methods" href="/notes/data-transfer/output/index.html">Data output methods</a></li>
                                     
                                     
                                 
@@ -401,14 +401,14 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                        <li class="active"><a title="Exception handling" href="/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                        <li><a title="Unit testing" href="/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
                                     
                                     
                                 
@@ -424,35 +424,35 @@
                         
                                 
                                     
-                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                        <li><a title="Vectorization and array computing" href="/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
+                                        <li><a title="Visualization and plotting" href="/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Random numbers" href="/python/notes/scientific-computing/random-numbers/index.html">Random numbers</a></li>
+                                        <li><a title="Random numbers" href="/notes/scientific-computing/random-numbers/index.html">Random numbers</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Monte Carlo" href="/python/notes/scientific-computing/monte-carlo/index.html">Monte Carlo</a></li>
+                                        <li><a title="Monte Carlo" href="/notes/scientific-computing/monte-carlo/index.html">Monte Carlo</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Interoperation" href="/python/notes/scientific-computing/interoperation/index.html">Interoperation</a></li>
+                                        <li><a title="Interoperation" href="/notes/scientific-computing/interoperation/index.html">Interoperation</a></li>
                                     
                                     
                                 
@@ -468,35 +468,35 @@
                         
                                 
                                     
-                                        <li><a title="Instantiation" href="/python/notes/object-oriented-programming/instantiation/index.html">Instantiation</a></li>
+                                        <li><a title="Instantiation" href="/notes/object-oriented-programming/instantiation/index.html">Instantiation</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Encapsulation" href="/python/notes/object-oriented-programming/encapsulation/index.html">Encapsulation</a></li>
+                                        <li><a title="Encapsulation" href="/notes/object-oriented-programming/encapsulation/index.html">Encapsulation</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Inheritance" href="/python/notes/object-oriented-programming/inheritance/index.html">Inheritance</a></li>
+                                        <li><a title="Inheritance" href="/notes/object-oriented-programming/inheritance/index.html">Inheritance</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Polymorphism" href="/python/notes/object-oriented-programming/polymorphism/index.html">Polymorphism</a></li>
+                                        <li><a title="Polymorphism" href="/notes/object-oriented-programming/polymorphism/index.html">Polymorphism</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Abstraction" href="/python/notes/object-oriented-programming/abstraction/index.html">Abstraction</a></li>
+                                        <li><a title="Abstraction" href="/notes/object-oriented-programming/abstraction/index.html">Abstraction</a></li>
                                     
                                     
                                 
@@ -577,7 +577,7 @@ There is a distinction between an exceptional situation in a program and an erro
     <span class="o">&lt;</span><span class="n">Python</span> <span class="n">statements</span><span class="o">&gt;</span>
 </code></pre></div></div>
 
-<p>For example, consider the <a href="/python/notes/exceptions-errors/exception-handling/cmd_find_primes.py" target="_blank">following code</a> that finds and outputs a list of all prime numbers that are smaller than the given input integer by the user:</p>
+<p>For example, consider the <a href="/notes/exceptions-errors/exception-handling/cmd_find_primes.py" target="_blank">following code</a> that finds and outputs a list of all prime numbers that are smaller than the given input integer by the user:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
 <span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     
@@ -659,7 +659,7 @@ There is a distinction between an exceptional situation in a program and an erro
             <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The statement <code class="highlighter-rouge">sys.exit(1)</code> aborts the program. The whole code can be found in <a href="/python/notes/exceptions-errors/exception-handling/cmd_find_primes_modern.py" target="_blank">this file</a>. Now if we run the <a href="/python/notes/exceptions-errors/exception-handling/cmd_find_primes.py" target="_blank">original code</a> with a non-integer input, we would get the following Python error,</p>
+<p>The statement <code class="highlighter-rouge">sys.exit(1)</code> aborts the program. The whole code can be found in <a href="/notes/exceptions-errors/exception-handling/cmd_find_primes_modern.py" target="_blank">this file</a>. Now if we run the <a href="/notes/exceptions-errors/exception-handling/cmd_find_primes.py" target="_blank">original code</a> with a non-integer input, we would get the following Python error,</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cmd_find_primes.py amir
 Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">"cmd_find_primes.py"</span>, line 34, <span class="k">in</span> &lt;module&gt;
@@ -667,7 +667,7 @@ Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
 ValueError: invalid literal <span class="k">for </span>int<span class="o">()</span> with base 10: <span class="s1">'amir'</span>
 </code></pre></div></div>
 
-<p>whereas, if we run the <a href="/python/notes/exceptions-errors/exception-handling/cmd_find_primes_modern.py" target="_blank">new revised code</a>, the non-integer error is nicely handled by outputting a gentle error message to the user and exiting the program gracefully.</p>
+<p>whereas, if we run the <a href="/notes/exceptions-errors/exception-handling/cmd_find_primes_modern.py" target="_blank">new revised code</a>, the non-integer error is nicely handled by outputting a gentle error message to the user and exiting the program gracefully.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./cmd_find_primes_modern.py amir
 The input you entered is not an integer!
  Try again...
@@ -696,7 +696,7 @@ The input you entered is not an integer!
             <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Executing the <a href="/python/notes/exceptions-errors/exception-handling/cmd_find_primes_raise.py" target="_blank">code</a> with wrong input would give,</p>
+<p>Executing the <a href="/notes/exceptions-errors/exception-handling/cmd_find_primes_raise.py" target="_blank">code</a> with wrong input would give,</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./cmd_find_primes_raise.py amir
 Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">"./cmd_find_primes_raise.py"</span>, line 35, <span class="k">in</span> &lt;module&gt;
@@ -712,7 +712,7 @@ ValueError: The input you entered is not an integer!
  Try again...
 </code></pre></div></div>
 
-<p>A more elegant and cleaner way of handling and outputting the error would be use the following syntax, in <a href="/python/notes/exceptions-errors/exception-handling/cmd_find_primes_raise_as_err.py" target="_blank">this modified code</a>,</p>
+<p>A more elegant and cleaner way of handling and outputting the error would be use the following syntax, in <a href="/notes/exceptions-errors/exception-handling/cmd_find_primes_raise_as_err.py" target="_blank">this modified code</a>,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">sys</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span> <span class="c"># check the number of arguments to be exactly 2.</span>
@@ -766,12 +766,12 @@ invalid literal <span class="k">for </span>int<span class="o">()</span> with bas
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: July 20, 2019 <br />
+            Site last generated: July 22, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
         <p>
-            <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
+            <img class="footerlogo" src="/images/logo.png" }}" alt="cdslab.org" />
             <!-- Start of statc -->
 <div style="color: #ffffff; float: none; width: 100%;">
     <span style="font-size:0.8em">visitor count: 
