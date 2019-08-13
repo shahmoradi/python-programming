@@ -4,28 +4,28 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="In brief, nheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **pare...">
+<meta name="description" content="In brief, inheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **par...">
 <meta name="keywords" content="objectclassinheritancechildparentobject_oriented_programmingpython,  object, class, inheritance, child, parent, object_oriented_programming, python">
-<title>Inheritance | Scientific Computing with Python</title>
-<link rel="stylesheet" href="/css/prismOkaidia.css">
-<script src="/js/prismOkaidia.js"></script>
+<title>Inheritance | Data Science with Python</title>
+<link rel="stylesheet" href="/python/css/prismOkaidia.css">
+<script src="/python/js/prismOkaidia.js"></script>
 <!--
-<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/python/css/syntax.css">
 -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/python/css/bootstrap.min.css">
 
 
 
-<link rel="stylesheet" href="/css/customstyles.css">
-<link rel="stylesheet" href="/css/boxshadowproperties.css">
+<link rel="stylesheet" href="/python/css/customstyles.css">
+<link rel="stylesheet" href="/python/css/boxshadowproperties.css">
 <!-- most color styles are extracted out to here -->
-<link rel="stylesheet" href="/css/theme-cdslab.css">
+<link rel="stylesheet" href="/python/css/theme-cdslab.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/python/js/jquery.navgoco.min.js"></script>
 <!-- make sidebar non-accordion -->
-<script src="/js/lockScrollbarPosition.js"></script>
+<script src="/python/js/lockScrollbarPosition.js"></script>
 <!-- make sidebar non-accordion -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -52,16 +52,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 <!--
 -->
-<script src="/js/toc.js"></script>
-<script src="/js/customscripts.js"></script>
-<link rel="shortcut icon" href="/images/favicon.ico">
+<script src="/python/js/toc.js"></script>
+<script src="/python/js/customscripts.js"></script>
+<link rel="shortcut icon" href="/python/images/favicon.ico">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="alternate" type="application/rss+xml" title="documentation-theme-jekyll" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="/python/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -120,7 +120,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="fa fa-book fa-lg navbar-brand" href="/index.html">&nbsp;<span class="projectTitle"> Scientific Computing with Python</span></a>
+            <a class="fa fa-book fa-lg navbar-brand" href="/python/index.html">&nbsp;<span class="projectTitle"> Data Science with Python</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -192,13 +192,13 @@
                         <input type="text" id="search-input" placeholder="keyword search...">
                         <ul id="results-container"></ul>
                     </div>
-                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
+                    <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
                     <script type="text/javascript">
                             SimpleJekyllSearch.init({
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
-                                dataSource: "/search.json",
-                                searchResultTemplate: '<li><a href="http://localhost:4000{url}" title="Inheritance">{title}</a></li>',
+                                dataSource: "/python/search.json",
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Inheritance">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -235,21 +235,21 @@
                         
                                 
                                     
-                                        <li><a title="Preface" href="/notes/overview/preface/index.html">Preface</a></li>
+                                        <li><a title="Preface" href="/python/notes/overview/preface/index.html">Preface</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Release note 1" href="/notes/overview/release-note-1/index.html">Release note 1</a></li>
+                                        <li><a title="Release note 1" href="/python/notes/overview/release-note-1/index.html">Release note 1</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Release note 2" href="/notes/overview/release-note-2/index.html">Release note 2</a></li>
+                                        <li><a title="Release note 2" href="/python/notes/overview/release-note-2/index.html">Release note 2</a></li>
                                     
                                     
                                 
@@ -265,28 +265,28 @@
                         
                                 
                                     
-                                        <li><a title="Version control system" href="/notes/preliminary-foundations/version-control-system/index.html">Version control system</a></li>
+                                        <li><a title="Version control system" href="/python/notes/preliminary-foundations/version-control-system/index.html">Version control system</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Programming history" href="/notes/preliminary-foundations/programming-history/index.html">Programming history</a></li>
+                                        <li><a title="Programming history" href="/python/notes/preliminary-foundations/programming-history/index.html">Programming history</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Computer program structure" href="/notes/preliminary-foundations/computer-program-structure/index.html">Computer program structure</a></li>
+                                        <li><a title="Computer program structure" href="/python/notes/preliminary-foundations/computer-program-structure/index.html">Computer program structure</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Python for beginners" href="/notes/preliminary-foundations/python-for-beginners/index.html">Python for beginners</a></li>
+                                        <li><a title="Python for beginners" href="/python/notes/preliminary-foundations/python-for-beginners/index.html">Python for beginners</a></li>
                                     
                                     
                                 
@@ -302,21 +302,21 @@
                         
                                 
                                     
-                                        <li><a title="First program" href="/notes/values-variables-types/first-program/index.html">First program</a></li>
+                                        <li><a title="First program" href="/python/notes/values-variables-types/first-program/index.html">First program</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Values" href="/notes/values-variables-types/values/index.html">Values</a></li>
+                                        <li><a title="Values" href="/python/notes/values-variables-types/values/index.html">Values</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Variables" href="/notes/values-variables-types/variables/index.html">Variables</a></li>
+                                        <li><a title="Variables" href="/python/notes/values-variables-types/variables/index.html">Variables</a></li>
                                     
                                     
                                 
@@ -332,14 +332,14 @@
                         
                                 
                                     
-                                        <li><a title="Branching" href="/notes/control-constructs/branching/index.html">Branching</a></li>
+                                        <li><a title="Branching" href="/python/notes/control-constructs/branching/index.html">Branching</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Looping" href="/notes/control-constructs/looping/index.html">Looping</a></li>
+                                        <li><a title="Looping" href="/python/notes/control-constructs/looping/index.html">Looping</a></li>
                                     
                                     
                                 
@@ -355,14 +355,14 @@
                         
                                 
                                     
-                                        <li><a title="Functions" href="/notes/program-units/functions/index.html">Functions</a></li>
+                                        <li><a title="Functions" href="/python/notes/program-units/functions/index.html">Functions</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Modules" href="/notes/program-units/modules/index.html">Modules</a></li>
+                                        <li><a title="Modules" href="/python/notes/program-units/modules/index.html">Modules</a></li>
                                     
                                     
                                 
@@ -378,14 +378,14 @@
                         
                                 
                                     
-                                        <li><a title="Data input methods" href="/notes/data-transfer/input/index.html">Data input methods</a></li>
+                                        <li><a title="Data input methods" href="/python/notes/data-transfer/input/index.html">Data input methods</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Data output methods" href="/notes/data-transfer/output/index.html">Data output methods</a></li>
+                                        <li><a title="Data output methods" href="/python/notes/data-transfer/output/index.html">Data output methods</a></li>
                                     
                                     
                                 
@@ -401,14 +401,14 @@
                         
                                 
                                     
-                                        <li><a title="Exception handling" href="/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/index.html">Exception handling</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Unit testing" href="/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/index.html">Unit testing</a></li>
                                     
                                     
                                 
@@ -424,35 +424,35 @@
                         
                                 
                                     
-                                        <li><a title="Vectorization and array computing" href="/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/index.html">Vectorization and array computing</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Visualization and plotting" href="/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
+                                        <li><a title="Visualization and plotting" href="/python/notes/scientific-computing/visualization/index.html">Visualization and plotting</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Random numbers" href="/notes/scientific-computing/random-numbers/index.html">Random numbers</a></li>
+                                        <li><a title="Random numbers" href="/python/notes/scientific-computing/random-numbers/index.html">Random numbers</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Monte Carlo" href="/notes/scientific-computing/monte-carlo/index.html">Monte Carlo</a></li>
+                                        <li><a title="Monte Carlo" href="/python/notes/scientific-computing/monte-carlo/index.html">Monte Carlo</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Interoperation" href="/notes/scientific-computing/interoperation/index.html">Interoperation</a></li>
+                                        <li><a title="Interoperation" href="/python/notes/scientific-computing/interoperation/index.html">Interoperation</a></li>
                                     
                                     
                                 
@@ -468,35 +468,35 @@
                         
                                 
                                     
-                                        <li><a title="Instantiation" href="/notes/object-oriented-programming/instantiation/index.html">Instantiation</a></li>
+                                        <li><a title="Instantiation" href="/python/notes/object-oriented-programming/instantiation/index.html">Instantiation</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Encapsulation" href="/notes/object-oriented-programming/encapsulation/index.html">Encapsulation</a></li>
+                                        <li><a title="Encapsulation" href="/python/notes/object-oriented-programming/encapsulation/index.html">Encapsulation</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li class="active"><a title="Inheritance" href="/notes/object-oriented-programming/inheritance/index.html">Inheritance</a></li>
+                                        <li class="active"><a title="Inheritance" href="/python/notes/object-oriented-programming/inheritance/index.html">Inheritance</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Polymorphism" href="/notes/object-oriented-programming/polymorphism/index.html">Polymorphism</a></li>
+                                        <li><a title="Polymorphism" href="/python/notes/object-oriented-programming/polymorphism/index.html">Polymorphism</a></li>
                                     
                                     
                                 
                         
                                 
                                     
-                                        <li><a title="Abstraction" href="/notes/object-oriented-programming/abstraction/index.html">Abstraction</a></li>
+                                        <li><a title="Abstraction" href="/python/notes/object-oriented-programming/abstraction/index.html">Abstraction</a></li>
                                     
                                     
                                 
@@ -532,7 +532,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <div class="post-content">
     
-        <div class="summary">In brief, nheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**.</div>
+        <div class="summary">In brief, inheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**.</div>
     
     
         <br>
@@ -559,14 +559,14 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
     <h2 id="single-inheritance">Single inheritance</h2>
 
-<p>Consider the example Dog class that we already created in the previous notes. We know that dog is a sub-category, or <strong>sub-class</strong>, or a <strong>child class</strong> of another <strong>super-class</strong> or <strong>parent class</strong>, for example, the super-class of animals. Therefore, in a broader context, it makes sense to create an animal class which contains and defines the basic properties and methhods of the class Animal, and then inherit all the shared properties and methods of the Dog class directly from the Animal class, instead of redefining them from scratch for the Dog class specifically.</p>
+<p>Consider the example Dog class that we already created in the previous notes. We know that dog is a sub-category, or <strong>sub-class</strong>, or a <strong>child class</strong> of another <strong>super-class</strong> or <strong>parent class</strong>, for example, the super-class of animals. Therefore, in a broader context, it makes sense to create an animal class which contains and defines the basic properties and methods of the class Animal, and then inherit all the shared properties and methods of the Dog class directly from the Animal class, instead of redefining them from scratch for the Dog class specifically.</p>
 
-<p>Initially, this may seem redundant and useless, but consider the case where you need to develop multiple (sub-)classes, for example, Cat, Cow, Goat, …, all of which share many properties and methods. In such scenarios, it is highly advantaguous to have a super-class that contains all the sahred methods and properties, and then define child-classes that inherit all the shared properties and methods directly from the parent classs.</p>
+<p>Initially, this may seem redundant and useless, but consider the case where you need to develop multiple (sub-)classes, for example, Cat, Cow, Goat, …, all of which share many properties and methods. In such scenarios, it is highly advantageous to have a super-class that contains all the shared methods and properties, and then define child-classes that inherit all the shared properties and methods directly from the parent classes.</p>
 
 <p>The general syntax for sub-class definition is as simple as the following</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">childName</span><span class="p">(</span><span class="n">parrentName</span><span class="p">):</span>
     <span class="c"># Here goes the list of all new, sub-class-specific properties and methods,</span>
-    <span class="c"># including the sub-class constructor.</span>
+    <span class="c"># including the subclass constructor.</span>
     <span class="c"># ...</span>
 </code></pre></div></div>
 
@@ -600,7 +600,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <span class="n">Coco</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sleeping...ZzZzZz....
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sleeping...ZzZzZz...
 
 
 There is nothing to eat :-{
@@ -625,7 +625,7 @@ There is nothing to eat :-{
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hop hop hop
 </code></pre></div></div>
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Notice in the above example that we did not define the constructor method for the new child class <code class="highlighter-rouge">Dog</code>. The constructor was automatically inherited from the parent class. It is however, a good practice to define unique constructors for all classes separately, like the following example.</div>
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Notice in the above example that we did not define the constructor method for the new child class <code class="highlighter-rouge">Dog</code>. The constructor was automatically inherited from the parent class. It is, however, a good practice to define unique constructors for all classes separately, as the following example.</div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
 
@@ -645,14 +645,14 @@ There is nothing to eat :-{
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="s">"ruf"</span><span class="p">)</span>
 <span class="n">Coco</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruf ruf ruf
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ruf Ruf Ruf
 </code></pre></div></div>
 
-<p>Notice in the above example that, the parent class’s constructor function <code class="highlighter-rouge">__init__</code> was called from inside of the child’s constructor method. Also, note the extra new attribute that ws added in the child’s constructor method <code class="highlighter-rouge">bark_sound</code> and how the rest of the old parameters are passed to the parent’s constructor.</p>
+<p>Notice in the above example that, the parent class’s constructor function <code class="highlighter-rouge">__init__</code> was called from inside of the child’s constructor method. Also, note the extra new attribute that was added in the child’s constructor method <code class="highlighter-rouge">bark_sound</code> and how the rest of the old parameters are passed to the parent’s constructor.</p>
 
-<h2 id="multiple-inheritance">Multiple inheritance</h2>
+<h2 id="multiple-inheritance">Multiple-inheritance</h2>
 
-<p>It is also possible for a child class to inherit from multiple classes, just as in the real world where offsprings can have one or more parents. The syntax for multiple inherritance is as simple as the following,</p>
+<p>It is also possible for a child class to inherit from multiple classes, just as in the real world where offsprings can have one or more parents. The syntax for multiple-inheritance is as simple as the following,</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">childClassName</span> <span class="p">(</span> <span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">,</span> <span class="o">...</span> <span class="p">)</span>
     <span class="c"># Here goes all the new methods and attributes...</span>
@@ -662,9 +662,9 @@ There is nothing to eat :-{
 
 <h3 id="the-diamond-problem">The Diamond Problem</h3>
 
-<p>In the case of multiple inheritance, what if multiple parents have a method or attribute that has the same name? Which one should be inherited by the child class?</p>
+<p>In the case of multiple inheritances, what if multiple parents have a method or attribute that has the same name? Which one should be inherited by the child class?</p>
 
-<p>This inheritance problem is known the <strong>diamond problem</strong> in Python programming. By convention, the child class inherits the attributes and methods that shared by more than one parent, <strong>only from the first parent from the left, that appears in the parent list in the child’s class definition</strong>. For example consider <code class="highlighter-rouge">MotherDog</code> and <code class="highlighter-rouge">FatherDog</code> classes from which <code class="highlighter-rouge">ChildDog</code> inherits methods and properties,</p>
+<p>This inheritance problem is known as the <strong>diamond problem</strong> in Python programming. By convention, the child class inherits the attributes and methods that shared by more than one parent, <strong>only from the first parent from the left, that appears in the parent list in the child’s class definition</strong>. For example, consider <code class="highlighter-rouge">MotherDog</code> and <code class="highlighter-rouge">FatherDog</code> classes from which <code class="highlighter-rouge">ChildDog</code> inherits methods and properties,</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MotherDog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
 
@@ -722,7 +722,7 @@ There is nothing to eat :-{
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Coco</span> <span class="o">=</span> <span class="n">ChildDog</span><span class="p">()</span>
 <span class="n">Coco</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruf ruf ruf ruf ruf ruf ruf ruf ruf ruf
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ruf Ruf Ruf Ruf Ruf ruf Ruf Ruf Ruf Ruf
 </code></pre></div></div>
 
 <p>Also, note that despite having the input attribute <code class="highlighter-rouge">running_Speed</code> to the <code class="highlighter-rouge">ChildDog</code> constructor, since it is not used or defined therein, it will not exist in any instances of <code class="highlighter-rouge">ChildDog</code>,</p>
@@ -755,7 +755,7 @@ AttributeError: 'ChildDog' object has no attribute 'running_Speed'
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
 </code></pre></div></div>
 
-<p>The above discussion so far is just a glimpse of inheritance in Python. More advanced topics go beyond the scope and golas of these notes at the moment.</p>
+<p>The above discussion so far is just a glimpse of inheritance in Python. More advanced topics go beyond the scope and goals of these notes at the moment.</p>
 
     
     
@@ -782,12 +782,12 @@ AttributeError: 'ChildDog' object has no attribute 'running_Speed'
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: July 22, 2019 <br />
+            Site last generated: August 13, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
         <p>
-            <img class="footerlogo" src="/images/logo.png" }}" alt="cdslab.org" />
+            <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
             <!-- Start of statc -->
 <div style="color: #ffffff; float: none; width: 100%;">
     <span style="font-size:0.8em">visitor count: 

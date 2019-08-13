@@ -8,199 +8,193 @@
   
   
   <url>
-    <loc>http://localhost:4000/notes/control-constructs/branching/index.html</loc>
+    <loc>https://www.cdslab.org/notes/control-constructs/branching/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/preliminary-foundations/computer-program-structure/index.html</loc>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/computer-program-structure/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/object-oriented-programming/encapsulation/index.html</loc>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/encapsulation/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/exceptions-errors/exception-handling/index.html</loc>
-  </url>
-  
-  
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/values-variables-types/first-program/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/css/footer-cdslab.css</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/program-units/functions/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/object-oriented-programming/inheritance/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/data-transfer/input/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/object-oriented-programming/instantiation/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/scientific-computing/interoperation/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/control-constructs/looping/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/js/lunr-feed.js</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/js/lunr-tags.js</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/program-units/modules/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/scientific-computing/monte-carlo/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/data-transfer/output/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/overview/preface/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/preliminary-foundations/programming-history/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/preliminary-foundations/python-for-beginners/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/scientific-computing/random-numbers/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/overview/release-note-1/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/notes/overview/release-note-2/index.html</loc>
+    <loc>https://www.cdslab.org/notes/exceptions-errors/exception-handling/index.html</loc>
   </url>
   
   
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
   <url>
-    <loc>http://localhost:4000/notes/exceptions-errors/unit-testing/index.html</loc>
+    <loc>https://www.cdslab.org/notes/values-variables-types/first-program/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/values-variables-types/values/index.html</loc>
+    <loc>https://www.cdslab.org/css/footer-cdslab.css</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/values-variables-types/variables/index.html</loc>
+    <loc>https://www.cdslab.org/notes/program-units/functions/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/scientific-computing/vectorization/index.html</loc>
+    <loc>https://www.cdslab.org/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/preliminary-foundations/version-control-system/index.html</loc>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/inheritance/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/notes/scientific-computing/visualization/index.html</loc>
+    <loc>https://www.cdslab.org/notes/data-transfer/input/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/assets/css/style.css</loc>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/instantiation/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/interoperation/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/control-constructs/looping/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/js/lunr-feed.js</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/js/lunr-tags.js</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/program-units/modules/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/monte-carlo/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/data-transfer/output/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/overview/preface/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/programming-history/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/python-for-beginners/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/random-numbers/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/overview/release-note-1/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/overview/release-note-2/index.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/exceptions-errors/unit-testing/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/values-variables-types/values/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/values-variables-types/variables/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/vectorization/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/version-control-system/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/scientific-computing/visualization/index.html</loc>
   </url>
   
   

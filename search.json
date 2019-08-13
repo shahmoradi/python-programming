@@ -74,7 +74,7 @@
     {
         "title": "Functions in Python",
         "tags": "functionpython",
-        "keywords": "function, python",
+        "keywords": "function, python, global, globals",
         "url": "/notes/program-units/functions/index.html",
         "summary": "This note aims at explaining the concepts of functions as program units."
     }
@@ -98,7 +98,7 @@
         "tags": "objectclassinheritancechildparentobject_oriented_programmingpython",
         "keywords": "object, class, inheritance, child, parent, object_oriented_programming, python",
         "url": "/notes/object-oriented-programming/inheritance/index.html",
-        "summary": "In brief, nheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**."
+        "summary": "In brief, inheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**."
     }
     ,
     
@@ -340,17 +340,6 @@
         "keywords": "visualization, plotting, curve, figure, matplotlib, python",
         "url": "/notes/scientific-computing/visualization/index.html",
         "summary": "This note attempts to provide a summary of the myriad of the existing methods of data visualization in Python."
-    }
-    ,
-    
-
-    
-    {
-        "title": "",
-        "tags": "",
-        "keywords": "",
-        "url": "/assets/css/style.css",
-        "summary": ""
     }
     
     
