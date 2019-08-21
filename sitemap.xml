@@ -5,28 +5,8 @@
 
   
   
-  
-  
   <url>
-    <loc>https://www.cdslab.org/notes/control-constructs/branching/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>https://www.cdslab.org/notes/preliminary-foundations/computer-program-structure/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>https://www.cdslab.org/notes/object-oriented-programming/encapsulation/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>https://www.cdslab.org/notes/exceptions-errors/exception-handling/index.html</loc>
+    <loc>https://www.cdslab.org/notes/visualization/2d/2d.html</loc>
   </url>
   
   
@@ -34,7 +14,33 @@
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/values-variables-types/first-program/index.html</loc>
+    <loc>https://www.cdslab.org/notes/control-constructs/branching/branching.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/computer-program-structure/computer-program-structure.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/encapsulation/encapsulation.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/exceptions-errors/exception-handling/exception-handling.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/values-variables-types/first-program/first-program.html</loc>
   </url>
   
   
@@ -46,7 +52,7 @@
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/program-units/functions/index.html</loc>
+    <loc>https://www.cdslab.org/notes/program-units/functions/functions.html</loc>
   </url>
   
   
@@ -58,31 +64,31 @@
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/object-oriented-programming/inheritance/index.html</loc>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/inheritance/inheritance.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/data-transfer/input/index.html</loc>
+    <loc>https://www.cdslab.org/notes/data-transfer/input/input.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/object-oriented-programming/instantiation/index.html</loc>
+    <loc>https://www.cdslab.org/notes/object-oriented-programming/instantiation/instantiation.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/scientific-computing/interoperation/index.html</loc>
+    <loc>https://www.cdslab.org/notes/scientific-computing/interoperation/interoperation.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/control-constructs/looping/index.html</loc>
+    <loc>https://www.cdslab.org/notes/control-constructs/looping/looping.html</loc>
   </url>
   
   
@@ -100,55 +106,61 @@
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/program-units/modules/index.html</loc>
+    <loc>https://www.cdslab.org/notes/program-units/modules/modules.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/scientific-computing/monte-carlo/index.html</loc>
+    <loc>https://www.cdslab.org/notes/probabilistic-modeling/monte-carlo/monte-carlo.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/data-transfer/output/index.html</loc>
+    <loc>https://www.cdslab.org/notes/data-transfer/output/output.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/overview/preface/index.html</loc>
+    <loc>https://www.cdslab.org/notes/overview/preface/preface.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/preliminary-foundations/programming-history/index.html</loc>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/programming-history/programming-history.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/preliminary-foundations/python-for-beginners/index.html</loc>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/python-for-beginners/python-for-beginners.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/scientific-computing/random-numbers/index.html</loc>
+    <loc>https://www.cdslab.org/notes/probabilistic-modeling/random-numbers/random-numbers.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/overview/release-note-1/index.html</loc>
+    <loc>https://www.cdslab.org/notes/overview/release-note-1/release-note-1.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/overview/release-note-2/index.html</loc>
+    <loc>https://www.cdslab.org/notes/overview/release-note-2/release-note-2.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://www.cdslab.org/notes/overview/release-note-3/release-note-3.html</loc>
   </url>
   
   
@@ -164,37 +176,31 @@
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/exceptions-errors/unit-testing/index.html</loc>
+    <loc>https://www.cdslab.org/notes/exceptions-errors/unit-testing/unit-testing.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/values-variables-types/values/index.html</loc>
+    <loc>https://www.cdslab.org/notes/values-variables-types/values/values.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/values-variables-types/variables/index.html</loc>
+    <loc>https://www.cdslab.org/notes/values-variables-types/variables/variables.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/scientific-computing/vectorization/index.html</loc>
+    <loc>https://www.cdslab.org/notes/scientific-computing/vectorization/vectorization.html</loc>
   </url>
   
   
   
   <url>
-    <loc>https://www.cdslab.org/notes/preliminary-foundations/version-control-system/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>https://www.cdslab.org/notes/scientific-computing/visualization/index.html</loc>
+    <loc>https://www.cdslab.org/notes/preliminary-foundations/version-control-system/version-control-system.html</loc>
   </url>
   
   

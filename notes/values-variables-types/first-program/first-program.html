@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | Data Science with Python</title>
+<meta name="description" content="This note aims at introducing simple programs and how to run the programs in different ways.">
+<meta name="keywords" content="firstPythonprogram,  first, Python, program">
+<title>First Python program | Data Science with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -198,7 +198,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="First Python program">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -309,7 +309,7 @@
                         
                                 
                                     
-                                        <li><a title="First program" href="/python/notes/values-variables-types/first-program/first-program.html">First program</a></li>
+                                        <li class="active"><a title="First program" href="/python/notes/values-variables-types/first-program/first-program.html">First program</a></li>
                                     
                                     
                                 
@@ -552,10 +552,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
                     <!-- Content Column -->
                     <div class="col-md-9" id="tg-sb-content">
                         <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">First Python program</h1>
 </div>
 
 <div class="post-content">
+    
+        <div class="summary">This note aims at introducing simple programs and how to run the programs in different ways.</div>
     
     
         <br>
@@ -580,239 +582,130 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    @charset "utf-8";
+    <h2 id="the-first-python-program">The first Python program</h2>
 
+<p>The traditional first program in Python language has the following form.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+</code></pre></div></div>
 
+<h2 id="methods-of-running-a-python-program">Methods of running a Python program</h2>
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   15px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+<h3 id="running-python-code-on-the-python-interpreters-command-prompt">Running Python code on the Python interpreter’s command prompt</h3>
 
-$spacing-unit:     30px;
+<p>Now, as you may have noticed, in the above example, I used IPython command line to code my first simple Python program. This is one of the simplest and quickest methods of Python coding and is actually very useful for testing small simple Python-ideas and code snippets on-the-fly.</p>
 
-$text-color:       #111;
-$text-color-light: #c0c0c0;
-$text-color-extra-light: #e0e0e0;
-/* $background-color: #fdfdfd; */ /* This is the original color used */
-$background-color: #f3f3f3;
-$brand-color:      #2a7ae2; /* used for links */
-$brand-color-light: lighten($brand-color, 20%);
-$brand-color-dark: darken($brand-color, 20%);
+<h3 id="running-python-code-inside-a-python-file-python-from-the-bash-command-line">Running Python code inside a Python file Python from the Bash command line</h3>
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+<p>As the program size grows, it wiser to put all of your Python scripts into a single file, and then let the Python interpreter run (i.e., interpret) your entire file all at once. To save the above simple “Hello World” Python code in a file and run it, open a Bash command prompt, then use the Bash <code class="highlighter-rouge">cat</code> command to create and add the Python command to your Python file as in the following (On Windows devices, you can use the Git command prompt).</p>
 
-// Width of the content area
-$content-width:    850px;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;&gt;</span> firstPythonCode.py <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+print ('Hello World!')
+</span><span class="no">EOF
+</span></code></pre></div></div>
 
-$on-palm:          790px;
-$on-laptop:        850px;
+<p>Then you can use call python interpreter from the Bash command line to execute your Python code.</p>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python firstPythonCode.py
+python firstPythonCode.py
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+</code></pre></div></div>
 
+<h3 id="running-python-code-inside-a-python-file-from-the-bash-command-line-as-a-standalone-executable">Running Python code inside a Python file from the Bash command line as a standalone executable</h3>
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
+<p>You can also avoid typing the name of the interpreter (<code class="highlighter-rouge">python</code>) in order to run your code by adding the following <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)" target="_blank">shebang</a> at the top of your Python script, like the following.</p>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;&gt;</span> firstPythonCodeWithShebang.py <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+#!/usr/bin/env python
+print ('Hello World!')
+print ('This is a Python script with Shebang!')
+</span><span class="no">EOF
+</span></code></pre></div></div>
 
+<p>The result is that now you can run your Python script without the interpreter’s name, as an executable file,</p>
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./firstPythonCodeWithShebang.py
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+This is a Python script with Shebang!
+</code></pre></div></div>
 
-/* ******************************************************** */
-/* ******************************************************** */
-/* ******************************************************** */
+<p>Note that <em>shebang</em> directive only works under Unix/Linux operating systems and command prompts (not windows). When a Python script with a shebang is run as a program, the program loader parses the rest of the script’s initial line as an interpreter directive. The specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script.</p>
 
-.tag-box {
-    padding: 4px 0;
-    margin: 0;
-    overflow: hidden;
-    list-style: none;
-    *zoom: 1;
-}
+<p>On the other hand, if you try to run your original code (without Shebang) as an executable without Python interpreter name, you will get an error message like the following,</p>
 
-.tag-box:after,.tag-box:before {
-    display: table;
-    line-height: 0;
-    content: "";
-}
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir@CCBB-Amir MINGW64 ~
+<span class="nv">$ </span>./firstPythonCode.py
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./firstPythonCode.py: line 1: syntax error near unexpected token `'Hello World!''
+./firstPythonCode.py: line 1: `print ('Hello World!')'
+</code></pre></div></div>
 
-.tag-box:after {
-    clear: both;
-}
+<h3 id="running-python-code-inside-a-python-file-by-first-compiling-it-to-bytecode-from-the-command-line">Running Python code inside a Python file by first compiling it to bytecode from the command line</h3>
 
-.tag-box.inline li {
-    float: left;
-    font-size: 1rem;
-    /*
-    */
-    line-height: 2.5;
-}
+<p>You can also compile your Python script into a bytecode. This is, however, a topic of a future lecture.</p>
 
-.tag-box a {
-    padding: 8px 6px;
-    margin: 4px;
-    text-decoration: none;
-    border: 0.1rem solid black;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border-color: $brand-color;
-}
+<h2 id="pythons-print-function">Python’s print function</h2>
 
-.tag-box a span {
-    font-size: 1rem;
-    vertical-align: center;
-    color: $brand-color;
-}
+<p>We have already used print function to create the first Python program. But note also the difference in <code class="highlighter-rouge">print</code> between the two Python versions. In <strong>Python 3</strong>, <code class="highlighter-rouge">print</code> is a <strong>Python function</strong>, whereas in <strong>Python 2</strong>, it is a <strong>Python statement</strong>.</p>
 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'My name is Amir'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My name is Amir
+</code></pre></div></div>
 
-/* ******************************************************** */
-/* ******************************************************** */
-/* horizontal line */
+<p><strong>Note:</strong> You can use wildcards in Python strings. You can also use double quotes for strings.</p>
 
-hr { 
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;
-    color: black;
-} 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"My name is Amir"</span><span class="p">,</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span> <span class="c"># You can use wildcards in Python strings. You can also use double quotes for strings.</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My name is Amir 
+</code></pre></div></div>
 
-/**
- * Wrapper
- */
-.wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'My name is Amir'</span><span class="p">,</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="s">"I am a faculty member of the  </span><span class="se">\"</span><span class="s">University of Texas</span><span class="se">\"</span><span class="s">."</span><span class="p">)</span> 
+<span class="k">print</span><span class="p">(</span><span class="s">'''
+You can multiply strings by integer! </span><span class="se">\n</span><span class="s">
+Note how I used wildcards for quotation marks around "University of Texas" in my previous print function, in order to be consistent with Python syntax.
 
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
+Did you also notice how I am creating a multi-line Python string right now?!
+'''</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My name is Amir 
 
+ I am a faculty member of the  "University of Texas".
 
-/**
- * Site footer
- */
-.site-footer {
-    /* height: 20%; */
-    height: 150px;
-    /*border-top: 1px solid $grey-color-light;*/
-    /*background-color: $grey-color-dark;*/
-    background-color: #000000;
-    color: $text-color-light;
-    padding: $spacing-unit 0;
-    /* */
-    a:link{color:#ffef99};      /* This makes the color of links golden */
-    a:visited{color:#ffef99}
+You can multiply strings by integer! 
 
-    min-height: 150px;    
-        
-    a {
-        color: $brand-color-light;
-        
-        &:hover {
-            color: $text-color-light;
-        }
-    }
-    
-    @include media-query($on-laptop) {
-        min-height: 260px;
-    }
-    
-    @include media-query($on-palm) {
-        min-height: 350px;
-    }   
-}
+Note how I used wildcards for quotation marks around "University of Texas" in my previous print function, in order to be consistent with Python syntax.
 
-.footer-heading {
-    font-size: 18px;
-    color: $text-color-extra-light;
-    margin-top: $spacing-unit / 2;
-    margin-bottom: $spacing-unit / 2;
-}
+Did you also notice how I am creating a multi-line Python string right now?!
+</code></pre></div></div>
 
-.contact-list,
-.social-media-list {
-    list-style: none;
-    margin-left: 0;
-}
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+This is also a multi-line
+comment in
+Python
+"""</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\nThis is also a multi-line\ncomment in\nPython\n'
+</code></pre></div></div>
 
-.footer-col-wrapper {
-    font-size: 14px;
-    margin-left: -$spacing-unit / 2;
-    @extend %clearfix;
-}
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'''
+You can use single quotes
+for multi-line commenting as well.
+Always be as expressive as possible with your comments in your code.
+It does not harm!
+'''</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in your code.\nIt does not harm!\n'
+</code></pre></div></div>
 
-.footer-col {
-    float: left;
-    margin-bottom: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
-}
+<p>In the following sections, you will learn much more about the <code class="highlighter-rouge">print</code> function, especially when dealing with variables.</p>
 
-.footer-col-1 {
-    width: -webkit-calc(33% - (#{$spacing-unit} / 2));
-    width:         calc(33% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-2 {
-    width: -webkit-calc(22% - (#{$spacing-unit} / 2));
-    width:         calc(22% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-    width:         calc(45% - (#{$spacing-unit} / 2));
-}
-
-@include media-query($on-laptop) {
-    .footer-col-1,
-    .footer-col-2 {
-        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-        width:         calc(50% - (#{$spacing-unit} / 2));
-    }
-
-    .footer-col-3 {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-@include media-query($on-palm) {
-    .footer-col {
-        float: none;
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
+<p><a name="python-as-simple-calculator"></a></p>
+<h2 id="python-interpreter-as-a-simple-calculator">Python interpreter as a simple calculator</h2>
+<p>One of the greatest advantages of Python is that it can be used as a simple calculator and program interpreter on-the-fly, just like MATLAB, Mathematica, R, and other scripting languages. You will see why and how this is the case.</p>
 
 
     
@@ -842,6 +735,8 @@ hr {
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
             Site last generated: August 21, 2019 <br />
             
+                <span>Page last updated:</span>July 9, 2019<br/>
+            
         <p>
             <img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" />
             <!-- Start of statc -->
@@ -864,6 +759,50 @@ hr {
         </div>
     </div>
     <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </footer>
 
