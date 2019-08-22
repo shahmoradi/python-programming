@@ -586,7 +586,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <ul>
   <li><a href="linuxRef.pdf" target="_blank">Linux commands cheat-sheet</a></li>
   <li><a href="progit.en.pdf" target="_blank">Git reference manual (2009)</a></li>
-  <li><a href="github-git-cheat-sheet.pdf" target="_blank">Github’s Git cheat-sheet</a></li>
+  <li><a href="github-git-cheat-sheet.pdf" target="_blank">GitHub’s Git cheat-sheet</a></li>
   <li><a href="atlassian_git_cheatsheet.pdf" target="_blank">Atlassian’s Git cheat-sheet</a></li>
   <li><a href="markdown-cheatsheet-online.pdf" target="_blank">Markdown language cheat-sheet</a></li>
   <li><a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank">Advanced Git cheatsheet</a></li>
@@ -732,12 +732,12 @@ Each project’s file in Git/Mercurial indexing process can have one of the thre
 <p>Git can be downloaded and installed from <a href="https://git-scm.com/downloads" target="_blank">here</a> for Windows, Mac, or Linux systems. The installation guide is available <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">here</a>. Mercurial can be downloaded and installed from <a href="https://www.mercurial-scm.org/" target="_blank">here</a> for Windows, Mac, or other operating systems. For collaborative projects, you will need a central (remote) project-repository to which all team members submit their latest developments. <strong>Even if you are working on a project alone, it is always a good idea to submit all of your project developments to a remote repository for the sake of avoiding unpredicted data loss, also for publicly showcasing your work.</strong> Three popular online repositories for version-controlled projects are:</p>
 
 <ol>
-  <li><a href="https://github.com/" target="_blank"><strong>Github</strong></a>, which is also an Internet hosting service, works exclusively for projects that are indexed using Git VCS. As of today, all public projects (visible to everyone on the web) on Github are free-of-charge. For private projects, you will have to pay a monthly fee. However, <a href="https://github.com/blog/1900-the-best-developer-tools-now-free-for-students" target="_blank">Github Student</a> offers a micro-account specially for students with five private repositories free-of-charge (normally $7/month) while you’re a student.<br /><br /></li>
+  <li><a href="https://github.com/" target="_blank"><strong>GitHub</strong></a>, which is also an Internet hosting service, works exclusively for projects that are indexed using Git VCS. As of today, all public projects (visible to everyone on the web) on GitHub are free-of-charge. For private projects, you will have to pay a monthly fee. However, <a href="https://github.com/blog/1900-the-best-developer-tools-now-free-for-students" target="_blank">GitHub Student</a> offers a micro-account specially for students with five private repositories free-of-charge (normally $7/month) while you’re a student.<br /><br /></li>
   <li><a href="https://bitbucket.org/" target="_blank"><strong>Bitbucket</strong></a>, which used to exclusively host Mercurial-indexed projects. But since 2011, it can also host Git-indexed projects. As of today, all projects, public or private (up to 5 users), can be stored on Bitbucket free-of-charge.</li>
   <li><a href="https://about.gitlab.com/" target="_blank"><strong>GitLab</strong></a>, is another rather-new  Git-repository manager that provides developer tools comparable wth GitHub, and even more. At the moment, it is not as popular as GitHub. However, it is used by many major companies and industries across the world for software version control (e.g., NASA, IBM, Boeing, CERN, Oracle, Sony, …).</li>
 </ol>
 
-<p>GitHub and Bitbucket are particularly useful for education as they provide notable services and options for educational accounts and purposes. The following is a concise comparison between the general features and services of Github and Bitbucket.</p>
+<p>GitHub and Bitbucket are particularly useful for education as they provide notable services and options for educational accounts and purposes. The following is a concise comparison between the general features and services of GitHub and Bitbucket.</p>
 
 <p><br /></p>
 <table class="center">
@@ -745,7 +745,7 @@ Each project’s file in Git/Mercurial indexing process can have one of the thre
         <tr>
             <td><strong>Feature</strong></td>
             <td><strong>Bitbucket</strong></td>
-            <td><strong>Github</strong></td>
+            <td><strong>GitHub</strong></td>
         </tr>
         <tr>
             <td>
@@ -796,22 +796,22 @@ Each project’s file in Git/Mercurial indexing process can have one of the thre
                 <strong>Notable Extra features</strong>
             </td>
             <td>
-                <em><span class="s1">External authentication via Github, Twitter, Facebook, Google</span></em>
+                <em><span class="s1">External authentication via GitHub, Twitter, Facebook, Google</span></em>
             </td>
             <td>
-                <em><span class="s1">Two-factor authentication, Github Pages, Github Gists</span></em>
+                <em><span class="s1">Two-factor authentication, GitHub Pages, GitHub Gists</span></em>
             </td>
         </tr>
     </tbody>
 </table>
 
 <p><a name="gitProjectSetup"></a></p>
-<h2 id="setting-up-your-first-git-project-on-github">Setting up your first Git project on Github</h2>
+<h2 id="setting-up-your-first-git-project-on-github">Setting up your first Git project on GitHub</h2>
 
-<p>Here, we will use Git as our version control software, and Github as our central (remote) repository. Follow the guidelines below to create your first Git project on Github.</p>
+<p>Here, we will use Git as our version control software, and GitHub as our central (remote) repository. Follow the guidelines below to create your first Git project on GitHub.</p>
 
 <ol>
-  <li>Go to <a href="https://education.github.com/" target="_blank">Github Student</a> and create your student account.</li>
+  <li>Go to <a href="https://education.github.com/" target="_blank">GitHub Student</a> and create your student account.</li>
   <li>Download and install <a href="https://git-scm.com/downloads" target="_blank">Git</a> on your computer.</li>
 </ol>
 
@@ -830,9 +830,11 @@ Each project’s file in Git/Mercurial indexing process can have one of the thre
 
 <p>Now at this point, there are two ways for project initialization. We will go through both here. A good detailed tutorial can be found <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository" target="_blank">here</a>.</p>
 
-<h4 id="remote-project-initialization-on-github">Remote project initialization (on Github)</h4>
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> If you intend to use GitHub as your remote repository server, you may find it much more straightforward to initiate your projects on GitHub first and then, clone them on your local device as opposed to initiating your repository locally and then pushing it to the remote repository server (GitHub). <strong>So, if you don’t know which one of the following to choose to initialize your projects, then go with the first option (remote project initialization on GitHub) as described below.</strong></div>
 
-<p>With this method you first initialize an empty project on Github, and then clone the project from the remote (Github) repository to your local device, using the <code class="highlighter-rouge">git clone</code> command, discussed later below. To create a remote repository on Github, login to your Github account and follow the instructions on <a href="https://help.github.com/articles/create-a-repo/" target="_blank">this page</a>.</p>
+<h4 id="remote-project-initialization-on-github">Remote project initialization (on GitHub)</h4>
+
+<p>With this method you first initialize an empty project on GitHub, and then clone the project from the remote (GitHub) repository to your local device, using the <code class="highlighter-rouge">git clone</code> command, discussed later below. To create a remote repository on GitHub, login to your GitHub account and follow the instructions on <a href="https://help.github.com/articles/create-a-repo/" target="_blank">this page</a>.</p>
 
 <h4 id="local-project-initialization">Local project initialization</h4>
 
@@ -851,7 +853,7 @@ In order to generate the project’s repository in a different directory, use</p
 <h3 id="local-device-and-remote-repository-ssh-connection">Local device and remote repository SSH connection</h3>
 
 <p><br /><strong>Why is SSH needed?</strong><br />
-Now every time may you want to <strong>clone</strong> your remote private repository to your local device or <strong>push</strong> your local repository to a remote server (your Github account), or basically do any communication between the local and remote repositories, Git will ask you to authenticate your connection by supplying your Github username and password. Note that this security check is necessary since you don’t want just anyone to be able to push unwanted changes to your personal projects or mess with them without your prior permission.
+Now every time may you want to <strong>clone</strong> your remote private repository to your local device or <strong>push</strong> your local repository to a remote server (your GitHub account), or basically do any communication between the local and remote repositories, Git will ask you to authenticate your connection by supplying your GitHub username and password. Note that this security check is necessary since you don’t want just anyone to be able to push unwanted changes to your personal projects or mess with them without your prior permission.
 However, this rather annoying user/pass request by Git can be resolved by setting up an <strong>SSH</strong> secure connection between your local device and the remote repository.<br />
 SSH, also known as <strong>Secure Shell</strong> or <strong>Secure Socket Shell</strong>, is a network protocol that gives users a secure way to access a computer over an unsecured network. SSH may also refer to the suite of utilities that implement the SSH protocol.</p>
 
@@ -859,7 +861,7 @@ SSH, also known as <strong>Secure Shell</strong> or <strong>Secure Socket Shell<
 Think of your local device as a person who has a set of keys. Now, if your remote repository is a home with an entrance keyhole that matches one of the person’s keys, then the person (i.e., your local device) can gain access to the interior of the home (i.e., your remote repository).</p>
 
 <p><strong>How is it set up?</strong><br />
-You can generate keys for your local device by following the instructions given <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank">here</a>. Once you have generated the key and the keyhole, you can add a copy of the keyhole to your Github account by following the instructions given <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank">here</a>.</p>
+You can generate keys for your local device by following the instructions given <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank">here</a>. Once you have generated the key and the keyhole, you can add a copy of the keyhole to your GitHub account by following the instructions given <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank">here</a>.</p>
 
 <p>Here is an example educational video, explaining the SSH key setup process:</p>
 
@@ -1554,7 +1556,7 @@ If you are sure you want to delete it, run <span class="s1">'git branch -D test'
     <div class="row">
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: August 21, 2019 <br />
+            Site last generated: August 22, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
