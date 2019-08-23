@@ -14,6 +14,61 @@
     
 
     
+    {
+        "title": "Branching and If-constructs",
+        "tags": "branchingcontrol_constructsif_blockpython",
+        "keywords": "branching, control_constructs, if_block, python",
+        "url": "/notes/control-constructs/branching/branching.html",
+        "summary": "This note aims at explaining the concepts of branching statements and if-blocks."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Computer program structure",
+        "tags": "computerprogramcontentsdebuggingerror",
+        "keywords": "computer, program, contents, debugging, error",
+        "url": "/notes/preliminary-foundations/computer-program-structure/computer-program-structure.html",
+        "summary": "This lecture aims at introducing the fundamental elements of a computer program, including Python programs, as well as the common types of errors that could occur in computer programming."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Encapsulation",
+        "tags": "objectclassencapsulationdata_hidingobject_oriented_programmingpython",
+        "keywords": "object, class, encapsulation, data hiding, object_oriented_programming, python",
+        "url": "/notes/object-oriented-programming/encapsulation/encapsulation.html",
+        "summary": "This note provides a brief review of the notion of encapsulation and data hiding in Object-Oriented Programming (OOP) paradigm via Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Exception handling",
+        "tags": "exception_handlingtry_exceptraisepython",
+        "keywords": "exception_handling, try_except, raise, python",
+        "url": "/notes/exceptions-errors/exception-handling/exception-handling.html",
+        "summary": "This note aims at discussing how to deal with exceptions in Python. An <b>exception</b> is an event which occurs during the execution of a program and disrupts the normal flow of the program's instructions. The process to deal with such exceptional events in the program is called <b>Exception handling</b>."
+    }
+    ,
+    
+
+    
+
+    
+    {
+        "title": "First Python program",
+        "tags": "firstPythonprogram",
+        "keywords": "first, Python, program",
+        "url": "/notes/values-variables-types/first-program/first-program.html",
+        "summary": "This note aims at introducing simple programs and how to run the programs in different ways."
+    }
+    ,
+    
 
     
     {
@@ -28,11 +83,77 @@
 
     
     {
+        "title": "Functions in Python",
+        "tags": "functionpython",
+        "keywords": "function, python, global, globals",
+        "url": "/notes/program-units/functions/functions.html",
+        "summary": "This note aims at explaining the concepts of functions as program units."
+    }
+    ,
+    
+
+    
+    {
         "title": "",
         "tags": "",
         "keywords": "",
         "url": "/index.html",
         "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Inheritance",
+        "tags": "objectclassinheritancechildparentobject_oriented_programmingpython",
+        "keywords": "object, class, inheritance, child, parent, object_oriented_programming, python",
+        "url": "/notes/object-oriented-programming/inheritance/inheritance.html",
+        "summary": "In brief, inheritance in Object-Oriented-Programming is the ability to define a new **child class** that inherits all properties and methods of another **parent class**."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Data input methods",
+        "tags": "datainputIO",
+        "keywords": "data, input, IO, python",
+        "url": "/notes/data-transfer/input/input.html",
+        "summary": "This note aims at providing an overview of data-input methods in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Instantiation",
+        "tags": "objectclassinstantiationobject_oriented_programmingpython",
+        "keywords": "object, class, instantiation, object_oriented_programming, python",
+        "url": "/notes/object-oriented-programming/instantiation/instantiation.html",
+        "summary": "This note attempts to provide a brief introduction to the concepts of instantiation, objects, and classes in Object-Oriented Programming (OOP) paradigm via Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Interoperation with other programming languages",
+        "tags": "random_numberspython",
+        "keywords": "random_numbers, python",
+        "url": "/notes/scientific-computing/interoperation/interoperation.html",
+        "summary": "This note attempts to provide a brief introduction to performing simple Monte Carlo simulations via Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Loops and iteration constructs",
+        "tags": "forloopwhilelist_comprehensioniterationdictionarylistpython",
+        "keywords": "for, loop, while, list_comprehension, iteration, dictionary, list, python",
+        "url": "/notes/control-constructs/looping/looping.html",
+        "summary": "This note aims at explaining the concept of iterations and loop constructs in Python."
     }
     ,
     
@@ -61,11 +182,121 @@
 
     
     {
+        "title": "Python modules",
+        "tags": "pythonmodulesimportdircommand_linetimetimeittest_block",
+        "keywords": "python, modules, import, dir, command_line, time, timeit, test_block",
+        "url": "/notes/program-units/modules/modules.html",
+        "summary": "This note aims at explaining the concept of modules in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Monte Carlo simulation",
+        "tags": "random_numbersmonte_carlopython",
+        "keywords": "random_numbers, monte_carlo, simulation, python",
+        "url": "/notes/probabilistic-modeling/monte-carlo/monte-carlo.html",
+        "summary": "This note attempts to provide a brief introduction to performing simple Monte Carlo simulations via Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Data output methods",
+        "tags": "dataoutputIOpython",
+        "keywords": "data, output, IO, python",
+        "url": "/notes/data-transfer/output/output.html",
+        "summary": "This note aims at providing an overview of data-input methods in Python."
+    }
+    ,
+    
+
+    
+    {
         "title": "Visualization Tools in Python",
         "tags": "visualizationplottingcurvefigurematplotlibpython",
         "keywords": "visualization, plotting, curve, figure, matplotlib, python",
         "url": "/notes/visualization/overview/overview.html",
         "summary": "This note attempts to provide a summary of the myriad of the existing methods of data visualization in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Preface",
+        "tags": "amir_shahmoradipythongetting_startedhomepagefront_matterfrontpageauthoraboutscientific_computingaudienceoutcomesFortranCinteroperation",
+        "keywords": "amir_shahmoradi, python, getting_started, homepage, front_matter, frontpage, author, about, scientific_computing, audience, outcomes, Fortran, C, interoperation",
+        "url": "/notes/overview/preface/preface.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "A Brief History of Programming",
+        "tags": "programminghistoryeniacfermiacpythonfortrancc++matlab",
+        "keywords": "programming, history, eniac, fermiac, python, fortran, c, c++, matlab",
+        "url": "/notes/preliminary-foundations/programming-history/programming-history.html",
+        "summary": "This note provides a brief history of the development of computers and computer programming languages and their mutual interaction with rapid developments in natural sciences in the 20th century."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Python for beginners",
+        "tags": "pythonbeginner",
+        "keywords": "python, beginner",
+        "url": "/notes/preliminary-foundations/python-for-beginners/python-for-beginners.html",
+        "summary": "This note aims at providing an introduction to Python programming for beginners, how to install the most popular Python implementations, different Python distributions currently available, how to write Jupyter notebooks, and how to perform simple arithmetic operations in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Random numbers",
+        "tags": "random_numberspython",
+        "keywords": "random_numbers, python",
+        "url": "/notes/probabilistic-modeling/random-numbers/random-numbers.html",
+        "summary": "This note attempts to provide a summary of some of the most widely-used approaches for generating random numbers in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Release Note 1",
+        "tags": "release_note",
+        "keywords": "release_note",
+        "url": "/notes/overview/release-note-1/release-note-1.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Release Note 2",
+        "tags": "release_note",
+        "keywords": "release_note",
+        "url": "/notes/overview/release-note-2/release-note-2.html",
+        "summary": ""
+    }
+    ,
+    
+
+    
+    {
+        "title": "Release Note 3",
+        "tags": "release_note",
+        "keywords": "release_note",
+        "url": "/notes/overview/release-note-3/release-note-3.html",
+        "summary": ""
     }
     ,
     
@@ -78,6 +309,61 @@
 
     
 
+    
+
+    
+    {
+        "title": "Unit testing",
+        "tags": "unit_testingerror_handlingpython",
+        "keywords": "unit_testing, error_handling, python",
+        "url": "/notes/exceptions-errors/unit-testing/unit-testing.html",
+        "summary": "This note aims at providing a brief introduction to the concept of Unit Testing in computer programming and the unit testing frameworks in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Values in Python",
+        "tags": "valuetypePython",
+        "keywords": "value, type, Python",
+        "url": "/notes/values-variables-types/values/values.html",
+        "summary": "This note aims at introducing the basic value types in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Variables in Python",
+        "tags": "variabletypepython",
+        "keywords": "variable, type, python",
+        "url": "/notes/values-variables-types/variables/variables.html",
+        "summary": "This note aims at introducing the variables and the basic variable types in Python."
+    }
+    ,
+    
+
+    
+    {
+        "title": "Vectorization and array computing",
+        "tags": "vectorizationarray_computingFortranperformancescientific_computing",
+        "keywords": "vectorization, array_computing, Fortran, performance, scientific_computing",
+        "url": "/notes/scientific-computing/vectorization/vectorization.html",
+        "summary": "Vectorization, an extremely important concept in high-performance scientific computing, is the process of simultaneous execution of a set of computer instructions. This is contrary to the idea of looping and iteration which performs all program instructions sequentially. Vectorization can lead to significant runtime speed-up of the code."
+    }
+    ,
+    
+
+    
+    {
+        "title": "A professional programmer uses Version Control System (VCS)",
+        "tags": "version_control_systemVCSgitmercurialgithubbitbucket",
+        "keywords": "version_control_system, VCS, git, mercurial, github, bitbucket",
+        "url": "/notes/preliminary-foundations/version-control-system/version-control-system.html",
+        "summary": "This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version control software that is available today for professional collaborative programming."
+    }
+    
     
 
 
