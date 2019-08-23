@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="This note attempts to provide a summary of the myriad of the existing methods of data visualization in Python.">
-<meta name="keywords" content="visualizationplottingcurvefigurematplotlibpython,  visualization, 2D, plotting, curve, figure, matplotlib, python">
-<title>2D-plotting | Data Science with Python</title>
+<meta name="keywords" content="visualizationplottingcurvefigurematplotlibpython,  visualization, plotting, curve, figure, matplotlib, python">
+<title>Visualization Tools in Python | Data Science with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -198,7 +198,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="2D-plotting">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org{url}" title="Visualization Tools in Python">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -498,7 +498,7 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Visualization and plotting" href="/python/notes/visualization/2d/2d.html">Visualization and plotting</a></li>
+                                        <li><a title="Visualization and plotting" href="/python/notes/visualization/2d/2d.html">Visualization and plotting</a></li>
                                     
                                     
                                 
@@ -552,7 +552,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
                     <!-- Content Column -->
                     <div class="col-md-9" id="tg-sb-content">
                         <div class="post-header">
-   <h1 class="post-title-main">2D-plotting</h1>
+   <h1 class="post-title-main">Visualization Tools in Python</h1>
 </div>
 
 <div class="post-content">
@@ -582,244 +582,51 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    
-<h2 id="2d-plotting-in-matplotlib">2D-plotting in <code class="highlighter-rouge">matplotlib</code></h2>
+    <h2 id="overview-of-visualization-methods-and-tools-in-python">Overview of visualization methods and tools in Python</h2>
 
-<p>As discussed before, <code class="highlighter-rouge">matplotlib</code> is the workhorse of visualization in Python and therefore, it should always be your first choice, before trying anything else. To see how plotting with <code class="highlighter-rouge">matplotlib</code> works, let’s start with a simple example of 2D curve plotting,</p>
+<p>Because of the very large community of Python programmers and users and due to the lack of a unique consistent standardized visualization package in Python, a myriad of Python visualization packages have been developed beginning with the new millennium. As a result, plotting and visualization with Python have become rather confusing and the appropriate choice of tools is not obvious to many, in particular beginning, programmers. As of 2017, there has been, however, some recent efforts to bring order, organization, and convergence to the heterogeneous landscape of visualization tools in Python.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c"># lower limit</span>
-                <span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">3</span>      <span class="c"># upper limit</span>
-                <span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">51</span>      <span class="c"># generate 51 points between 0 and 3</span>
-                <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c"># This is already vectorized, that is, y will be a vector!</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>If you try the above code in IPython, the out on screen would be something like the following,</p>
+<p>Aside from causing confusion, the availability of many options for visualization in Python can be considered one of its strengths as each of these tools tend to specialize on a specific type of visualization problems depending on the size of input data, type of plots needed, and the ultimate usage of the output visualization. For a summary classification of Python visualization tools see <a href="pyviz.pdf" target="_blank">this pdf file</a>.</p>
 
 <figure>
-    <img src="simple_curve_screen.png" />
+    <a href="https://www.youtube.com/watch?v=FytuB8nFHPQ"><img src="python_visualization_landscape.png" /></a>
+    <figcaption>
+        A diagram representing the current landscape of available visualizaiton tools in Python in 2017.
+    </figcaption>
 </figure>
 
-<p><code class="highlighter-rouge">matplotlib.pyplot</code> is a collection of command-style functions and methods that have been intentionally made to work similar to MATLAB plotting functions. Each <code class="highlighter-rouge">pyplot</code> function makes some changes to a figure. For example, it can create a figure, like <code class="highlighter-rouge">plt.plot()</code> in the above example, or decorates the plot with labels, texts, etc, as will be seen below.</p>
+<h2 id="matplotlib-the-workhorse-of-plotting-in-python"><code class="highlighter-rouge">matplotlib</code>, the workhorse of plotting in Python</h2>
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> In Jupyter Notebook, you can include <code class="highlighter-rouge">%matplotlib inline</code> to avoid having to call <code class="highlighter-rouge">plt.show()</code> every time that you want to make a plot.</div>
+<p>The workhorse of visualization and plotting in Python is <a href="https://matplotlib.org/" target="_blank"><code class="highlighter-rouge">matplotlib</code></a> which is a Python 2D and 3D plotting library capable of producing publication quality figures. The main component of <code class="highlighter-rouge">matplotlib</code> is <code class="highlighter-rouge">pyplot</code>, a <code class="highlighter-rouge">matplotlib</code> module which provides a MATLAB-like interface for Python, while being free and open-source. As a result, the usage of <code class="highlighter-rouge">matplotlib</code> is very similar to MATLAB.</p>
 
-<p>In <code class="highlighter-rouge">matplotlib.pyplot</code> various states are preserved across function calls. Therefore, any further plotting commands will add to the existing tasks that have been so far performed on the current figure and plotting area, and the plotting functions are directed to the <strong>current axes</strong> (i.e., the <em>axes part</em> of a figure).</p>
+<p>There are many tutorials and example problems using <code class="highlighter-rouge">matplotlib</code> on the web that you can refer to. However, as a general recommendation, given the extreme heterogeneity of Python’s programmers’ community and the myriad of tools and approaches to visualization that are available in Python, I highly recommend using tools and recourses from reputable people/organizations that are known for the continuous work and development in Python. You don’t want to write a code that does not work in a few weeks or months because of the poor maintenance of the libraries upon which your code has been developed. Here is a tutorial on <code class="highlighter-rouge">matplotlib</code>, advertised by <a href="https://www.enthought.com/" target="_blank">Enthought</a>.</p>
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> When adding arguments to <code class="highlighter-rouge">plot()</code> function or in general, any other function in Python (or any other programming language), I highly recommend you to write each of the input arguments to the function on a separate line, just like what I have done in the above with <code class="highlighter-rouge">np.linspace()</code> where each one of its input arguments appears on a separate line. This way, at any point, if you don’t need any of the input arguments, you can simply comment it out without affecting or changing the rest of your code. You will see the benefits of this approach of coding in particular with the visualization functions that take many optional arguments as input, and you will frequently need to experiment with those options by repeatedly adding or commenting them out of your code. This way, you will also be able to add comments to the end of the line for each of the input arguments, as I have done in the above example.</div>
+<div class="center">
+    <div class="video-wrapper">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/6gdNUDs6QPc" frameborder="0"></iframe>
+            &lt;/iframe&gt;
+        </div>
+    </div>
+</div>
 
-<h3 id="plotting-multiple-curves-in-one-figure">Plotting multiple curves in one figure</h3>
+<h2 id="other-plotting-packages">Other plotting packages</h2>
 
-<p>Now, suppose you want to add another curve to the same figure that you created in the previous section, for example, the curve corresponding to the following mathematical function,</p>
+<p>For more complicated 2D/3D or vector field plotting, you may find <code class="highlighter-rouge">matplotlib</code> inadequate. To address these inadequacies, other packages have been developed which provide an interface to more advanced plotting software such as, MATLAB, Gnuplot, Grace, OpenDX, VTK, and others.</p>
 
-<script type="math/tex; mode=display">g(x) = x \times \exp\big(-x\big)~,</script>
+<h3 id="easyviz-from-scitools">Easyviz from SciTools</h3>
 
-<p>Then, all you would need to do is to add the follwing lines of code to your previous code snippet,</p>
+<p>Because each of the above-mentioned visualization software has its own plotting syntax, a Python module <code class="highlighter-rouge">easyviz</code> has been developed which provides a universal interface for any of the above-mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using <code class="highlighter-rouge">eazyvis</code>. Just like <code class="highlighter-rouge">matplotlib</code>, the syntax of <code class="highlighter-rouge">eazyvis</code> has been also purposefully made very similar to MATLAB.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span>  <span class="p">(</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.</span>
-                <span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mf">3.</span>
-                <span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.05</span>
-                <span class="p">)</span> <span class="c"># generate points between start and stop with distances of step apart from each other</span>
-<span class="n">yy</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xx</span>
-        <span class="p">,</span> <span class="n">yy</span>
-        <span class="p">,</span> <span class="s">'r-'</span>  <span class="c"># plot with the color red, as line</span>
-        <span class="p">)</span>
-</code></pre></div></div>
+<p>The Easyviz module is part of the <a href="https://github.com/hplgit/scitools" target="_blank">SciTools package</a>, which consists of a set of Python tools building on Numerical Python, ScientificPython, the comprehensive SciPy environment, and other packages for scientific computing with Python. However, keep in mind that <strong>SciTools strictly requires <a href="http://python.org" target="_blank">Python v2.7</a> and <a href="http://numpy.org" target="_blank">Numerical Python</a></strong>.</p>
 
-<p>This will modify your existing figure to something like the following,</p>
+<h3 id="mayavi-visualization-package">Mayavi visualization package</h3>
 
-<figure>
-    <img src="multipleCurves.png" />
-</figure>
+<p><a href="http://docs.enthought.com/mayavi/mayavi/" target="_blank">Mayavi</a> is another advanced, free, scientific data visualizer for Python, with emphasis on <strong>three-dimensional visualization techniques</strong>. The package is written in Python, and uses the <a href="http://www.vtk.org/" target="_blank">Visualization Toolkit (VTK)</a> in C++ for rendering graphics. Since VTK can be configured with different backends, so can Mayavi. Mayavi is cross-platform and runs on most platforms like Mac OS X, Windows, and Linux.</p>
 
-<h3 id="setting-the-limits-of-the-plots-axes">Setting the limits of the plot’s axes</h3>
+<h3 id="more-visualization-packages">More visualization packages</h3>
 
-<p>The plot of the above figure has an obvious problem: It does not seem to show the entire important range of the new function that is represented by the red-curve. To fix this issue, we should increase our curve data <code class="highlighter-rouge">(xx, yy)</code> to cover the range of interest, and then set the limits of both X and Y axes to our desired ranges,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span>  <span class="p">(</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.</span>
-                <span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mf">6.</span>
-                <span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.05</span>
-                <span class="p">)</span> <span class="c"># generate points between start and stop with distances of step apart from each other</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xx</span>
-        <span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
-        <span class="p">,</span> <span class="s">'r-'</span>  <span class="c"># plot with color red, as line</span>
-        <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-</code></pre></div></div>
-
-<p>which will modify the existing open figure in IPython (Jupyter) environment to the following,</p>
-
-<figure>
-    <img src="multipleCurvesFullRange.png" />
-</figure>
-
-<h3 id="adding-the-axis-labels-figure-title-and-legends">Adding the axis-labels, figure-title, and legends</h3>
-
-<p>We can further decorate the generated figure by adding the relevantr information to it like the following,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'X-axis'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Y-axis'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="p">[</span> <span class="s">'f(x) = x^2*exp(-x^2)'</span>   <span class="c"># This is f(x)</span>
-            <span class="p">,</span> <span class="s">'g(x) = x*exp(-x)'</span>       <span class="c"># This is g(x)</span>
-            <span class="p">]</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'multiple Matplotlib curves in a single decorated figure'</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>This will modify the existing figure to the following,</p>
-
-<figure>
-    <img src="multipleCurvesFullRangeDecorated.png" />
-</figure>
-
-<h3 id="saving-figures-as-external-files">Saving figures as external files</h3>
-
-<p>Finally, we can save the generated figure in the file-format of our interest, for example, PDF, by the following command,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'multipleCurvesFullRangeDecorated.pdf'</span><span class="p">)</span> <span class="c"># produces a PDF file containing the figure</span>
-</code></pre></div></div>
-
-<p>This will generate a <a href="multipleCurvesFullRangeDecorated.pdf" target="_blank">PDF file</a> that will be located in the current working directory of your Python environment. Alternatively, you could save it as a PNG file or any other popular image format by simply using the image format file-extension, like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'multipleCurvesFullRangeDecorated.png'</span><span class="p">)</span> <span class="c"># produces a PNG file containing the figure</span>
-</code></pre></div></div>
-
-<h3 id="working-simultaneously-with-multiple-open-figures">Working simultaneously with multiple open figures</h3>
-
-<p>There are times that you want to plot multiple curves, but each one in a separate figure. To do so, you can use <code class="highlighter-rouge">plt.figure()</code> whenever you want to create a new figure environment. For example, the two curves superposed on each other in the previous plots could be separated from each other with the following code,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span>   <span class="p">(</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c"># upper limit</span>
-                <span class="p">,</span> <span class="n">stop</span>  <span class="o">=</span> <span class="mf">6.</span>    <span class="c"># lower limit</span>
-                <span class="p">,</span> <span class="n">step</span>  <span class="o">=</span> <span class="mf">0.05</span>  <span class="c"># step-size (distance between the points)</span>
-                <span class="p">)</span> <span class="c"># generate points between start and stop with distances of step apart from each other</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>    <span class="c"># plot f(x)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>  <span class="c"># plot g(x)</span>
-</code></pre></div></div>
-
-<p>This will generate the following two separate figures in the Python environment,</p>
-
-<figure>
-    <img src="f(x).png" />
-    <img src="g(x).png" />
-</figure>
-
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Notice the use of integer numbers as input arguments to the function <code class="highlighter-rouge">figure()</code> in the above. This integer represents the ID of the figure by which the figure is represented and can be called when needed. It is always a good practice to provide this number so that if you need to activate a specific figure, you could simply do so by recalling the figure by its ID number through the same command <code class="highlighter-rouge">plt.figure(ID)</code>.</div>
-
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Notice that when you call the plotting functions in Python, for example, <code class="highlighter-rouge">plt.plot(x,g(x))</code>, an output is written on the command-line by the Python interpreter, which is the name of function returned, such as, <code class="highlighter-rouge">[&lt;matplotlib.lines.Line2D at 0x1e438e87eb8&gt;]</code>. Since this output is not always interesting or needed, you can put a <code class="highlighter-rouge">;</code> at the end of the command <code class="highlighter-rouge">plt.plot(x,g(x));</code> to avoid the print-out.</div>
-
-<h3 id="adding-transparency-to-the-plot-objects">Adding transparency to the plot objects</h3>
-
-<p>It may happen frequently that you may need to represent some lines or objects in your plots at varying levels of transparency. This can be done by the <code class="highlighter-rouge">alpha</code> optional argument to the <code class="highlighter-rouge">plot()</code> function,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="n">mpl</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span>   <span class="p">(</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c"># upper limit</span>
-                <span class="p">,</span> <span class="n">stop</span>  <span class="o">=</span> <span class="mf">6.</span>    <span class="c"># lower limit</span>
-                <span class="p">,</span> <span class="n">step</span>  <span class="o">=</span> <span class="mf">0.05</span>  <span class="c"># step-size (distance between the points)</span>
-                <span class="p">)</span> <span class="c"># generate points between start and stop with distances of step apart from each other</span>
-<span class="n">thisLegend</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s">'Agg'</span><span class="p">)</span>   <span class="c"># avoid displaying the figure in Python environment</span>
-<span class="k">for</span> <span class="n">thisAlpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">thisAlpha</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="s">'b-.'</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">thisAlpha</span> <span class="p">);</span>   <span class="c"># -. represents dashed-dotted line-style</span>
-    <span class="n">thisLegend</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"alpha = {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thisAlpha</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="n">thisLegend</span> <span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"transparency.png"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>This will export the following figure to an external PNG file in the current working directory of Python, like the following,</p>
-
-<figure>
-    <img src="transparency.png" />
-</figure>
-
-<h3 id="plotting-line-styles-and-symbols">Plotting line-styles and symbols</h3>
-
-<p>Just as in MATLAB, there are several line-style options available also in Python,</p>
-
-<figure>
-    <img src="lineStyles.png" />
-</figure>
-
-<p>Similarly, one can use different symbols to generate scatter plots, instead of lines, using either <code class="highlighter-rouge">scatter()</code> or <code class="highlighter-rouge">plot()</code> functions,</p>
-
-<figure>
-    <img src="symbols.png" />
-</figure>
-
-<h4 id="execise">Execise</h4>
-
-<p>Modify the following code to generate a figure like the following,</p>
-<figure>
-    <img src="transparencyWithSymbols.png" />
-</figure>
-
-<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> There are many other figure/plot attributes that can be set when making a plot, for example, the major and minor tick styles, the font size for all different elements of the figure and the plot, the size of the figure and, etc. The discussion of all of them is not possible within the limited time and space available here. However, further information all of these properties can be found in <code class="highlighter-rouge">matplotlib</code>’s <a href="https://matplotlib.org/api/pyplot_api.html" target="_blank">reference manual</a>.</div>
-
-<h2 id="subplots-in-matplotlib">Subplots in <code class="highlighter-rouge">matplotlib</code></h2>
-
-<p>Suppose you wanted to generate the same curves as in the above example, but each in a different plot, but with all of the plots in the same figure. One way to do this would be like the following,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="n">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span>   <span class="p">(</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c"># upper limit</span>
-                <span class="p">,</span> <span class="n">stop</span>  <span class="o">=</span> <span class="mf">6.</span>    <span class="c"># lower limit</span>
-                <span class="p">,</span> <span class="n">step</span>  <span class="o">=</span> <span class="mf">0.1</span>   <span class="c"># step-size (distance between the points)</span>
-                <span class="p">)</span> <span class="c"># generate points between start and stop with distances of step apart from each other</span>
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>            <span class="c"># generates a new figure as in MATLAB</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># create a 2-row, 1-column subplot, and this is the 1st subplot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">'r-'</span><span class="p">)</span> <span class="c"># plot with color red, as line</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c"># create a 2-row, 1-column subplot, and this is the 2nd subplot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">'bo'</span><span class="p">)</span> <span class="c"># plot with color blue, as points</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'x*exp(-x)'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'an example Matplotlib subplot'</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'two_by_one_subplot.png'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>The output of the code is a PNG figure <a href="two_by_one_subplot.png" target="_blank">available here</a>,</p>
-
-<figure>
-    <img src="two_by_one_subplot.png" />
-</figure>
-
-<p>Note that since the decorations (i.e., axis labels, legend, title, …) appeared only for the second subplot, only the second one in the figure above is decorated with plot title, legend, etc. Also, note again that, the <code class="highlighter-rouge">figure()</code> method creates a new plot window on the screen that will contain both subplots.</p>
-
-<p>Also, note that the subplots in the above figure look a bit too-squished and overlap each other. In such cases, one could use <code class="highlighter-rouge">tight_layout()</code> method to automatically adjust the paddings of the subplots and their organization within the figure. For example, by simply typing,</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>one would automatically get the following padded subplots that peacefully coexist,</p>
-
-<figure>
-    <img src="two_by_one_subplot_at_peace.png" />
-</figure>
-
+<p>There are many more Python visualization packages that have not been discussed here, for example, <a href="https://bokeh.pydata.org/en/latest/" target="_blank">Bokeh</a>, <a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a>, <a href="https://holoviz.org/tutorial/" target="_blank">HoloViz</a>, etc, each one of which has been developed with a specific visualization goal in mind. For a list of tutorials on some of these packages, visit <a href="https://pyviz.org/tutorials/index.html" target="_blank">pyviz.org</a>.</p>
 
     
     
