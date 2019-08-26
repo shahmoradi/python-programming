@@ -767,7 +767,7 @@ array</strong>. It means that a part of the computer’s memory is marked for be
 
 <h2 id="aliasing-vs-copying-arrays">Aliasing vs. copying arrays</h2>
 
-<p>If you recall from <a href="../../values-variables-types/variables/index.html#aliasing-vs-copying" target="_blank">the previous notes</a>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
+<p>If you recall from the topic of <strong>aliasing vs. copying</strong> in the discussion of <strong>values, variables, types</strong>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -1044,7 +1044,7 @@ Numpy has a lot more to offer for linear algebra operation, that far beyond the 
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: August 23, 2019 <br />
+            Site last generated: August 26, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
