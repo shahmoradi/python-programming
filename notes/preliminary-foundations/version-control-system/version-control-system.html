@@ -955,6 +955,19 @@ You can generate keys for your local device by following the instructions given 
 
 <p>The full documentation for <code class="highlighter-rouge">git commit</code> can be found <a href="https://git-scm.com/docs/git-commit" target="_blank">here</a>.</p>
 
+<h4 id="using-notepad-and-sublime-along-with-git-to-commit-changes-to-git-reporitories">Using Notepad++ and Sublime along with Git to commit changes to Git reporitories</h4>
+<p>In recent years, Notepad++ has become a very popular general-purpose text-editor on Windows operating systems. As a result, Git has recently provided the users with the optional feature that enables Git commits messages to be crafted via Notepad++ software, instead of the lower-level command-line text-editing environment <code class="highlighter-rouge">vim</code>. To set Notepad++ as your default text-editor for Git, you will need to first <a href="" target="_blank">download</a> and install Notepad++. Then on the Git Bash command-line type the following commands to set the default text-editor of Git to Notepad++,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git config <span class="nt">--global</span> core.editor <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\N</span><span class="s2">otepad++</span><span class="se">\n</span><span class="s2">otepad++.exe"</span>
+</code></pre></div></div>
+
+<p>Note that you will have to modify the address provided above to point to the location where <code class="highlighter-rouge">notepad++.exe</code> exists on <strong>your device</strong>.  Notepad++ is only available on Windows systems. If you prefer to use text-editors other than <code class="highlighter-rouge">vim</code> on other operating-system platforms, you can follow the same command above but change the address to point to the path of the text-editor of your choice on your device. For example, if you are using Mac device, and you’d like to use Sublime text-editor, you can install Sublime first and then type the following command on the Git Bash command line,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global core.editor "/Applications/'Sublime Text.app'/Contents/SharedSupport/bin/subl -n -w"
+</code></pre></div></div>
+
+<p>where again, you will have to change the example address provided in the command above, in the double-quotation marks, to the path pointing the location where Sublime is installed <strong>on your device</strong>.</p>
+
 <p><a name="git-push"></a></p>
 <h3 id="git-push-push-the-changes-in-local-repository-to-the-remote-repository"><strong>git push</strong>: Push the changes in local repository to the remote repository</h3>
 
@@ -1636,7 +1649,7 @@ If you are sure you want to delete it, run <span class="s1">'git branch -D test'
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: August 26, 2019 <br />
+            Site last generated: September 5, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
