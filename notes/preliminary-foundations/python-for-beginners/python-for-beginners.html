@@ -1055,6 +1055,165 @@ errors defaults to 'strict'.
     </tbody>
 </table>
 
+<h2 id="integrating-anaconda-python-with-git-bash-on-windows">Integrating Anaconda Python with Git Bash on Windows</h2>
+
+<h3 id="what-is-shell">What is Shell?</h3>
+
+<p>A shell is a program that acts as a mediator between the user and Operating System’s (OS) kernel (for example, Linux, Mac, Windows, …). The user can write command (or a series of commands) in shell, which is then sent to the OS kernel. The kernel then interprets the command and tells the CPU and other computer hardware how to carry out the particular task.</p>
+
+<h3 id="what-is-unix-shell">What is Unix shell?</h3>
+
+<p>A Unix shell is a command-line interpreter or shell that is specifically developed to serve as the mediator between the user and <strong>Unix-like</strong> operating systems, such as Linux and Mac OS. There are many examples of Unix shells, including: <strong>sh</strong>, <strong>ksh</strong>, <strong>csh</strong>, <strong>tcsh</strong>, <strong>bash</strong>, <strong>zsh</strong>.</p>
+
+<h3 id="what-is-bash">What is Bash?</h3>
+
+<p>Among all the Unix shell programs developed in computer history, the <strong>GNU Bash</strong> or simply <strong>Bash</strong> has become the most popular and dominant Unix Shell. Its popularity and influence have grown so much that there are now versions of Bash specifically developed for usage in Windows OS environments. Bash was written by Brian Fox for the <strong>GNU Project</strong> as a <strong>free software</strong> replacement for the <strong>proprietary</strong> Bourne shell. First released in 1989, Bash has been used widely as the <strong>default login shell for most Linux distributions and Apple’s macOS</strong> Mojave and earlier versions. An adapted version is also available for Windows 10.</p>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> The <strong>GNU project</strong> is a mass collaborative initiative for the development of free software. Richard Stallman founded the project in 1978 at MIT.</div>
+
+<p>Bash is a command processor that typically runs in a text window where the user types command that cause actions. Bash can also read and execute commands from a file, called a <strong>shell script</strong>.</p>
+
+<h3 id="what-about-a-windows-shell">What about a Windows shell?</h3>
+
+<p>Microsoft Windows Operating System (OS) provides its own version of a shell for the user to interact with the Windows OS kernel. This Windows shell is typically called <strong>CMD</strong>, <strong>cmd</strong> (an abbreviation of the word <em>command</em>) or <strong>cmd.exe</strong> (after its executable file name), and is also known as the <strong>Command Prompt</strong> (which is the default window-title of the shell window). CMD is a command-line interpreter and is analogous to the Unix shells used on Unix-like systems such as Bash. However, the rules of user interactions with the kernel are <strong>entirely different</strong> from Linux Bash and other Linux shells.</p>
+
+<h3 id="what-is-git-bash">What is Git Bash?</h3>
+
+<p>You have already read in the above that Bash was originally developed for usage in Unix-like Operating Systems (OS). Therefore, a lot of free software (which are expectedly developed to work primarily in free OS environments like Linux) rely on Bash shell to interact with the operating system’s kernel. An example of such software is <strong>Git</strong> version control system. As free software, Git was intended to be used primarily on Linux operating systems. But nowadays it has become a popular Version Control System in widespread usage on all OS platforms. So, <strong>what about the users of these free software (e.g., Git) on Windows OS?</strong></p>
+
+<p>In the case of Git specifically, since Git depends on the Bash environment for interaction with the OS kernel, the developers of Git decided to provide an adapted Bash shell that works on Windows OS, along with their software to be used on Windows OS. This Bash shell is widely known as <strong>Git Bash</strong> and provides an emulation layer for a Git command line experience on Windows OS.</p>
+
+<p>The Git Bash provides some of the functionalities of the Bash shell on Windows systems. For example, <code class="highlighter-rouge">ls</code>, <code class="highlighter-rouge">mv</code>, <code class="highlighter-rouge">cp</code>, <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">mkdir</code>, <code class="highlighter-rouge">vim</code> Bash commands and applications also work in Git Bash on Windows.</p>
+
+<h3 id="how-to-run-python-in-git-bash">How to run Python in Git Bash?</h3>
+
+<p>If you are a Bash user, you have likely greatly enjoyed working in the Bash environment. You will also likely want to use Bash on Windows as much as possible. Fortunately, Git Bash provides that command-line-interface feel that you probably like about Bash. However, you may soon notice that a lot of Windows applications are undefined in the Git Bash environment. For example, there is a chance that your Python interpreter will not be recognized in the Git Bash environment. That means if you type <code class="highlighter-rouge">python</code> on the Git Bash command prompt, you will get an error message like the following,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: python: command not found
+</code></pre></div></div>
+
+<p>To understand the origins of this error, we will have to understand how Bash finds applications on a device to run them for the user.</p>
+
+<h4 id="how-does-bash-find-and-run-applications-for-the-user">How does Bash find and run applications for the user?</h4>
+
+<p>In addition to being a shell, Bash is also a scripting language environment, meaning that you can write a set of Bash commands in a file, and then execute this file on the Bahs command line by calling its name. Being a scripting language, Bash also allows you to define new Bash <strong>environment variables</strong> that hold specific things of interest to you as the user. For example, one can define a variable <code class="highlighter-rouge">myname</code> in the Bash environment which will contain <code class="highlighter-rouge">myname</code> via the Bash command <code class="highlighter-rouge">export</code>,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">myname</span><span class="o">=</span><span class="s2">"Amir"</span>
+</code></pre></div></div>
+
+<p>To see (echo) the contents of this newly created variable once can use another Bash command <code class="highlighter-rouge">echo</code>,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$myname</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir
+</code></pre></div></div>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Notice the presence of the <code class="highlighter-rouge">$</code> sign before the variable name in the above example. The <code class="highlighter-rouge">$</code> sign is a special Bash symbol. Whenever it appears before a Bash variable, it tells Bash to extract the value of that variable.</div>
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Note that the duration of the existence of a Bash variable is only as long as the life of the specific Bash session is open. In other words, if you define a variable within the Bash environment and close the terminal afterward and reopen it, that variable will be undefined in the newly opened Bash session.</div>
+
+<p>Now, it may not be surprising to know that the Bash environment has a set of predefined variables that already exist on every Bash terminal. Examples include <code class="highlighter-rouge">HOME</code>, <code class="highlighter-rouge">PATH</code>, etc.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$HOME</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/c/Users/shahmoradi
+</code></pre></div></div>
+
+<p>The variable <code class="highlighter-rouge">PATH</code> is an environmental variable in Linux and other Unix-like operating systems that tells the shell which directories to search for executable files (i.e., ready-to-run programs like Python) in response to commands issued by a user. It increases both the convenience and the safety of such operating systems and is widely considered to be the single most important environmental variable.</p>
+
+<p>One advantage that the Linux and Mac Operating Systems have over Windows is that once a Python distribution is set up on the device, it can be virtually always directly accessed from every Bash terminal on the device. The reason for this is that different Python implementations typically <em>automatically</em> add (append) the path to the directory containing the Python executable files (e.g., the Python interpreter, IPython, Jupyter, … applications) to the list of existing paths in the <code class="highlighter-rouge">PATH</code> environmental variable. When you type <code class="highlighter-rouge">python</code> on the Bash command line, this variable will be automatically searched by Bash to look for an application named <code class="highlighter-rouge">python</code> in any of the folders in the variable <code class="highlighter-rouge">PATH</code>.</p>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> The contents of the variable <code class="highlighter-rouge">PATH</code> is simply a string which is a concatenation of the all the paths to folders which Bash has to search for applications. So how does Bash separate different paths from each other in this string? The convention is to separate paths in the <code class="highlighter-rouge">PATH</code> environmental variable by a colon <code class="highlighter-rouge">:</code>.</div>
+
+<h4 id="why-are-python-applications-not-recognized-in-the-git-bash-terminal">Why are Python applications not recognized in the Git Bash terminal?</h4>
+
+<p>The likely reason is that, when the Python distribution of your choice was installed, the path to the folder containing the Python applications was not automatically appended to the contents of Git Bash’s <code class="highlighter-rouge">PATH</code> variable. So, Git Bash cannot find the Python application in any of its search paths.</p>
+
+<p>The solution is to append the <strong>manually</strong> path to the folder containing Python applications to the value of <code class="highlighter-rouge">PATH</code>. For example, on Bash the command line, we could simply redefine the <code class="highlighter-rouge">PATH</code> variable to append the Python path to it,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/"</span>:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<p>where the string <code class="highlighter-rouge">"/c/ProgramData/Anaconda3/"</code> points to the folder containing the Anaconda Python. On your system, the Anaconda3 Python may live in a different path, so you’d want to find the correct path to your Python distribution before adding the path to the Bash variable <code class="highlighter-rouge">PATH</code>.</p>
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Never completely redefine the value of the <code class="highlighter-rouge">PATH</code> variable (unless you know what you doing). Always append or prepend new contents to the <code class="highlighter-rouge">PATH</code> variable as done in the above example.</div>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Note that in the above example, I have prepended the Python path to the Bash environmental variable <code class="highlighter-rouge">PATH</code>. The reason for this is that Bash will start searching all the directories in <code class="highlighter-rouge">PATH</code> from the first to the last, and when it reaches the first encounter of an application named python in the first folder, it will run that application and stop further searches of the directories in <code class="highlighter-rouge">PATH</code>. So for example, if you have already installed Python 2 and its path is already added to the Bash variable <code class="highlighter-rouge">PATH</code> and now you want <code class="highlighter-rouge">python</code> on the Bash command line to be recognized as the new Anaconda3 Python, then you would want to prepend the path to Anaconda3 Python to <code class="highlighter-rouge">PATH</code> instead of appending. This way, the path to Anaconda3 will be searched first, and the Python of Anaconda3 will be executed by Bash.</div>
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Note that all the folder separators in the above example are (and must be) Linux-style (<code class="highlighter-rouge">/</code>) as opposed to Windows-style (<code class="highlighter-rouge">\</code>). That is because we are working with a Bash variable and Bash is inherently a Linux software and in Linux, all folders are separated by the forward-slash in a given path.</div>
+
+<p>If you’d like Git Bash to be also able to recognize <code class="highlighter-rouge">ipython</code> and <code class="highlighter-rouge">jupyter</code> applications, you will have to add their paths to <code class="highlighter-rouge">PATH</code> variable as well. Typically these two applications live in the following path on Windows systems,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/Scripts/"</span>:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<p>Once you redefine the contents <code class="highlighter-rouge">PATH</code>, Bash will be able to recognize the Anaconda3 Python applications. But here is the catch: if you close your Git Bash application, you will also lose the new path additions to the Bash variable <code class="highlighter-rouge">PATH</code>. Therefore, next time you open a new independent Bash session, Bash will not recognize Python again.</p>
+
+<h4 id="how-to-add-python-applications-to-the-git-bash-search-permanently">How to add Python applications to the Git Bash search permanently?</h4>
+
+<p>The ultimate solution to the problem of Python recognition by Git Bash is to make the above modifications to the Bash variable <code class="highlighter-rouge">PATH</code> permanent. To do so, you need to know about another secret of the Bash shell which is revealed in the following section.</p>
+
+<h5 id="what-is-the-purpose-of-the-bashrc-file-in-my-home-directory">What is the purpose of the <code class="highlighter-rouge">.bashrc</code> file in my home directory?</h5>
+
+<p>Now, on the Bash command line type,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
+</code></pre></div></div>
+
+<p>or,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nv">$HOME</span>
+</code></pre></div></div>
+
+<p>Both of these will change the current working directory of Bash to your home directory,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/c/Users/shahmoradi
+</code></pre></div></div>
+
+<p>Now if you list all files in your home directly and explicitly request Bash to show you hidden files, you will see that there at least one of the following files there in your home directory (note that comment symbol in Bash is <code class="highlighter-rouge">#</code>),</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-al</span>   <span class="c"># the flag -a shows you the hidden files and -l shows the files in list format</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-rw-r--r-- 1 shahmoradi 1049089    5084 Sep 14 21:44  .bash_history
+-rw-r--r-- 1 shahmoradi 1049089      99 Sep 10 16:47  .bash_profile
+-rw-r--r-- 1 shahmoradi 1049089    4293 Sep 12 15:07  .bashrc
+</code></pre></div></div>
+
+<p>What is the purpose of the two files <code class="highlighter-rouge">.bash_profile</code> and <code class="highlighter-rouge">.bashrc</code>? The difference between them is subtle but in this particular situation with Git Bash, both of these files will be executed when a Git Bash session is opened in Windows and all of the instructions and Bash scripts in these two files will be executed. This is done by default for every new Bash terminal that is opened by the user.</p>
+
+<p>Therefore, we can put the above two modifications to the Bash <code class="highlighter-rouge">PATH</code> variable in <code class="highlighter-rouge">.bashrc</code> or if it does not exist on your device, in <code class="highlighter-rouge">.bash_profile</code> to automatically add the paths to Anaconda3 Python, IPython, and Jupyter applications to the Bash search path every time we open a new session of Bash. To do so, on the Git Bash command line type,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim .bashrc
+</code></pre></div></div>
+
+<p>or if it does not exist on your system,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim .bash_profile
+</code></pre></div></div>
+
+<p>This will take to the <code class="highlighter-rouge">vim</code> text-editing environment where you can modify the contents of these files. Press <code class="highlighter-rouge">i</code> to go to the insert-mode of <code class="highlighter-rouge">vim</code>. Then copy and paste the <code class="highlighter-rouge">PATH</code> redefinition commands that we used before into the file,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/"</span>:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/Scripts/"</span>:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<p>There is one last step (Bash command) that you may need to add to your <code class="highlighter-rouge">.bashrc</code> or <code class="highlighter-rouge">.bash_profile</code> for Python to be properly called from the Git Bash terminal. While in the <code class="highlighter-rouge">vim</code> environment, also add the following Bash <strong>alias</strong> command to the file after the above export commands,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">python</span><span class="o">=</span><span class="s2">"winpty python.exe"</span>
+</code></pre></div></div>
+
+<p>Then press <code class="highlighter-rouge">Esc</code> key on the keyboard to exit the insert mode. Then type <code class="highlighter-rouge">:wq</code> which will tell <code class="highlighter-rouge">vim</code> to write (<code class="highlighter-rouge">w</code>) the new content to the file and then quit (<code class="highlighter-rouge">q</code>) <code class="highlighter-rouge">vim</code>.</p>
+
+<p>That’s it. Now close you Bash session and reopen it. This time, if you type <code class="highlighter-rouge">python</code> or <code class="highlighter-rouge">ipython</code> on the Bash command prompt, Bash should be able to find  Anaconda3 Python and IPython applications and run them for you. Again, keep in mind that you must ensure you prepend the correct Anaconda3 paths to the Bash variable <code class="highlighter-rouge">PATH</code> otherwise, Bash will not be able to find Python applications.</p>
+
+<h4 id="what-is-the-purpose-of-bash_history-file-in-my-home-directory">What is the purpose of <code class="highlighter-rouge">.bash_history</code> file in my home directory?</h4>
+
+<p>This file stores a history of user commands entered at the command prompt and is used by Bash to help the user recover and view old commands that they have executed on the Bash command prompt.</p>
+
     
     
     <div style="margin-top:3rem">
@@ -1149,7 +1308,7 @@ errors defaults to 'strict'.
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: September 12, 2019 <br />
+            Site last generated: September 16, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
