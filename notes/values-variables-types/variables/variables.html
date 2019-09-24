@@ -1182,7 +1182,7 @@ is located at the height 1.23 m.
 
 <h4 id="concatenating-a-list-of-strings">Concatenating a list of strings</h4>
 
-<p>If a list is all string values, you can use the following string method <code class="highlighter-rouge">.join()</code> to concatenate the content og the list.</p>
+<p>If a list is all string values, you can use the following string method <code class="highlighter-rouge">.join()</code> to concatenate the contents of the list.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s">'The'</span> <span class="p">,</span> <span class="s">'weather'</span> <span class="p">,</span> <span class="s">'is'</span> <span class="p">,</span> <span class="s">'rainy'</span> <span class="p">,</span> <span class="s">'today'</span> <span class="p">,</span> <span class="s">'and'</span> <span class="p">,</span> <span class="s">'cold'</span> <span class="p">,</span> <span class="s">'only'</span> <span class="p">,</span> <span class="s">'22'</span> <span class="p">,</span> <span class="s">'F.'</span><span class="p">]</span>
 <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
@@ -1361,16 +1361,16 @@ is located at the height 1.23 m.
 
 <p><strong>1.</strong> Create empty dictionary and then add key-value pairs to it.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">dic</span><span class="p">[</span><span class="s">'amir'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'teacher'</span>
-<span class="n">dic</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classroom</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">classroom</span><span class="p">[</span><span class="s">'amir'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'teacher'</span>
+<span class="n">classroom</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'amir': 'teacher'}
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dic</span><span class="p">[</span><span class="s">'Jake'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'student'</span>
-<span class="n">dic</span><span class="p">[</span><span class="s">'Travis'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'student'</span>
-<span class="n">dic</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classroom</span><span class="p">[</span><span class="s">'Jake'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'student'</span>
+<span class="n">classroom</span><span class="p">[</span><span class="s">'Travis'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'student'</span>
+<span class="n">classroom</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'Jake': 'student', 'Travis': 'student', 'amir': 'teacher'}
 </code></pre></div></div>
@@ -1412,11 +1412,11 @@ is located at the height 1.23 m.
 <p>But, be careful to not override the Python’s function <code class="highlighter-rouge">dict()</code> by your user-defined variable or function of the same name, otherwise you will get an error like the following,</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dict</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">new_dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'teacher'</span><span class="p">)])</span>   <span class="c"># This will give error because dict is not pointing to the built-in function dict() anymore! It was overridden by the above assignment.</span>
+<span class="n">classroom</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'teacher'</span><span class="p">)])</span>   <span class="c"># This will give error because dict is not pointing to the built-in function dict() anymore! It was overridden by the above assignment.</span>
 <span class="o">---------------------------------------------------------------------------</span>
 <span class="nb">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">271</span><span class="n">a21fe772b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">new_dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'teacher'</span><span class="p">)])</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">classroom</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'teacher'</span><span class="p">)])</span>
 
 <span class="nb">TypeError</span><span class="p">:</span> <span class="s">'int'</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">callable</span>
 </code></pre></div></div>
@@ -1957,7 +1957,7 @@ a is b
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: September 19, 2019 <br />
+            Site last generated: September 24, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
