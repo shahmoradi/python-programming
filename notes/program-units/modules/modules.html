@@ -720,6 +720,50 @@ time end up with multiple identical versions of the same function. When you want
 <h2 id="python-standard-modules">Python standard Modules</h2>
 <p>Python comes with a set of standard modules as its library, the so-called <a href="https://docs.python.org/3/library/" target="_blank"><strong>Python Standard Library</strong></a>. Some of these modules are built into the Python interpreter; these provide access to operations that are not part of the core of the language but are nevertheless built-in, for efficiency and other reasons.</p>
 
+<h2 id="reimporting-modules">Reimporting modules</h2>
+
+<p>Consider the following code snippet which imports the numpy module and uses the numpy <code class="highlighter-rouge">pi</code> variable,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.141592653589793
+</code></pre></div></div>
+
+<p>However, note that the value of numpy <code class="highlighter-rouge">pi</code> is not a immutable constant. That means one could change the value of <code class="highlighter-rouge">pi</code> to anything else, for example,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>123
+</code></pre></div></div>
+
+<p>From now on, any usage of <code class="highlighter-rouge">numpy.pi</code> will give the value <code class="highlighter-rouge">123</code> instead of the actual original value of <code class="highlighter-rouge">numpy.pi</code> which was <code class="highlighter-rouge">3.141592653589793</code>. This is true for the entire duration of the session of Python that you are using. Note that reimporting the numpy module will not help fix this problem. For example,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>123
+</code></pre></div></div>
+
+<p>Why doesn’t <code class="highlighter-rouge">import numpy</code> have any effects? Why doesn’t it reimport the numpy module in its original state? That is because every Python session, imports a Python package only once and no more over the life of the Python session. It does not matter how many times in your code you may have <code class="highlighter-rouge">import numpy</code>, it will be imported only once. So, if you change the state or value of any object in the module and you want to revive the original state or value, you will have only two options,</p>
+
+<ol>
+  <li>close the current Python session and open a new one, so that a fresh instance of the module can be imported to your Python environment.</li>
+  <li>use a function named <code class="highlighter-rouge">reload()</code> inside a Python standard package named <code class="highlighter-rouge">importlib</code> to reload (reimport) a fresh instance of the module into your Python session. This way, you won’t need to close your Python session,
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">importlib</span><span class="o">.</span><span class="nb">reload</span><span class="p">(</span><span class="n">numpy</span><span class="p">)</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">pi</span>
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 3.141592653589793
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> 
+While it often possible to change the state or value of entities in an imported Python package (like changing the value of <code class="highlighter-rouge">pi</code> in <code class="highlighter-rouge">numpy</code> package as in the examples above, you should never do so <strong>unless you need to, for some specific justifiable reasons</strong>.
+</div>
+
 <h2 id="creating-modules">Creating modules</h2>
 
 <p>To make a Python module, simply collect all the functions that constitute the module in one single file with a given filename, for example, <code class="highlighter-rouge">mymodule.py</code>. This file will be automatically a module, with name <code class="highlighter-rouge">mymodule</code>, from which you can import functions and definitions in the standard way described above.</p>
