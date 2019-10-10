@@ -837,20 +837,48 @@ NameError: name 'converted_value' is not defined
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Local variables are created inside a function and destroyed when the program control goes back to the main code, outside the function.</div>
 
 <p>Now suppose we had the following script,</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
     <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">converted_value</span>
 
 <span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
 <span class="n">c2f</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C inside the function: 50
-Value of C outside function: 70
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C inside the function c2f: 50
+Value of C outside function c2f: 70
 </code></pre></div></div>
 
-<p>Clearly, the two values are not the same, even though the variable names are the same. But, if you really want to access the global variable <code class="highlighter-rouge">C</code> inside of the function, then you can use Python’s built-in function <code class="highlighter-rouge">globals()</code> which returns a <strong>dictionary</strong> of all global variables in the main program, and then use the keyword <code class="highlighter-rouge">'C'</code> to get its value inside the function.</p>
+<p>Clearly, the two values are not the same, even though the variable names are the same. But, if you really want to access the global variable <code class="highlighter-rouge">C</code> inside of the function, then you will have to use Python’s <code class="highlighter-rouge">global</code> keyword inside the function <strong>before declaring or using the variable</strong> <code class="highlighter-rouge">C</code>,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">C</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">converted_value</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Value of C before calling function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+<span class="n">c2f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C before calling function c2f: 70
+Value of C inside function c2f: 50
+Value of C outside function c2f: 50
+</code></pre></div></div>
+
+<p>In Python, the <code class="highlighter-rouge">global</code> keyword allows you to modify a variable beyond the scope (i.e., function) within which the variable is defined and used. The basic rules regarding the scope of the definitions of variables and the usage of global keyword in Python include the following,</p>
+
+<ul>
+  <li>A variable inside a function has local scope by default, meaning that it is only defined and accessible within that function.</li>
+  <li>If a variable is defined outside of a function in the main Python programming environment, it has the global scope by default without the use of the <code class="highlighter-rouge">global</code> keyword, meaning that it can be accessed from everywhere (if needed). Note that the use of the <code class="highlighter-rouge">global</code> keyword outside a function has no effects.</li>
+  <li>Use <code class="highlighter-rouge">global</code> keyword to manipulate the value of a global variable inside a function.</li>
+</ul>
+
+<p>In the above example, you can also use Python’s built-in function <code class="highlighter-rouge">globals()</code> which returns a <strong>dictionary</strong> of all global variables in the main program, and then use the key <code class="highlighter-rouge">'C'</code> to get its value inside the function.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dict
@@ -1222,7 +1250,7 @@ The input number 4.5 is not an integer!
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: October 8, 2019 <br />
+            Site last generated: October 10, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
