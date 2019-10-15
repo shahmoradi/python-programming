@@ -1139,6 +1139,40 @@ The input number 4.5 is not an integer!
 
 <p>This format is particularly useful, if the lambda function contains a constant that is repeatedly used in the expression of the function, the value of which may need to be updated in future runs of the code, or later on in the same code.</p>
 
+<h2 id="generator-functions">Generator functions</h2>
+
+<p>We have already seen in the above examples, that the returned object of a function can be of any type or size. However, imagine a scenario where your function takes the path to an exteremely large input file, then aims to reads the contents of the file. Given the size of the file, it is likely that the process will be either very slow or impossible, if the computing device does not have enough memory to hold all of the contents of the file and pass a copy of it to the user. The solution in such scenarios, is to use a <strong>generator function</strong>, which instead of <strong>return</strong>ing all of the contents of a collection, it returns one element of it at a time. Consider the following example,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">reverse</span><span class="p">(</span><span class="s">'amir'</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r
+i
+m
+a
+</code></pre></div></div>
+
+<p>Notice the use fo the keyword <code class="highlighter-rouge">yield</code> in the above example instead of <code class="highlighter-rouge">return</code>. This leads the function to <strong>yield</strong> a generator and pass it to the user so that it can be called to fetch one value from the input collection. We could have also achieved the same functionality of the above function generator using a normal function,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">reverseOriginal</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">reverseData</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">reverseData</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">reverseData</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">reverseOriginal</span><span class="p">(</span><span class="s">'amir'</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r
+i
+m
+a
+</code></pre></div></div>
+
+<p>However, the generator function will be far more efficient in terms of memory requirements and speed.</p>
+
 <h2 id="exercise-1">Exercise</h2>
 
 <ol>
@@ -1250,7 +1284,7 @@ The input number 4.5 is not an integer!
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: October 10, 2019 <br />
+            Site last generated: October 15, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
