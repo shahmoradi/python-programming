@@ -661,22 +661,20 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <span class="n">nTrial</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c"># total number of die throws</span>
 <span class="n">meanDieValues</span> <span class="o">=</span> <span class="n">getMeanDieValue</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">nTrial</span><span class="p">)</span>
 
-<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> <span class="c"># create figure object</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c"># Get the axes instance</span>
 <span class="n">trial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">nTrial</span><span class="o">+</span><span class="mi">1</span> <span class="p">,</span> <span class="n">nTrial</span> <span class="p">)</span>
 <span class="n">lineTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s">'r-'</span><span class="p">,</span><span class="s">'b-'</span><span class="p">,</span><span class="s">'g-'</span><span class="p">,</span><span class="s">'y-'</span><span class="p">,</span><span class="s">'b-'</span><span class="p">,</span><span class="s">'g-'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="n">nDieValues</span> <span class="p">)</span> <span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span> <span class="n">trial</span><span class="p">[:]</span> \
-            <span class="p">,</span> <span class="n">meanDieValues</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> \
-            <span class="p">,</span> <span class="n">lineTypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> \
-            <span class="p">)</span> <span class="c"># plot with color red, as line</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hold</span><span class="p">(</span><span class="s">'on'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'trial number'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'fraction of occurrence for each die number'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'die value: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">nTrial</span> <span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="c"># [xmin, xmax, ymin, ymax]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'N={} throws of a virtual die in Python'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'diceThrowsN{}.png'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">semilogx</span> <span class="p">(</span> <span class="n">trial</span><span class="p">[:]</span> \
+                <span class="p">,</span> <span class="n">meanDieValues</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> \
+                <span class="p">,</span> <span class="n">lineTypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> \
+                <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'trial number'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'fraction of occurrence for each die number'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'die value: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'N={} throws of a virtual die in Python'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c"># Display</span>
 </code></pre></div></div>
 
 <p>You can see the output of the above code in the following figure,</p>
@@ -779,7 +777,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <div class="col-lg-12 footer">
             &copy;2019 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: October 29, 2019 <br />
+            Site last generated: November 5, 2019 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
