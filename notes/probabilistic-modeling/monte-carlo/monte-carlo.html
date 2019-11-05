@@ -661,7 +661,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <span class="n">nTrial</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c"># total number of die throws</span>
 <span class="n">meanDieValues</span> <span class="o">=</span> <span class="n">getMeanDieValue</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">nTrial</span><span class="p">)</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> <span class="c"># create figure object</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> \
+                <span class="p">,</span> <span class="n">dpi</span><span class="o">=</span> <span class="mi">300</span> \
+                <span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'w'</span> \
+                <span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'w'</span> \
+                <span class="p">)</span> <span class="c"># create figure object</span>
+
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c"># Get the axes instance</span>
 <span class="n">trial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">nTrial</span><span class="o">+</span><span class="mi">1</span> <span class="p">,</span> <span class="n">nTrial</span> <span class="p">)</span>
 <span class="n">lineTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s">'r-'</span><span class="p">,</span><span class="s">'b-'</span><span class="p">,</span><span class="s">'g-'</span><span class="p">,</span><span class="s">'y-'</span><span class="p">,</span><span class="s">'b-'</span><span class="p">,</span><span class="s">'g-'</span><span class="p">]</span>
