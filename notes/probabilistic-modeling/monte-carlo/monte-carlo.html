@@ -674,12 +674,13 @@ the script runs before the sidebar code runs and the class never gets inserted.
     <span class="n">ax</span><span class="o">.</span><span class="n">semilogx</span> <span class="p">(</span> <span class="n">trial</span><span class="p">[:]</span> \
                 <span class="p">,</span> <span class="n">meanDieValues</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> \
                 <span class="p">,</span> <span class="n">lineTypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> \
-                <span class="p">)</span>
+                <span class="p">)</span> <span class="c"># plot with color red, as line</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'trial number'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'fraction of occurrence for each die number'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'die value: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'die value: '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper right"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'N={} throws of a virtual die in Python'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nTrial</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c"># Display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'fairDie.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span> <span class="c"># save the figure to an external file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c"># display the figure</span>
 </code></pre></div></div>
 
 <p>You can see the output of the above code in the following figure,</p>
