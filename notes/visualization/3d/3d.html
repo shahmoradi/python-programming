@@ -603,7 +603,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
 <h2 id="3d-plotting-in-matplotlib">3D-plotting in <code class="highlighter-rouge">matplotlib</code></h2>
 
-<p>Over the past few years <code class="highlighter-rouge">matplotlib</code> has significantly grown to include additional plotting capabilities including 3D plotting techniques. At this point in Python learning process, it is generally more sensible to learn the latest techniques of the advanced Python packages (including <code class="highlighter-rouge">matplotlib</code>) directly from their reference manual. The reason for this is that the interfaces for many of these packages are constantly evolving and any code that may work today, may not be functional in a few months or years. With this note in mind, the following is a quick overview of some of these plotting functionalities.</p>
+<p>Over the past few years <code class="highlighter-rouge">matplotlib</code> has significantly grown to include additional plotting capabilities including 3D plotting techniques. At this point in the Python learning process, it is generally more sensible to learn the latest techniques of the advanced Python packages (including <code class="highlighter-rouge">matplotlib</code>) directly from their reference manual. The reason for this is that the interfaces for many of these packages are constantly evolving and any code that may work today, may not be functional in a few months or years. With this note in mind, the following is a quick overview of some of these plotting functionalities.</p>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> 
 If you are using Jupyter notebooks as your primary interface to Python interpreter, consider adding <code class="highlighter-rouge">%matplotlib notebook</code> to the beginning of your Jupyter notebook. This <strong>IPython magic</strong> will make all the plots that will be generated in the notebook interactive, meaning that you will be able to zoom in and out, resize, or rotate the plots inside the notebook.
@@ -628,7 +628,7 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
     <img src="emptyFigure3D.png" />
 </figure>
 
-<p>To save the plot in an external file, use <code class="highlighter-rouge">savefig()</code> method.</p>
+<p>To save the plot in an external file, use the <code class="highlighter-rouge">savefig()</code> method.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'emptyFigure3D.png'</span><span class="p">)</span>
 </code></pre></div></div>
@@ -1009,7 +1009,7 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
     <img src="surface3D.png" />
 </figure>
 
-<p>However, you may have noticed that this plot looks very coarse. To refine the image, we can increase the number of grids in the 3D mesh that we generate for the visualization. Instead of using 40 grids as used previously, we will use a larger number, for example 300,</p>
+<p>However, you may have noticed that this plot looks very coarse. To refine the image, we can increase the number of grids in the 3D mesh that we generate for the visualization. Instead of using 40 grids as used previously, we will use a larger number, for example, 300,</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="k">def</span> <span class="nf">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
@@ -1049,7 +1049,7 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <h3 id="creating-contour-plots">Creating contour plots</h3>
 
-<p>The 3D surface or wire plots have limited uses because they often difficult to interpret, especialy when they presented as fixed static images as opposed to interactive live plots. A more useful 3D plotting technique, in particular, for scientific reports is the contour plotting. Suppose we have a very weird-looking 3D function which is hard to visualize via a surface plot,</p>
+<p>The 3D surface or wire plots have limited usage because of their difficult interpretations, especially when they presented as fixed static images as opposed to interactive live plots. A more useful 3D plotting technique, in particular, for scientific reports is the contour plotting. Suppose we have a very weird-looking 3D function which is hard to visualize via a surface plot,</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -1235,7 +1235,7 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
     <img src="imshow.png" />
 </figure>
 
-<p>Notice the additional colorbar that we have added to the above plot via the command <code class="highlighter-rouge">plt.colorbar()</code>.</p>
+<p>Notice the additional color bar that we have added to the above plot via the command <code class="highlighter-rouge">plt.colorbar()</code>.</p>
 
 
     
