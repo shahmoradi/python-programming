@@ -12,6 +12,17 @@
     
 
     
+    {
+        "title": "3D-plotting",
+        "tags": "visualizationplottingcurvefigurematplotlibpython",
+        "keywords": "visualization, 3D, plotting, curve, figure, matplotlib, python",
+        "url": "/notes/visualization/3d/3d.html",
+        "summary": "This note attempts to provide a summary of the myriad of the existing methods of 3D data visualization in Python."
+    }
+    ,
+    
+
+    
 
     
     {
