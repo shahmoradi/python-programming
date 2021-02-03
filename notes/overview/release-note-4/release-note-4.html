@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="This note aims at discussing how to deal with exceptions in Python. An exception is an event which occurs during the execution of a program and disrupts the ...">
-<meta name="keywords" content="exception_handlingtry_exceptraisepython,  exception_handling, try_except, raise, python">
-<title>Exception handling | Data Science with Python</title>
+<meta name="description" content="">
+<meta name="keywords" content="release_note,  release_note">
+<title>Release Note 4 | Data Science with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -202,7 +202,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Exception handling">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Release Note 4">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -412,7 +412,7 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/exception-handling.html">Exception handling</a></li>
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/exception-handling.html">Exception handling</a></li>
                                     
                                     
                                 
@@ -570,12 +570,10 @@ the script runs before the sidebar code runs and the class never gets inserted.
                     <!-- Content Column -->
                     <div class="col-md-9" id="tg-sb-content">
                         <div class="post-header">
-   <h1 class="post-title-main">Exception handling</h1>
+   <h1 class="post-title-main">Release Note 4</h1>
 </div>
 
 <div class="post-content">
-    
-        <div class="summary">This note aims at discussing how to deal with exceptions in Python. An <b>exception</b> is an event which occurs during the execution of a program and disrupts the normal flow of the program's instructions. The process to deal with such exceptional events in the program is called <b>Exception handling</b>.</div>
     
     
         <br>
@@ -600,188 +598,11 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    <h2 id="what-is-exception-handling">What is exception handling</h2>
+    <p>These series of notes have been extended to include Data Science topics that fulfill the requirements of the undergraduate course DATA 1401: Data Science With Python offered in the fall of 2019 in the College of Science at The University of Texas at Arlington.</p>
 
-<p>Good code has to be able to handle exceptional (rare) situations that may occur during the code execution. These exceptions may occur during data input from either command line, terminal window, or an input file. They may also occur as a result of repeated operations on the input data, inside the code. For example, division by zero is an exceptional event in the program that any professionally-written program should be able to catch and handle nicely. Another example can be found in the discussion of <strong>data transfer methods</strong>, where we explained a way of handling a wrong number of input command-line arguments. This and similar measures to handle the unexpected runtime situations that could lead to errors nicely is called <strong>exception handling</strong>.</p>
+<p>The discussions of the section for Scientific Computing and Monte Carlo methods in particular, have been expanded.</p>
 
-<div class="bs-callout bs-callout-primary">
-<b>Exception vs. error:</b><br /><br />
-There is a distinction between an exceptional situation in a program and an error that is often recognized: In general, an error indicates the occurrence of a serious condition in the code that is unrecoverable. If it happens, it crashes the code. On the other hand, an exception indicates the occurrence of an event which, if not properly taken care of, could lead to a runtime error.
-</div>
-
-<p>A simple way of error handling is to write multiple if-blocks each of which handles a specific exceptional situation. In other words, let the code execute some statements, and if something goes wrong, write the program in such a way that it can detect this and jump to a set of statements that handle the erroneous situation as desired.</p>
-
-<h2 id="the-try-except-construct">The <em><code class="highlighter-rouge">try-except</code></em> construct</h2>
-
-<p>A more modern and flexible way of handling such potential errors in Python is through the following Python construction,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
-    <span class="o">&lt;</span><span class="n">Python</span> <span class="n">statements</span><span class="o">&gt;</span>
-<span class="k">except</span> <span class="o">&lt;</span><span class="n">error</span> <span class="nb">type</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">&lt;</span><span class="n">Python</span> <span class="n">statements</span><span class="o">&gt;</span>
-</code></pre></div></div>
-
-<p>For example, consider the <a href="cmd_find_primes.py" target="_blank">following code</a> that finds and outputs a list of all prime numbers that are smaller than the given input integer by the user:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
-<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    
-    <span class="n">is_prime</span> <span class="o">=</span> <span class="bp">True</span>
-    
-    <span class="k">def</span> <span class="nf">is_divisible</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">divisor</span><span class="p">:</span> <span class="k">return</span> <span class="bp">False</span>
-        <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="n">divisor</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="bp">True</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">divisor</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="n">is_divisible</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">is_divisible</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> <span class="n">is_prime</span><span class="o">=</span><span class="bp">False</span>
-    <span class="k">return</span> <span class="n">is_prime</span>
-
-<span class="k">def</span> <span class="nf">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span> <span class="c"># check the number of arguments to be exactly 2.</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'''
-    Error: Exactly two arguments must be given on the command line.
-    Usage:'''</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"     "</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"&lt;a positive integer number&gt;"</span><span class="p">,</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">'     Program stopped.</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>We can rewrite the command-line-argument-parsing section of the above code in the following format to make our code more robust and responsive to handle exceptions that arise due to <code class="highlighter-rouge">ValueError</code> (e.g., not an integer input),</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
-<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    
-    <span class="n">is_prime</span> <span class="o">=</span> <span class="bp">True</span>
-    
-    <span class="k">def</span> <span class="nf">is_divisible</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">divisor</span><span class="p">:</span> <span class="k">return</span> <span class="bp">False</span>
-        <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="n">divisor</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="bp">True</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">divisor</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="n">is_divisible</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">is_divisible</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> <span class="n">is_prime</span><span class="o">=</span><span class="bp">False</span>
-    <span class="k">return</span> <span class="n">is_prime</span>
-
-<span class="k">def</span> <span class="nf">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span> <span class="c"># check the number of arguments to be exactly 2.</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'''
-    Error: Exactly two arguments must be given on the command line.
-    Usage:'''</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"     "</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"&lt;a positive integer number&gt;"</span><span class="p">,</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">'     Program stopped.</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">'Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-            <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">'The input you entered is not an integer!</span><span class="se">\n</span><span class="s"> Try again...'</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>The statement <code class="highlighter-rouge">sys.exit(1)</code> aborts the program. The whole code can be found in <a href="cmd_find_primes_modern.py" target="_blank">this file</a>. Now if we run the <a href="cmd_find_primes.py" target="_blank">original code</a> with a non-integer input, we would get the following Python error,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cmd_find_primes.py amir
-Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="s2">"cmd_find_primes.py"</span>, line 34, <span class="k">in</span> &lt;module&gt;
-    n <span class="o">=</span> int<span class="o">(</span>sys.argv[1]<span class="o">)</span>
-ValueError: invalid literal <span class="k">for </span>int<span class="o">()</span> with base 10: <span class="s1">'amir'</span>
-</code></pre></div></div>
-
-<p>whereas, if we run the <a href="cmd_find_primes_modern.py" target="_blank">new revised code</a>, the non-integer error is nicely handled by outputting a gentle error message to the user and exiting the program gracefully.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./cmd_find_primes_modern.py amir
-The input you entered is not an integer!
- Try again...
-</code></pre></div></div>
-
-<p>The type of error occurring in the above example was <code class="highlighter-rouge">ValueError</code>. There can be, however, many other types of errors and exceptions. For this reason, Python has a <a href="https://docs.python.org/2/library/exceptions.html" target="_blank">built-in list of exceptions</a> that frequently occur in programming, that could be used in dealing with common exceptions in Python programs.</p>
-
-<h2 id="the-raise-statement">The <em><code class="highlighter-rouge">raise</code></em> statement</h2>
-
-<p>Instead of the print statement in the above <code class="highlighter-rouge">except</code> block, Python has a builtin function to handle the error together with an input message from the programmer. For example, the previous code could be modified to the following code,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span> <span class="c"># check the number of arguments to be exactly 2.</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'''
-    Error: Exactly two arguments must be given on the command line.
-    Usage:'''</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"     "</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"&lt;a positive integer number&gt;"</span><span class="p">,</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">'     Program stopped.</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">'Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-            <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">'The input you entered is not an integer!</span><span class="se">\n</span><span class="s"> Try again...'</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Executing the <a href="cmd_find_primes_raise.py" target="_blank">code</a> with wrong input would give,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./cmd_find_primes_raise.py amir
-Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="s2">"./cmd_find_primes_raise.py"</span>, line 35, <span class="k">in</span> &lt;module&gt;
-    n <span class="o">=</span> int<span class="o">(</span>sys.argv[1]<span class="o">)</span>
-ValueError: invalid literal <span class="k">for </span>int<span class="o">()</span> with base 10: <span class="s1">'amir'</span>
-
-During handling of the above exception, another exception occurred:
-
-Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="s2">"./cmd_find_primes_raise.py"</span>, line 39, <span class="k">in</span> &lt;module&gt;
-    raise ValueError<span class="o">(</span><span class="s1">'The input you entered is not an integer!\n Try again...'</span><span class="o">)</span>
-ValueError: The input you entered is not an integer!
- Try again...
-</code></pre></div></div>
-
-<p>A more elegant and cleaner way of handling and outputting the error would be use the following syntax, in <a href="cmd_find_primes_raise_as_err.py" target="_blank">this modified code</a>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span> <span class="c"># check the number of arguments to be exactly 2.</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'''
-    Error: Exactly two arguments must be given on the command line.
-    Usage:'''</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"     "</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">"&lt;a positive integer number&gt;"</span><span class="p">,</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">'     Program stopped.</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">'Here is a list of all prime numbers smaller than {}:'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-            <span class="n">get_primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">except</span> <span class="nb">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>With the following output,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./cmd_find_primes_raise_as_err.py amir
-invalid literal <span class="k">for </span>int<span class="o">()</span> with base 10: <span class="s1">'amir'</span>
-</code></pre></div></div>
-
-<p>In the statement <code class="highlighter-rouge">except ValueError as err:</code> one could use <code class="highlighter-rouge">Exception</code> for all types of errors instead of only <code class="highlighter-rouge">ValueError</code> exceptions, or use a tuple syntax such as <code class="highlighter-rouge">except (ValueError, IndexError) as err:</code> to cover these two exceptions.</p>
-
-<p>There are a lot more that could be done with exception handling in Python, such as <a href="https://docs.python.org/3/tutorial/errors.html" target="_blank">user defined exceptions</a>, whose discussion is out of the scope of our goals in the presented notes here.</p>
+<p><br /></p>
 
 
     
@@ -882,7 +703,7 @@ invalid literal <span class="k">for </span>int<span class="o">()</span> with bas
             &copy;2021 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
             Site last generated: February 3, 2021 <br />
             
-                <span>Page last updated:</span>July 9, 2019<br/>
+                <span>Page last updated:</span>January 1, 2021<br/>
             
         <p>
             <a href="https://www.cdslab.org" target="_blank"><img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" /></a>
