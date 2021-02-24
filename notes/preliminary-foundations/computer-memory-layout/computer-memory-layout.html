@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="release_note,  release_note">
-<title>Release Note 4 | Data Science with Python</title>
+<meta name="description" content="This lecture aims at briefly introducing the computer memory layout.">
+<meta name="keywords" content="computerprogramcontentsdebuggingerror,  computer, memory, register, cache, DRAM, dram, disk, L1, L2, L3">
+<title>Computer memory layout | Data Science with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -202,7 +202,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Release Note 4">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Computer memory layout">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -267,7 +267,7 @@
                         
                                 
                                     
-                                        <li class="active"><a title="Release note 4" href="/python/notes/overview/release-note-4/release-note-4.html">Release note 4</a></li>
+                                        <li><a title="Release note 4" href="/python/notes/overview/release-note-4/release-note-4.html">Release note 4</a></li>
                                     
                                     
                                 
@@ -297,7 +297,7 @@
                         
                                 
                                     
-                                        <li><a title="Computer memory layout" href="/python/notes/preliminary-foundations/computer-memory-layout/computer-memory-layout.html">Computer memory layout</a></li>
+                                        <li class="active"><a title="Computer memory layout" href="/python/notes/preliminary-foundations/computer-memory-layout/computer-memory-layout.html">Computer memory layout</a></li>
                                     
                                     
                                 
@@ -584,10 +584,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
                     <!-- Content Column -->
                     <div class="col-md-9" id="tg-sb-content">
                         <div class="post-header">
-   <h1 class="post-title-main">Release Note 4</h1>
+   <h1 class="post-title-main">Computer memory layout</h1>
 </div>
 
 <div class="post-content">
+    
+        <div class="summary">This lecture aims at briefly introducing the computer memory layout.</div>
     
     
         <br>
@@ -612,12 +614,18 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    <p>These series of notes have been extended to include Data Science topics that fulfill the requirements of the undergraduate course DATA 1401: Data Science With Python offered in the fall of 2019 in the College of Science at The University of Texas at Arlington.</p>
+    <h2 id="the-computer-memory-hierarchy">The computer memory hierarchy</h2>
 
-<p>The discussions of the section for Scientific Computing and Monte Carlo methods in particular, have been expanded.</p>
+<p>Modern computer architectures typically do not have a single homogeneous chunk of memory available to the processor. Rather, the memory is laid out in a hierarchical structure as shown in the figure below.</p>
 
-<p><br /></p>
+<figure>
+    <img src="modernArchMemoryLayout.png" width="100%" />
+    <figcaption style="text-align:center">
+        The memory hierarchy of modern computers.
+    </figcaption>
+</figure>
 
+<p>In this hierarchy, as we move to the tip of the pyramid, closer to the processor, the memory access speed increases. However, the memory size also shrinks. There is therefore, a compromise between memory access speed and memory size.</p>
 
     
     
@@ -717,7 +725,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
             &copy;2021 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
             Site last generated: February 24, 2021 <br />
             
-                <span>Page last updated:</span>January 1, 2021<br/>
+                <span>Page last updated:</span>February 24, 2021<br/>
             
         <p>
             <a href="https://www.cdslab.org" target="_blank"><img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" /></a>

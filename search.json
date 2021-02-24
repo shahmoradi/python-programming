@@ -37,6 +37,17 @@
 
     
     {
+        "title": "Computer memory layout",
+        "tags": "computerprogramcontentsdebuggingerror",
+        "keywords": "computer, memory, register, cache, DRAM, dram, disk, L1, L2, L3",
+        "url": "/notes/preliminary-foundations/computer-memory-layout/computer-memory-layout.html",
+        "summary": "This lecture aims at briefly introducing the computer memory layout."
+    }
+    ,
+    
+
+    
+    {
         "title": "Computer program structure",
         "tags": "computerprogramcontentsdebuggingerror",
         "keywords": "computer, program, contents, debugging, error",
