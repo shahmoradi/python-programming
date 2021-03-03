@@ -809,7 +809,7 @@ $(document).ready(function() {
 
         <div class="col-lg-12 footer">
             &copy;2021 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 24, 2021 <br />
+            Site last generated: March 3, 2021 <br />
             
         <p>
             <a href="https://www.cdslab.org" target="_blank"><img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" /></a>
