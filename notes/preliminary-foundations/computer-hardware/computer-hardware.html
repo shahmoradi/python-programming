@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="This lecture aims at briefly introducing the computer memory layout.">
-<meta name="keywords" content="computerprogramcontentsdebuggingerror,  computer, memory, register, cache, DRAM, dram, disk, L1, L2, L3">
-<title>Computer memory layout | Data Science with Python</title>
+<meta name="description" content="This lecture aims at briefly introducing the computer hardware and electronics.">
+<meta name="keywords" content="computerhardwaretransistorlogicalgate,  computer, hardware, transistor, logical, gate">
+<title>Computer hardware | Data Science with Python</title>
 <link rel="stylesheet" href="/python/css/prismOkaidia.css">
 <script src="/python/js/prismOkaidia.js"></script>
 <!--
@@ -202,7 +202,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: "/python/search.json",
-                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Computer memory layout">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Computer hardware">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -290,21 +290,21 @@
                         
                                 
                                     
+                                        <li class="active"><a title="Computer hardware" href="/python/notes/preliminary-foundations/computer-hardware/computer-hardware.html">Computer hardware</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Computer programming" href="/python/notes/preliminary-foundations/computer-programming/computer-programming.html">Computer programming</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
                                         <li><a title="Programming history" href="/python/notes/preliminary-foundations/programming-history/programming-history.html">Programming history</a></li>
-                                    
-                                    
-                                
-                        
-                                
-                                    
-                                        <li class="active"><a title="Computer memory layout" href="/python/notes/preliminary-foundations/computer-memory-layout/computer-memory-layout.html">Computer memory layout</a></li>
-                                    
-                                    
-                                
-                        
-                                
-                                    
-                                        <li><a title="Computer program structure" href="/python/notes/preliminary-foundations/computer-program-structure/computer-program-structure.html">Computer program structure</a></li>
                                     
                                     
                                 
@@ -584,12 +584,12 @@ the script runs before the sidebar code runs and the class never gets inserted.
                     <!-- Content Column -->
                     <div class="col-md-9" id="tg-sb-content">
                         <div class="post-header">
-   <h1 class="post-title-main">Computer memory layout</h1>
+   <h1 class="post-title-main">Computer hardware</h1>
 </div>
 
 <div class="post-content">
     
-        <div class="summary">This lecture aims at briefly introducing the computer memory layout.</div>
+        <div class="summary">This lecture aims at briefly introducing the computer hardware and electronics.</div>
     
     
         <br>
@@ -614,7 +614,71 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
     
     
-    <h2 id="the-computer-memory-hierarchy">The computer memory hierarchy</h2>
+    
+<h2 id="the-four-fundamental-forces-of-nature">The four fundamental forces of Nature</h2>
+
+<p>The contemporary Physics recognizes <a href="https://en.wikipedia.org/wiki/Fundamental_interaction#The_interactions" target="_blank">four fundamental types of forces in Nature</a>. Of these four, we only experience the presence of two in our daily lives: The force of gravity (why does everything falls toward Earth? Why does Earth rotate Sun?) and <strong>the Electromagnetic force</strong>. The latter is responsible for almost any kind of force that we experience in our daily lives besides gravity. For example, lightening, the fact that we can walk, the heart beat, all chemical reactions, the computers, everything that we know relies on the presence of the electromagnetic force.</p>
+
+<p>Computers are not an exception to the electromagnetic force. The flow of electricity in computer hardware is what makes them work and capable of processing and storing data.</p>
+
+<figure>
+    <img src="four_forces.png" style="width:80%" />
+    <figcaption style="text-align:center">
+        The four forces of Nature. Of these four, only two (gravity and electromagnetism) play a major noticeable role in our daily lives. Computer hardware rely on the force of electromagnetism to store and process data. Specifically, they use electric voltage and flow or lack of electricity flow to store and process data as a sequence of 0 and 1.
+    </figcaption>
+</figure>
+
+<h2 id="how-does-a-computer-process-and-store-data">How does a computer process and store data?</h2>
+
+<p>Computer hardware rely on the force of electromagnetism to store and process data. Specifically, they use electric voltage and electricity flow or the lack of flow to store and process data as a sequence of 0 and 1. The fundamental building block of a modern conventional computer central processor unit (CPU) is transistor. Transistors were invented in the early 1950’ and are switches that can control or amplify an electric current. The inner workings of a transistor is displayed in the figure below.</p>
+
+<figure>
+    <img src="transistor.png" style="width:80%" />
+    <figcaption style="text-align:center">
+        A schematic illustration of a PNP transistor.
+    </figcaption>
+</figure>
+
+<p>Each transistor has three components:</p>
+
+<ul>
+  <li><strong>Base</strong>: The base is responsible for controlling whether current is allowed to flow through the transistor when power is applied.</li>
+  <li><strong>Collector</strong>: When there is power to the base, the collector current is allowed to flow towards the emitter.</li>
+  <li><strong>Emitter</strong>: The emitter takes the electric current that the collector is allowed to send, to be used on other parts of your circuit.</li>
+</ul>
+
+<p>Combinations of transistors can build the electronic equivalents of the logical operators that we discussed in DATA 1301: Introduction to Data Science, for example: AND, OR, NAND, NOR, XOR, XNOR. Then, the combinations of these logical operators can becomes equivalents to addition, subtraction, multiplication, and other more complex operations.</p>
+
+<h2 id="the-modern-computer-architecture">The modern computer architecture</h2>
+
+<p>In the early days of computers, around and before 1950, computers were mostly <strong>fixed-program computers</strong>, a kind of computer that had to be <em>rewired</em> to perform a new task. Even nowadays, we still have these kinds of computers around us, like calculators. But soon, scientists and engineers realized that this method of computer programming was too tedious and complex. So, many independently proposed and devised alternative computer architectures that stored the tasks as data in a memory, instead of having to be rewired for the new task. The computer would then read the program (the set of instructions to perform) from the memory and execute the instructions. One such architecture that has become popular and remained to this date is the <strong>Von Neumann Architecture</strong> proposed by the famous scientist <a href="https://en.wikipedia.org/wiki/John_von_Neumann" target="_blank">John Von Neumann</a>.</p>
+
+<figure>
+    <img src="cpu.png" style="width:80%;display:inline-block;" />
+    <figcaption style="text-align:center">
+        The major compartments of a CPU.
+    </figcaption>
+</figure>
+
+<p>The Von Neumann computer architecture, displayed in the above figure, has the following major components:</p>
+<ul>
+  <li><strong>Memory array</strong> (MEM) holds all the <strong>commands</strong> (instructions) and <strong>numbers</strong> (data).</li>
+  <li><strong>Control Unit</strong>:
+    <ul>
+      <li><strong>Program counter</strong> selects which instruction to execute from MEM. It normally just increases by 1 in each step.</li>
+    </ul>
+  </li>
+  <li><strong>Arithmetic block</strong> is responsible for performing arithmetic operations (+, -, …) on the input data (comprised of binary 0 and 1).  The input/output of the arithmetic block are held in a special part of computer memory called <strong>CPU registers</strong>.</li>
+</ul>
+
+<p>The instructions that the CPU has to execute are typically of two types: <strong>data instructions</strong> and <strong>control instructions</strong>. Each data instruction contains four parts:</p>
+<ul>
+  <li>two addresses specifying which two numbers to pick from the memory (MEM).</li>
+  <li>one command that specifies what operation to perform.</li>
+  <li>the memory location to store the result of the operation.</li>
+</ul>
+
+<h2 id="the-computer-memory-hierarchy">The computer memory hierarchy</h2>
 
 <p>Modern computer architectures typically do not have a single homogeneous chunk of memory available to the processor. Rather, the memory is laid out in a hierarchical structure as shown in the figure below.</p>
 
@@ -723,7 +787,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <div class="col-lg-12 footer">
             &copy;2021 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: March 15, 2021 <br />
+            Site last generated: March 25, 2021 <br />
             
                 <span>Page last updated:</span>February 24, 2021<br/>
             

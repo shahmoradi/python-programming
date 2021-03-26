@@ -37,21 +37,21 @@
 
     
     {
-        "title": "Computer memory layout",
-        "tags": "computerprogramcontentsdebuggingerror",
-        "keywords": "computer, memory, register, cache, DRAM, dram, disk, L1, L2, L3",
-        "url": "/notes/preliminary-foundations/computer-memory-layout/computer-memory-layout.html",
-        "summary": "This lecture aims at briefly introducing the computer memory layout."
+        "title": "Computer hardware",
+        "tags": "computerhardwaretransistorlogicalgate",
+        "keywords": "computer, hardware, transistor, logical, gate",
+        "url": "/notes/preliminary-foundations/computer-hardware/computer-hardware.html",
+        "summary": "This lecture aims at briefly introducing the computer hardware and electronics."
     }
     ,
     
 
     
     {
-        "title": "Computer program structure",
+        "title": "Computer programming",
         "tags": "computerprogramcontentsdebuggingerror",
         "keywords": "computer, program, contents, debugging, error",
-        "url": "/notes/preliminary-foundations/computer-program-structure/computer-program-structure.html",
+        "url": "/notes/preliminary-foundations/computer-programming/computer-programming.html",
         "summary": "This lecture aims at introducing the fundamental elements of a computer program, including Python programs, as well as the common types of errors that could occur in computer programming."
     }
     ,
