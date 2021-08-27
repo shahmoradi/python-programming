@@ -851,8 +851,8 @@ Each project’s file in Git/Mercurial indexing process can have one of the thre
 <h3 id="setting-up-your-git-identity">Setting up your Git identity</h3>
 
 <p>The first thing you should do when you install Git is to set your user-name and email address. This is important because every Git commit uses this information, and this information is permanently baked into the <em>commits</em> that will make to your projects’ repository. To set your name and email globally for all Git projects <em>once and for all</em> on your computer, use the following Git commands:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git config <span class="nt">--global</span> user.name <span class="s2">"Amir Shahmoradi"</span>
-<span class="nv">$ </span>git config <span class="nt">--global</span> user.email shahmoradi@utexas.edu
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Amir Shahmoradi"</span>
+git config <span class="nt">--global</span> user.email shahmoradi@utexas.edu
 </code></pre></div></div>
 
 <p>You need to do this only once if you pass the <code class="highlighter-rouge">--global</code> option because then Git will always use the provided information for anything you do with Git on your system. Later on, if you want to override this information with a different name or email address for some specific projects, you can run the above same Git commands, but <em>without the <code class="highlighter-rouge">--global</code> optional flag</em>, only <strong>when you are in your specific project’s directory</strong>.</p>
@@ -871,12 +871,12 @@ Each project’s file in Git/Mercurial indexing process can have one of the thre
 <h4 id="local-project-initialization">Local project initialization</h4>
 
 <p>Local project initialization is done by the following git command:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git init
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
 </code></pre></div></div>
 
 <p>This command will initialize an empty repository in the current directory. If you check the directory containing your repository, you will notice that a new hidden  <code class="highlighter-rouge">.git</code> folder has been added to the directory. This folder will contain all of the history of your new project. Anything in the directory where the hidden <code class="highlighter-rouge">.git</code> folder exists will be indexed as part of the project.<br />
 In order to generate the project’s repository in a different directory, use</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git init &lt;directory name&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init &lt;directory name&gt;
 </code></pre></div></div>
 
 <p>Even if the requested directory does not exist, git will first automatically create the requested directory and initialize an empty project inside of it. That’s it! Now all you need to do is to start adding or developing your project files inside the project folder.</p>
@@ -911,7 +911,7 @@ You can generate keys for your local device by following the instructions given 
 <h2 id="main-git-commands">Main Git commands</h2>
 
 <p>As of today, Git has more than 150 commands. For a complete list, you can type the following on your <em>Git bash</em> command window,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git <span class="nb">help</span> <span class="nt">-a</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">help</span> <span class="nt">-a</span>
 </code></pre></div></div>
 
 <p>to see a list of all possible Git commands. Note that every Git command begins with <code class="highlighter-rouge">git</code>. Despite the long list of Git commands, you will likely use only five of them on an everyday basis. Not that the rest are unimportant, but with these five basic commands you will be at least able to develop and index your project and communicate with your remote repository as well as your colleagues. In order to understand these five, we will have to recall the three states of a project’s files, described earlier <a href="#gitAreas">above</a>.</p>
@@ -920,27 +920,27 @@ You can generate keys for your local device by following the instructions given 
 <h3 id="git-status-check-the-status-of-the-project"><strong>git status</strong>: Check the status of the project</h3>
 
 <p>First of all, you can check the status of your git project at any time by typing the following command in the git-bash prompt window, assuming the command line is already on the project’s directory.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 </code></pre></div></div>
 
 <p><a name="git-add"></a></p>
 <h3 id="git-add-add-files-to-the-staging-area"><strong>git add</strong>: Add files to the staging area</h3>
 
 <p>In order to add any of the modified or new files to the <a href="#stagingArea">staging area</a>, use</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add &lt;file name&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add &lt;file name&gt;
 </code></pre></div></div>
 
 <p>To add all modified files (including file removals as well as changes) to the staging area, use</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nt">-A</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-A</span>
 </code></pre></div></div>
 
 <p>or,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nt">--all</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">--all</span>
 </code></pre></div></div>
 
 <p>This command is equivalent to</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span>
-<span class="nv">$ </span>git add <span class="nt">-u</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+git add <span class="nt">-u</span>
 </code></pre></div></div>
 
 <p>The first command stages the new and modified files, but not the deleted files. The second command stages the modified and deleted files, without the newly-created files.</p>
@@ -951,25 +951,25 @@ You can generate keys for your local device by following the instructions given 
 <h3 id="git-commit-commit-the-staged-files-to-the-local-repository"><strong>git commit</strong>: Commit the staged files to the local repository</h3>
 
 <p>The stages files can be committed (i.e., submitted permanently) to the local repository by</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit
 </code></pre></div></div>
 
 <p>once this command is entered, a new page for <em>log message</em> will open on the command line, which contains the list of all files to be committed, and a place at the top of the page to add comments regarding this version of files that are being committed to the repository. To add a comment, press <code class="highlighter-rouge">i</code> to enter the <em>insert</em> mode of the <strong>vim</strong> text-editor. Once your comment is added to the text file, press <code class="highlighter-rouge">ESC</code> button to exit the insert mode, and write <code class="highlighter-rouge">:wq</code> on the command-line to <strong>w</strong>rite the comment file (i.e., save it) and <strong>q</strong>uit <em>vim</em> text-editor.</p>
 
 <p>If you use,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-a</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-a</span>
 </code></pre></div></div>
 
 <p>or,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-all</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-all</span>
 </code></pre></div></div>
 
 <p>Both commands act as a shortcut to first automatically <strong>stage files</strong> that have been <strong>modified and deleted</strong> and then <strong>commit</strong> them to the repository, but <strong>not the new files</strong> that you have not yet told Git about. Another useful flag is <code class="highlighter-rouge">-m</code> with which you can enter a short message on the command line as the log message of the commit, and therefore no new page will open up for entering log message,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"This is a test commit!"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"This is a test commit!"</span>
 </code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">-a</code> and <code class="highlighter-rouge">-m</code> flags can be combined to automatically stage and commit the files together,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-am</span> <span class="s2">"This is a test commit!"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-am</span> <span class="s2">"This is a test commit!"</span>
 </code></pre></div></div>
 
 <p><em>But, keep in mind that with this method of staging, the <strong>new files</strong> will neither be staged nor committed to the repository.</em></p>
@@ -980,12 +980,12 @@ You can generate keys for your local device by following the instructions given 
 
 <p>In recent years, Notepad++ has become a very popular general-purpose text-editor on Windows operating systems. As a result, Git has recently provided the users with the optional feature that enables Git commits messages to be crafted via Notepad++ software, instead of the lower-level command-line text-editing environment <code class="highlighter-rouge">vim</code>. To set Notepad++ as your default text-editor for Git, you will need to first <a href="" target="_blank">download</a> and install Notepad++. Then on the Git Bash command-line type the following commands to set the default text-editor of Git to Notepad++,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git config <span class="nt">--global</span> core.editor <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\N</span><span class="s2">otepad++</span><span class="se">\n</span><span class="s2">otepad++.exe"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> core.editor <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\N</span><span class="s2">otepad++</span><span class="se">\n</span><span class="s2">otepad++.exe"</span>
 </code></pre></div></div>
 
 <p>Note that you will have to modify the address provided above to point to the location where <code class="highlighter-rouge">notepad++.exe</code> exists on <strong>your device</strong>.  Notepad++ is only available on Windows systems. If you prefer to use text-editors other than <code class="highlighter-rouge">vim</code> on other operating-system platforms, you can follow the same command above but change the address to point to the path of the text-editor of your choice on your device. For example, if you are using Mac device, and you’d like to use Sublime text-editor, you can install Sublime first and then type the following command on the Git Bash command line,</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global core.editor "/Applications/'Sublime Text.app'/Contents/SharedSupport/bin/subl -n -w"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global core.editor "/Applications/'Sublime Text.app'/Contents/SharedSupport/bin/subl -n -w"
 </code></pre></div></div>
 
 <p>where again, you will have to change the example address provided in the command above, in the double-quotation marks, to the path pointing the location where Sublime is installed <strong>on your device</strong>.</p>
@@ -994,7 +994,7 @@ You can generate keys for your local device by following the instructions given 
 <h3 id="git-push-push-the-changes-in-local-repository-to-the-remote-repository"><strong>git push</strong>: Push the changes in local repository to the remote repository</h3>
 
 <p>Now, in order to <em>push</em> all your commits from the local repository to the remote repository, in order to place permanently there and be able to share it with others, use</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git push <span class="nt">--all</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--all</span>
 </code></pre></div></div>
 
 <p>We have not yet talked about <strong>git branches</strong>, but what the above command basically does is that it orders Git to <strong>push all branches of the project</strong> to the remote repository. Later on, we will talk more about different flags that can follow <code class="highlighter-rouge">git push</code> command.</p>
@@ -1005,7 +1005,7 @@ You can generate keys for your local device by following the instructions given 
 <h3 id="git-pull-pull-the-latest-project-revision-from-the-remote-to-the-local-repository"><strong>git pull</strong>: Pull the latest project revision from the remote to the local repository</h3>
 
 <p>Sometimes, your project collaborators might be working simultaneously but independently on the project. In such cases, whenever you want to restart your work on your project, you may want to first <em>pull</em> the latest revision of the project – that is not available yet in your local repository – from the remote to your local repository. To do so, you can simply use</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
 </code></pre></div></div>
 
 <p>There are some important details about <code class="highlighter-rouge">git pull</code> which we will delve into later on in the following sections.</p>
@@ -1015,24 +1015,24 @@ You can generate keys for your local device by following the instructions given 
 <p><a name="git-summary"></a></p>
 <h3 id="summary-of-main-git-commands">Summary of main Git commands</h3>
 <p>All in all, the most trivial, but also the most useful git commands are the following:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
-<span class="nv">$ </span>git add <span class="nt">--all</span>
-<span class="nv">$ </span>git commit
-<span class="nv">$ </span>git push <span class="nt">--all</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+git add <span class="nt">--all</span>
+git commit
+git push <span class="nt">--all</span>
 </code></pre></div></div>
 
 <p>for submitting your changes to the local and remote repositories, and</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
 </code></pre></div></div>
 
-<p>for syncing your local with the remote repository. Remember that you have to use these commands, in the above forms, **inside the directory of the project **.</p>
+<p>for syncing your local with the remote repository. Remember that you have to use these commands, in the above forms, <strong>inside the directory of the project</strong>.</p>
 
 <h2 id="getting-help-with-git-commands">Getting help with Git commands</h2>
 
 <p>There are basically three ways to request information about Git commands on the Git-bash command line:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git <span class="nb">help</span> &lt;<span class="nb">command </span>name&gt;
-<span class="nv">$ </span>git &lt;<span class="nb">command </span>name&gt; <span class="nt">--help</span>
-<span class="nv">$ </span>man git-&lt;<span class="nb">command </span>name&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">help</span> &lt;<span class="nb">command </span>name&gt;
+git &lt;<span class="nb">command </span>name&gt; <span class="nt">--help</span>
+man git-&lt;<span class="nb">command </span>name&gt;
 </code></pre></div></div>
 <p>Note that the last command <code class="highlighter-rouge">man</code> is not a Git command, but a <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank">Bash environment</a> command. Just as a reminder, all Git commands begin with the word <em>git</em>.</p>
 
@@ -1040,70 +1040,72 @@ You can generate keys for your local device by following the instructions given 
 
 <p>You can check the history of your project’s commits to the repository using the Git command <code class="highlighter-rouge">git log</code>.
 For example, here is a snippet from the output  of <code class="highlighter-rouge">git log</code> on my laptop screen:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git log
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 17:48:33 2017 <span class="nt">-0600</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
+</code></pre></div></div>
 
-    data tables <span class="k">for </span>1D model added.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
 
 commit b45ddd780c18736bac42ff27aade301a6b0f09cb
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 10:08:53 2017 <span class="nt">-0600</span>
+Date:   Tue Jan 24 10:08:53 2017 -0600
 
     minor edit
 
 commit b6f4fb69d97a396bde7159c78424100704328634
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 21:03:28 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 21:03:28 2017 -0600
 
-    <span class="k">*</span>.txt files removed
+    *.txt files removed
 
 commit 961ff2d4ac68081a21864b2f1b067b43424d3342
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 21:02:00 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 21:02:00 2017 -0600
 
     update
 
 commit 8fd3c49e90d96f4bcef2302c7b227f06ad7a5250
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:36:45 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:36:45 2017 -0600
 
     minor
 
 commit cd0ed7def385ba29ea134bcc18a4ad0873d9f5ee
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:32:51 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:32:51 2017 -0600
 
     minor
 
 commit 8096668868ef64189f788669d5f1838cd944f9b6
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:28:22 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:28:22 2017 -0600
 
     minor
 
 commit c52ba6adea474625cce1493896ecaac40cb976af
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:24:23 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:24:23 2017 -0600
 
     minor
 
 commit ab5a17f9e913e55cae0f971fd9b485a0a6e8dec3
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:16:27 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:16:27 2017 -0600
 
     minor
 
 commit ce5c2421db6e76a338a0e6922acead9100a7c4c4
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:10:19 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:10:19 2017 -0600
 
     minor
 
 commit 4a7d27d81260c2e2a29b6259e6c97befc065c069
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Thu Jan 12 19:05:14 2017 <span class="nt">-0600</span>
+Date:   Thu Jan 12 19:05:14 2017 -0600
 
 :
 </code></pre></div></div>
@@ -1111,32 +1113,37 @@ Date:   Thu Jan 12 19:05:14 2017 <span class="nt">-0600</span>
 <p>There is a long list of options that can be used with <code class="highlighter-rouge">git log</code> command to display exactly what you need on the Bash environment screen.
 Some of the most useful options are discussed below.<br />
 To lists the differences between different commits of the same file, use <code class="highlighter-rouge">-p</code> flag:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">-p</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">-p</span>
 </code></pre></div></div>
 
 <p>To list only a limited count of the most recent commits use <code class="highlighter-rouge">-&lt;number of commits to display&gt;</code> flag. For example:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">-2</span>
-<span class="nv">$ </span>git log <span class="nt">-2</span>
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 17:48:33 2017 <span class="nt">-0600</span>
 
-    data tables <span class="k">for </span>1D model added.
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">-2</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
 
 commit b45ddd780c18736bac42ff27aade301a6b0f09cb
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 10:08:53 2017 <span class="nt">-0600</span>
+Date:   Tue Jan 24 10:08:53 2017 -0600
 
     minor edit
 </code></pre></div></div>
-<p><br />
-To list the statistics of the commits, use,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--stat</span> <span class="nt">-1</span>
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 17:48:33 2017 <span class="nt">-0600</span>
 
-    data tables <span class="k">for </span>1D model added.
+<p>To list the statistics of the commits, use,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--stat</span> <span class="nt">-1</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
 
  README.md                |   1 +
  results/tables/README.md |   8 ++-
@@ -1144,14 +1151,16 @@ Date:   Tue Jan 24 17:48:33 2017 <span class="nt">-0600</span>
  src/defineProject.m      |   3 +-
  src/main.m               |  82 +++++++++------------------
  src/writeTables.m        |  75 ++++++++++++++++++++++++
- 9 files changed, 140 insertions<span class="o">(</span>+<span class="o">)</span>, 56 deletions<span class="o">(</span>-<span class="o">)</span>
+ 9 files changed, 140 insertions(+), 56 deletions(-)
 </code></pre></div></div>
 <p><br />
 The log data can be even represented in formatted style via the flag <code class="highlighter-rouge">--pretty=format:"&lt;the desired format&gt;"</code>. For example,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">-3</span> <span class="nt">--pretty</span><span class="o">=</span>format:<span class="s2">"%h - %an, %ar : %s"</span>
-264043e - Amir Shahmoradi, 7 days ago : data tables <span class="k">for </span>1D model added.
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">-3</span> <span class="nt">--pretty</span><span class="o">=</span>format:<span class="s2">"%h - %an, %ar : %s"</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>264043e - Amir Shahmoradi, 7 days ago : data tables for 1D model added.
 b45ddd7 - Amir Shahmoradi, 7 days ago : minor edit
-b6f4fb6 - Amir Shahmoradi, 3 weeks ago : <span class="k">*</span>.txt files removed
+b6f4fb6 - Amir Shahmoradi, 3 weeks ago : *.txt files removed
 </code></pre></div></div>
 
 <p>A list of available format options is provided below:</p>
@@ -1336,42 +1345,46 @@ A list of useful options for <code class="highlighter-rouge">git log</code> is g
 </table>
 <p><br />
 For example, to list the commit history since a specific time in the past, use <code class="highlighter-rouge">--since</code> flag:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--since</span><span class="o">=</span>2.weeks
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 17:48:33 2017 <span class="nt">-0600</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--since</span><span class="o">=</span>2.weeks
+</code></pre></div></div>
 
-    data tables <span class="k">for </span>1D model added.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
 
 commit b45ddd780c18736bac42ff27aade301a6b0f09cb
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 24 10:08:53 2017 <span class="nt">-0600</span>
+Date:   Tue Jan 24 10:08:53 2017 -0600
 
     minor edit
 </code></pre></div></div>
 
 <p>or, with the following date format:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--since</span><span class="o">=</span><span class="s2">"2017-01-15"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--since</span><span class="o">=</span><span class="s2">"2017-01-15"</span>
 </code></pre></div></div>
 
 <h2 id="undoing-amending-and-tagging">Undoing, amending, and tagging</h2>
 
 <p>Suppose you want to undo the latest addition of files to the staging area of your Git repository. The command that you need to use to clean the stage area is,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git reset
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset
 </code></pre></div></div>
 
 <p>This command is basically the opposite of <code class="highlighter-rouge">git add</code>. There are a lot of options that can accompany this Git command, details of which can be found in <a href="https://git-scm.com/docs/git-reset" target="_blank">Git documentation</a>.
 However, <strong>be careful when using this command</strong>, especially with flag <code class="highlighter-rouge">--hard</code>, which can result in changes in your working directory as well, thus leading to <strong>involuntary loss of latest uncommitted files</strong>.</p>
 
 <p>Another useful command is,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">--amend</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">--amend</span>
 </code></pre></div></div>
 
 <p>which is used when you forget to add some files to your latest commit and now, you would like to add the latest content of your project’s staging area to the last commit, by <em>amending</em> it.</p>
 
 <p>The Git command <code class="highlighter-rouge">git tag</code> allows you to tag specific important commits in your project’s commit history, for example, a final release of your project (e.g., software). If you just type <code class="highlighter-rouge">git tag</code> on Git bash command line, it will list all tags in the project, <strong>in alphabetical order</strong>,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git tag
-v1.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v1.0
 v1.1
 v2.0
 </code></pre></div></div>
@@ -1382,16 +1395,18 @@ v2.0
 
 <p>This will add a new tag pointing to the latest commit in the project with name <code class="highlighter-rouge">v3.0</code> and the message <em>new version of the project</em>.
 Now if you want to display the information about a specific tag, use <code class="highlighter-rouge">git show</code>,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git show v1.0
-tag v1.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git show v1.0
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tag v1.0
 Tagger: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Tue Jan 1 18:08:00 2017 <span class="nt">-0600</span>
+Date:   Tue Jan 1 18:08:00 2017 -0600
 
 first tag
 
 commit 25129a074aece69d234838764e7df63ed1fb3023
 Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
-Date:   Fri Dec 27 17:12:08 2016 <span class="nt">-0600</span>
+Date:   Fri Dec 27 17:12:08 2016 -0600
 
     Update README.md
 </code></pre></div></div>
@@ -1407,29 +1422,35 @@ For more information about <code class="highlighter-rouge">git tag</code>, see <
 <h2 id="working-with-remote-repositories">Working with remote Repositories</h2>
 
 <p>In order to see which remote servers you have configured for your project, you can run the following Git command,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote
-origin
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>origin
 </code></pre></div></div>
 
 <p>In the output above, <code class="highlighter-rouge">origin</code> is the default name that Git gives to the server from which you cloned your the project. If you also specify <code class="highlighter-rouge">-v</code> flag, Git will show you the URLs that Git has stored corresponding to the remote’s short name (e.g., origin). This URL is used to read from or write to the remote repository.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote <span class="nt">-v</span>
-origin  git@github.com:shahmoradi/foo.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  git@github.com:shahmoradi/foo.git <span class="o">(</span>push<span class="o">)</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nt">-v</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>origin  git@github.com:shahmoradi/foo.git (fetch)
+origin  git@github.com:shahmoradi/foo.git (push)
 </code></pre></div></div>
 
 <p>In order to see more information about the remote repository of your project, you can use,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote show origin
-<span class="k">*</span> remote origin
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote show origin
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* remote origin
   Fetch URL: git@github.com:shahmoradi/foo.git
   Push  URL: git@github.com:shahmoradi/foo.git
   HEAD branch: master
   Remote branches:
     development tracked
     master      tracked
-  Local branch configured <span class="k">for</span> <span class="s1">'git pull'</span>:
+  Local branch configured for 'git pull':
     master merges with remote master
-  Local ref configured <span class="k">for</span> <span class="s1">'git push'</span>:
-    master pushes to master <span class="o">(</span>up to date<span class="o">)</span>
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
 </code></pre></div></div>
 
 <p>The above information indicates that the current HEAD branch of the project is on <em>master</em> branch, and the remote branches on the remote repository are <em>master</em> and <em>development</em>.</p>
@@ -1449,26 +1470,30 @@ origin  git@github.com:shahmoradi/foo.git <span class="o">(</span>push<span clas
 </figure>
 
 <p>When you create a Git project, the default single branch in your project is <strong>master</strong>. So, for example, if you search for your project branches, you’d see,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch
-<span class="k">*</span> master
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* master
 </code></pre></div></div>
 
 <p>If you have already created other branches in your project, for example, <strong>development</strong>, then you may see a Git message like the following,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch
-<span class="k">*</span> development
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* development
   master
 </code></pre></div></div>
 
-<p>The <strong>*</strong> behind the branch name indicates that the <strong>project HEAD (i.e., your working directory)</strong> points to that branch. This means that all commits will be made to that branch highlighted by <strong>*</strong>. In the example above, the working directory points to the <em>development</em> branch.</p>
+<p>The <strong>*</strong> behind the branch name indicates that the <strong>project HEAD (i.e., your working directory)</strong> points to that branch. This means that all commits will be made to that branch highlighted by <code class="highlighter-rouge">*</code>. In the example above, the working directory points to the <em>development</em> branch.</p>
 
 <h3 id="creating-a-new-branch">Creating a new branch</h3>
 
 <p>In order to <strong>create a new branch</strong> in your project, use,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch &lt;branch name&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch &lt;branch name&gt;
 </code></pre></div></div>
 
 <p>For example,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch development
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch development
 </code></pre></div></div>
 
 <p>When you create a new branch, Git creates an exact duplicate of the current branch that you are in, but with the requested name for the new branch.</p>
@@ -1476,61 +1501,73 @@ origin  git@github.com:shahmoradi/foo.git <span class="o">(</span>push<span clas
 <h3 id="checking-out-a-branch">Checking out a branch</h3>
 
 <p>In order to <strong>switch to a specific Git branch</strong> in your project, use,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout &lt;branch name&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout &lt;branch name&gt;
 </code></pre></div></div>
 
 <p>For example,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout development
-Switched to branch <span class="s1">'development'</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout development
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'development'
 </code></pre></div></div>
 
 <p>A shortcut for <strong>both creating a new branch from the current branch, and switching to the new branch automatically</strong> is to use,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">-b</span> &lt;branch name&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> &lt;branch name&gt;
 </code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">-b</span> <span class="nb">test
-</span>Switched to a new branch <span class="s1">'test'</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to a new branch 'test'
 </code></pre></div></div>
 
 <p>Now suppose, you have made some significant progress on your project <strong>development</strong> branch, and now you want to add the newly-developed feature in the development branch to your <strong>master</strong> branch. All you need to do is,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout master
-<span class="nv">$ </span>git merge development
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+git merge development
 </code></pre></div></div>
 
 <p>By doing this, you first switch to master branch, then request Git to <strong>merge</strong> all changes made to the project on the <em>development</em> branch to be copied and transferred to the <em>master</em> branch. For example, if I have added a single <code class="highlighter-rouge">test.txt</code> file, and committed the change to the development branch, then upon merging it with the master branch, Git will display a message like the following,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git merge development
-Updating 25129a0..57ed7c2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge development
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Updating 25129a0..57ed7c2
 Fast-forward
  test.txt | 2 ++
- 1 file changed, 2 insertions<span class="o">(</span>+<span class="o">)</span>
+ 1 file changed, 2 insertions(+)
  create mode 100644 test.txt
 </code></pre></div></div>
 
 <p>Now suppose there was no change in the development branch ever since branching it from the master branch. Then upon merging, you would get a message like the following,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git merge development
-Already up-to-date.
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge development
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Already up-to-date.
 </code></pre></div></div>
 
 <p>Occasionally, conflicts may arise between branches upon merging. This happens when a common file between the two branches, has been modified on both branches in parallel. In such cases, you will need to resolve the conflict by choosing one of the file edits in one of the branches and discard the other. The following is an example merge conflict message by Git.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git merge development
-Auto-merging test.txt
-CONFLICT <span class="o">(</span>content<span class="o">)</span>: Merge conflict <span class="k">in </span>test.txt
-Automatic merge failed<span class="p">;</span> fix conflicts and <span class="k">then </span>commit the result.
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge development
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Auto-merging test.txt
+CONFLICT (content): Merge conflict in test.txt
+Automatic merge failed; fix conflicts and then commit the result.
 </code></pre></div></div>
 
 <p>For example, if you use <code class="highlighter-rouge">git status</code> command, the following is the typical message that will be displayed,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
-On branch <span class="nb">test
-</span>You have unmerged paths.
-  <span class="o">(</span>fix conflicts and run <span class="s2">"git commit"</span><span class="o">)</span>
-  <span class="o">(</span>use <span class="s2">"git merge --abort"</span> to abort the merge<span class="o">)</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch test
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
 
 Unmerged paths:
-  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to mark resolution<span class="o">)</span>
+  (use "git add &lt;file&gt;..." to mark resolution)
 
         both modified:   test.txt
 
-no changes added to commit <span class="o">(</span>use <span class="s2">"git add"</span> and/or <span class="s2">"git commit -a"</span><span class="o">)</span>
+no changes added to commit (use "git add" and/or "git commit -a")
 </code></pre></div></div>
 
 <p>To resolve the conflict, open the conflicting file. There you will see segments of the file from both versions which are the cause of the conflict. Edit the file as you wish. and then perform the normal <code class="highlighter-rouge">git add</code> and <code class="highlighter-rouge">git commit</code> on the file, to resolve the conflict and complete the merge process.</p>
@@ -1539,23 +1576,33 @@ no changes added to commit <span class="o">(</span>use <span class="s2">"git add
 
 <h3 id="deleting-a-branch">Deleting a branch</h3>
 <p>Normally, when a branch merge is done, the development branch is not needed anymore, so it is always wise and cleaner to delete the unwanted branches, using the command <code class="highlighter-rouge">git branch -d &lt;branch name&gt;</code>. To do this, check out the same branch on which you just performed <code class="highlighter-rouge">git merge</code>, then delete the other unwanted branch,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout master
-Your branch is ahead of <span class="s1">'origin/master'</span> by 1 commit.
-  <span class="o">(</span>use <span class="s2">"git push"</span> to publish your <span class="nb">local </span>commits<span class="o">)</span>
-Switched to branch <span class="s1">'master'</span>
-<span class="nv">$ </span>git branch <span class="nt">-d</span> <span class="nb">test
-</span>Deleted branch hotfix <span class="o">(</span>3a0874c<span class="o">)</span><span class="nb">.</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Switched to branch 'master'
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch hotfix (3a0874c).
 </code></pre></div></div>
 
 <p><strong>Note that you cannot delete a branch while you are on it (i.e., while it is checked out)</strong>. If you do so, Git will print out an error message like the following on screen,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch <span class="nt">-d</span> <span class="nb">test
-</span>error: Cannot delete branch <span class="s1">'test'</span> checked out at <span class="s1">'C:/Users/Amir/git/foo'</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
 </code></pre></div></div>
 
 <p><strong>You cannot delete a branch from another branch with which you have not performed the merging either</strong>. In this case, Git will print the following error,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch <span class="nt">-d</span> <span class="nb">test
-</span>error: The branch <span class="s1">'test'</span> is not fully merged.
-If you are sure you want to delete it, run <span class="s1">'git branch -D test'</span><span class="nb">.</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: The branch 'test' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D test'.
 </code></pre></div></div>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> 
@@ -1684,7 +1731,7 @@ If you are sure you want to delete it, run <span class="s1">'git branch -D test'
 
         <div class="col-lg-12 footer">
             &copy;2021 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: April 19, 2021 <br />
+            Site last generated: August 27, 2021 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
