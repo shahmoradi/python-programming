@@ -620,10 +620,10 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <h2 id="the-first-python-program">The first Python program</h2>
 
 <p>The traditional first program in Python language has the following form.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>  
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
-</code></pre></div></div>
+<pre><code class="language-python">print ('Hello World!')  
+</code></pre>
+<pre><code>Hello World!
+</code></pre>
 
 <h2 id="methods-of-running-a-python-program">Methods of running a Python program</h2>
 
@@ -633,50 +633,50 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h3 id="running-python-code-inside-a-python-file-python-from-the-bash-command-line">Running Python code inside a Python file Python from the Bash command line</h3>
 
-<p>As the program size grows, it wiser to put all of your Python scripts into a single file, and then let the Python interpreter run (i.e., interpret) your entire file all at once. To save the above simple “Hello World” Python code in a file and run it, open a Bash command prompt, then use the Bash <code class="highlighter-rouge">cat</code> command to create and add the Python command to your Python file as in the following (On Windows devices, you can use the Git command prompt).</p>
+<p>As the program size grows, it wiser to put all of your Python scripts into a single file, and then let the Python interpreter run (i.e., interpret) your entire file all at once. To save the above simple “Hello World” Python code in a file and run it, open a Bash command prompt, then use the Bash <code>cat</code> command to create and add the Python command to your Python file as in the following (On Windows devices, you can use the Git command prompt).</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;&gt;</span> firstPythonCode.py <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+<pre><code class="language-bash">$ cat &gt;&gt; firstPythonCode.py &lt;&lt; EOF
 print ('Hello World!')
-</span><span class="no">EOF
-</span></code></pre></div></div>
+EOF
+</code></pre>
 
 <p>Then you can use call python interpreter from the Bash command line to execute your Python code.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python firstPythonCode.py
+<pre><code class="language-bash">$ python firstPythonCode.py
 python firstPythonCode.py
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
-</code></pre></div></div>
+</code></pre>
+<pre><code>Hello World!
+</code></pre>
 
 <h3 id="running-python-code-inside-a-python-file-from-the-bash-command-line-as-a-standalone-executable">Running Python code inside a Python file from the Bash command line as a standalone executable</h3>
 
-<p>You can also avoid typing the name of the interpreter (<code class="highlighter-rouge">python</code>) in order to run your code by adding the following <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)" target="_blank">shebang</a> at the top of your Python script, like the following.</p>
+<p>You can also avoid typing the name of the interpreter (<code>python</code>) in order to run your code by adding the following <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)" target="_blank">shebang</a> at the top of your Python script, like the following.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;&gt;</span> firstPythonCodeWithShebang.py <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+<pre><code class="language-bash">$ cat &gt;&gt; firstPythonCodeWithShebang.py &lt;&lt; EOF
 #!/usr/bin/env python
 print ('Hello World!')
 print ('This is a Python script with Shebang!')
-</span><span class="no">EOF
-</span></code></pre></div></div>
+EOF
+</code></pre>
 
 <p>The result is that now you can run your Python script without the interpreter’s name, as an executable file,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./firstPythonCodeWithShebang.py
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+<pre><code class="language-bash">$ ./firstPythonCodeWithShebang.py
+</code></pre>
+<pre><code>Hello World!
 This is a Python script with Shebang!
-</code></pre></div></div>
+</code></pre>
 
 <p>Note that <em>shebang</em> directive only works under Unix/Linux operating systems and command prompts (not windows). When a Python script with a shebang is run as a program, the program loader parses the rest of the script’s initial line as an interpreter directive. The specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script.</p>
 
 <p>On the other hand, if you try to run your original code (without Shebang) as an executable without Python interpreter name, you will get an error message like the following,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir@CCBB-Amir MINGW64 ~
-<span class="nv">$ </span>./firstPythonCode.py
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./firstPythonCode.py: line 1: syntax error near unexpected token `'Hello World!''
+<pre><code class="language-bash">Amir@CCBB-Amir MINGW64 ~
+$ ./firstPythonCode.py
+</code></pre>
+<pre><code>./firstPythonCode.py: line 1: syntax error near unexpected token `'Hello World!''
 ./firstPythonCode.py: line 1: `print ('Hello World!')'
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="running-python-code-inside-a-python-file-by-first-compiling-it-to-bytecode-from-the-command-line">Running Python code inside a Python file by first compiling it to bytecode from the command line</h3>
 
@@ -684,29 +684,29 @@ This is a Python script with Shebang!
 
 <h2 id="pythons-print-function">Python’s print function</h2>
 
-<p>We have already used print function to create the first Python program. But note also the difference in <code class="highlighter-rouge">print</code> between the two Python versions. In <strong>Python 3</strong>, <code class="highlighter-rouge">print</code> is a <strong>Python function</strong>, whereas in <strong>Python 2</strong>, it is a <strong>Python statement</strong>.</p>
+<p>We have already used print function to create the first Python program. But note also the difference in <code>print</code> between the two Python versions. In <strong>Python 3</strong>, <code>print</code> is a <strong>Python function</strong>, whereas in <strong>Python 2</strong>, it is a <strong>Python statement</strong>.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'My name is Amir'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My name is Amir
-</code></pre></div></div>
+<pre><code class="language-python">print('My name is Amir')
+</code></pre>
+<pre><code>My name is Amir
+</code></pre>
 
 <p><strong>Note:</strong> You can use wildcards in Python strings. You can also use double quotes for strings.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"My name is Amir"</span><span class="p">,</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span> <span class="c"># You can use wildcards in Python strings. You can also use double quotes for strings.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My name is Amir 
-</code></pre></div></div>
+<pre><code class="language-python">print("My name is Amir",'\n') # You can use wildcards in Python strings. You can also use double quotes for strings.
+</code></pre>
+<pre><code>My name is Amir 
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'My name is Amir'</span><span class="p">,</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="s">"I am a faculty member of the  </span><span class="se">\"</span><span class="s">University of Texas</span><span class="se">\"</span><span class="s">."</span><span class="p">)</span> 
-<span class="k">print</span><span class="p">(</span><span class="s">'''
-You can multiply strings by integer! </span><span class="se">\n</span><span class="s">
+<pre><code class="language-python">print('My name is Amir','\n'*2,"I am a faculty member of the  \"University of Texas\".") 
+print('''
+You can multiply strings by integer! \n
 Note how I used wildcards for quotation marks around "University of Texas" in my previous print function, in order to be consistent with Python syntax.
 
 Did you also notice how I am creating a multi-line Python string right now?!
-'''</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My name is Amir 
+''')
+</code></pre>
+<pre><code>My name is Amir 
 
  I am a faculty member of the  "University of Texas".
 
@@ -715,28 +715,28 @@ You can multiply strings by integer!
 Note how I used wildcards for quotation marks around "University of Texas" in my previous print function, in order to be consistent with Python syntax.
 
 Did you also notice how I am creating a multi-line Python string right now?!
-</code></pre></div></div>
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+<pre><code class="language-python">"""
 This is also a multi-line
 comment in
 Python
-"""</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\nThis is also a multi-line\ncomment in\nPython\n'
-</code></pre></div></div>
+"""
+</code></pre>
+<pre><code>'\nThis is also a multi-line\ncomment in\nPython\n'
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'''
+<pre><code class="language-python">'''
 You can use single quotes
 for multi-line commenting as well.
 Always be as expressive as possible with your comments in your code.
 It does not harm!
-'''</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in your code.\nIt does not harm!\n'
-</code></pre></div></div>
+'''
+</code></pre>
+<pre><code>'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in your code.\nIt does not harm!\n'
+</code></pre>
 
-<p>In the following sections, you will learn much more about the <code class="highlighter-rouge">print</code> function, especially when dealing with variables.</p>
+<p>In the following sections, you will learn much more about the <code>print</code> function, especially when dealing with variables.</p>
 
 <p><a name="python-as-simple-calculator"></a></p>
 <h2 id="python-interpreter-as-a-simple-calculator">Python interpreter as a simple calculator</h2>
@@ -839,7 +839,7 @@ It does not harm!
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

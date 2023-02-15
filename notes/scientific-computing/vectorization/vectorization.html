@@ -632,7 +632,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <ul>
   <li>All elements must be of the same type, preferably integer, real, or complex numbers, for efficient numerical computing and storage.</li>
   <li>The number of elements must be known when the array is created.</li>
-  <li>Arrays are not part of standard Python – one needs an additional package called <strong>Numerical Python</strong>, often abbreviated as <strong>NumPy</strong>. The Python name of the package, to be used in import statements, is <code class="highlighter-rouge">numpy</code>.</li>
+  <li>Arrays are not part of standard Python – one needs an additional package called <strong>Numerical Python</strong>, often abbreviated as <strong>NumPy</strong>. The Python name of the package, to be used in import statements, is <code>numpy</code>.</li>
   <li>With numpy, a wide range of mathematical operations can be done directly on complete arrays, thereby removing the need for loops over array elements. This is commonly called <strong>vectorization</strong>.</li>
   <li>Arrays with one index are often called <strong>vectors</strong>. Arrays with two indices are used as an efficient data structure for tables, instead of lists of lists. Arrays can also have three or more indices.</li>
 </ul>
@@ -641,74 +641,74 @@ the script runs before the sidebar code runs and the class never gets inserted.
 array</strong>. It means that a part of the computer’s memory is marked for being occupied by this array.</p>
 
 <p>To create a numpy array, you will have to first import it,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-</code></pre></div></div>
+<pre><code class="language-python">import numpy as np
+</code></pre>
 
-<p>The tradition is to import <code class="highlighter-rouge">numpy</code> as <code class="highlighter-rouge">np</code>. To convert a list to a numpy array,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.ndarray
-</code></pre></div></div>
+<p>The tradition is to import <code>numpy</code> as <code>np</code>. To convert a list to a numpy array,</p>
+<pre><code class="language-python">import numpy as np
+a = [1,2,3,4,5]
+a = np.array(a)
+type(a)
+</code></pre>
+<pre><code>numpy.ndarray
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 2, 3, 4, 5])
-</code></pre></div></div>
+<pre><code class="language-python">a
+</code></pre>
+<pre><code>array([1, 2, 3, 4, 5])
+</code></pre>
 
 <p>To create a new array of length $n$, filled with zeros,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">a = np.zeros(n)
+</code></pre>
 
-<p>Note that numpy automatically identifies the appropriate type for all array elements, whether <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, or etc.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2
-</code></pre></div></div>
+<p>Note that numpy automatically identifies the appropriate type for all array elements, whether <code>int</code>, <code>float</code>, or etc.</p>
+<pre><code class="language-python">a[1]
+</code></pre>
+<pre><code>2
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.int32
-</code></pre></div></div>
+<pre><code class="language-python">type(a[1])
+</code></pre>
+<pre><code>numpy.int32
+</code></pre>
 
-<p>Even if there is a single <code class="highlighter-rouge">float</code> element in the list, then all elements in the list will be converted to float in the numpy array by default,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.int32
-</code></pre></div></div>
+<p>Even if there is a single <code>float</code> element in the list, then all elements in the list will be converted to float in the numpy array by default,</p>
+<pre><code class="language-python">type(a[1])
+</code></pre>
+<pre><code>numpy.int32
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">5.0</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.float64
-</code></pre></div></div>
+<pre><code class="language-python">a = [1,2,3,4,5.0]
+a = np.array(a)
+type(a[1])
+</code></pre>
+<pre><code>numpy.float64
+</code></pre>
 
 <p>If you want to get the desired element type, then you will have to ask numpy for it explicitly,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">4.9</span><span class="p">,</span><span class="mf">5.0</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>   <span class="c"># convert all elements in the list to integer</span>
-<span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 2, 3, 4, 5])
-</code></pre></div></div>
+<pre><code class="language-python">a = [1,2,3.5,4.9,5.0]
+a = np.array(a, int)   # convert all elements in the list to integer
+a
+</code></pre>
+<pre><code>array([1, 2, 3, 4, 5])
+</code></pre>
 
 <p>You can see the full list of input arguments to np.array function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html" target="_blank">here</a>.</p>
 
-<p>A similar function <code class="highlighter-rouge">np.zeros_like(c)</code> generates an array of zeros where the length of the generated array is that of the input array c and the element type is the same as those in c.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([0, 0, 0, 0, 0, 0, 0])
-</code></pre></div></div>
+<p>A similar function <code>np.zeros_like(c)</code> generates an array of zeros where the length of the generated array is that of the input array c and the element type is the same as those in c.</p>
+<pre><code class="language-python">b = [1,2,3,4,5,6,7]
+a = np.zeros_like(b)
+a
+</code></pre>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0])
+</code></pre>
 
-<p>Often one wants an array to have $n$ elements with uniformly distributed values in an interval $[p,q]$. The numpy function <code class="highlighter-rouge">linspace</code> creates such arrays,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
-<span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 1.        ,    2.90384615,    4.80769231,    6.71153846,
+<p>Often one wants an array to have $n$ elements with uniformly distributed values in an interval $[p,q]$. The numpy function <code>linspace</code> creates such arrays,</p>
+<pre><code class="language-python">a = np.linspace(1, 100, 53)
+a
+</code></pre>
+<pre><code>array([ 1.        ,    2.90384615,    4.80769231,    6.71153846,
         8.61538462,    10.51923077,   12.42307692,   14.32692308,
         16.23076923,   18.13461538,   20.03846154,   21.94230769,
         23.84615385,   25.75      ,   27.65384615,   29.55769231,
@@ -721,15 +721,15 @@ array</strong>. It means that a part of the computer’s memory is marked for be
         77.15384615,   79.05769231,   80.96153846,   82.86538462,
         84.76923077,   86.67307692,   88.57692308,   90.48076923,
         92.38461538,   94.28846154,   96.19230769,   98.09615385,  100.        ])
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="vectorized-computing-vs-looping">Vectorized computing vs. looping</h2>
 
 <p>Loops over very long arrays may run slowly. An advantage of arrays is that, with arrays, loops can be avoided the whole array be manipulated directly and simultaneously. If you are a programmer, you are likely already quite familiar with the powerful idea of array computing and vectorization. If not, then consider the following example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
-<span class="n">x</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 0.  ,  0.02,  0.04,  0.06,  0.08,  0.1 ,  0.12,  0.14,  0.16,
+<pre><code class="language-python">x = np.linspace(0, 2, 201)
+x
+</code></pre>
+<pre><code>array([ 0.  ,  0.02,  0.04,  0.06,  0.08,  0.1 ,  0.12,  0.14,  0.16,
         0.18,  0.2 ,  0.22,  0.24,  0.26,  0.28,  0.3 ,  0.32,  0.34,
         0.36,  0.38,  0.4 ,  0.42,  0.44,  0.46,  0.48,  0.5 ,  0.52,
         0.54,  0.56,  0.58,  0.6 ,  0.62,  0.64,  0.66,  0.68,  0.7 ,
@@ -741,140 +741,140 @@ array</strong>. It means that a part of the computer’s memory is marked for be
         1.62,  1.64,  1.66,  1.68,  1.7 ,  1.72,  1.74,  1.76,  1.78,
         1.8 ,  1.82,  1.84,  1.86,  1.88,  1.9 ,  1.92,  1.94,  1.96,
         1.98,  2.  ])
-</code></pre></div></div>
+</code></pre>
 
-<p>Now, if you wanted to calculate the <code class="highlighter-rouge">sin</code> of the elements of <code class="highlighter-rouge">x</code> in the traditional way, you would do,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
-<span class="n">sinX</span> <span class="o">=</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-</code></pre></div></div>
+<p>Now, if you wanted to calculate the <code>sin</code> of the elements of <code>x</code> in the traditional way, you would do,</p>
+<pre><code class="language-python">from math import sin
+sinX = [sin(i) for i in x]
+</code></pre>
 
 <p>This approach, however, can be a quite time-consuming and computationally costly, because <strong>for-loops are very slow in Python</strong>, up to a few hundred times than what you get in Fortran or C.</p>
 
-<p>A more appropriate solution to the above problem is to use the <code class="highlighter-rouge">sin</code> function from the numpy module, which enables vectorization,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sinX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div></div>
+<p>A more appropriate solution to the above problem is to use the <code>sin</code> function from the numpy module, which enables vectorization,</p>
+<pre><code class="language-python">sinX = np.sin(x)
+</code></pre>
 
 <p>You see, with the above numpy call, there is no need for a for-loop. The above Python code is an example of a <strong>vectorized code</strong> and the previous code which contained for-loop is an example <strong>scalar code</strong>. The numpy functions are capable of handling arrays as input. Compare the performance of the two codes in the above example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">The</span> <span class="n">slowest</span> <span class="n">run</span> <span class="n">took</span> <span class="mf">11.73</span> <span class="n">times</span> <span class="n">longer</span> <span class="n">than</span> <span class="n">the</span> <span class="n">fastest</span><span class="o">.</span> <span class="n">This</span> <span class="n">could</span> <span class="n">mean</span> <span class="n">that</span> <span class="n">an</span> <span class="n">intermediate</span> <span class="n">result</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">cached</span><span class="o">.</span>
-<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">2.21</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
-</code></pre></div></div>
+<pre><code class="language-python">%timeit np.sin(x)
+The slowest run took 11.73 times longer than the fastest. This could mean that an intermediate result is being cached.
+100000 loops, best of 3: 2.21 µs per loop
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">timeit</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">23.1</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
-</code></pre></div></div>
+<pre><code class="language-python">%timeit [sin(i) for i in x]
+10000 loops, best of 3: 23.1 µs per loop
+</code></pre>
 
 <p>The vectorized code in this example appears to be more than one order of magnitude (more than 10 times) faster than the scalar version of the code.</p>
 
 <h3 id="why-is-the-vectorized-code-faster-in-python">Why is the vectorized code faster in Python?</h3>
 
 <p>The reason is that numpy uses precompiled Fortran and C loops to loop over the elements of the input array. loops in Fortran and C have far less overhead than loops in Python. Similar to the above example, you can define your own functions that are also vectorized, for example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">def f(x):
+    return x**2*np.exp(-x**2)
+x = np.linspace(-3, 3, 101)
+y = f(x)
+</code></pre>
 
 <p>The numpy package also has a method for <strong>Automatic vectorization</strong> of scalar functions (function that only take scalar arguments), for example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">func_scalar</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">func_vec = np.vectorize(func_scalar)
+</code></pre>
 
 <p>However, for serious programming, I do not recommend you to use this numpy functionality as it can be slow and inefficient.</p>
 
 <h2 id="vectorization-of-if-blocks">vectorization of if-blocks</h2>
 
-<p>For vectorization of calculations involving booleans and if conditions, the solution can be problem dependent, but one common easy way of addressing simple boolean problems could be <code class="highlighter-rouge">where</code> method in numpy package. For example, suppose you have a list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 1,  0,  3,  0,  0,  8,  7,  4, 10])
-</code></pre></div></div>
+<p>For vectorization of calculations involving booleans and if conditions, the solution can be problem dependent, but one common easy way of addressing simple boolean problems could be <code>where</code> method in numpy package. For example, suppose you have a list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
+<pre><code class="language-python">x = np.array([1,-1,3,-5,-6,8,7,4,10])
+np.where(x&lt;0,0,x)
+</code></pre>
+<pre><code>array([ 1,  0,  3,  0,  0,  8,  7,  4, 10])
+</code></pre>
 
 <h2 id="aliasing-vs-copying-arrays">Aliasing vs. copying arrays</h2>
 
-<p>If you recall from the topic of <strong>aliasing vs. copying</strong> in the discussion of <strong>values, variables, types</strong>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code class="highlighter-rouge">copy</code> method to generate it,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 2, 3, 4, 5])
-</code></pre></div></div>
+<p>If you recall from the topic of <strong>aliasing vs. copying</strong> in the discussion of <strong>values, variables, types</strong>, there is a difference between aliasing and copying sequence-objects in Python. <strong>The same rules also hold for numpy arrays</strong>, meaning that if you need an independent copy of an existing array, then you have to use <code>copy</code> method to generate it,</p>
+<pre><code class="language-python">a = np.array([1,2,3,4,5])
+b = a.copy()
+b[0] = -1
+a
+</code></pre>
+<pre><code>array([1, 2, 3, 4, 5])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([-1,  2,  3,  4,  5])
-</code></pre></div></div>
+<pre><code class="language-python">b
+</code></pre>
+<pre><code>array([-1,  2,  3,  4,  5])
+</code></pre>
 
-<p>otherwise a simple equality assignment like <code class="highlighter-rouge">b = a</code> will only create an alias for numpy array <code class="highlighter-rouge">a</code>.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([-1,  2,  3,  4,  5])
-</code></pre></div></div>
+<p>otherwise a simple equality assignment like <code>b = a</code> will only create an alias for numpy array <code>a</code>.</p>
+<pre><code class="language-python">a = np.array([1,2,3,4,5])
+b = a
+b[0] = -1
+a
+</code></pre>
+<pre><code>array([-1,  2,  3,  4,  5])
+</code></pre>
 
 <h2 id="in-place-arithmetic-in-python">In-place arithmetic in Python</h2>
 
-<p>Consider two arrays <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> of the same shape. The expression <code class="highlighter-rouge">a += b</code> means <code class="highlighter-rouge">a = a + b</code>. There are however hidden differences between the two. In the statement <code class="highlighter-rouge">a = a + b</code>, the sum <code class="highlighter-rouge">a + b</code> is first computed, yielding a new array, and then the name <code class="highlighter-rouge">a</code> is bound to this new array. The old array is lost unless there are other names assigned to this array. In the statement <code class="highlighter-rouge">a += b</code>, elements of <code class="highlighter-rouge">b</code> are added directly into the elements of <code class="highlighter-rouge">a</code> (in memory). There is no hidden intermediate array as in <code class="highlighter-rouge">a = a + b</code>. This implies that <strong><code class="highlighter-rouge">a += b</code> is more efficient than <code class="highlighter-rouge">a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators perform <strong>in-place arithmetic</strong> in arrays.</p>
+<p>Consider two arrays <code>a</code> and <code>b</code> of the same shape. The expression <code>a += b</code> means <code>a = a + b</code>. There are however hidden differences between the two. In the statement <code>a = a + b</code>, the sum <code>a + b</code> is first computed, yielding a new array, and then the name <code>a</code> is bound to this new array. The old array is lost unless there are other names assigned to this array. In the statement <code>a += b</code>, elements of <code>b</code> are added directly into the elements of <code>a</code> (in memory). There is no hidden intermediate array as in <code>a = a + b</code>. This implies that <strong><code>a += b</code> is more efficient than <code>a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators perform <strong>in-place arithmetic</strong> in arrays.</p>
 
 <h2 id="allocating-arrays-in-python">Allocating arrays in Python</h2>
 
-<p>We have already seen in the above that the <code class="highlighter-rouge">np.zeros</code> function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or have to match another existing array’s shape and type <code class="highlighter-rouge">b</code>. There are two ways of achieving this goal,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 2, 3, 4, 5])
-</code></pre></div></div>
+<p>We have already seen in the above that the <code>np.zeros</code> function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or have to match another existing array’s shape and type <code>b</code>. There are two ways of achieving this goal,</p>
+<pre><code class="language-python">a
+</code></pre>
+<pre><code>array([1, 2, 3, 4, 5])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([-1,  2,  3,  4,  5])
-</code></pre></div></div>
+<pre><code class="language-python">b
+</code></pre>
+<pre><code>array([-1,  2,  3,  4,  5])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 2, 3, 4, 5])
-</code></pre></div></div>
+<pre><code class="language-python">a
+</code></pre>
+<pre><code>array([1, 2, 3, 4, 5])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">b = a.copy()
+c = np.zeros(a.shape, a.dtype)
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(5,)
-</code></pre></div></div>
+<pre><code class="language-python">a.shape
+</code></pre>
+<pre><code>(5,)
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a.T            a.argsort      a.compress     a.cumsum       a.dumps        a.imag         a.min          a.prod         a.reshape      a.shape        a.sum          a.tostring
+<pre><code class="language-python">a.
+</code></pre>
+<pre><code>a.T            a.argsort      a.compress     a.cumsum       a.dumps        a.imag         a.min          a.prod         a.reshape      a.shape        a.sum          a.tostring
 a.all          a.astype       a.conj         a.data         a.fill         a.item         a.nbytes       a.ptp          a.resize       a.size         a.swapaxes     a.trace
 a.any          a.base         a.conjugate    a.diagonal     a.flags        a.itemset      a.ndim         a.put          a.round        a.sort         a.take         a.transpose
 a.argmax       a.byteswap     a.copy         a.dot          a.flat         a.itemsize     a.newbyteorder a.ravel        a.searchsorted a.squeeze      a.tobytes      a.var
 a.argmin       a.choose       a.ctypes       a.dtype        a.flatten      a.max          a.nonzero      a.real         a.setfield     a.std          a.tofile       a.view
 a.argpartition a.clip         a.cumprod      a.dump         a.getfield     a.mean         a.partition    a.repeat       a.setflags     a.strides      a.tolist
-</code></pre></div></div>
+</code></pre>
 
-<p>Notice how the attribute <code class="highlighter-rouge">a.dtype</code> (dtype standing for data type), and <code class="highlighter-rouge">x.shape</code> (a tuple) were used in the above example. The shape attribute in array objects holds the shape, i.e., the size of each dimension. The method <code class="highlighter-rouge">size</code> returns the total number of elements in the array.</p>
+<p>Notice how the attribute <code>a.dtype</code> (dtype standing for data type), and <code>x.shape</code> (a tuple) were used in the above example. The shape attribute in array objects holds the shape, i.e., the size of each dimension. The method <code>size</code> returns the total number of elements in the array.</p>
 
-<p>Sometimes one may also want to ensure that an object is an array, and if not, turn it into an array. The <code class="highlighter-rouge">np.asarray</code> function is useful in such cases,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</code></pre></div></div>
+<p>Sometimes one may also want to ensure that an object is an array, and if not, turn it into an array. The <code>np.asarray</code> function is useful in such cases,</p>
+<pre><code class="language-python">a = np.asarray(a)
+</code></pre>
 
 <p>Note that one could have also used,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">a = np.array(a)
+</code></pre>
 
 <p>There is no difference in the output, but note that the second approach does one redundant step, because in the first approach, if the input object is already an array, then there is no need in converting it to an array.</p>
 
 <h2 id="multidimensional-numpy-arrays">Multidimensional NumPy arrays</h2>
 
-<p>Creating multidimensional arrays is very much the same as vectors in numpy. The only thing to keep in mind is that the shape of the array is given as a tuple to <code class="highlighter-rouge">np.array()</code>. For example, to initialize a 3D array of size (0:3,0:5,0:2), you would do,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[[ 0.,  0.],
+<p>Creating multidimensional arrays is very much the same as vectors in numpy. The only thing to keep in mind is that the shape of the array is given as a tuple to <code>np.array()</code>. For example, to initialize a 3D array of size (0:3,0:5,0:2), you would do,</p>
+<pre><code class="language-python">a = np.zeros((3,5,2))
+a
+</code></pre>
+<pre><code>array([[[ 0.,  0.],
         [ 0.,  0.],
         [ 0.,  0.],
         [ 0.,  0.],
@@ -891,89 +891,89 @@ a.argpartition a.clip         a.cumprod      a.dump         a.getfield     a.mea
           [ 0.,  0.],
           [ 0.,  0.],
           [ 0.,  0.]]])
-</code></pre></div></div>
+</code></pre>
 
-<p>The arrays created so far have been of type <code class="highlighter-rouge">ndarray</code>. NumPy also has a matrix type called <code class="highlighter-rouge">matrix</code> or <code class="highlighter-rouge">mat</code> for one- and two-dimensional arrays. One-dimensional arrays are then extended with one extra dimension such that they become matrices, i.e., either a row vector or a column vector,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="c"># or np.mat(x1)</span>
-<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="c"># transpose = column vector</span>
-<span class="n">x3</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix([[ 1.],
+<p>The arrays created so far have been of type <code>ndarray</code>. NumPy also has a matrix type called <code>matrix</code> or <code>mat</code> for one- and two-dimensional arrays. One-dimensional arrays are then extended with one extra dimension such that they become matrices, i.e., either a row vector or a column vector,</p>
+<pre><code class="language-python">x1 = np.array([1, 2, 3], float)
+x2 = np.matrix(x1) # or np.mat(x1)
+x3 = np.mat(x1).T # transpose = column vector
+x3
+</code></pre>
+<pre><code>matrix([[ 1.],
         [ 2.],
         [ 3.]])
-</code></pre></div></div>
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.matrixlib.defmatrix.matrix
-</code></pre></div></div>
+<pre><code class="language-python">type(x3)
+</code></pre>
+<pre><code>numpy.matrixlib.defmatrix.matrix
+</code></pre>
 
-<p>A special feature of matrix objects in NumPy is that the multiplication operator represents the matrix-matrix, vector-matrix, or matrix-vector product as we know from linear algebra. However, keep in mind that <strong>the multiplication operator between standard ndarray objects is different from multiplication between numpy matrices</strong>. The <code class="highlighter-rouge">ndarray</code> multiplication is simply a vectorized version of scalar multiplication,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">a</span><span class="o">*</span><span class="n">b</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 4, 9])
-</code></pre></div></div>
+<p>A special feature of matrix objects in NumPy is that the multiplication operator represents the matrix-matrix, vector-matrix, or matrix-vector product as we know from linear algebra. However, keep in mind that <strong>the multiplication operator between standard ndarray objects is different from multiplication between numpy matrices</strong>. The <code>ndarray</code> multiplication is simply a vectorized version of scalar multiplication,</p>
+<pre><code class="language-python">a = np.array([1,2,3])
+b = np.array([1,2,3])
+a*b
+</code></pre>
+<pre><code>array([1, 4, 9])
+</code></pre>
 
 <p>whereas, the matrix multiplication would yield,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aMat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">bMat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">aMat</span><span class="o">*</span><span class="n">bMat</span><span class="o">.</span><span class="n">T</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix([[14]])
-</code></pre></div></div>
+<pre><code class="language-python">aMat = np.mat(a)
+bMat = np.mat(b)
+aMat*bMat.T
+</code></pre>
+<pre><code>matrix([[14]])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aMat</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">bMat</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix([[1, 2, 3],
+<pre><code class="language-python">aMat.T*bMat
+</code></pre>
+<pre><code>matrix([[1, 2, 3],
         [2, 4, 6],
         [3, 6, 9]])
-</code></pre></div></div>
+</code></pre>
 
-<p>If you intend to use Python and MATLAB together for your projects, then I recommend you to consider programming with matrices in Python instead of <code class="highlighter-rouge">ndarray</code> objects, because the matrix type in Python behaves quite similar to matrices in MATLAB.
+<p>If you intend to use Python and MATLAB together for your projects, then I recommend you to consider programming with matrices in Python instead of <code>ndarray</code> objects, because the matrix type in Python behaves quite similar to matrices in MATLAB.
 Numpy has a lot more to offer for linear algebra operation, that far beyond the scope of this lecture. More information about algebraic operations in NumPy can be found <a href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html" target="_blank">here</a>.</p>
 
 <h2 id="symbolic-linear-algebra">Symbolic linear algebra</h2>
 
 <p>There also a package <a href="http://www.sympy.org/en/index.html" target="_blank">SymPy</a> that supports symbolic computations for linear algebra operations as well,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="n">sym</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
-<span class="n">a</span><span class="o">**-</span><span class="mi">1</span>     <span class="c"># inverse of matrix a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Matrix([
+<pre><code class="language-python">import sympy as sym
+a = sym.Matrix([[2, 0], [0, 5]])
+a**-1     # inverse of matrix a
+</code></pre>
+<pre><code>Matrix([
 [1/2,   0],
 [  0, 1/5]])
-</code></pre></div></div>
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>   <span class="c"># same as above, inverse of a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Matrix([
+<pre><code class="language-python">a.inv()   # same as above, inverse of a
+</code></pre>
+<pre><code>Matrix([
 [1/2,   0],
 [  0, 1/5]])
-</code></pre></div></div>
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>   <span class="c"># determinant of a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
-</code></pre></div></div>
+<pre><code class="language-python">a.det()   # determinant of a
+</code></pre>
+<pre><code>10
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">()</span> <span class="c"># eigenvalues of a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{2: 1, 5: 1}
-</code></pre></div></div>
+<pre><code class="language-python">a.eigenvals() # eigenvalues of a
+</code></pre>
+<pre><code>{2: 1, 5: 1}
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">.</span><span class="n">eigenvects</span><span class="p">()</span>    <span class="c"># eigenvectors of a</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[(2, 1, [Matrix([
+<pre><code class="language-python">a.eigenvects()    # eigenvectors of a
+</code></pre>
+<pre><code>[(2, 1, [Matrix([
    [1],
    [0]])]), (5, 1, [Matrix([
    [0],
    [1]])])]
-</code></pre></div></div>
+</code></pre>
 
-<p>A tutorial on <code class="highlighter-rouge">sympy</code> can be found <a href="http://docs.sympy.org/dev/tutorial/matrices.html" target="_blank">here</a>.</p>
+<p>A tutorial on <code>sympy</code> can be found <a href="http://docs.sympy.org/dev/tutorial/matrices.html" target="_blank">here</a>.</p>
 
     
     
@@ -1071,7 +1071,7 @@ Numpy has a lot more to offer for linear algebra operation, that far beyond the 
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

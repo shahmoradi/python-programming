@@ -41,7 +41,7 @@
         "tags": "computerhardwaretransistorlogicalgate",
         "keywords": "computer, hardware, transistor, logical, gate",
         "url": "/notes/preliminary-foundations/computer-hardware/computer-hardware.html",
-        "summary": "This lecture aims at briefly introducing the computer hardware and electronics."
+        "summary": "This lecture aims at briefly introducing computer hardware and electronics."
     }
     ,
     
@@ -391,8 +391,8 @@
     
     {
         "title": "A professional programmer uses Version Control System (VCS)",
-        "tags": "version_control_systemVCSgitmercurialgithubbitbucket",
-        "keywords": "version_control_system, VCS, git, mercurial, github, bitbucket",
+        "tags": "version_control_systemVCSgitmercurialGitHubBitbucket",
+        "keywords": "version_control_system, VCS, git, mercurial, GitHub, Bitbucket",
         "url": "/notes/preliminary-foundations/version-control-system/version-control-system.html",
         "summary": "This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version control software that is available today for professional collaborative programming."
     }

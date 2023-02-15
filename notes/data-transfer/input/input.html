@@ -615,15 +615,15 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
     
     <p>So far, we have indirectly discussed several methods of getting input information from the user, and several methods of outputting the result in a Python program. This note attempts to formalize all the previous discussions and introduce more general efficient methods of the code interaction with users. Let’s begin with example code, explaining the meaning of input/output (I/O) in Python,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.1822118800390509
-</code></pre></div></div>
+<pre><code class="language-python">from math import exp
+a = 0.1
+b = 1
+x = 0.6
+y = a*exp(b*x)
+print(y)
+</code></pre>
+<pre><code>0.1822118800390509
+</code></pre>
 
 <p>In the above code, $a,b,x$ are examples of input data to code, and $y$ is an example of code output. In such case as in the above, the input data is said to be <strong>hardcoded</strong> in the program.</p>
 
@@ -641,30 +641,30 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h2 id="input-data-from-the-terminal-window">Input data from the terminal window</h2>
 
-<p>We have already introduced and used this method frequently in previous notes, via the Python’s builtin function <code class="highlighter-rouge">input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'input the values for a,b,x (comma separated): '</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input the values for a,b,x (comma separated): 0.1,1,0.6
+<p>We have already introduced and used this method frequently in previous notes, via the Python’s builtin function <code>input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
+<pre><code class="language-python">from math import exp
+a,b,x = input('input the values for a,b,x (comma separated): ').split(",")
+y = float(a)*exp(float(b)*float(x))
+print(y)
+</code></pre>
+<pre><code>input the values for a,b,x (comma separated): 0.1,1,0.6
 0.1822118800390509
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="input-data-from-the-command-line">Input data from the command line</h2>
 
-<p>This approach, which we discussed in the previous notes, is most popular in Unix-like environments, where most users are accustomed to using the Bash command line. However, it can be readily used in the Windows environment as well. For this approach, there is a Python module <code class="highlighter-rouge">sys</code> that can accomplish what we desire,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</code></pre></div></div>
+<p>This approach, which we discussed in the previous notes, is most popular in Unix-like environments, where most users are accustomed to using the Bash command line. However, it can be readily used in the Windows environment as well. For this approach, there is a Python module <code>sys</code> that can accomplish what we desire,</p>
+<pre><code class="language-python">from math import exp
+import sys
+a,b,x = sys.argv[1],sys.argv[2],sys.argv[3]
+y = float(a)*exp(float(b)*float(x))
+print(y)
+</code></pre>
 
 <p>Now if you save this code in a file named <a href="input_via_sys.py" target="_blank">input_via_sys.py</a>, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python input_via_sys.py 0.1 1 0.6
+<pre><code class="language-bash">$ python input_via_sys.py 0.1 1 0.6
 0.1822118800390509
-</code></pre></div></div>
+</code></pre>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> 
     <b>Pay attention to the convention for the input command-line arguments.</b><br /><br />
@@ -676,14 +676,14 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <h3 id="variable-number-of-command-line-arguments">Variable number of command line arguments</h3>
 
-<p>If the number of input arguments on the command line is not known a priori, then you can get a list of all input arguments using <code class="highlighter-rouge">sys.argv[1:]</code> and then use a for-loop to loop over individual elements of it, or use <code class="highlighter-rouge">len()</code> function to find the total number of input arguments.<br />
+<p>If the number of input arguments on the command line is not known a priori, then you can get a list of all input arguments using <code>sys.argv[1:]</code> and then use a for-loop to loop over individual elements of it, or use <code>len()</code> function to find the total number of input arguments.<br />
 <br /></p>
 
 <h3 id="option-value-pairs-as-command-line-input">Option-value pairs as command-line input</h3>
 
 <p>Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
-<script type="math/tex">y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.</script>
-Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code class="highlighter-rouge">argparse</code> Python module. Details of the usage of this module go beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
+\(y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.\)
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code>argparse</code> Python module. Details of the usage of this module go beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
 
 <h2 id="input-data-from-a-file">Input data from a file</h2>
 
@@ -693,26 +693,26 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 
 <p>To read a file, say <a href="data.in" target="_blank">this file</a>, one first needs to open it,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_io.TextIOWrapper
-</code></pre></div></div>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+type(myfile)
+</code></pre>
+<pre><code>_io.TextIOWrapper
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span><span class="o">.&lt;</span><span class="n">press</span> <span class="n">tab</span><span class="o">&gt;</span>
-     <span class="n">myfile</span><span class="o">.</span><span class="nb">buffer</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">detach</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">fileno</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">line_buffering</span> <span class="n">myfile</span><span class="o">.</span><span class="n">newlines</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">readline</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">seekable</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">writable</span>
-     <span class="n">myfile</span><span class="o">.</span><span class="n">close</span>          <span class="n">myfile</span><span class="o">.</span><span class="n">encoding</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">flush</span>          <span class="n">myfile</span><span class="o">.</span><span class="n">mode</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">read</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span>      <span class="n">myfile</span><span class="o">.</span><span class="n">tell</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">write</span>
-     <span class="n">myfile</span><span class="o">.</span><span class="n">closed</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">errors</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">isatty</span>         <span class="n">myfile</span><span class="o">.</span><span class="n">name</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">readable</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">seek</span>           <span class="n">myfile</span><span class="o">.</span><span class="n">truncate</span>       <span class="n">myfile</span><span class="o">.</span><span class="n">writelines</span>
-</code></pre></div></div>
+<pre><code class="language-python">myfile.&lt;press tab&gt;
+     myfile.buffer         myfile.detach         myfile.fileno         myfile.line_buffering myfile.newlines       myfile.readline       myfile.seekable       myfile.writable
+     myfile.close          myfile.encoding       myfile.flush          myfile.mode           myfile.read           myfile.readlines      myfile.tell           myfile.write
+     myfile.closed         myfile.errors         myfile.isatty         myfile.name           myfile.readable       myfile.seek           myfile.truncate       myfile.writelines
+</code></pre>
 
-<p>The function <code class="highlighter-rouge">open</code> creates a file object, stored in the variable <code class="highlighter-rouge">myfile</code>. The second input argument to <code class="highlighter-rouge">open</code>, <code class="highlighter-rouge">'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
+<p>The function <code>open</code> creates a file object, stored in the variable <code>myfile</code>. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
 
 <p>Now you can use a for loop to read the data in this file line by line:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+<pre><code class="language-python">for line in myfile:
+    print(line)
+</code></pre>
+<pre><code>1
 
 3
 
@@ -727,70 +727,70 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 88
 
 65
-</code></pre></div></div>
+</code></pre>
 
-<p>What is printed here, is actually the content of <code class="highlighter-rouge">data.in</code> file, line by line.</p>
+<p>What is printed here, is actually the content of <code>data.in</code> file, line by line.</p>
 
 <h3 id="alternative-method-of-reading-a-data-file">Alternative method of reading a data file</h3>
 
 <p>Instead of reading one line at a time, as in the above, we can load all lines into a single list of strings,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list
-</code></pre></div></div>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+lines = myfile.readlines()
+type(lines)
+</code></pre>
+<pre><code>list
+</code></pre>
 
-<p>Note that each element of <code class="highlighter-rouge">line</code> contains one line of the file.</p>
+<p>Note that each element of <code>line</code> contains one line of the file.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lines</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
-</code></pre></div></div>
+<pre><code class="language-python">lines
+</code></pre>
+<pre><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
 
-<p>The action of the method <code class="highlighter-rouge">readlines()</code> is equivalent to a for-loop like the following,</p>
+<p>The action of the method <code>readlines()</code> is equivalent to a for-loop like the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
-    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="n">lines</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
-</code></pre></div></div>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+lines = []
+for line in myfile:
+    lines.append(line)
+lines
+</code></pre>
+<pre><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
 
 <p>or this <em>list comprehension</em> format,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">]</span>
-<span class="n">lines</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
-</code></pre></div></div>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+lines = [line for line in myfile]
+lines
+</code></pre>
+<pre><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
 
 <p>Now suppose you were to calculate the mean of the numbers in <a href="data.in" target="_blank">this file</a>. You could simply use the following list comprehension code to do so,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>22.375
-</code></pre></div></div>
+<pre><code class="language-python">mean = sum([float(line) for line in lines])/len(lines)
+print(mean)
+</code></pre>
+<pre><code>22.375
+</code></pre>
 
 <p>Note that once you read the file, you can close it using,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
+<pre><code class="language-python">myfile.close()
+</code></pre>
 
 <h3 id="the-with-statement">The <em>with</em> statement</h3>
 
-<p>Frequently in modern Python code, you may see the <code class="highlighter-rouge">with</code> statement for reading a file, like the following,</p>
+<p>Frequently in modern Python code, you may see the <code>with</code> statement for reading a file, like the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+<pre><code class="language-python">with open('data.in', 'r') as myfile:
+    for line in myfile:
+        print(line)
+</code></pre>
+<pre><code>1
 
 3
 
@@ -805,16 +805,16 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 88
 
 65
-</code></pre></div></div>
+</code></pre>
 
 <p>This is technically equivalent to,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+<pre><code class="language-python">myfile = open('data.in', 'r')
+for line in myfile:
+    print(line)
+myfile.close()
+</code></pre>
+<pre><code>1
 
 3
 
@@ -829,22 +829,22 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 88
 
 65
-</code></pre></div></div>
+</code></pre>
 
-<p>The difference here is that with the modern <code class="highlighter-rouge">with</code> statement, there is no need to close the file in the end.</p>
+<p>The difference here is that with the modern <code>with</code> statement, there is no need to close the file in the end.</p>
 
 <h3 id="the-old-while-true-construction">The old <em>while True</em> construction</h3>
 
-<p>The call <code class="highlighter-rouge">myfile.readline()</code> returns a string containing the text at the current line. Adding a new <code class="highlighter-rouge">myfile.readline()</code> will read the next line. If the file reaches the end, then <code class="highlighter-rouge">myfile.readline()</code> returns an empty string, the end of the file has reached and the code must stop the further reading of the file. The traditional way of telling the code to stop at the end of the file is a <code class="highlighter-rouge">while</code> loop like the following,</p>
+<p>The call <code>myfile.readline()</code> returns a string containing the text at the current line. Adding a new <code>myfile.readline()</code> will read the next line. If the file reaches the end, then <code>myfile.readline()</code> returns an empty string, the end of the file has reached and the code must stop the further reading of the file. The traditional way of telling the code to stop at the end of the file is a <code>while</code> loop like the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+<pre><code class="language-python">myfile = open('data.in', 'r')
+while True:
+    line = myfile.readline()
+    if not line:
+        break
+    print(line)
+</code></pre>
+<pre><code>1
 
 3
 
@@ -859,21 +859,21 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 88
 
 65
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="reading-an-entire-file-as-a-single-string">Reading an entire file as a single string</h3>
 
-<p>While the <code class="highlighter-rouge">readlines()</code> method returns a list of lines in the file, the <code class="highlighter-rouge">read()</code> method returns a string containing the entire content of the file.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">s</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'1\n3\n4\n5\n6\n7\n88\n65\n'
-</code></pre></div></div>
+<p>While the <code>readlines()</code> method returns a list of lines in the file, the <code>read()</code> method returns a string containing the entire content of the file.</p>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+s = myfile.read()
+s
+</code></pre>
+<pre><code>'1\n3\n4\n5\n6\n7\n88\n65\n'
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+<pre><code class="language-python">print(s)
+</code></pre>
+<pre><code>1
 3
 4
 5
@@ -881,30 +881,30 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 7
 88
 65
-</code></pre></div></div>
+</code></pre>
 
 <p>The major advantage of this method of reading file content is that you can then immediately apply string methods directly on the file content.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
-<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>22.375
-</code></pre></div></div>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+numbers = [float(x) for x in myfile.read().split()]
+mean = sum(numbers)/len(numbers)
+print(mean)
+</code></pre>
+<pre><code>22.375
+</code></pre>
 
 <h3 id="reading-data-from-special-data-files">Reading data from special data files</h3>
 
-<p>It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly <code class="highlighter-rouge">*.csv</code> and Microsoft Excel files (e.g., <code class="highlighter-rouge">*.xls</code> data files), or also frequently, from an <code class="highlighter-rouge">*.xml</code> data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be <a href="http://www.python-excel.org/" target="_blank">this webpage</a>, also <a href="http://pbpython.com/excel-pandas-comp.html" target="_blank">Pandas module</a>.</p>
+<p>It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly <code>*.csv</code> and Microsoft Excel files (e.g., <code>*.xls</code> data files), or also frequently, from an <code>*.xml</code> data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be <a href="http://www.python-excel.org/" target="_blank">this webpage</a>, also <a href="http://pbpython.com/excel-pandas-comp.html" target="_blank">Pandas module</a>.</p>
 
 <p>For CSV files, Python standard library has a solution. Suppose you want to read <a href="data_input.csv" target="_blank">this CSV file</a>. A Python solution would be the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data_input.csv'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">counter</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">myfile</span><span class="p">)):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">counter</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">:</span> <span class="k">break</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['pdb', 'pdb_id', 'chain', 'site', 'zr4s_JTT', 'r4s_JTT', 'zr4s_JC', 'r4s_JC']
+<pre><code class="language-python">import csv
+with open('data_input.csv','r') as myfile:
+    for counter, row in enumerate(csv.reader(myfile)):
+        print(row)
+        if counter&gt;10: break
+</code></pre>
+<pre><code>['pdb', 'pdb_id', 'chain', 'site', 'zr4s_JTT', 'r4s_JTT', 'zr4s_JC', 'r4s_JC']
 ['132L_A', '132L', 'A', '2', '-0.3133', '1.02', '0.04475', '1.188']
 ['132L_A', '132L', 'A', '3', '0.8385', '1.955', '0.2036', '1.311']
 ['132L_A', '132L', 'A', '4', '2.093', '2.973', '1.451', '2.272']
@@ -916,20 +916,20 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 ['132L_A', '132L', 'A', '10', '0.7076', '1.848', '0.7369', '1.722']
 ['132L_A', '132L', 'A', '11', '0.9573', '2.051', '0.8809', '1.833']
 ['132L_A', '132L', 'A', '12', '-0.8315', '0.5993', '-0.9243', '0.4413']
-</code></pre></div></div>
+</code></pre>
 
-<p>Note how I have used Python <code class="highlighter-rouge">enumerate()</code> function to control the number of lines that is read from the file (The file contains more than 70000 lines of data!).</p>
+<p>Note how I have used Python <code>enumerate()</code> function to control the number of lines that is read from the file (The file contains more than 70000 lines of data!).</p>
 
-<p>Similarly, if you wanted to write a CSV file, you can use <code class="highlighter-rouge">csv.writer()</code> method,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data_input.csv'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data_output.csv'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">counter</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">infile</span><span class="p">)):</span>
-        <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">counter</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">:</span> <span class="k">break</span>
-</code></pre></div></div>
+<p>Similarly, if you wanted to write a CSV file, you can use <code>csv.writer()</code> method,</p>
+<pre><code class="language-python">with open('data_input.csv','r') as infile, open('data_output.csv', 'w') as outfile:
+    for counter, row in enumerate(csv.reader(infile)):
+        csv.writer(outfile).writerow(row)
+        if counter&gt;10: break
+</code></pre>
 
 <p>The output of the code is the file <a href="data_output.csv" target="_blank">data_output.csv</a> (If you run this code on Windows machines, you may get an extra empty line between each row in the CSV file).</p>
 
-<p>For <code class="highlighter-rouge">*.xml</code> files, Python standard library has a package <a href="https://docs.python.org/3/library/xml.etree.elementtree.html" target="_blank">ElementTree</a>, which you can use for both parsing and writing xml data files.</p>
+<p>For <code>*.xml</code> files, Python standard library has a package <a href="https://docs.python.org/3/library/xml.etree.elementtree.html" target="_blank">ElementTree</a>, which you can use for both parsing and writing xml data files.</p>
 
 <h3 id="reading-data-from-the-world-wide-web">Reading data from the World Wide Web</h3>
 
@@ -937,36 +937,36 @@ Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t
 
 <p>For many of the most famous repositories, such as the <a href="http://www.rcsb.org/pdb/home/home.do" target="_blank">Protein databank</a>, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., <a href="http://biopython.org/wiki/Biopython" target="_blank">Biopython</a>).</p>
 
-<p>Nevertheless, at some point in your research or career, you may need to read data from a web address by yourself. Frequently, the online data is contained in an <code class="highlighter-rouge">HTML</code> file, like the contents of this very page that you are reading right now. Suppose you wanted to extract the contents of an HTML page, say, The Astronomy Picture of the Day (APOD), which has the URL: <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">https://apod.nasa.gov/apod/astropix.html</a>. A simple solution would be the following via Python’s standard function <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
+<p>Nevertheless, at some point in your research or career, you may need to read data from a web address by yourself. Frequently, the online data is contained in an <code>HTML</code> file, like the contents of this very page that you are reading right now. Suppose you wanted to extract the contents of an HTML page, say, The Astronomy Picture of the Day (APOD), which has the URL: <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">https://apod.nasa.gov/apod/astropix.html</a>. A simple solution would be the following via Python’s standard function <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="n">ur</span>
-<span class="n">myurl</span> <span class="o">=</span> <span class="s">'https://apod.nasa.gov/apod/astropix.html'</span>
-<span class="k">with</span> <span class="n">ur</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">myurl</span><span class="p">)</span> <span class="k">as</span> <span class="n">webfile</span><span class="p">:</span>
-    <span class="n">webcontent</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">webfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
-</code></pre></div></div>
+<pre><code class="language-python">import urllib.request as ur
+myurl = 'https://apod.nasa.gov/apod/astropix.html'
+with ur.urlopen(myurl) as webfile:
+    webcontent = [line.decode("utf-8") for line in webfile.readlines()]
+</code></pre>
 
-<p>Now the variable <code class="highlighter-rouge">webcontent</code> is a list, whose elements are each row in the HTML file for this page.</p>
+<p>Now the variable <code>webcontent</code> is a list, whose elements are each row in the HTML file for this page.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">webcontent</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['<span class="cp">&lt;!doctype html&gt;</span>\n',
- '<span class="nt">&lt;html&gt;</span>\n',
- '<span class="nt">&lt;head&gt;</span>\n',
- '<span class="nt">&lt;title&gt;</span>Astronomy Picture of the Day\n',
- '<span class="nt">&lt;/title&gt;</span> \n',
- '<span class="c">&lt;!-- gsfc meta tags --&gt;</span>\n',
- '<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"orgcode"</span> <span class="na">content=</span><span class="s">"661"</span><span class="nt">&gt;</span>\n',
- '<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"rno"</span> <span class="na">content=</span><span class="s">"phillip.a.newman"</span><span class="nt">&gt;</span>\n',
- '<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"content-owner"</span> <span class="na">content=</span><span class="s">"Jerry.T.Bonnell.1"</span><span class="nt">&gt;</span>\n',
- '<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"webmaster"</span> <span class="na">content=</span><span class="s">"Stephen.F.Fantasia.1"</span><span class="nt">&gt;</span>\n']
-</code></pre></div></div>
+<pre><code class="language-python">webcontent[0:10]
+</code></pre>
+<pre><code>['&lt;!doctype html&gt;\n',
+ '&lt;html&gt;\n',
+ '&lt;head&gt;\n',
+ '&lt;title&gt;Astronomy Picture of the Day\n',
+ '&lt;/title&gt; \n',
+ '&lt;!-- gsfc meta tags --&gt;\n',
+ '&lt;meta name="orgcode" content="661"&gt;\n',
+ '&lt;meta name="rno" content="phillip.a.newman"&gt;\n',
+ '&lt;meta name="content-owner" content="Jerry.T.Bonnell.1"&gt;\n',
+ '&lt;meta name="webmaster" content="Stephen.F.Fantasia.1"&gt;\n']
+</code></pre>
 
-<p>Note that the content of the file is read in <code class="highlighter-rouge">byte</code> format. Therefore, to convert it to a string, one has to apply <code class="highlighter-rouge">.decode("utf-8")</code> on each line, as we did in the above. Similar to opening a file on a hard disk, one can also use <code class="highlighter-rouge">.read()</code> and <code class="highlighter-rouge">.readline()</code> methods to read the contents of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,</p>
+<p>Note that the content of the file is read in <code>byte</code> format. Therefore, to convert it to a string, one has to apply <code>.decode("utf-8")</code> on each line, as we did in the above. Similar to opening a file on a hard disk, one can also use <code>.read()</code> and <code>.readline()</code> methods to read the contents of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="n">ur</span>
-<span class="n">myurl</span> <span class="o">=</span> <span class="s">'https://apod.nasa.gov/apod/astropix.html'</span>
-<span class="n">ur</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">myurl</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">'apod.html'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">import urllib.request as ur
+myurl = 'https://apod.nasa.gov/apod/astropix.html'
+ur.urlretrieve(myurl, filename='apod.html')
+</code></pre>
 
 <p>This will output the file named <a href="apod.html" target="_blank">apod.html</a> in your current working directory of Python’s Interpreter that you are using.</p>
 
@@ -979,79 +979,79 @@ turn that text into <em>live Python objects</em> as if the text were lines of co
 
 <h3 id="the-magic-eval-function">The magic <em>eval</em> function</h3>
 
-<p>The <code class="highlighter-rouge">eval</code> function takes a <strong>string as argument</strong> and <strong>evaluates</strong> this string as a <strong>Python expression</strong>. The result of an expression is an <strong>object</strong>. For example,</p>
+<p>The <code>eval</code> function takes a <strong>string as argument</strong> and <strong>evaluates</strong> this string as a <strong>Python expression</strong>. The result of an expression is an <strong>object</strong>. For example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span><span class="p">(</span><span class="s">'1+2'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
-</code></pre></div></div>
+<pre><code class="language-python">eval('1+2')
+</code></pre>
+<pre><code>3
+</code></pre>
 
 <p>This is equivalent to typing,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="o">+</span><span class="mi">2</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
-</code></pre></div></div>
+<pre><code class="language-python">1+2
+</code></pre>
+<pre><code>3
+</code></pre>
 
 <p>or another example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">c</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'a+b'</span><span class="p">)</span>
-<span class="n">c</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
-</code></pre></div></div>
+<pre><code class="language-python">a = 1
+b = 2
+c = eval('a+b')
+c
+</code></pre>
+<pre><code>3
+</code></pre>
 
 <p>or,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s">'sqrt(4)'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2.0
-</code></pre></div></div>
+<pre><code class="language-python">from math import sqrt
+eval('sqrt(4)')
+</code></pre>
+<pre><code>2.0
+</code></pre>
 
-<p>But, note that in all of the above examples, the <code class="highlighter-rouge">eval</code> function <strong>evaluates</strong> a Python expression, that is, this function <strong>can not execute</strong> a Python statement.</p>
+<p>But, note that in all of the above examples, the <code>eval</code> function <strong>evaluates</strong> a Python expression, that is, this function <strong>can not execute</strong> a Python statement.</p>
 
 <p>Now the cool thing about this function is that you can directly apply it to the user input. For example, suppose the user is asked to input a Python expression and then the code is supposed to evaluate the input just like a simple calculator,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Input an arithmetic expression to evaluate: '</span><span class="p">))</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input an arithmetic expression to evaluate: 2 + 3.0/5 + exp(7)
+<pre><code class="language-python">eval(input('Input an arithmetic expression to evaluate: '))
+</code></pre>
+<pre><code>Input an arithmetic expression to evaluate: 2 + 3.0/5 + exp(7)
 1099.2331584284584
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="the-magic-exec-function">The magic <em>exec</em> function</h3>
 
-<p>Similar to the <code class="highlighter-rouge">eval</code> function, there is also an <code class="highlighter-rouge">exec</code> magic function that executes a string containing an arbitrary
-Python code, not just a Python expression. This is a powerful idea since it now enables the user to write a formula as input to the program, available to the program in the form of a string object. The program can then convert this formula to a callable Python code, or function, using the magic <code class="highlighter-rouge">exec</code> function.</p>
+<p>Similar to the <code>eval</code> function, there is also an <code>exec</code> magic function that executes a string containing an arbitrary
+Python code, not just a Python expression. This is a powerful idea since it now enables the user to write a formula as input to the program, available to the program in the form of a string object. The program can then convert this formula to a callable Python code, or function, using the magic <code>exec</code> function.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">exec</span><span class="p">(</span><span class="s">'import math'</span><span class="p">)</span>
-<span class="k">exec</span><span class="p">(</span><span class="s">'a=1; b=2; c=a+b'</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1, 2, 3)
-</code></pre></div></div>
+<pre><code class="language-python">exec('import math')
+exec('a=1; b=2; c=a+b')
+a,b,c
+</code></pre>
+<pre><code>(1, 2, 3)
+</code></pre>
 
 <p>One could even input a full function definition to the exec function,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myFuncString</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Input a Python function definition of interest: '</span><span class="p">)</span>
-<span class="n">f</span> <span class="o">=</span> <span class="k">exec</span><span class="p">(</span><span class="n">myFuncString</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input a Python function definition of interest, named func: def func(x): return 2*x + 1  
-</code></pre></div></div>
+<pre><code class="language-python">myFuncString = input('Input a Python function definition of interest: ')
+f = exec(myFuncString)
+</code></pre>
+<pre><code>Input a Python function definition of interest, named func: def func(x): return 2*x + 1  
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
-</code></pre></div></div>
+<pre><code class="language-python">func(x=1)
+</code></pre>
+<pre><code>3
+</code></pre>
 
-<p>Now, since this is such a useful functionality in Python, there is already a package written <code class="highlighter-rouge">scitools</code>, that converts an input expression to a Python function,</p>
+<p>Now, since this is such a useful functionality in Python, there is already a package written <code>scitools</code>, that converts an input expression to a Python function,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scitools.StringFunction</span> <span class="kn">import</span> <span class="n">StringFunction</span>
-<span class="n">myfuncString</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Input a Python expression to build your requested Python function: '</span><span class="p">)</span>
-<span class="n">myfunc</span> <span class="o">=</span> <span class="n">StringFunction</span><span class="p">(</span><span class="n">myfuncString</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">from scitools.StringFunction import StringFunction
+myfuncString = input('Input a Python expression to build your requested Python function: ')
+myfunc = StringFunction(myfuncString)
+</code></pre>
 
 <p>The only major caveat with this module is that, at the moment, it only works with Python 2.x, and not Python 3. So, the above code will not work on your Python 3 platform.</p>
 
@@ -1151,7 +1151,7 @@ Python code, not just a Python expression. This is a powerful idea since it now 
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

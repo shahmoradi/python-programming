@@ -651,7 +651,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
   </li>
   <li><strong>The most popular major implementation of Python is <a href="https://en.wikipedia.org/wiki/CPython" target="_blank">CPython</a></strong>. Other major implementations include <em>IronPython</em>, <em>Jython</em>, <em>MicroPython</em>, <em>PyPy</em>, each of which is designed for a specific purpose. Throughout this course, we will be using <em>CPython</em>.<br />
 <br /></li>
-  <li><strong>The extension for human-readable Python source code file is <code class="highlighter-rouge">.py</code></strong>. There are other extensions for Python program files as well, each of which represents a specific type of Python file. For example, <code class="highlighter-rouge">.pyc</code> represents compiled (binary) Python source code, and <code class="highlighter-rouge">.pyo</code> is used for optimized Python files.<br />
+  <li><strong>The extension for human-readable Python source code file is <code>.py</code></strong>. There are other extensions for Python program files as well, each of which represents a specific type of Python file. For example, <code>.pyc</code> represents compiled (binary) Python source code, and <code>.pyo</code> is used for optimized Python files.<br />
 <br /></li>
 </ul>
 
@@ -682,8 +682,8 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <strong><em>The Anaconda distribution of Python is the one that we currently recommend and will use here.</em></strong><br />
 <br />
 The latest version of Anaconda includes an easy installation of Python (2.7.13, 3.4.5, 3.5.2, and/or 3.6.0) and updates of over 100 pre-built and tested scientific and analytic Python packages. These packages include <strong>NumPy</strong>, <strong>Pandas</strong>, <strong>SciPy</strong>, <strong>Matplotlib</strong>, and <strong>Jupyter</strong>. Over 620 more packages are available. You can install any of them with just one command,
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install package-name
-</code></pre></div>    </div>
+    <pre><code class="language-bash">conda install package-name
+</code></pre>
     <p><em>(NOTE: Replace “package-name” with the name of the package you want to install.)</em></p>
   </li>
   <li><a href="https://www.enthought.com/" target="_blank"><strong>Canopy Python</strong></a> from <a href="https://www.enthought.com/" target="_blank">Enthought Canopy</a>. According to the company, Canopy Python is a comprehensive Python analysis environment that provides easy installation of over 450 core scientific analytic and Python packages, creating a robust platform you can explore, develop, and visualize on. In addition to its pre-built, tested Python distribution. Enthought Canopy has tools for iterative data analysis, visualization and application development. Like Anaconda, Canopy has free and licensed versions available for purchase.</li>
@@ -744,13 +744,13 @@ In the following, both methods will be explained.</li>
     <figcaption style="text-align:justify">
     </figcaption>
 </figure>
-<p><strong>2.</strong> By clicking on <code class="highlighter-rouge">Jupyter Notebook</code>, a Windows Command Prompt for Jupyter will open up, initializing the Jupyter server. Then a web browser window will open up on your default web browser. The content of this web page is a list of the content of your home directory on your personal device, as in the following figure.</p>
+<p><strong>2.</strong> By clicking on <code>Jupyter Notebook</code>, a Windows Command Prompt for Jupyter will open up, initializing the Jupyter server. Then a web browser window will open up on your default web browser. The content of this web page is a list of the content of your home directory on your personal device, as in the following figure.</p>
 <figure>
     <img src="jupyter2.png" width="900" />
     <figcaption style="text-align:justify">
     </figcaption>
 </figure>
-<p><strong>3.</strong> Now click on the <code class="highlighter-rouge">new</code> tab on the top-right part of the page, and choose <code class="highlighter-rouge">python 3</code>. If you have installed Python 2 as well, you will also see an option for <code class="highlighter-rouge">Python 2</code>. But, for now proceed with <code class="highlighter-rouge">Python 3</code>.</p>
+<p><strong>3.</strong> Now click on the <code>new</code> tab on the top-right part of the page, and choose <code>python 3</code>. If you have installed Python 2 as well, you will also see an option for <code>Python 2</code>. But, for now proceed with <code>Python 3</code>.</p>
 <figure>
     <img src="jupyter3.png" width="900" />
     <figcaption style="text-align:justify">
@@ -762,7 +762,7 @@ In the following, both methods will be explained.</li>
     <figcaption style="text-align:justify">
     </figcaption>
 </figure>
-<p>Your Jupyter notebook file is stored in the home direcotry of your device, likely with the name <code class="highlighter-rouge">Untitled.ipynb</code>. The very cool feature of Jupyter notebooks is that you can also export your notebook as a Markdown, PDF, HTML, or a single Python file (with <code class="highlighter-rouge">.py</code> extension), as illustrated in the figure below.</p>
+<p>Your Jupyter notebook file is stored in the home direcotry of your device, likely with the name <code>Untitled.ipynb</code>. The very cool feature of Jupyter notebooks is that you can also export your notebook as a Markdown, PDF, HTML, or a single Python file (with <code>.py</code> extension), as illustrated in the figure below.</p>
 <figure>
     <img src="jupyter5.png" width="900" />
     <figcaption style="text-align:justify">
@@ -778,9 +778,9 @@ In the following, both methods will be explained.</li>
 <h3 id="ipython--jupyter-helpful-commands">IPython / Jupyter helpful commands</h3>
 
 <p>Every time you start IPython on your local device, the following list of IPython commands is shown on the command line.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ipython
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
+<pre><code class="language-bash">$ ipython
+</code></pre>
+<pre><code>Python 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
 Type "copyright", "credits" or "license" for more information.
 
 IPython 5.1.0 -- An enhanced Interactive Python.
@@ -789,14 +789,14 @@ IPython 5.1.0 -- An enhanced Interactive Python.
 help      -&gt; Python's own help system.
 object?   -&gt; Details about 'object', use 'object??' for extra details.
 In [1]:
-</code></pre></div></div>
+</code></pre>
 
-<p>Since Jupyter is an extension of IPython, these commands are also executable in Jupyter notebooks. Here is an example of the last command <code class="highlighter-rouge">&lt;object&gt;?</code>.</p>
+<p>Since Jupyter is an extension of IPython, these commands are also executable in Jupyter notebooks. Here is an example of the last command <code>&lt;object&gt;?</code>.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test</span> <span class="o">=</span> <span class="s">'test'</span>
-<span class="n">test</span><span class="err">?</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type:        str
+<pre><code class="language-python">test = 'test'
+test?
+</code></pre>
+<pre><code>Type:        str
 String form: test
 Length:      4
 Docstring:
@@ -810,7 +810,7 @@ Otherwise, returns the result of object.__str__() (if defined)
 or repr(object).
 encoding defaults to sys.getdefaultencoding().
 errors defaults to 'strict'.
-</code></pre></div></div>
+</code></pre>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Note that each cell in Jupyter notebook, can contain either Python code or Markdown code, or any other code that you can select from the <i>code</i> dropdown menu at the top of the notebook.</div>
 
@@ -1111,144 +1111,144 @@ errors defaults to 'strict'.
 
 <p>In the case of Git specifically, since Git depends on the Bash environment for interaction with the OS kernel, the developers of Git decided to provide an adapted Bash shell that also works on Windows OS, along with their software to be used on Windows OS. This adapted Bash shell is widely known as <strong>Git Bash</strong> and provides an emulation layer for a Git command line experience on Windows OS.</p>
 
-<p>The Git Bash provides some of the functionalities of the Bash shell on Windows systems. For example, <code class="highlighter-rouge">ls</code>, <code class="highlighter-rouge">mv</code>, <code class="highlighter-rouge">cp</code>, <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">mkdir</code>, <code class="highlighter-rouge">vim</code> Bash commands and applications also work in Git Bash on Windows.</p>
+<p>The Git Bash provides some of the functionalities of the Bash shell on Windows systems. For example, <code>ls</code>, <code>mv</code>, <code>cp</code>, <code>rm</code>, <code>mkdir</code>, <code>vim</code> Bash commands and applications also work in Git Bash on Windows.</p>
 
 <h3 id="how-to-run-python-in-git-bash">How to run Python in Git Bash?</h3>
 
-<p>If you are a Bash user, you have likely greatly enjoyed working in the Bash environment. You will also likely want to use Bash on Windows as much as possible. Fortunately, Git Bash provides that command-line-interface feel that you probably like about Bash. However, you may soon notice that a lot of Windows applications are undefined in the Git Bash environment. For example, there is a good chance that your Python interpreter will not be recognized by default in the Git Bash environment. That means if you type <code class="highlighter-rouge">python</code> on the Git Bash command prompt, you will get an error message like the following,</p>
+<p>If you are a Bash user, you have likely greatly enjoyed working in the Bash environment. You will also likely want to use Bash on Windows as much as possible. Fortunately, Git Bash provides that command-line-interface feel that you probably like about Bash. However, you may soon notice that a lot of Windows applications are undefined in the Git Bash environment. For example, there is a good chance that your Python interpreter will not be recognized by default in the Git Bash environment. That means if you type <code>python</code> on the Git Bash command prompt, you will get an error message like the following,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: python: command not found
-</code></pre></div></div>
+<pre><code class="language-bash">python
+</code></pre>
+<pre><code>bash: python: command not found
+</code></pre>
 
 <p>To understand the origins of this error, we will have to understand how Bash finds applications on a device to run them for the user.</p>
 
 <h4 id="how-does-bash-find-and-run-applications-for-the-user">How does Bash find and run applications for the user?</h4>
 
-<p>In addition to being a shell, Bash is also a scripting language environment, meaning that you can write a set of Bash commands in a file, and then execute this file on the Bash command line by calling the script’s filename. Being a scripting language, Bash also allows you to define new Bash <strong>environment variables</strong> that can hold specific values that are of interest to you as the Bash user. For example, one can define a variable <code class="highlighter-rouge">myname</code> in the Bash environment which will contain my name via the Bash command <code class="highlighter-rouge">export</code>,</p>
+<p>In addition to being a shell, Bash is also a scripting language environment, meaning that you can write a set of Bash commands in a file, and then execute this file on the Bash command line by calling the script’s filename. Being a scripting language, Bash also allows you to define new Bash <strong>environment variables</strong> that can hold specific values that are of interest to you as the Bash user. For example, one can define a variable <code>myname</code> in the Bash environment which will contain my name via the Bash command <code>export</code>,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">myname</span><span class="o">=</span><span class="s2">"Amir"</span>
-</code></pre></div></div>
+<pre><code class="language-bash">export myname="Amir"
+</code></pre>
 
-<p>To see (i.e., echo) the contents of this newly-created variable once can use another Bash command <code class="highlighter-rouge">echo</code>,</p>
+<p>To see (i.e., echo) the contents of this newly-created variable once can use another Bash command <code>echo</code>,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$myname</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir
-</code></pre></div></div>
+<pre><code class="language-bash">echo $myname
+</code></pre>
+<pre><code>Amir
+</code></pre>
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Notice the presence of the <code class="highlighter-rouge">$</code> sign before the variable name in the above example. The <code class="highlighter-rouge">$</code> sign is a special Bash symbol. Whenever it appears before a Bash variable, it tells Bash to extract the value of that variable.</div>
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Notice the presence of the <code>$</code> sign before the variable name in the above example. The <code>$</code> sign is a special Bash symbol. Whenever it appears before a Bash variable, it tells Bash to extract the value of that variable.</div>
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Note that the duration of the existence of a Bash variable is only for as long as the life of the specific Bash session is open. In other words, if you define a variable within the Bash environment and close the terminal afterward and reopen it, that variable will be undefined in the newly-opened Bash session.</div>
 
-<p>Now, it may not be surprising to know that the Bash environment also has a set of <strong>predefined variables</strong> that already exist on every Bash terminal. Examples include <code class="highlighter-rouge">HOME</code>, <code class="highlighter-rouge">PATH</code>, etc.</p>
+<p>Now, it may not be surprising to know that the Bash environment also has a set of <strong>predefined variables</strong> that already exist on every Bash terminal. Examples include <code>HOME</code>, <code>PATH</code>, etc.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$HOME</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/c/Users/shahmoradi
-</code></pre></div></div>
+<pre><code class="language-bash">echo $HOME
+</code></pre>
+<pre><code>/c/Users/shahmoradi
+</code></pre>
 
-<p>The variable <code class="highlighter-rouge">PATH</code> is an environmental variable in Linux and other Unix-like operating systems that tells the shell which directories to search for executable files (i.e., ready-to-run programs like Python) in response to commands issued by a user. It increases both the convenience and the safety of such operating system tasks and is widely considered to be the single most important environmental variable.</p>
+<p>The variable <code>PATH</code> is an environmental variable in Linux and other Unix-like operating systems that tells the shell which directories to search for executable files (i.e., ready-to-run programs like Python) in response to commands issued by a user. It increases both the convenience and the safety of such operating system tasks and is widely considered to be the single most important environmental variable.</p>
 
-<p>One advantage that the Linux and Mac Operating Systems have over Windows is that once a Python distribution is set up on the device, it can be virtually always directly accessed from every Bash terminal on the device. The reason for this is that different Python implementations typically <em>automatically</em> add (append) the path to the directory containing the Python executable files (e.g., the Python interpreter, IPython, Jupyter, … applications) to the list of existing paths in the <code class="highlighter-rouge">PATH</code> environmental variable. When you type <code class="highlighter-rouge">python</code> on the Bash command line, Bash will automatically search all of the folders in the variable <code class="highlighter-rouge">PATH</code> for an application named <code class="highlighter-rouge">python</code>. As soon as it finds the first instance of <code class="highlighter-rouge">python</code> it will run that application and will stop further searches for potential python-named applications in the directories of the <code class="highlighter-rouge">PATH</code> variable.</p>
+<p>One advantage that the Linux and Mac Operating Systems have over Windows is that once a Python distribution is set up on the device, it can be virtually always directly accessed from every Bash terminal on the device. The reason for this is that different Python implementations typically <em>automatically</em> add (append) the path to the directory containing the Python executable files (e.g., the Python interpreter, IPython, Jupyter, … applications) to the list of existing paths in the <code>PATH</code> environmental variable. When you type <code>python</code> on the Bash command line, Bash will automatically search all of the folders in the variable <code>PATH</code> for an application named <code>python</code>. As soon as it finds the first instance of <code>python</code> it will run that application and will stop further searches for potential python-named applications in the directories of the <code>PATH</code> variable.</p>
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> The contents of the variable <code class="highlighter-rouge">PATH</code> is simply a string which is a concatenation of the all the paths to folders which Bash has to search for applications. So how does Bash separate different paths from each other in this string? The convention is to use a colon <code class="highlighter-rouge">:</code> between individual paths in the <code class="highlighter-rouge">PATH</code> environmental variable to separate them from each other. This works because directory paths never contain the <code class="highlighter-rouge">:</code> character, so <code class="highlighter-rouge">:</code> can be used as a path delimiter (separator).</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> The contents of the variable <code>PATH</code> is simply a string which is a concatenation of the all the paths to folders which Bash has to search for applications. So how does Bash separate different paths from each other in this string? The convention is to use a colon <code>:</code> between individual paths in the <code>PATH</code> environmental variable to separate them from each other. This works because directory paths never contain the <code>:</code> character, so <code>:</code> can be used as a path delimiter (separator).</div>
 
 <h4 id="why-are-python-applications-not-recognized-in-the-git-bash-terminal">Why are Python applications not recognized in the Git Bash terminal?</h4>
 
-<p>The likely reason is that, when the Python distribution of your choice is installed, the path to the folder containing the Python applications is not automatically appended to the contents of Git Bash’s <code class="highlighter-rouge">PATH</code> variable. So, Git Bash cannot find the Python application in any of its search paths.</p>
+<p>The likely reason is that, when the Python distribution of your choice is installed, the path to the folder containing the Python applications is not automatically appended to the contents of Git Bash’s <code>PATH</code> variable. So, Git Bash cannot find the Python application in any of its search paths.</p>
 
-<p>The solution is to append the Python path (i.e., the folder containing Python applications) <strong>manually</strong> to the value of <code class="highlighter-rouge">PATH</code>. For example, on Bash the command line, we could simply redefine the <code class="highlighter-rouge">PATH</code> variable to append the Python path to it,</p>
+<p>The solution is to append the Python path (i.e., the folder containing Python applications) <strong>manually</strong> to the value of <code>PATH</code>. For example, on Bash the command line, we could simply redefine the <code>PATH</code> variable to append the Python path to it,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/"</span>:<span class="nv">$PATH</span>
-</code></pre></div></div>
+<pre><code class="language-bash">export PATH="/c/ProgramData/Anaconda3/":$PATH
+</code></pre>
 
-<p>where the string <code class="highlighter-rouge">"/c/ProgramData/Anaconda3/"</code> points to the folder containing the Anaconda Python (on my device). On your system, the Anaconda3 Python may live in a different path, so you’d want to find the correct path to your Python distribution before adding the path to the Bash variable <code class="highlighter-rouge">PATH</code>. <a name="anaconda3paths"></a>Currently, <a href="https://docs.anaconda.com/anaconda/user-guide/faq/" target="_blank">Anaconda website states that</a> if you accept the default option to install Anaconda on the <strong>default path</strong>, then Anaconda is installed in your user home directory, which can be one of the following, depending on the operating-system (OS) type of your device,</p>
+<p>where the string <code>"/c/ProgramData/Anaconda3/"</code> points to the folder containing the Anaconda Python (on my device). On your system, the Anaconda3 Python may live in a different path, so you’d want to find the correct path to your Python distribution before adding the path to the Bash variable <code>PATH</code>. <a name="anaconda3paths"></a>Currently, <a href="https://docs.anaconda.com/anaconda/user-guide/faq/" target="_blank">Anaconda website states that</a> if you accept the default option to install Anaconda on the <strong>default path</strong>, then Anaconda is installed in your user home directory, which can be one of the following, depending on the operating-system (OS) type of your device,</p>
 
 <ul>
-  <li>Windows 10: <code class="highlighter-rouge">C:\Users\&lt;your-username&gt;\Anaconda3\</code></li>
-  <li>macOS: <code class="highlighter-rouge">/Users/&lt;your-username&gt;/anaconda3</code></li>
-  <li>Linux: <code class="highlighter-rouge">/home/&lt;your-username&gt;/anaconda3</code></li>
+  <li>Windows 10: <code>C:\Users\&lt;your-username&gt;\Anaconda3\</code></li>
+  <li>macOS: <code>/Users/&lt;your-username&gt;/anaconda3</code></li>
+  <li>Linux: <code>/home/&lt;your-username&gt;/anaconda3</code></li>
 </ul>
 
-<p>where you will have to replace <code class="highlighter-rouge">&lt;your-username&gt;</code> with your username defined on your device (for example, my username is my last name: <code class="highlighter-rouge">shahmoradi</code>).</p>
+<p>where you will have to replace <code>&lt;your-username&gt;</code> with your username defined on your device (for example, my username is my last name: <code>shahmoradi</code>).</p>
 
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Never completely redefine the value of the <code class="highlighter-rouge">PATH</code> variable (unless you know what you are doing). Always append or prepend new contents to the <code class="highlighter-rouge">PATH</code> variable as done in the above example.</div>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Never completely redefine the value of the <code>PATH</code> variable (unless you know what you are doing). Always append or prepend new contents to the <code>PATH</code> variable as done in the above example.</div>
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Note that in the above example, I have prepended the Python path to the Bash environmental variable <code class="highlighter-rouge">PATH</code>. The reason for this is that Bash will start searching all the directories in <code class="highlighter-rouge">PATH</code> from the first to the last and, when it encounters the first instance of an application named <code class="highlighter-rouge">python</code> in a folder, it will run that application and stop further searches of the directories in <code class="highlighter-rouge">PATH</code>. So for example, if you have already installed Python 2 and its path is already added to the Bash variable <code class="highlighter-rouge">PATH</code> and now you want <code class="highlighter-rouge">python</code> on the Bash command line to be recognized as the new Anaconda3 Python, then you would want to prepend the path to Anaconda3 Python to <code class="highlighter-rouge">PATH</code> instead of appending. This way, the path to Anaconda3 will be searched first, and the Python of Anaconda3 will be executed by Bash.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Note that in the above example, I have prepended the Python path to the Bash environmental variable <code>PATH</code>. The reason for this is that Bash will start searching all the directories in <code>PATH</code> from the first to the last and, when it encounters the first instance of an application named <code>python</code> in a folder, it will run that application and stop further searches of the directories in <code>PATH</code>. So for example, if you have already installed Python 2 and its path is already added to the Bash variable <code>PATH</code> and now you want <code>python</code> on the Bash command line to be recognized as the new Anaconda3 Python, then you would want to prepend the path to Anaconda3 Python to <code>PATH</code> instead of appending. This way, the path to Anaconda3 will be searched first, and the Python of Anaconda3 will be executed by Bash.</div>
 
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Note that all folder separators in Bash paths must be Linux-style (<code class="highlighter-rouge">/</code>) as opposed to Windows-style (<code class="highlighter-rouge">\</code>), just like the above examples. This is necessary because we are working with a Bash variable and Bash is inherently a Linux software and in Linux, all folders are separated by the forward-slash in a given path.</div>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Note that all folder separators in Bash paths must be Linux-style (<code>/</code>) as opposed to Windows-style (<code>\</code>), just like the above examples. This is necessary because we are working with a Bash variable and Bash is inherently a Linux software and in Linux, all folders are separated by the forward-slash in a given path.</div>
 
-<p>If you’d like Git Bash to be also able to recognize <code class="highlighter-rouge">ipython</code> and <code class="highlighter-rouge">jupyter</code> applications, you will have to add their paths to <code class="highlighter-rouge">PATH</code> variable as well. Typically these two applications live in the following path on Windows systems,</p>
+<p>If you’d like Git Bash to be also able to recognize <code>ipython</code> and <code>jupyter</code> applications, you will have to add their paths to <code>PATH</code> variable as well. Typically these two applications live in the following path on Windows systems,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/Scripts/"</span>:<span class="nv">$PATH</span>
-</code></pre></div></div>
+<pre><code class="language-bash">export PATH="/c/ProgramData/Anaconda3/Scripts/":$PATH
+</code></pre>
 
-<p>But again, keep in mind that on your device, Anaconda3 may have been installed in a different directory, for example, one of the three paths (corresponding to the three OS types) <a href="#anaconda3paths">mentioned above</a>. Once you redefine the contents of <code class="highlighter-rouge">PATH</code>, Bash will be able to recognize the Anaconda3 Python applications. But here is the catch: if you close your Git Bash application, you will also lose the new path additions to the Bash variable <code class="highlighter-rouge">PATH</code>. Therefore, next time you open a new independent Bash session, Bash will not recognize Python again.</p>
+<p>But again, keep in mind that on your device, Anaconda3 may have been installed in a different directory, for example, one of the three paths (corresponding to the three OS types) <a href="#anaconda3paths">mentioned above</a>. Once you redefine the contents of <code>PATH</code>, Bash will be able to recognize the Anaconda3 Python applications. But here is the catch: if you close your Git Bash application, you will also lose the new path additions to the Bash variable <code>PATH</code>. Therefore, next time you open a new independent Bash session, Bash will not recognize Python again.</p>
 
 <h4 id="how-to-add-python-applications-to-the-git-bash-search-permanently">How to add Python applications to the Git Bash search permanently?</h4>
 
-<p>The ultimate solution to the problem of Python recognition by Git Bash is to make the above modifications to the Bash variable <code class="highlighter-rouge">PATH</code> permanent. To do so, you need to know about another secret of the Bash shell which is revealed in the following section.</p>
+<p>The ultimate solution to the problem of Python recognition by Git Bash is to make the above modifications to the Bash variable <code>PATH</code> permanent. To do so, you need to know about another secret of the Bash shell which is revealed in the following section.</p>
 
-<h5 id="what-is-the-purpose-of-the-bashrc-file-in-my-home-directory">What is the purpose of the <code class="highlighter-rouge">.bashrc</code> file in my home directory?</h5>
+<h5 id="what-is-the-purpose-of-the-bashrc-file-in-my-home-directory">What is the purpose of the <code>.bashrc</code> file in my home directory?</h5>
 
 <p>Now, on the Bash command line type,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
-</code></pre></div></div>
+<pre><code class="language-bash">cd ~
+</code></pre>
 
 <p>or,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nv">$HOME</span>
-</code></pre></div></div>
+<pre><code class="language-bash">cd $HOME
+</code></pre>
 
 <p>Both of these will change the current working directory of Bash to your home directory,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/c/Users/shahmoradi
-</code></pre></div></div>
+<pre><code class="language-bash">pwd
+</code></pre>
+<pre><code>/c/Users/shahmoradi
+</code></pre>
 
-<p>Now if you list all files in your home directly and explicitly request Bash to show you hidden files, you will see that there is at least one of the following files there in your home directory (note that the comment symbol in Bash is <code class="highlighter-rouge">#</code>),</p>
+<p>Now if you list all files in your home directly and explicitly request Bash to show you hidden files, you will see that there is at least one of the following files there in your home directory (note that the comment symbol in Bash is <code>#</code>),</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-al</span>   <span class="c"># the flag -a shows you the hidden files and -l shows the files in list format</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-rw-r--r-- 1 shahmoradi 1049089    5084 Sep 14 21:44  .bash_history
+<pre><code class="language-bash">ls -al   # the flag -a shows you the hidden files and -l shows the files in list format
+</code></pre>
+<pre><code>-rw-r--r-- 1 shahmoradi 1049089    5084 Sep 14 21:44  .bash_history
 -rw-r--r-- 1 shahmoradi 1049089      99 Sep 10 16:47  .bash_profile
 -rw-r--r-- 1 shahmoradi 1049089    4293 Sep 12 15:07  .bashrc
-</code></pre></div></div>
+</code></pre>
 
-<p>What is the purpose of the two files <code class="highlighter-rouge">.bash_profile</code> and <code class="highlighter-rouge">.bashrc</code>? The difference between them is subtle but in this particular situation with Git Bash, both of these files will be executed when a Git Bash session is opened in Windows and all of the instructions and Bash scripts in these two files will be executed <em>automatically</em>. This is done by default for every new Bash terminal that is opened by the user.</p>
+<p>What is the purpose of the two files <code>.bash_profile</code> and <code>.bashrc</code>? The difference between them is subtle but in this particular situation with Git Bash, both of these files will be executed when a Git Bash session is opened in Windows and all of the instructions and Bash scripts in these two files will be executed <em>automatically</em>. This is done by default for every new Bash terminal that is opened by the user.</p>
 
-<p>Therefore, we can put the above two modifications to the Bash <code class="highlighter-rouge">PATH</code> variable in <code class="highlighter-rouge">.bashrc</code> or if it does not exist on your device, in <code class="highlighter-rouge">.bash_profile</code> to automatically add the paths to Anaconda3 Python, IPython, and Jupyter applications to the Bash variable <code class="highlighter-rouge">PATH</code> every time we open a new session of Bash. To do so, type the following on the Git Bash command line,</p>
+<p>Therefore, we can put the above two modifications to the Bash <code>PATH</code> variable in <code>.bashrc</code> or if it does not exist on your device, in <code>.bash_profile</code> to automatically add the paths to Anaconda3 Python, IPython, and Jupyter applications to the Bash variable <code>PATH</code> every time we open a new session of Bash. To do so, type the following on the Git Bash command line,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim .bashrc
-</code></pre></div></div>
+<pre><code class="language-bash">vim .bashrc
+</code></pre>
 
 <p>or if it does not exist on your system,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim .bash_profile
-</code></pre></div></div>
+<pre><code class="language-bash">vim .bash_profile
+</code></pre>
 
-<p>This will take you to the <code class="highlighter-rouge">vim</code> text-editing environment where you can modify the contents of these files. Press <code class="highlighter-rouge">i</code> to go to the insert-mode of <code class="highlighter-rouge">vim</code>. Then copy and paste the <code class="highlighter-rouge">PATH</code> redefinition commands that we used before into the file,</p>
+<p>This will take you to the <code>vim</code> text-editing environment where you can modify the contents of these files. Press <code>i</code> to go to the insert-mode of <code>vim</code>. Then copy and paste the <code>PATH</code> redefinition commands that we used before into the file,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/"</span>:<span class="nv">$PATH</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/c/ProgramData/Anaconda3/Scripts/"</span>:<span class="nv">$PATH</span>
-</code></pre></div></div>
+<pre><code class="language-bash">export PATH="/c/ProgramData/Anaconda3/":$PATH
+export PATH="/c/ProgramData/Anaconda3/Scripts/":$PATH
+</code></pre>
 
 <p>Again, keep in mind that your Anaconda3 Python applications may have been installed in a different path than the ones in the above example. So, you need to modify the paths in the above to reflect the location of your Anaconda3 installation on your own device.</p>
 
-<p>There is one last step (Bash command) that you may need to add to your <code class="highlighter-rouge">.bashrc</code> or <code class="highlighter-rouge">.bash_profile</code> for Python to be properly called from the Git Bash terminal. While in the <code class="highlighter-rouge">vim</code> environment, also add the following Bash <strong>alias</strong> command to the file after the above export commands,</p>
+<p>There is one last step (Bash command) that you may need to add to your <code>.bashrc</code> or <code>.bash_profile</code> for Python to be properly called from the Git Bash terminal. While in the <code>vim</code> environment, also add the following Bash <strong>alias</strong> command to the file after the above export commands,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">python</span><span class="o">=</span><span class="s2">"winpty python.exe"</span>
-</code></pre></div></div>
+<pre><code class="language-bash">alias python="winpty python.exe"
+</code></pre>
 
-<p>Then press <code class="highlighter-rouge">Esc</code> key on the keyboard to exit the insert mode. Then type <code class="highlighter-rouge">:wq</code> which will tell <code class="highlighter-rouge">vim</code> to write (<code class="highlighter-rouge">w</code>) the new content to the file and then quit (<code class="highlighter-rouge">q</code>) <code class="highlighter-rouge">vim</code>.</p>
+<p>Then press <code>Esc</code> key on the keyboard to exit the insert mode. Then type <code>:wq</code> which will tell <code>vim</code> to write (<code>w</code>) the new content to the file and then quit (<code>q</code>) <code>vim</code>.</p>
 
-<p>That’s it. Now close you Bash session and reopen it. This time, if you type <code class="highlighter-rouge">python</code> or <code class="highlighter-rouge">ipython</code> on the Bash command prompt, Bash should be able to find  Anaconda3 Python and IPython applications and run them for you. Again, keep in mind that you must ensure you prepend the correct Anaconda3 paths to the Bash variable <code class="highlighter-rouge">PATH</code> or otherwise, Bash will not be able to find Python applications.</p>
+<p>That’s it. Now close you Bash session and reopen it. This time, if you type <code>python</code> or <code>ipython</code> on the Bash command prompt, Bash should be able to find  Anaconda3 Python and IPython applications and run them for you. Again, keep in mind that you must ensure you prepend the correct Anaconda3 paths to the Bash variable <code>PATH</code> or otherwise, Bash will not be able to find Python applications.</p>
 
-<h4 id="what-is-the-purpose-of-bash_history-file-in-my-home-directory">What is the purpose of <code class="highlighter-rouge">.bash_history</code> file in my home directory?</h4>
+<h4 id="what-is-the-purpose-of-bash_history-file-in-my-home-directory">What is the purpose of <code>.bash_history</code> file in my home directory?</h4>
 
 <p>This file stores a history of user commands entered at the command prompt and is used by Bash to help the user recover and view old commands that they have executed on the Bash command prompt.</p>
 
@@ -1348,7 +1348,7 @@ errors defaults to 'strict'.
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

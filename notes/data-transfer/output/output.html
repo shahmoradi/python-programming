@@ -616,76 +616,76 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
     <p>There are two major methods of data-output:</p>
 <ol>
-  <li>writing to the terminal window, as previously done using <code class="highlighter-rouge">print()</code> function, or,</li>
+  <li>writing to the terminal window, as previously done using <code>print()</code> function, or,</li>
   <li>writing to an output file.</li>
 </ol>
 
 <p>We have already extensively discussed printing output to the terminal window. Writing data to file is also easy.</p>
 
 <h2 id="writing-to-a-file">Writing to a file</h2>
-<p>Similar to reading from a file, in order to write to a file, one has to first open the file, this time for the purpose of writing, which is indicated by <code class="highlighter-rouge">'w'</code> or <code class="highlighter-rouge">'a'</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="c"># write to a new file, or overwrite file</span>
-</code></pre></div></div>
+<p>Similar to reading from a file, in order to write to a file, one has to first open the file, this time for the purpose of writing, which is indicated by <code>'w'</code> or <code>'a'</code>,</p>
+<pre><code class="language-python">outfile = open(filename, 'w') # write to a new file, or overwrite file
+</code></pre>
 
-<p>One could also <strong>append</strong> some output to an <strong>existing file</strong> using the <code class="highlighter-rouge">'a'</code> indicator as input to <code class="highlighter-rouge">open()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span> <span class="c"># append to the end of an existing file</span>
-</code></pre></div></div>
+<p>One could also <strong>append</strong> some output to an <strong>existing file</strong> using the <code>'a'</code> indicator as input to <code>open()</code>,</p>
+<pre><code class="language-python">outfile = open(filename, 'a') # append to the end of an existing file
+</code></pre>
 
-<p>In both cases, the string valued variable <code class="highlighter-rouge">filename</code> contains the path to the file that should be created or manipulated. Suppose we want to write the output of the above code in previous section to a new file. All you would need to do is the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.in'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
-<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.out'</span><span class="p">,</span><span class="s">'w'</span><span class="p">)</span>
-<span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-<span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
+<p>In both cases, the string valued variable <code>filename</code> contains the path to the file that should be created or manipulated. Suppose we want to write the output of the above code in previous section to a new file. All you would need to do is the following,</p>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+numbers = [float(x) for x in myfile.read().split()]
+mean = sum(numbers)/len(numbers)
+outfile = open('data.out','w')
+outfile.write(str(mean) + '\n')
+myfile.close()
+outfile.close()
+</code></pre>
 
-<p>This will result in the creation of <a href="data.out" target="_blank">a new file</a> named <code class="highlighter-rouge">data.out</code> which contains the value of <code class="highlighter-rouge">mean</code> variable. Note that the addition of the character <code class="highlighter-rouge">'\n'</code> at the end of the <code class="highlighter-rouge">write</code> statement is necessary, otherwise the next write to the file will not appear on a new line.</p>
+<p>This will result in the creation of <a href="data.out" target="_blank">a new file</a> named <code>data.out</code> which contains the value of <code>mean</code> variable. Note that the addition of the character <code>'\n'</code> at the end of the <code>write</code> statement is necessary, otherwise the next write to the file will not appear on a new line.</p>
 
 <h2 id="writing-a-table-of-data-to-a-file">Writing a table of data to a file</h2>
 
 <p>Now suppose you were to write the following list to an output file,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.29619813</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.29619813</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span> <span class="p">],</span>
-<span class="p">[</span> <span class="mf">0.29619813</span><span class="p">,</span> <span class="mf">0.11697778</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11697778</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.29619813</span><span class="p">],</span>
-<span class="p">[</span><span class="o">-</span><span class="mf">0.29619813</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11697778</span><span class="p">,</span> <span class="mf">0.11697778</span><span class="p">,</span> <span class="mf">0.29619813</span><span class="p">],</span>
-<span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.29619813</span><span class="p">,</span> <span class="mf">0.29619813</span><span class="p">,</span> <span class="mf">0.75</span> <span class="p">]]</span>
-</code></pre></div></div>
+<pre><code class="language-python">data = [[ 0.75, 0.29619813, -0.29619813, -0.75 ],
+[ 0.29619813, 0.11697778, -0.11697778, -0.29619813],
+[-0.29619813, -0.11697778, 0.11697778, 0.29619813],
+[-0.75, -0.29619813, 0.29619813, 0.75 ]]
+</code></pre>
 
 <p>One solution would be the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'table.out'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
-        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s">'{:14.8f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column</span><span class="p">)</span> <span class="p">)</span>
-    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
+<pre><code class="language-python">outfile = open('table.out', 'w')
+for row in data:
+    for column in row:
+        outfile.write( '{:14.8f}'.format(column) )
+    outfile.write('\n')
+outfile.close()
+</code></pre>
 
-<p>This code would result in the creation of an <a href="table.out" target="_blank">output file</a> named <code class="highlighter-rouge">table.out</code> which contain the content of <code class="highlighter-rouge">data</code> variable, in a nice formatted style as the following,</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    0.75000000    0.29619813   -0.29619813   -0.75000000
+<p>This code would result in the creation of an <a href="table.out" target="_blank">output file</a> named <code>table.out</code> which contain the content of <code>data</code> variable, in a nice formatted style as the following,</p>
+<pre><code class="language-text">    0.75000000    0.29619813   -0.29619813   -0.75000000
     0.29619813    0.11697778   -0.11697778   -0.29619813
    -0.29619813   -0.11697778    0.11697778    0.29619813
    -0.75000000   -0.29619813    0.29619813    0.75000000
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="writing-data-in-html-format">Writing data in HTML format</h2>
 
 <p>Doing research at a professional level requires reporting the results professionally as well. That is, the results of the project, including the final report itself have to be <strong>auto-generated</strong> and <strong>reproducile</strong> as much as possible, and reachable to the widest audience, which nowadays means, availibility on the World-Wide Web.</p>
 
 <p>Suppose you have worked on a project which has resulted in a final figure that you wanted to put on a single webpage in your repository on Github, together with some information about the and project and the figure. Let’s say the figure is a <a href="growthCurveFit.png" target="_blank">Growth Curve Fit</a>. Now we write a code that automatically generates an HTML (or Markdown) file which contains the correct HTML code for displaying the figure on your desired page for the project. You could for example write the following Python code to achieve this goal,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'SampleProjectReport.html'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">html</span><span class="p">:</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;HTML&gt;&lt;BODY BGCOLOR="white"&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;H1&gt;Sample Project: Tumor growth modeling Result&lt;/H1&gt; </span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;H2&gt;Project summary:&lt;/H2&gt; </span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;p&gt;In this project, we tried to model the growth of a tumor in a rat</span><span class="se">\'</span><span class="s">s brain using the Gompertzian growth model. The fit is shown in the figure below.&lt;/p&gt;&lt;br&gt; </span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">figReposPrefix</span> <span class="o">=</span> <span class="s">'https://www.cdslab.org/python/notes/data-transfer/output/'</span>
-    <span class="n">figures</span> <span class="o">=</span> <span class="p">[</span><span class="s">'growthCurveFit.png'</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">figure</span> <span class="ow">in</span> <span class="n">figures</span><span class="p">:</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s">'&lt;img src="{}" width="100</span><span class="si">%</span><span class="s">"&gt;&lt;br&gt;&lt;br&gt;</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">figure</span><span class="p">)</span> <span class="p">)</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;H2&gt;Conclusions:&lt;/H2&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;p&gt;The survival odds for this rat are virtually zero.&lt;/p&gt;&lt;br&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'&lt;/BODY&gt;&lt;/HTML&gt;</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">with open('SampleProjectReport.html', 'w') as html:
+    html.write('&lt;HTML&gt;&lt;BODY BGCOLOR="white"&gt;\n')
+    html.write('&lt;H1&gt;Sample Project: Tumor growth modeling Result&lt;/H1&gt; \n')
+    html.write('&lt;H2&gt;Project summary:&lt;/H2&gt; \n')
+    html.write('&lt;p&gt;In this project, we tried to model the growth of a tumor in a rat\'s brain using the Gompertzian growth model. The fit is shown in the figure below.&lt;/p&gt;&lt;br&gt; \n')
+    figReposPrefix = 'https://www.cdslab.org/python/notes/data-transfer/output/'
+    figures = ['growthCurveFit.png']
+    for figure in figures:
+        html.write( '&lt;img src="{}" width="100%"&gt;&lt;br&gt;&lt;br&gt;\n'.format(figure) )
+    html.write('&lt;H2&gt;Conclusions:&lt;/H2&gt;\n')
+    html.write('&lt;p&gt;The survival odds for this rat are virtually zero.&lt;/p&gt;&lt;br&gt;\n')
+    html.write('&lt;/BODY&gt;&lt;/HTML&gt;\n')
+</code></pre>
 
 <p>This code will generate an HTML file, which you can view in your browser <a href="SampleProjectReport.html" target="_blank">here</a>.</p>
 
@@ -786,7 +786,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

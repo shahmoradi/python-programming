@@ -615,26 +615,26 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
     
     
-<h2 id="3d-plotting-in-matplotlib">3D-plotting in <code class="highlighter-rouge">matplotlib</code></h2>
+<h2 id="3d-plotting-in-matplotlib">3D-plotting in <code>matplotlib</code></h2>
 
-<p>Over the past few years <code class="highlighter-rouge">matplotlib</code> has significantly grown to include additional plotting capabilities including 3D plotting techniques. At this point in the Python learning process, it is generally more sensible to learn the latest techniques of the advanced Python packages (including <code class="highlighter-rouge">matplotlib</code>) directly from their reference manual. The reason for this is that the interfaces for many of these packages are constantly evolving and any code that may work today, may not be functional in a few months or years. With this note in mind, the following is a quick overview of some of these plotting functionalities.</p>
+<p>Over the past few years <code>matplotlib</code> has significantly grown to include additional plotting capabilities including 3D plotting techniques. At this point in the Python learning process, it is generally more sensible to learn the latest techniques of the advanced Python packages (including <code>matplotlib</code>) directly from their reference manual. The reason for this is that the interfaces for many of these packages are constantly evolving and any code that may work today, may not be functional in a few months or years. With this note in mind, the following is a quick overview of some of these plotting functionalities.</p>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> 
-If you are using Jupyter notebooks as your primary interface to Python interpreter, consider adding <code class="highlighter-rouge">%matplotlib notebook</code> to the beginning of your Jupyter notebook. This <strong>IPython magic</strong> will make all the plots that will be generated in the notebook interactive, meaning that you will be able to zoom in and out, resize, or rotate the plots inside the notebook.
+If you are using Jupyter notebooks as your primary interface to Python interpreter, consider adding <code>%matplotlib notebook</code> to the beginning of your Jupyter notebook. This <strong>IPython magic</strong> will make all the plots that will be generated in the notebook interactive, meaning that you will be able to zoom in and out, resize, or rotate the plots inside the notebook.
 </div>
 
 <h3 id="creating-3d-figure-objects">Creating 3D figure objects</h3>
 
-<p>To generate 3D figures, you will have to import <code class="highlighter-rouge">mpl_toolkits</code> Python package,</p>
+<p>To generate 3D figures, you will have to import <code>mpl_toolkits</code> Python package,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">"3d"</span><span class="p">)</span>
+<pre><code class="language-python">%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d")
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
+plt.show()
+</code></pre>
 
 <p>This should generate the following figure handle for you,</p>
 
@@ -642,34 +642,34 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
     <img src="emptyFigure3D.png" />
 </figure>
 
-<p>To save the plot in an external file, use the <code class="highlighter-rouge">savefig()</code> method.</p>
+<p>To save the plot in an external file, use the <code>savefig()</code> method.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'emptyFigure3D.png'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">plt.savefig('emptyFigure3D.png')
+</code></pre>
 
 <h3 id="creating-3d-line-plots">Creating 3D line plots</h3>
 
 <p>Now suppose we want to visualize a 3D line which is described by the following equations,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">zmin</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">zmax</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-<span class="n">LineZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">zmin</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">LineY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">LineZ</span><span class="p">)</span>
-<span class="n">LineX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">LineZ</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">import numpy as np
+zmin = 0.0
+zmax = 4*np.pi
+LineZ = np.linspace(zmin, zmax, 500)
+LineY = np.sin(LineZ)
+LineX = np.cos(LineZ)
+</code></pre>
 
 <p>If you look carefully, you may notice that the X and Y coordinates described by the above equations describe a circular, repeating, line. On the contrary, the Z coordinates are described by a set of monotonically increasing values. Therefore, this 3D line must be describing a spring-like object. To plot this object, we can use the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">"3d"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span> <span class="n">x_line</span><span class="p">,</span> <span class="n">y_line</span><span class="p">,</span> <span class="n">z_line</span><span class="p">,</span> <span class="s">'gray'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'line3D.png'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d")
+ax.plot3D( x_line, y_line, z_line, 'gray')
+plt.show()
+plt.savefig('line3D.png')
+</code></pre>
 
 <p>which would give a plot like the following,</p>
 
@@ -681,18 +681,18 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>Now, suppose we want to add a set of points to this line plot. For example, we could create a set of random points around the 3D line and visualize them, as if the random points are a set of observational data and the 3D line represents a mathemtical fit to this observational dataset,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">nPoint</span> <span class="o">=</span> <span class="mi">300</span> <span class="c"># number of random points</span>
-<span class="n">PointZ</span> <span class="o">=</span> <span class="n">zmin</span> <span class="o">+</span> <span class="p">(</span><span class="n">zmax</span><span class="o">-</span><span class="n">zmin</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">nPoint</span><span class="p">)</span>      <span class="c"># points have uniformly-distributed random heights along the Z axis</span>
-<span class="n">PointY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">PointZ</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">nPoint</span><span class="p">)</span>     <span class="c"># points have normally-distributed random values along the Y axis</span>
-<span class="n">PointX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">PointZ</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">nPoint</span><span class="p">)</span>     <span class="c"># points have normally-distributed random values along the X axis</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span> <span class="n">PointX</span><span class="p">,</span> <span class="n">PointY</span><span class="p">,</span> <span class="n">PointZ</span>
-            <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">PointZ</span>      <span class="c"># color value of individual points is taken from their heights</span>
-            <span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">"hsv"</span>    <span class="c"># the color mapping to be used. Other example options: winter, autumn, ...</span>
-            <span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'lineScatter3D.png'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">import numpy as np
+nPoint = 300 # number of random points
+PointZ = zmin + (zmax-zmin) * np.random.random(nPoint)      # points have uniformly-distributed random heights along the Z axis
+PointY = np.sin(PointZ) + 0.1 * np.random.randn(nPoint)     # points have normally-distributed random values along the Y axis
+PointX = np.cos(PointZ) + 0.1 * np.random.randn(nPoint)     # points have normally-distributed random values along the X axis
+ax.scatter3D( PointX, PointY, PointZ
+            , c=PointZ      # color value of individual points is taken from their heights
+            , cmap="hsv"    # the color mapping to be used. Other example options: winter, autumn, ...
+            );
+plt.show()
+plt.savefig('lineScatter3D.png')
+</code></pre>
 
 <figure>
     <img src="lineScatter3D.png" />
@@ -700,156 +700,156 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>To get a full list of all color-maps that you can use and information about them, try,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">colormaps</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Help</span> <span class="n">on</span> <span class="k">function</span> <span class="n">colormaps</span> <span class="k">in</span> <span class="n">module</span> <span class="n">matplotlib</span><span class="p">.</span><span class="n">pyplot</span><span class="p">:</span>
+<pre><code class="language-python">help(plt.colormaps)
+</code></pre>
+<pre><code>Help on function colormaps in module matplotlib.pyplot:
 
-<span class="n">colormaps</span><span class="p">()</span>
-    <span class="n">Matplotlib</span> <span class="n">provides</span> <span class="n">a</span> <span class="n">number</span> <span class="k">of</span> <span class="n">colormaps</span><span class="p">,</span> <span class="k">and</span> <span class="n">others</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">using</span>
-    <span class="p">:</span><span class="n">func</span><span class="p">:`~</span><span class="n">matplotlib</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="n">register_cmap</span><span class="p">`.</span>  <span class="n">This</span> <span class="k">function</span> <span class="n">documents</span> <span class="n">the</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span>
-    <span class="n">colormaps</span><span class="p">,</span> <span class="k">and</span> <span class="n">will</span> <span class="n">also</span> <span class="n">return</span> <span class="n">a</span> <span class="k">list</span> <span class="k">of</span> <span class="n">all</span> <span class="n">registered</span> <span class="n">colormaps</span> <span class="k">if</span>
-    <span class="n">called</span><span class="p">.</span>
+colormaps()
+    Matplotlib provides a number of colormaps, and others can be added using
+    :func:`~matplotlib.cm.register_cmap`.  This function documents the built-in
+    colormaps, and will also return a list of all registered colormaps if
+    called.
     
-    <span class="n">You</span> <span class="n">can</span> <span class="k">set</span> <span class="n">the</span> <span class="n">colormap</span> <span class="n">for</span> <span class="n">an</span> <span class="n">image</span><span class="p">,</span> <span class="n">pcolor</span><span class="p">,</span> <span class="n">scatter</span><span class="p">,</span> <span class="n">etc</span><span class="p">,</span>
-    <span class="n">using</span> <span class="n">a</span> <span class="n">keyword</span> <span class="n">argument</span><span class="p">::</span>
+    You can set the colormap for an image, pcolor, scatter, etc,
+    using a keyword argument::
     
-      <span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="p">=</span><span class="n">cm</span><span class="p">.</span><span class="n">hot</span><span class="p">)</span>
+      imshow(X, cmap=cm.hot)
     
-    <span class="k">or</span> <span class="n">using</span> <span class="n">the</span> <span class="p">:</span><span class="n">func</span><span class="p">:`</span><span class="n">set_cmap</span><span class="p">`</span> <span class="k">function</span><span class="p">::</span>
+    or using the :func:`set_cmap` function::
     
-      <span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-      <span class="n">pyplot</span><span class="p">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">'hot'</span><span class="p">)</span>
-      <span class="n">pyplot</span><span class="p">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">'jet'</span><span class="p">)</span>
+      imshow(X)
+      pyplot.set_cmap('hot')
+      pyplot.set_cmap('jet')
     
-    <span class="k">In</span> <span class="n">interactive</span> <span class="n">mode</span><span class="p">,</span> <span class="p">:</span><span class="n">func</span><span class="p">:`</span><span class="n">set_cmap</span><span class="p">`</span> <span class="n">will</span> <span class="n">update</span> <span class="n">the</span> <span class="n">colormap</span> <span class="n">post</span><span class="p">-</span><span class="n">hoc</span><span class="p">,</span>
-    <span class="n">allowing</span> <span class="n">you</span> <span class="k">to</span> <span class="n">see</span> <span class="n">which</span> <span class="n">one</span> <span class="n">works</span> <span class="n">best</span> <span class="n">for</span> <span class="n">your</span> <span class="n">data</span><span class="p">.</span>
+    In interactive mode, :func:`set_cmap` will update the colormap post-hoc,
+    allowing you to see which one works best for your data.
     
-    <span class="n">All</span> <span class="n">built</span><span class="p">-</span><span class="k">in</span> <span class="n">colormaps</span> <span class="n">can</span> <span class="n">be</span> <span class="n">reversed</span> <span class="n">by</span> <span class="n">appending</span> <span class="p">``</span><span class="n">_r</span><span class="p">``:</span> <span class="n">For</span> <span class="n">instance</span><span class="p">,</span>
-    <span class="p">``</span><span class="n">gray_r</span><span class="p">``</span> <span class="n">is</span> <span class="n">the</span> <span class="nb">reverse</span> <span class="k">of</span> <span class="p">``</span><span class="n">gray</span><span class="p">``.</span>
+    All built-in colormaps can be reversed by appending ``_r``: For instance,
+    ``gray_r`` is the reverse of ``gray``.
     
-    <span class="n">There</span> <span class="n">are</span> <span class="n">several</span> <span class="n">common</span> <span class="n">color</span> <span class="n">schemes</span> <span class="n">used</span> <span class="k">in</span> <span class="n">visualization</span><span class="p">:</span>
+    There are several common color schemes used in visualization:
     
-    <span class="n">Sequential</span> <span class="n">schemes</span>
-      <span class="n">for</span> <span class="n">unipolar</span> <span class="n">data</span> <span class="n">that</span> <span class="n">progresses</span> <span class="k">from</span> <span class="n">low</span> <span class="k">to</span> <span class="n">high</span>
-    <span class="n">Diverging</span> <span class="n">schemes</span>
-      <span class="n">for</span> <span class="n">bipolar</span> <span class="n">data</span> <span class="n">that</span> <span class="n">emphasizes</span> <span class="n">positive</span> <span class="k">or</span> <span class="n">negative</span> <span class="n">deviations</span> <span class="k">from</span> <span class="n">a</span>
-      <span class="n">central</span> <span class="n">value</span>
-    <span class="n">Cyclic</span> <span class="n">schemes</span>
-      <span class="n">for</span> <span class="n">plotting</span> <span class="n">values</span> <span class="n">that</span> <span class="n">wrap</span> <span class="n">around</span> <span class="n">at</span> <span class="n">the</span> <span class="n">endpoints</span><span class="p">,</span> <span class="n">such</span> <span class="k">as</span> <span class="n">phase</span>
-      <span class="n">angle</span><span class="p">,</span> <span class="n">wind</span> <span class="n">direction</span><span class="p">,</span> <span class="k">or</span> <span class="n">time</span> <span class="k">of</span> <span class="n">day</span>
-    <span class="n">Qualitative</span> <span class="n">schemes</span>
-      <span class="n">for</span> <span class="n">nominal</span> <span class="n">data</span> <span class="n">that</span> <span class="n">has</span> <span class="n">no</span> <span class="n">inherent</span> <span class="n">ordering</span><span class="p">,</span> <span class="n">where</span> <span class="n">color</span> <span class="n">is</span> <span class="n">used</span>
-      <span class="n">only</span> <span class="k">to</span> <span class="n">distinguish</span> <span class="n">categories</span>
+    Sequential schemes
+      for unipolar data that progresses from low to high
+    Diverging schemes
+      for bipolar data that emphasizes positive or negative deviations from a
+      central value
+    Cyclic schemes
+      for plotting values that wrap around at the endpoints, such as phase
+      angle, wind direction, or time of day
+    Qualitative schemes
+      for nominal data that has no inherent ordering, where color is used
+      only to distinguish categories
     
-    <span class="n">Matplotlib</span> <span class="n">ships</span> <span class="k">with</span> <span class="m">4</span> <span class="n">perceptually</span> <span class="n">uniform</span> <span class="n">color</span> <span class="n">maps</span> <span class="n">which</span> <span class="n">are</span>
-    <span class="n">the</span> <span class="n">recommended</span> <span class="n">color</span> <span class="n">maps</span> <span class="n">for</span> <span class="n">sequential</span> <span class="n">data</span><span class="p">:</span>
+    Matplotlib ships with 4 perceptually uniform color maps which are
+    the recommended color maps for sequential data:
     
-      <span class="p">=========</span>   <span class="p">===================================================</span>
-      <span class="n">Colormap</span>    <span class="n">Description</span>
-      <span class="p">=========</span>   <span class="p">===================================================</span>
-      <span class="n">inferno</span>     <span class="n">perceptually</span> <span class="n">uniform</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">black</span><span class="p">-</span><span class="n">red</span><span class="p">-</span><span class="n">yellow</span>
-      <span class="n">magma</span>       <span class="n">perceptually</span> <span class="n">uniform</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">black</span><span class="p">-</span><span class="n">red</span><span class="p">-</span><span class="n">white</span>
-      <span class="n">plasma</span>      <span class="n">perceptually</span> <span class="n">uniform</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">blue</span><span class="p">-</span><span class="n">red</span><span class="p">-</span><span class="n">yellow</span>
-      <span class="n">viridis</span>     <span class="n">perceptually</span> <span class="n">uniform</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">blue</span><span class="p">-</span><span class="n">green</span><span class="p">-</span><span class="n">yellow</span>
-      <span class="p">=========</span>   <span class="p">===================================================</span>
+      =========   ===================================================
+      Colormap    Description
+      =========   ===================================================
+      inferno     perceptually uniform shades of black-red-yellow
+      magma       perceptually uniform shades of black-red-white
+      plasma      perceptually uniform shades of blue-red-yellow
+      viridis     perceptually uniform shades of blue-green-yellow
+      =========   ===================================================
     
-    <span class="n">The</span> <span class="n">following</span> <span class="n">colormaps</span> <span class="n">are</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="p">`</span><span class="n">ColorBrewer</span>
-    <span class="p">&lt;</span><span class="n">http</span><span class="p">://</span><span class="n">colorbrewer2</span><span class="p">.</span><span class="n">org</span><span class="p">&gt;`</span><span class="n">_</span> <span class="n">color</span> <span class="n">specifications</span> <span class="k">and</span> <span class="n">designs</span> <span class="n">developed</span> <span class="n">by</span>
-    <span class="n">Cynthia</span> <span class="n">Brewer</span><span class="p">:</span>
+    The following colormaps are based on the `ColorBrewer
+    &lt;http://colorbrewer2.org&gt;`_ color specifications and designs developed by
+    Cynthia Brewer:
     
-    <span class="n">ColorBrewer</span> <span class="n">Diverging</span> <span class="p">(</span><span class="n">luminance</span> <span class="n">is</span> <span class="n">highest</span> <span class="n">at</span> <span class="n">the</span> <span class="n">midpoint</span><span class="p">,</span> <span class="k">and</span>
-    <span class="n">decreases</span> <span class="n">towards</span> <span class="n">differently</span><span class="p">-</span><span class="n">colored</span> <span class="n">endpoints</span><span class="p">):</span>
+    ColorBrewer Diverging (luminance is highest at the midpoint, and
+    decreases towards differently-colored endpoints):
     
-      <span class="p">========</span>  <span class="p">===================================</span>
-      <span class="n">Colormap</span>  <span class="n">Description</span>
-      <span class="p">========</span>  <span class="p">===================================</span>
-      <span class="n">BrBG</span>      <span class="n">brown</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">blue</span><span class="p">-</span><span class="n">green</span>
-      <span class="n">PiYG</span>      <span class="n">pink</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">yellow</span><span class="p">-</span><span class="n">green</span>
-      <span class="n">PRGn</span>      <span class="n">purple</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">green</span>
-      <span class="n">PuOr</span>      <span class="n">orange</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">purple</span>
-      <span class="n">RdBu</span>      <span class="n">red</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">blue</span>
-      <span class="n">RdGy</span>      <span class="n">red</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">gray</span>
-      <span class="n">RdYlBu</span>    <span class="n">red</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">blue</span>
-      <span class="n">RdYlGn</span>    <span class="n">red</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span>
-      <span class="n">Spectral</span>  <span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span>
-      <span class="p">========</span>  <span class="p">===================================</span>
+      ========  ===================================
+      Colormap  Description
+      ========  ===================================
+      BrBG      brown, white, blue-green
+      PiYG      pink, white, yellow-green
+      PRGn      purple, white, green
+      PuOr      orange, white, purple
+      RdBu      red, white, blue
+      RdGy      red, white, gray
+      RdYlBu    red, yellow, blue
+      RdYlGn    red, yellow, green
+      Spectral  red, orange, yellow, green, blue
+      ========  ===================================
     
-    <span class="n">ColorBrewer</span> <span class="n">Sequential</span> <span class="p">(</span><span class="n">luminance</span> <span class="n">decreases</span> <span class="n">monotonically</span><span class="p">):</span>
+    ColorBrewer Sequential (luminance decreases monotonically):
     
-      <span class="p">========</span>  <span class="p">====================================</span>
-      <span class="n">Colormap</span>  <span class="n">Description</span>
-      <span class="p">========</span>  <span class="p">====================================</span>
-      <span class="n">Blues</span>     <span class="n">white</span> <span class="k">to</span> <span class="n">dark</span> <span class="n">blue</span>
-      <span class="n">BuGn</span>      <span class="n">white</span><span class="p">,</span> <span class="n">light</span> <span class="n">blue</span><span class="p">,</span> <span class="n">dark</span> <span class="n">green</span>
-      <span class="n">BuPu</span>      <span class="n">white</span><span class="p">,</span> <span class="n">light</span> <span class="n">blue</span><span class="p">,</span> <span class="n">dark</span> <span class="n">purple</span>
-      <span class="n">GnBu</span>      <span class="n">white</span><span class="p">,</span> <span class="n">light</span> <span class="n">green</span><span class="p">,</span> <span class="n">dark</span> <span class="n">blue</span>
-      <span class="n">Greens</span>    <span class="n">white</span> <span class="k">to</span> <span class="n">dark</span> <span class="n">green</span>
-      <span class="n">Greys</span>     <span class="n">white</span> <span class="k">to</span> <span class="n">black</span> <span class="p">(</span><span class="k">not</span> <span class="n">linear</span><span class="p">)</span>
-      <span class="n">Oranges</span>   <span class="n">white</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">dark</span> <span class="n">brown</span>
-      <span class="n">OrRd</span>      <span class="n">white</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">dark</span> <span class="n">red</span>
-      <span class="n">PuBu</span>      <span class="n">white</span><span class="p">,</span> <span class="n">light</span> <span class="n">purple</span><span class="p">,</span> <span class="n">dark</span> <span class="n">blue</span>
-      <span class="n">PuBuGn</span>    <span class="n">white</span><span class="p">,</span> <span class="n">light</span> <span class="n">purple</span><span class="p">,</span> <span class="n">dark</span> <span class="n">green</span>
-      <span class="n">PuRd</span>      <span class="n">white</span><span class="p">,</span> <span class="n">light</span> <span class="n">purple</span><span class="p">,</span> <span class="n">dark</span> <span class="n">red</span>
-      <span class="n">Purples</span>   <span class="n">white</span> <span class="k">to</span> <span class="n">dark</span> <span class="n">purple</span>
-      <span class="n">RdPu</span>      <span class="n">white</span><span class="p">,</span> <span class="n">pink</span><span class="p">,</span> <span class="n">dark</span> <span class="n">purple</span>
-      <span class="n">Reds</span>      <span class="n">white</span> <span class="k">to</span> <span class="n">dark</span> <span class="n">red</span>
-      <span class="n">YlGn</span>      <span class="n">light</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">dark</span> <span class="n">green</span>
-      <span class="n">YlGnBu</span>    <span class="n">light</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">light</span> <span class="n">green</span><span class="p">,</span> <span class="n">dark</span> <span class="n">blue</span>
-      <span class="n">YlOrBr</span>    <span class="n">light</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">dark</span> <span class="n">brown</span>
-      <span class="n">YlOrRd</span>    <span class="n">light</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">dark</span> <span class="n">red</span>
-      <span class="p">========</span>  <span class="p">====================================</span>
+      ========  ====================================
+      Colormap  Description
+      ========  ====================================
+      Blues     white to dark blue
+      BuGn      white, light blue, dark green
+      BuPu      white, light blue, dark purple
+      GnBu      white, light green, dark blue
+      Greens    white to dark green
+      Greys     white to black (not linear)
+      Oranges   white, orange, dark brown
+      OrRd      white, orange, dark red
+      PuBu      white, light purple, dark blue
+      PuBuGn    white, light purple, dark green
+      PuRd      white, light purple, dark red
+      Purples   white to dark purple
+      RdPu      white, pink, dark purple
+      Reds      white to dark red
+      YlGn      light yellow, dark green
+      YlGnBu    light yellow, light green, dark blue
+      YlOrBr    light yellow, orange, dark brown
+      YlOrRd    light yellow, orange, dark red
+      ========  ====================================
     
-    <span class="n">ColorBrewer</span> <span class="n">Qualitative</span><span class="p">:</span>
+    ColorBrewer Qualitative:
     
-    <span class="p">(</span><span class="n">For</span> <span class="n">plotting</span> <span class="n">nominal</span> <span class="n">data</span><span class="p">,</span> <span class="p">:</span><span class="n">class</span><span class="p">:`</span><span class="n">ListedColormap</span><span class="p">`</span> <span class="n">is</span> <span class="n">used</span><span class="p">,</span>
-    <span class="k">not</span> <span class="p">:</span><span class="n">class</span><span class="p">:`</span><span class="n">LinearSegmentedColormap</span><span class="p">`.</span>  <span class="n">Different</span> <span class="n">sets</span> <span class="k">of</span> <span class="n">colors</span> <span class="n">are</span>
-    <span class="n">recommended</span> <span class="n">for</span> <span class="n">different</span> <span class="n">numbers</span> <span class="k">of</span> <span class="n">categories</span><span class="p">.)</span>
+    (For plotting nominal data, :class:`ListedColormap` is used,
+    not :class:`LinearSegmentedColormap`.  Different sets of colors are
+    recommended for different numbers of categories.)
     
-    <span class="p">*</span> <span class="n">Accent</span>
-    <span class="p">*</span> <span class="n">Dark2</span>
-    <span class="p">*</span> <span class="n">Paired</span>
-    <span class="p">*</span> <span class="n">Pastel1</span>
-    <span class="p">*</span> <span class="n">Pastel2</span>
-    <span class="p">*</span> <span class="n">Set1</span>
-    <span class="p">*</span> <span class="n">Set2</span>
-    <span class="p">*</span> <span class="n">Set3</span>
+    * Accent
+    * Dark2
+    * Paired
+    * Pastel1
+    * Pastel2
+    * Set1
+    * Set2
+    * Set3
     
-    <span class="n">A</span> <span class="k">set</span> <span class="k">of</span> <span class="n">colormaps</span> <span class="n">derived</span> <span class="k">from</span> <span class="n">those</span> <span class="k">of</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="n">provided</span>
-    <span class="k">with</span> <span class="n">Matlab</span> <span class="n">are</span> <span class="n">also</span> <span class="n">included</span><span class="p">:</span>
+    A set of colormaps derived from those of the same name provided
+    with Matlab are also included:
     
-      <span class="p">=========</span>   <span class="p">=======================================================</span>
-      <span class="n">Colormap</span>    <span class="n">Description</span>
-      <span class="p">=========</span>   <span class="p">=======================================================</span>
-      <span class="n">autumn</span>      <span class="n">sequential</span> <span class="n">linearly</span><span class="p">-</span><span class="n">increasing</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">red</span><span class="p">-</span><span class="n">orange</span><span class="p">-</span><span class="n">yellow</span>
-      <span class="n">bone</span>        <span class="n">sequential</span> <span class="n">increasing</span> <span class="n">black</span><span class="p">-</span><span class="n">white</span> <span class="n">color</span> <span class="n">map</span> <span class="k">with</span>
-                  <span class="n">a</span> <span class="n">tinge</span> <span class="k">of</span> <span class="n">blue</span><span class="p">,</span> <span class="k">to</span> <span class="n">emulate</span> <span class="n">X</span><span class="p">-</span><span class="n">ray</span> <span class="n">film</span>
-      <span class="n">cool</span>        <span class="n">linearly</span><span class="p">-</span><span class="n">decreasing</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">cyan</span><span class="p">-</span><span class="n">magenta</span>
-      <span class="n">copper</span>      <span class="n">sequential</span> <span class="n">increasing</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">black</span><span class="p">-</span><span class="n">copper</span>
-      <span class="n">flag</span>        <span class="n">repetitive</span> <span class="n">red</span><span class="p">-</span><span class="n">white</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">black</span> <span class="n">pattern</span> <span class="p">(</span><span class="k">not</span> <span class="n">cyclic</span> <span class="n">at</span>
-                  <span class="n">endpoints</span><span class="p">)</span>
-      <span class="n">gray</span>        <span class="n">sequential</span> <span class="n">linearly</span><span class="p">-</span><span class="n">increasing</span> <span class="n">black</span><span class="p">-</span><span class="k">to</span><span class="p">-</span><span class="n">white</span>
-                  <span class="n">grayscale</span>
-      <span class="n">hot</span>         <span class="n">sequential</span> <span class="n">black</span><span class="p">-</span><span class="n">red</span><span class="p">-</span><span class="n">yellow</span><span class="p">-</span><span class="n">white</span><span class="p">,</span> <span class="k">to</span> <span class="n">emulate</span> <span class="n">blackbody</span>
-                  <span class="n">radiation</span> <span class="k">from</span> <span class="n">an</span> <span class="n">object</span> <span class="n">at</span> <span class="n">increasing</span> <span class="n">temperatures</span>
-      <span class="n">jet</span>         <span class="n">a</span> <span class="n">spectral</span> <span class="n">map</span> <span class="k">with</span> <span class="n">dark</span> <span class="n">endpoints</span><span class="p">,</span> <span class="n">blue</span><span class="p">-</span><span class="n">cyan</span><span class="p">-</span><span class="n">yellow</span><span class="p">-</span><span class="n">red</span><span class="p">;</span>
-                  <span class="n">based</span> <span class="n">on</span> <span class="n">a</span> <span class="n">fluid</span><span class="p">-</span><span class="n">jet</span> <span class="n">simulation</span> <span class="n">by</span> <span class="n">NCSA</span> <span class="p">[#]</span><span class="n">_</span>
-      <span class="n">pink</span>        <span class="n">sequential</span> <span class="n">increasing</span> <span class="n">pastel</span> <span class="n">black</span><span class="p">-</span><span class="n">pink</span><span class="p">-</span><span class="n">white</span><span class="p">,</span> <span class="n">meant</span>
-                  <span class="n">for</span> <span class="n">sepia</span> <span class="n">tone</span> <span class="n">colorization</span> <span class="k">of</span> <span class="n">photographs</span>
-      <span class="n">prism</span>       <span class="n">repetitive</span> <span class="n">red</span><span class="p">-</span><span class="n">yellow</span><span class="p">-</span><span class="n">green</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">purple</span><span class="p">-...-</span><span class="n">green</span> <span class="n">pattern</span>
-                  <span class="p">(</span><span class="k">not</span> <span class="n">cyclic</span> <span class="n">at</span> <span class="n">endpoints</span><span class="p">)</span>
-      <span class="n">spring</span>      <span class="n">linearly</span><span class="p">-</span><span class="n">increasing</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">magenta</span><span class="p">-</span><span class="n">yellow</span>
-      <span class="n">summer</span>      <span class="n">sequential</span> <span class="n">linearly</span><span class="p">-</span><span class="n">increasing</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">green</span><span class="p">-</span><span class="n">yellow</span>
-      <span class="n">winter</span>      <span class="n">linearly</span><span class="p">-</span><span class="n">increasing</span> <span class="n">shades</span> <span class="k">of</span> <span class="n">blue</span><span class="p">-</span><span class="n">green</span>
-      <span class="p">=========</span>   <span class="p">=======================================================</span>
+      =========   =======================================================
+      Colormap    Description
+      =========   =======================================================
+      autumn      sequential linearly-increasing shades of red-orange-yellow
+      bone        sequential increasing black-white color map with
+                  a tinge of blue, to emulate X-ray film
+      cool        linearly-decreasing shades of cyan-magenta
+      copper      sequential increasing shades of black-copper
+      flag        repetitive red-white-blue-black pattern (not cyclic at
+                  endpoints)
+      gray        sequential linearly-increasing black-to-white
+                  grayscale
+      hot         sequential black-red-yellow-white, to emulate blackbody
+                  radiation from an object at increasing temperatures
+      jet         a spectral map with dark endpoints, blue-cyan-yellow-red;
+                  based on a fluid-jet simulation by NCSA [#]_
+      pink        sequential increasing pastel black-pink-white, meant
+                  for sepia tone colorization of photographs
+      prism       repetitive red-yellow-green-blue-purple-...-green pattern
+                  (not cyclic at endpoints)
+      spring      linearly-increasing shades of magenta-yellow
+      summer      sequential linearly-increasing shades of green-yellow
+      winter      linearly-increasing shades of blue-green
+      =========   =======================================================
     
-    <span class="n">A</span> <span class="k">set</span> <span class="k">of</span> <span class="n">palettes</span> <span class="k">from</span> <span class="n">the</span> <span class="p">`</span><span class="n">Yorick</span> <span class="n">scientific</span> <span class="n">visualisation</span>
-    <span class="k">package</span> <span class="p">&lt;</span><span class="n">https</span><span class="p">://</span><span class="n">dhmunro</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">/</span><span class="n">yorick</span><span class="p">-</span><span class="n">doc</span><span class="p">/&gt;`</span><span class="n">_</span><span class="p">,</span> <span class="n">an</span> <span class="n">evolution</span> <span class="k">of</span>
-    <span class="n">the</span> <span class="n">GIST</span> <span class="k">package</span><span class="p">,</span> <span class="n">both</span> <span class="n">by</span> <span class="n">David</span> <span class="n">H</span><span class="p">.</span> <span class="n">Munro</span> <span class="n">are</span> <span class="n">included</span><span class="p">:</span>
+    A set of palettes from the `Yorick scientific visualisation
+    package &lt;https://dhmunro.github.io/yorick-doc/&gt;`_, an evolution of
+    the GIST package, both by David H. Munro are included:
     
-      <span class="p">============</span>  <span class="p">=======================================================</span>
-      <span class="n">Colormap</span>      <span class="n">Description</span>
-      <span class="p">============</span>  <span class="p">=======================================================</span>
-      <span class="n">gist_earth</span>    <span class="n">mapmaker</span><span class="s1">'s colors from dark blue deep ocean to green
+      ============  =======================================================
+      Colormap      Description
+      ============  =======================================================
+      gist_earth    mapmaker's colors from dark blue deep ocean to green
                     lowlands to brown highlands to white mountains
       gist_heat     sequential increasing black-red-orange-white, to emulate
                     blackbody radiation from an iron bar as it grows hotter
@@ -900,82 +900,82 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
                     This color scheme is named cubehelix because the r,g,b
                     values produced can be visualised as a squashed helix
                     around the diagonal in the r,g,b color cube.
-      gnuplot       gnuplot'</span><span class="n">s</span> <span class="n">traditional</span> <span class="n">pm3d</span> <span class="n">scheme</span>
-                    <span class="p">(</span><span class="n">black</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">red</span><span class="p">-</span><span class="n">yellow</span><span class="p">)</span>
-      <span class="n">gnuplot2</span>      <span class="n">sequential</span> <span class="n">color</span> <span class="n">printable</span> <span class="k">as</span> <span class="n">gray</span>
-                    <span class="p">(</span><span class="n">black</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">violet</span><span class="p">-</span><span class="n">yellow</span><span class="p">-</span><span class="n">white</span><span class="p">)</span>
-      <span class="n">ocean</span>         <span class="n">green</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">white</span>
-      <span class="n">rainbow</span>       <span class="n">spectral</span> <span class="n">purple</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">green</span><span class="p">-</span><span class="n">yellow</span><span class="p">-</span><span class="n">orange</span><span class="p">-</span><span class="n">red</span> <span class="n">colormap</span>
-                    <span class="k">with</span> <span class="n">diverging</span> <span class="n">luminance</span>
-      <span class="n">seismic</span>       <span class="n">diverging</span> <span class="n">blue</span><span class="p">-</span><span class="n">white</span><span class="p">-</span><span class="n">red</span>
-      <span class="n">nipy_spectral</span> <span class="n">black</span><span class="p">-</span><span class="n">purple</span><span class="p">-</span><span class="n">blue</span><span class="p">-</span><span class="n">green</span><span class="p">-</span><span class="n">yellow</span><span class="p">-</span><span class="n">red</span><span class="p">-</span><span class="n">white</span> <span class="n">spectrum</span><span class="p">,</span>
-                    <span class="n">originally</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Neuroimaging</span> <span class="k">in</span> <span class="n">Python</span> <span class="n">project</span>
-      <span class="n">terrain</span>       <span class="n">mapmaker</span><span class="s1">'s colors, blue-green-yellow-brown-white,
+      gnuplot       gnuplot's traditional pm3d scheme
+                    (black-blue-red-yellow)
+      gnuplot2      sequential color printable as gray
+                    (black-blue-violet-yellow-white)
+      ocean         green-blue-white
+      rainbow       spectral purple-blue-green-yellow-orange-red colormap
+                    with diverging luminance
+      seismic       diverging blue-white-red
+      nipy_spectral black-purple-blue-green-yellow-red-white spectrum,
+                    originally from the Neuroimaging in Python project
+      terrain       mapmaker's colors, blue-green-yellow-brown-white,
                     originally from IGOR Pro
       ============= =======================================================
     
     The following colormaps are redundant and may be removed in future
-    versions.  It'</span><span class="n">s</span> <span class="n">recommended</span> <span class="k">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">descriptions</span>
-    <span class="n">instead</span><span class="p">,</span> <span class="n">which</span> <span class="n">produce</span> <span class="n">identical</span> <span class="n">output</span><span class="p">:</span>
+    versions.  It's recommended to use the names in the descriptions
+    instead, which produce identical output:
     
-      <span class="p">=========</span>  <span class="p">=======================================================</span>
-      <span class="n">Colormap</span>   <span class="n">Description</span>
-      <span class="p">=========</span>  <span class="p">=======================================================</span>
-      <span class="n">gist_gray</span>  <span class="n">identical</span> <span class="k">to</span> <span class="p">*</span><span class="n">gray</span><span class="p">*</span>
-      <span class="n">gist_yarg</span>  <span class="n">identical</span> <span class="k">to</span> <span class="p">*</span><span class="n">gray_r</span><span class="p">*</span>
-      <span class="n">binary</span>     <span class="n">identical</span> <span class="k">to</span> <span class="p">*</span><span class="n">gray_r</span><span class="p">*</span>
-      <span class="p">=========</span>  <span class="p">=======================================================</span>
+      =========  =======================================================
+      Colormap   Description
+      =========  =======================================================
+      gist_gray  identical to *gray*
+      gist_yarg  identical to *gray_r*
+      binary     identical to *gray_r*
+      =========  =======================================================
     
-    <span class="p">..</span> <span class="n">rubric</span><span class="p">::</span> <span class="n">Footnotes</span>
+    .. rubric:: Footnotes
     
-    <span class="p">..</span> <span class="p">[#]</span> <span class="n">Rainbow</span> <span class="n">colormaps</span><span class="p">,</span> <span class="p">``</span><span class="n">jet</span><span class="p">``</span> <span class="k">in</span> <span class="n">particular</span><span class="p">,</span> <span class="n">are</span> <span class="n">considered</span> <span class="n">a</span> <span class="n">poor</span>
-      <span class="n">choice</span> <span class="n">for</span> <span class="n">scientific</span> <span class="n">visualization</span> <span class="n">by</span> <span class="n">many</span> <span class="n">researchers</span><span class="p">:</span> <span class="p">`</span><span class="n">Rainbow</span> <span class="n">Color</span>
-      <span class="n">Map</span> <span class="p">(</span><span class="n">Still</span><span class="p">)</span> <span class="n">Considered</span> <span class="n">Harmful</span>
-      <span class="p">&lt;</span><span class="n">http</span><span class="p">://</span><span class="n">ieeexplore</span><span class="p">.</span><span class="n">ieee</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">document</span><span class="p">/</span><span class="m">4118486</span><span class="p">/?</span><span class="n">arnumber</span><span class="p">=</span><span class="m">4118486</span><span class="p">&gt;`</span><span class="n">_</span>
+    .. [#] Rainbow colormaps, ``jet`` in particular, are considered a poor
+      choice for scientific visualization by many researchers: `Rainbow Color
+      Map (Still) Considered Harmful
+      &lt;http://ieeexplore.ieee.org/document/4118486/?arnumber=4118486&gt;`_
     
-    <span class="p">..</span> <span class="p">[#]</span> <span class="n">Resembles</span> <span class="s2">"BkBlAqGrYeOrReViWh200"</span> <span class="k">from</span> <span class="n">NCAR</span> <span class="n">Command</span>
-      <span class="n">Language</span><span class="p">.</span> <span class="n">See</span> <span class="p">`</span><span class="n">Color</span> <span class="n">Table</span> <span class="n">Gallery</span>
-      <span class="p">&lt;</span><span class="n">https</span><span class="p">://</span><span class="n">www</span><span class="p">.</span><span class="n">ncl</span><span class="p">.</span><span class="n">ucar</span><span class="p">.</span><span class="n">edu</span><span class="p">/</span><span class="n">Document</span><span class="p">/</span><span class="n">Graphics</span><span class="p">/</span><span class="n">color_table_gallery</span><span class="p">.</span><span class="n">shtml</span><span class="p">&gt;`</span><span class="n">_</span>
+    .. [#] Resembles "BkBlAqGrYeOrReViWh200" from NCAR Command
+      Language. See `Color Table Gallery
+      &lt;https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml&gt;`_
     
-    <span class="p">..</span> <span class="p">[#]</span> <span class="n">See</span> <span class="p">`</span><span class="n">Diverging</span> <span class="n">Color</span> <span class="n">Maps</span> <span class="n">for</span> <span class="n">Scientific</span> <span class="n">Visualization</span>
-      <span class="p">&lt;</span><span class="n">http</span><span class="p">://</span><span class="n">www</span><span class="p">.</span><span class="n">kennethmoreland</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">color</span><span class="p">-</span><span class="n">maps</span><span class="p">/&gt;`</span><span class="n">_</span> <span class="n">by</span> <span class="n">Kenneth</span> <span class="n">Moreland</span><span class="p">.</span>
+    .. [#] See `Diverging Color Maps for Scientific Visualization
+      &lt;http://www.kennethmoreland.com/color-maps/&gt;`_ by Kenneth Moreland.
     
-    <span class="p">..</span> <span class="p">[#]</span> <span class="n">See</span> <span class="p">`</span><span class="n">A</span> <span class="n">Color</span> <span class="n">Map</span> <span class="n">for</span> <span class="n">Effective</span> <span class="n">Black</span><span class="p">-</span><span class="k">and</span><span class="p">-</span><span class="n">White</span> <span class="n">Rendering</span> <span class="k">of</span>
-      <span class="n">Color</span><span class="p">-</span><span class="n">Scale</span> <span class="n">Images</span>
-      <span class="p">&lt;</span><span class="n">https</span><span class="p">://</span><span class="n">www</span><span class="p">.</span><span class="n">mathworks</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">matlabcentral</span><span class="p">/</span><span class="n">fileexchange</span><span class="p">/</span><span class="m">2662</span><span class="p">-</span><span class="n">cmrmap</span><span class="p">-</span><span class="n">m</span><span class="p">&gt;`</span><span class="n">_</span>
-      <span class="n">by</span> <span class="n">Carey</span> <span class="n">Rappaport</span>
-</code></pre></div></div>
+    .. [#] See `A Color Map for Effective Black-and-White Rendering of
+      Color-Scale Images
+      &lt;https://www.mathworks.com/matlabcentral/fileexchange/2662-cmrmap-m&gt;`_
+      by Carey Rappaport
+</code></pre>
 
 <h3 id="creating-3d-wire-plots">Creating 3D wire plots</h3>
 
 <p>Now suppose we have a 3D mathematical function that defines a surface in 3D, such as the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<pre><code class="language-python">import numpy as np
+def getZ(X, Y):
+    return np.sin(np.sqrt(X ** 2 + Y ** 2))
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+X = np.linspace(-5, 5, 40)
+Y = np.linspace(-5, 5, 40)
 
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-</code></pre></div></div>
+X, Y = np.meshgrid(X, Y)
+Z = getZ(X, Y)
+</code></pre>
 
-<p>With the three mesh grids <code class="highlighter-rouge">(X,Y,Z)</code> generated in the above, we can now visualize this 3D function via a wire plot like the following,</p>
+<p>With the three mesh grids <code>(X,Y,Z)</code> generated in the above, we can now visualize this 3D function via a wire plot like the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">"3d"</span><span class="p">)</span>
+<pre><code class="language-python">%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d")
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_wireframe</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'X'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Y'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">'Z'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'wire3D.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.plot_wireframe(X, Y, Z, color='red')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+plt.show()
+plt.savefig('wire3D.png')
+</code></pre>
 
 <p>which will generate the following plot,</p>
 
@@ -987,35 +987,35 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>Now suppose we want to visualize the surface of the same function as in the case of the wire plot,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<pre><code class="language-python">import numpy as np
+def getZ(X, Y):
+    return np.sin(np.sqrt(X ** 2 + Y ** 2))
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+X = np.linspace(-5, 5, 40)
+Y = np.linspace(-5, 5, 40)
 
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+X, Y = np.meshgrid(X, Y)
+Z = getZ(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">"3d"</span><span class="p">)</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d")
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span>
-                <span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span> <span class="c"># default value is one</span>
-                <span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span> <span class="c"># default value is one</span>
-                <span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'winter'</span>
-                <span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'none'</span>
-                <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'X'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Y'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">'Z'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Surface Plot'</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'surface3D.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.plot_surface (X, Y, Z
+                , rstride=1 # default value is one
+                , cstride=1 # default value is one
+                , cmap='winter'
+                , edgecolor='none'
+                )
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('Surface Plot');
+plt.show()
+plt.savefig('surface3D.png')
+</code></pre>
 
 <p>This will generate the following plot,</p>
 
@@ -1025,35 +1025,35 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>However, you may have noticed that this plot looks very coarse. To refine the image, we can increase the number of grids in the 3D mesh that we generate for the visualization. Instead of using 40 grids as used previously, we will use a larger number, for example, 300,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<pre><code class="language-python">import numpy as np
+def getZ(X, Y):
+    return np.sin(np.sqrt(X ** 2 + Y ** 2))
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+X = np.linspace(-5, 5, 300)
+Y = np.linspace(-5, 5, 300)
 
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">getZ</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+X, Y = np.meshgrid(X, Y)
+Z = getZ(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">"3d"</span><span class="p">)</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d")
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span>
-                <span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span> <span class="c"># default value is one</span>
-                <span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span> <span class="c"># default value is one</span>
-                <span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'winter'</span>
-                <span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'none'</span>
-                <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'X'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Y'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">'Z'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Fine-Mesh Surface Plot'</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'refinedSurface3D.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.plot_surface (X, Y, Z
+                , rstride=1 # default value is one
+                , cstride=1 # default value is one
+                , cmap='winter'
+                , edgecolor='none'
+                )
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('Fine-Mesh Surface Plot');
+plt.show()
+plt.savefig('refinedSurface3D.png')
+</code></pre>
 
 <p>The resulting surface plot now looks much more refined and pleasant,</p>
 
@@ -1065,33 +1065,33 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>The 3D surface or wire plots have limited usage because of their difficult interpretations, especially when they presented as fixed static images as opposed to interactive live plots. A more useful 3D plotting technique, in particular, for scientific reports is the contour plotting. Suppose we have a very weird-looking 3D function which is hard to visualize via a surface plot,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">import numpy as np
+def func(x, y):
+    return np.sin(x) ** 5 + np.cos(10 + y * x) * np.cos(x)
+</code></pre>
 
 <p>We can visualize this function via a contour plot by creating mesh grid of the coordinates again,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<pre><code class="language-python">import numpy as np
+def func(X, Y):
+    return np.sin(X) ** 5 + np.cos(10 + Y * X) * np.cos(X)
+X = np.linspace(0, 2*np.pi, 500)
+Y = np.linspace(0, 2*np.pi, 500)
+X, Y = np.meshgrid(X, Y)
+Z = func(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes()
 
-<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s">'gray'</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'contour.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.contour(X, Y, Z, colors='gray');
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+plt.savefig('contour.png')
+</code></pre>
 
 <figure>
     <img src="contour.png" />
@@ -1099,57 +1099,57 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>We could also change the color from uniform gray to a more descriptive color-map instead,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<pre><code class="language-python">import numpy as np
+def func(X, Y):
+    return np.sin(X) ** 5 + np.cos(10 + Y * X) * np.cos(X)
+X = np.linspace(0, 2*np.pi, 500)
+Y = np.linspace(0, 2*np.pi, 500)
+X, Y = np.meshgrid(X, Y)
+Z = func(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes()
 
-<span class="n">ax</span><span class="o">.</span><span class="n">contour</span>  <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span>
-            <span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s">'RdGy'</span>
-            <span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'contourColorMap.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.contour  (X, Y, Z
+            , cmap = 'RdGy'
+            );
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+plt.savefig('contourColorMap.png')
+</code></pre>
 
 <figure>
     <img src="contourColorMap.png" />
 </figure>
 
-<p>or perhaps <code class="highlighter-rouge">autumn</code> color-map,</p>
+<p>or perhaps <code>autumn</code> color-map,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<pre><code class="language-python">import numpy as np
+def func(X, Y):
+    return np.sin(X) ** 5 + np.cos(10 + Y * X) * np.cos(X)
+X = np.linspace(0, 2*np.pi, 500)
+Y = np.linspace(0, 2*np.pi, 500)
+X, Y = np.meshgrid(X, Y)
+Z = func(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes()
 
-<span class="n">ax</span><span class="o">.</span><span class="n">contour</span>  <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span>
-            <span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span>
-            <span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'contourColorMapAutumn.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.contour  (X, Y, Z
+            , cmap = plt.cm.autumn
+            );
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+plt.savefig('contourColorMapAutumn.png')
+</code></pre>
 
 <figure>
     <img src="contourColorMapAutumn.png" />
@@ -1157,31 +1157,31 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <h3 id="creating-filled-contour-plots">Creating filled contour plots</h3>
 
-<p>But what if we are interested not in contour lines, but an overall behavior of the function everywhere, womething like a heat-map? There is the <code class="highlighter-rouge">contourf()</code> method there to help us,</p>
+<p>But what if we are interested not in contour lines, but an overall behavior of the function everywhere, womething like a heat-map? There is the <code>contourf()</code> method there to help us,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<pre><code class="language-python">import numpy as np
+def func(X, Y):
+    return np.sin(X) ** 5 + np.cos(10 + Y * X) * np.cos(X)
+X = np.linspace(0, 2*np.pi, 500)
+Y = np.linspace(0, 2*np.pi, 500)
+X, Y = np.meshgrid(X, Y)
+Z = func(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes()
 
-<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span>
-            <span class="p">,</span> <span class="mi">20</span>    <span class="c"># the number of color levels in the heat-map</span>
-            <span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s">"RdGy"</span>
-            <span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'contourf.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.contourf (X, Y, Z
+            , 20    # the number of color levels in the heat-map
+            , cmap = "RdGy"
+            );
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+plt.savefig('contourf.png')
+</code></pre>
 
 <figure>
     <img src="contourf.png" />
@@ -1189,67 +1189,67 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
 <p>You may again notice the low-resolution of the plot. To refine the plot, we can increase the number of color-levels in the plot, for example to 100 from 20,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<pre><code class="language-python">import numpy as np
+def func(X, Y):
+    return np.sin(X) ** 5 + np.cos(10 + Y * X) * np.cos(X)
+X = np.linspace(0, 2*np.pi, 500)
+Y = np.linspace(0, 2*np.pi, 500)
+X, Y = np.meshgrid(X, Y)
+Z = func(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes()
 
-<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span>
-            <span class="p">,</span> <span class="mi">100</span>    <span class="c"># the number of color levels in the heat-map</span>
-            <span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s">"RdGy"</span>
-            <span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'contourfRefined.png'</span><span class="p">)</span>
-</code></pre></div></div>
+ax.contourf (X, Y, Z
+            , 100    # the number of color levels in the heat-map
+            , cmap = "RdGy"
+            );
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+plt.savefig('contourfRefined.png')
+</code></pre>
 
 <figure>
     <img src="contourfRefined.png" />
 </figure>
 
-<p>However, refining filled contour plots by increasing the number of color levels could affect the performance of our script. Another way to achieve the same goal is to use another plotting method called <code class="highlighter-rouge">imshow()</code> instead of <code class="highlighter-rouge">contourf()</code>,</p>
+<p>However, refining filled contour plots by increasing the number of color levels could affect the performance of our script. Another way to achieve the same goal is to use another plotting method called <code>imshow()</code> instead of <code>contourf()</code>,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<pre><code class="language-python">import numpy as np
+def func(X, Y):
+    return np.sin(X) ** 5 + np.cos(10 + Y * X) * np.cos(X)
+X = np.linspace(0, 2*np.pi, 500)
+Y = np.linspace(0, 2*np.pi, 500)
+X, Y = np.meshgrid(X, Y)
+Z = func(X, Y)
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes()
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span> <span class="n">Z</span>
-          <span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]</span> <span class="c"># doesn't accept X and Y grids, so you must manually specify the extent [xmin, xmax, ymin, ymax] of the image on the plot</span>
-          <span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s">'lower'</span> <span class="c"># default origin of the plot is the upper-left</span>
-          <span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'RdGy'</span>
-          <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'imshow.png'</span><span class="p">)</span>
-</code></pre></div></div>
+plt.imshow( Z
+          , extent=[0, 2*np.pi, 0, 2*np.pi] # doesn't accept X and Y grids, so you must manually specify the extent [xmin, xmax, ymin, ymax] of the image on the plot
+          , origin='lower' # default origin of the plot is the upper-left
+          , cmap='RdGy'
+          )
+plt.colorbar()
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+plt.savefig('imshow.png')
+</code></pre>
 
 <figure>
     <img src="imshow.png" />
 </figure>
 
-<p>Notice the additional color bar that we have added to the above plot via the command <code class="highlighter-rouge">plt.colorbar()</code>.</p>
+<p>Notice the additional color bar that we have added to the above plot via the command <code>plt.colorbar()</code>.</p>
 
 
     
@@ -1348,7 +1348,7 @@ If you are using Jupyter notebooks as your primary interface to Python interpret
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>Nov 13, 2019<br/>
             

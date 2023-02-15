@@ -616,135 +616,135 @@ the script runs before the sidebar code runs and the class never gets inserted.
     
     <h2 id="random-numbers-in-python">Random numbers in Python</h2>
 
-<p>One of the most important topics in today’s science and computer simulation is <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank">random number generation</a> and <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulation</a> methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard <code class="highlighter-rouge">random</code> module:</p>
+<p>One of the most important topics in today’s science and computer simulation is <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank">random number generation</a> and <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulation</a> methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard <code>random</code> module:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>   <span class="c"># generates a random number in the half open interval [0,1)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.012519922307372311
-</code></pre></div></div>
+<pre><code class="language-python">import random as rnd
+rnd.random()   # generates a random number in the half open interval [0,1)
+</code></pre>
+<pre><code>0.012519922307372311
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.&lt;</span><span class="n">press</span> <span class="n">tab</span><span class="o">&gt;</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">BPF</span>             <span class="n">rnd</span><span class="o">.</span><span class="n">Random</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">gauss</span>           <span class="n">rnd</span><span class="o">.</span><span class="n">normalvariate</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">randrange</span>       <span class="n">rnd</span><span class="o">.</span><span class="n">shuffle</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">LOG4</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">SG_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">getrandbits</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">paretovariate</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">sample</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">triangular</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">NV_MAGICCONST</span>   <span class="n">rnd</span><span class="o">.</span><span class="n">SystemRandom</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span>     <span class="n">rnd</span><span class="o">.</span><span class="n">getstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span>         <span class="n">rnd</span><span class="o">.</span><span class="n">seed</span>            <span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">RECIP_BPF</span>       <span class="n">rnd</span><span class="o">.</span><span class="n">TWOPI</span>           <span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span>    <span class="n">rnd</span><span class="o">.</span><span class="n">lognormvariate</span>  <span class="n">rnd</span><span class="o">.</span><span class="n">random</span>          <span class="n">rnd</span><span class="o">.</span><span class="n">setstate</span>        <span class="n">rnd</span><span class="o">.</span><span class="n">vonmisesvariate</span>
-</code></pre></div></div>
+<pre><code class="language-python">rnd.&lt;press tab&gt;
+rnd.BPF             rnd.Random          rnd.betavariate     rnd.gauss           rnd.normalvariate   rnd.randrange       rnd.shuffle         rnd.weibullvariate
+rnd.LOG4            rnd.SG_MAGICCONST   rnd.choice          rnd.getrandbits     rnd.paretovariate   rnd.sample          rnd.triangular
+rnd.NV_MAGICCONST   rnd.SystemRandom    rnd.expovariate     rnd.getstate        rnd.randint         rnd.seed            rnd.uniform
+rnd.RECIP_BPF       rnd.TWOPI           rnd.gammavariate    rnd.lognormvariate  rnd.random          rnd.setstate        rnd.vonmisesvariate
+</code></pre>
 
-<p>As you see in the list of available methods in <code class="highlighter-rouge">random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
+<p>As you see in the list of available methods in <code>random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">betavariate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c"># Beta variate with the input parameters</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9281984408820623
-</code></pre></div></div>
+<pre><code class="language-python">rnd.betavariate(0.5,0.5)   # Beta variate with the input parameters
+</code></pre>
+<pre><code>0.9281984408820623
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>         <span class="c"># random variable from exponential distribution with mean 1.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2.546912414260747
-</code></pre></div></div>
+<pre><code class="language-python">rnd.expovariate(1)         # random variable from exponential distribution with mean 1.
+</code></pre>
+<pre><code>2.546912414260747
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">gammavariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>      <span class="c"># random variable from gamma distribution with parameters 1,1.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.5364897808236537
-</code></pre></div></div>
+<pre><code class="language-python">rnd.gammavariate(1,1)      # random variable from gamma distribution with parameters 1,1.
+</code></pre>
+<pre><code>0.5364897808236537
+</code></pre>
 
-<p>Recall that if you need help on a method or function in Python, you could use <code class="highlighter-rouge">help()</code>,</p>
+<p>Recall that if you need help on a method or function in Python, you could use <code>help()</code>,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">weibullvariate</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Help on method weibullvariate in module random:
+<pre><code class="language-python">help(rnd.weibullvariate)
+</code></pre>
+<pre><code>Help on method weibullvariate in module random:
 
 weibullvariate(alpha, beta) method of random.Random instance
     Weibull distribution.
 
     alpha is the scale parameter and beta is the shape parameter.
-</code></pre></div></div>
+</code></pre>
 
-<p>To generate <code class="highlighter-rouge">float</code> random numbers between the given input bounds,</p>
+<p>To generate <code>float</code> random numbers between the given input bounds,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>    <span class="c"># generate a random float between 50 and 100</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>65.59688328558263
-</code></pre></div></div>
+<pre><code class="language-python">rnd.uniform(50,100)    # generate a random float between 50 and 100
+</code></pre>
+<pre><code>65.59688328558263
+</code></pre>
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Always make sure to import modules with unique names since different modules with similar component names may overwrite each other’s objects and methods in your active session of Python. For example <code>import random</code> followed by <code>from numpy import *</code> will cause the <code>random</code> module to be overwritten by <code>numpy.random</code> module.</div>
 
 <p>Also pay attention to sublte differences between similar functions, with the same names, but in different modules. For example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">import numpy as np
+np.random.randint(1,6,1)
+</code></pre>
 
 <p>will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">import random as rnd
+rnd.randint(1,6)
+</code></pre>
 
-<p>will draw a random integer form the interval $[1,6]$. Also note that <code class="highlighter-rouge">randint()</code> from module <code class="highlighter-rouge">random</code> is a scalar function, whereas the numpy’s version is vectorized.</p>
+<p>will draw a random integer form the interval $[1,6]$. Also note that <code>randint()</code> from module <code>random</code> is a scalar function, whereas the numpy’s version is vectorized.</p>
 
 <h2 id="the-deterministic-aspect-of-randomness-in-python">The deterministic aspect of randomness in Python</h2>
 
 <p>There is a truth about random numbers and random number generators and algorithms, not only in Python, but in all programming languages, and that is, <strong>true random numbers do not exist in the world of programming</strong>. What we call a sequence of random numbers, is simply a sequence of numbers that we, the user, to the best of our knowledge, don’t know how it was generated, and therefore, <strong>the sequence looks random to us, but not the to the developer of the algorithm!</strong>. To prove this, type the following code in a Python session,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([4, 5, 3, 5, 5, 2])
-</code></pre></div></div>
+<pre><code class="language-python">import numpy as np
+np.random.seed(42)
+np.random.randint(1,6,6)
+</code></pre>
+<pre><code>array([4, 5, 3, 5, 5, 2])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([3, 3, 3, 5, 4, 3])
-</code></pre></div></div>
+<pre><code class="language-python">np.random.randint(1,6,6)
+</code></pre>
+<pre><code>array([3, 3, 3, 5, 4, 3])
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([4, 5, 3, 5, 5, 2])
-</code></pre></div></div>
+<pre><code class="language-python">np.random.seed(42)
+np.random.randint(1,6,6)
+</code></pre>
+<pre><code>array([4, 5, 3, 5, 5, 2])
+</code></pre>
 
-<p>You notice that every time the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code class="highlighter-rouge">np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
+<p>You notice that every time the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code>np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
 
-<p>You can even test the same code on a different computer, and as long as you set the seed of the random number generator to a specific value (here 42), <code class="highlighter-rouge">np.random.seed(42)</code>, you will the same sequence of random numbers. So after all, random numbers are not random at all, as they can be generated deterministically, however, they mimic the behavior of true random numbers. The ability to set the seed for a random number generator is actually very useful since it enables us to replicate the work of code, exactly it has been done in the past. In particular, this is very useful for code debugging. However, beware of cases where you need to get a different result, every time you run the code. If you set the random seed of the random generator to a fixed value, right at the beginning of the code, you will never get a random behavior.</p>
+<p>You can even test the same code on a different computer, and as long as you set the seed of the random number generator to a specific value (here 42), <code>np.random.seed(42)</code>, you will the same sequence of random numbers. So after all, random numbers are not random at all, as they can be generated deterministically, however, they mimic the behavior of true random numbers. The ability to set the seed for a random number generator is actually very useful since it enables us to replicate the work of code, exactly it has been done in the past. In particular, this is very useful for code debugging. However, beware of cases where you need to get a different result, every time you run the code. If you set the random seed of the random generator to a fixed value, right at the beginning of the code, you will never get a random behavior.</p>
 
 <h2 id="drawing-a-random-element-from-a-list">Drawing a random element from a list</h2>
 
 <p>Suppose you have the following list,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">51</span><span class="p">)</span>
-<span class="n">mylist</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([   0.,    2.,    4.,    6.,    8.,   10.,   12.,   14.,   16.,
+<pre><code class="language-python">import numpy as np
+mylist = np.linspace(0,100,51)
+mylist
+</code></pre>
+<pre><code>array([   0.,    2.,    4.,    6.,    8.,   10.,   12.,   14.,   16.,
          18.,   20.,   22.,   24.,   26.,   28.,   30.,   32.,   34.,
          36.,   38.,   40.,   42.,   44.,   46.,   48.,   50.,   52.,
          54.,   56.,   58.,   60.,   62.,   64.,   66.,   68.,   70.,
          72.,   74.,   76.,   78.,   80.,   82.,   84.,   86.,   88.,
          90.,   92.,   94.,   96.,   98.,  100.])
-</code></pre></div></div>
+</code></pre>
 
 <p>and now you wanted to draw a random element from the above list. You could do,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>80.0 
-</code></pre></div></div>
+<pre><code class="language-python">import random as rnd
+rnd.choice(mylist)
+</code></pre>
+<pre><code>80.0 
+</code></pre>
 
 <p>This will give a random element from the list. You could also generate a random shuffling of the list by,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="n">rnd</span>
-<span class="n">rnd</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="n">mylist</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([  98.,   12.,   76.,   60.,   46.,   22.,   24.,   92.,   66.,
+<pre><code class="language-python">import random as rnd
+rnd.shuffle(mylist)
+mylist
+</code></pre>
+<pre><code>array([  98.,   12.,   76.,   60.,   46.,   22.,   24.,   92.,   66.,
          16.,    6.,   34.,   14.,    8.,   18.,   50.,   30.,   74.,
           4.,    2.,   38.,   90.,   70.,   56.,   94.,   80.,   32.,
          20.,   10.,   44.,   72.,   84.,    0.,   78.,  100.,   88.,
          86.,   96.,   48.,   52.,   62.,   64.,   26.,   36.,   40.,
          54.,   68.,   58.,   82.,   42.,   28.])
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="summary-of-some-important-random-functions-in-python">Summary of some important random functions in Python</h2>
 
@@ -896,7 +896,7 @@ weibullvariate(alpha, beta) method of random.Random instance
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

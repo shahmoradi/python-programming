@@ -634,178 +634,178 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <p>In Python, defining a class is as simple as the following syntax,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-    <span class="k">pass</span>
-</code></pre></div></div>
+<pre><code class="language-python">class Dog:
+    pass
+</code></pre>
 
-<p>The above code creates a class <code class="highlighter-rouge">Dog</code> that does not have any <strong>attributes</strong> (variables that define different aspects of the object) or <strong>methods</strong> or <strong>functions</strong> (components of objects that define the tasks the object can do with or without the use of the object’s attributes). The Python keyword <code class="highlighter-rouge">class</code> declares the beginning of a class definition, and the <code class="highlighter-rouge">pass</code> statement is a null operation, meaning that when it is executed, nothing happens. It is simply a placeholder when a statement is required syntactically, but no code needs to be executed.</p>
+<p>The above code creates a class <code>Dog</code> that does not have any <strong>attributes</strong> (variables that define different aspects of the object) or <strong>methods</strong> or <strong>functions</strong> (components of objects that define the tasks the object can do with or without the use of the object’s attributes). The Python keyword <code>class</code> declares the beginning of a class definition, and the <code>pass</code> statement is a null operation, meaning that when it is executed, nothing happens. It is simply a placeholder when a statement is required syntactically, but no code needs to be executed.</p>
 
 <p>Once the class is created, you could instantiate objects from the blueprint class,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog()
+</code></pre>
 
 <p>where, the empty parentheses <em>must be added</em> in recognition of the fact that Dog is a class, and not an attribute (variable), for example.</p>
 
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> If you do not add <code class="highlighter-rouge">()</code> after the class name at the time of object instantiation, then you will simply create a copy of the class blueprint, and not an instance of the class.</div>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> If you do not add <code>()</code> after the class name at the time of object instantiation, then you will simply create a copy of the class blueprint, and not an instance of the class.</div>
 
 <p>For example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">my_dog</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog
+type(my_dog)
+</code></pre>
+<pre><code>type
+</code></pre>
 
-<p>You can confirm whether you have indeed instantiated an object from the class <code class="highlighter-rouge">Dog</code> via <code class="highlighter-rouge">type()</code> or <code class="highlighter-rouge">isinstance()</code> intrinsic functions in Python,</p>
+<p>You can confirm whether you have indeed instantiated an object from the class <code>Dog</code> via <code>type()</code> or <code>isinstance()</code> intrinsic functions in Python,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">my_dog</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__main__.Dog
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog()
+type(my_dog)
+</code></pre>
+<pre><code>__main__.Dog
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">my_dog</span><span class="p">)</span> <span class="ow">is</span> <span class="n">Dog</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog()
+type(my_dog) is Dog
+</code></pre>
+<pre><code>True
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="nb">isinstance</span><span class="p">(</span><span class="n">my_dog</span><span class="p">,</span> <span class="n">Dog</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog()
+isinstance(my_dog, Dog)
+</code></pre>
+<pre><code>True
+</code></pre>
 
 <p>or try the intrinsic attribute that comes automatically with all Python objects, containing the class name to which the object belongs,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="n">my_dog</span><span class="o">.</span><span class="n">__class__</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__main__.Dog
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog()
+my_dog.__class__
+</code></pre>
+<pre><code>__main__.Dog
+</code></pre>
 
 <h2 id="class-attributes-vs-instance-attributes">Class attributes vs. instance attributes</h2>
 
-<p>The class <code class="highlighter-rouge">Dog</code> defined above has no use as it does not contain any attributes or methods. In practice, a dog has color, race, age, and so many other attributes. Besides, it can eat, run, sleep, bark, and so on.  Therefore,</p>
+<p>The class <code>Dog</code> defined above has no use as it does not contain any attributes or methods. In practice, a dog has color, race, age, and so many other attributes. Besides, it can eat, run, sleep, bark, and so on.  Therefore,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-    <span class="c"># attributes</span>
-    <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">'unnamed'</span>
-    <span class="n">race</span> <span class="o">=</span> <span class="s">'unknown'</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s">'unknown'</span>
-</code></pre></div></div>
+<pre><code class="language-python">class Dog:
+    # attributes
+    age = 0
+    name = 'unnamed'
+    race = 'unknown'
+    color = 'unknown'
+</code></pre>
 
 <p>Now, note that all attributes defined this way must be preassigned a <strong>default value</strong>. However, once an object is instantiated from this class, one could change the default values to anything else. For example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unnamed is a unknown-color unknown-race dog of age 0.
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog()
+print( "{} is a {}-color {}-race dog of age {}.".format( my_dog.name, my_dog.color, my_dog.race, my_dog.age) )
+</code></pre>
+<pre><code>unnamed is a unknown-color unknown-race dog of age 0.
+</code></pre>
 
 <p>can be modified to,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">my_dog</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Coco"</span>
-<span class="n">my_dog</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="s">"Terrier"</span>
-<span class="n">my_dog</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s">"brown"</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coco is a brown-color Terrier dog of age 3.
-</code></pre></div></div>
+<pre><code class="language-python">my_dog.age = 3
+my_dog.name = "Coco"
+my_dog.race = "Terrier"
+my_dog.color = "brown"
+print( "{} is a {}-color {}-race dog of age {}.".format( my_dog.name, my_dog.color, my_dog.race, my_dog.age) )
+</code></pre>
+<pre><code>Coco is a brown-color Terrier dog of age 3.
+</code></pre>
 
 <h3 id="object-constructor">Object constructor</h3>
 
-<p>While the above approach to class attribute definition and value assignment works fine, it is verbose and rather tedious. Instead, there is a better way of initializing an instance of a class by defining an object constructor method within the class definition.  There is an intrinsic method with the specific name <code class="highlighter-rouge">__init__</code> provided by Python, which can be defined in every class and used for performing tasks that are supposed to be done once (and only once) at the time of object instantiation. This includes the assignment of user-provided values to the attributes or default values in case no value is provided by the user.</p>
+<p>While the above approach to class attribute definition and value assignment works fine, it is verbose and rather tedious. Instead, there is a better way of initializing an instance of a class by defining an object constructor method within the class definition.  There is an intrinsic method with the specific name <code>__init__</code> provided by Python, which can be defined in every class and used for performing tasks that are supposed to be done once (and only once) at the time of object instantiation. This includes the assignment of user-provided values to the attributes or default values in case no value is provided by the user.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">race</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="n">race</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
-</code></pre></div></div>
+<pre><code class="language-python">class Dog:
+    def __init__(self, age, name, race, color):
+        self.age = age
+        self.name = name
+        self.race = race
+        self.color = color
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">'Coco'</span><span class="p">,</span><span class="s">'Terrier'</span><span class="p">,</span><span class="s">'brown'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coco is a brown-color Terrier-race dog of age 3.
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog(3,'Coco','Terrier','brown')
+print( "{} is a {}-color {}-race dog of age {}.".format( my_dog.name, my_dog.color, my_dog.race, my_dog.age) )
+</code></pre>
+<pre><code>Coco is a brown-color Terrier-race dog of age 3.
+</code></pre>
 
-<p>In OOP terminology, this intrinsic class method is called the object <strong>contructor method</strong>. By convention, the <strong>first input argument</strong> to the constructor <code class="highlighter-rouge">__init__</code> is <strong>always</strong> the object itself, that is going to be instantiated, and is frequently named <code class="highlighter-rouge">self</code>. However, its name is arbitrary and can be set to anything, for example, <code class="highlighter-rouge">obj</code> standing for object,</p>
+<p>In OOP terminology, this intrinsic class method is called the object <strong>contructor method</strong>. By convention, the <strong>first input argument</strong> to the constructor <code>__init__</code> is <strong>always</strong> the object itself, that is going to be instantiated, and is frequently named <code>self</code>. However, its name is arbitrary and can be set to anything, for example, <code>obj</code> standing for object,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">race</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="n">race</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
-</code></pre></div></div>
+<pre><code class="language-python">class Dog:
+    def __init__(obj, age, name, race, color):
+        obj.age = age
+        obj.name = name
+        obj.race = race
+        obj.color = color
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">'Coco'</span><span class="p">,</span><span class="s">'Terrier'</span><span class="p">,</span><span class="s">'brown'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog(3,'Coco','Terrier','brown')
+print( "{} is a {}-color {}-race dog of age {}.".format( my_dog.name, my_dog.color, my_dog.race, my_dog.age) )
+</code></pre>
 
-<p>I highly recommend you to stick to the common-practice in object naming or choose a self-explanatory name. Also, note that the constructor is called automatically at the time of object instantiation and one should not call <code class="highlighter-rouge">__init__</code> explicitly.</p>
+<p>I highly recommend you to stick to the common-practice in object naming or choose a self-explanatory name. Also, note that the constructor is called automatically at the time of object instantiation and one should not call <code>__init__</code> explicitly.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">race</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
-        <span class="c"># instance attributes</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="n">race</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
-</code></pre></div></div>
+<pre><code class="language-python">class Dog:
+    def __init__(obj, age, name, race, color):
+        # instance attributes
+        obj.age = age
+        obj.name = name
+        obj.race = race
+        obj.color = color
+</code></pre>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Keep in mind that a class is just a blueprint for defining the Dog, and not for creating an instance of a dog with specific attributes. Therefore, always use class constructors in your class definitions to assign user-specified values to the class attributes at the time of object instantiation instead of setting the attributes to default values in the class.</div>
 
 <p>As a result, the best practice is to <strong>initialize attributes that are common to all instances of a class outside the constructor and keep instance-specific attributes initialization within the class constructor</strong>,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+<pre><code class="language-python">class Dog:
     
-    <span class="c"># class attributes</span>
-    <span class="n">species</span> <span class="o">=</span> <span class="s">'mammal'</span>
+    # class attributes
+    species = 'mammal'
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">race</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    def __init__(obj, age, name, race, color):
 
-        <span class="c"># instance attributes</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="n">race</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
-</code></pre></div></div>
+        # instance attributes
+        obj.age = age
+        obj.name = name
+        obj.race = race
+        obj.color = color
+</code></pre>
 
 <h3 id="default-values-for-the-instance-attributes-in-the-constructor">Default values for the instance-attributes in the constructor</h3>
 
 <p>Just as we can create optional arguments for functions, so can we create optional arguments to constructors in Python by setting default values for the optional constructor arguments. For example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+<pre><code class="language-python">class Dog:
     
-    <span class="c"># class attributes</span>
-    <span class="n">species</span> <span class="o">=</span> <span class="s">'mammal'</span>
+    # class attributes
+    species = 'mammal'
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'unknown'</span><span class="p">,</span> <span class="n">race</span><span class="o">=</span><span class="s">'unknown'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'unknown'</span><span class="p">):</span>
+    def __init__(obj, age, name='unknown', race='unknown', color='unknown'):
 
-        <span class="c"># instance attributes</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">race</span> <span class="o">=</span> <span class="n">race</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
-</code></pre></div></div>
+        # instance attributes
+        obj.age = age
+        obj.name = name
+        obj.race = race
+        obj.color = color
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unknown is a unknown-color unknown-race dog of age 3.
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog(3)
+print( "{} is a {}-color {}-race dog of age {}.".format( my_dog.name, my_dog.color, my_dog.race, my_dog.age) )
+</code></pre>
+<pre><code>unknown is a unknown-color unknown-race dog of age 3.
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Coco'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">"{} is a {}-color {}-race dog of age {}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">race</span><span class="p">,</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">age</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Coco is a unknown-color unknown-race dog of age 3.
-</code></pre></div></div>
+<pre><code class="language-python">my_dog = Dog(3, name='Coco')
+print( "{} is a {}-color {}-race dog of age {}.".format( my_dog.name, my_dog.color, my_dog.race, my_dog.age) )
+</code></pre>
+<pre><code>Coco is a unknown-color unknown-race dog of age 3.
+</code></pre>
 
 <h3 id="summary">Summary</h3>
 
@@ -909,7 +909,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

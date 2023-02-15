@@ -5,9 +5,9 @@
         <description>A reference and tutorial on the foundations of Data Science and Scientific Computing with the Python programming language.</description>
         <link>https://www.cdslab.org/</link>
         <atom:link href="https://www.cdslab.org/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 03 Feb 2023 12:34:01 -0600</pubDate>
-        <lastBuildDate>Fri, 03 Feb 2023 12:34:01 -0600</lastBuildDate>
-        <generator>Jekyll v3.8.5</generator>
+        <pubDate>Wed, 15 Feb 2023 02:43:21 -0600</pubDate>
+        <lastBuildDate>Wed, 15 Feb 2023 02:43:21 -0600</lastBuildDate>
+        <generator>Jekyll v4.3.2</generator>
         
     </channel>
 </rss>

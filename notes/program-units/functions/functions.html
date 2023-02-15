@@ -622,343 +622,343 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <p>In Python, like most other programming languages, <strong>function</strong> is a collection of programming statements that can be executed whenever and wherever requested. Therefore, the definition of function in programming goes far beyond the mathematical definition of the function. For example, programming functions can have no input or output.</p>
 
 <p>In Python, the syntax of a function is like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">argument_1</span><span class="p">,</span> <span class="n">argument_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argument_N</span><span class="p">)</span>
-    <span class="n">python_statment_1</span>
-    <span class="n">python_statment_2</span>
-    <span class="o">...</span>
-    <span class="k">return</span> <span class="n">output</span>
-</code></pre></div></div>
+<pre><code class="language-python">def function_name(argument_1, argument_2, ..., argument_N)
+    python_statment_1
+    python_statment_2
+    ...
+    return output
+</code></pre>
 
-<p>Here, the line beginning with <code class="highlighter-rouge">def</code> is referred to as the <strong>function header</strong>, and the statements inside the function are called the <strong>function body</strong>. To use a function, it must be first defined like above and then called where it is needed inside the code.</p>
+<p>Here, the line beginning with <code>def</code> is referred to as the <strong>function header</strong>, and the statements inside the function are called the <strong>function body</strong>. To use a function, it must be first defined like above and then called where it is needed inside the code.</p>
 
 <h3 id="exercise">Exercise</h3>
 
 <p>Let’s write a Python function that takes in a temperature value in Centigrade and converts it to Fahrenheit.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+<pre><code class="language-python">def c2f(C):
+    return (9.0/5)*C + 32
 
-<span class="n">c_temp</span> <span class="o">=</span> <span class="mf">70.7</span>       <span class="c"># The hottest place on Earth, Lut Desert in Iran </span>
-<span class="n">f_temp</span> <span class="o">=</span> <span class="n">c2f</span><span class="p">(</span><span class="n">c_temp</span><span class="p">)</span>
+c_temp = 70.7       # The hottest place on Earth, Lut Desert in Iran 
+f_temp = c2f(c_temp)
 
-<span class="k">print</span><span class="p">(</span><span class="s">"""
+print("""
 The hottest place on Earth as of 2005 is in the Lut Desert in Iran at {0} degrees Celsius.
 This corresponds to a temperature of {1} degrees Fahrenheit!
-"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_temp</span><span class="p">,</span><span class="n">c2f</span><span class="p">(</span><span class="n">c_temp</span><span class="p">))</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The hottest place on Earth as of 2005 is in the Lut Desert in Iran at 70.7 degrees Celsius.
+""".format(c_temp,c2f(c_temp)) )
+</code></pre>
+<pre><code>The hottest place on Earth as of 2005 is in the Lut Desert in Iran at 70.7 degrees Celsius.
 This corresponds to a temperature of 159.26 degrees Fahrenheit!
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="function-interface">Function interface</h2>
 
 <h3 id="functions-with-no-input-arguments">Functions with no input arguments</h3>
 
 <p>We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about the Python programming language, when called.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_python_info</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">"Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace."</span>
+<pre><code class="language-python">def get_python_info():
+    return "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace."
 
-<span class="n">get_python_info</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.'
-</code></pre></div></div>
+get_python_info()
+</code></pre>
+<pre><code>'Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.'
+</code></pre>
 
 <p><br /></p>
 
 <h3 id="functions-with-no-output-return-value">Functions with no output (return value)</h3>
 
 <p>We can also modify the above function such that it does not return anything specifically.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_python_info</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span> <span class="s">"Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace."</span> <span class="p">)</span>
+<pre><code class="language-python">def get_python_info():
+    print( "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace." )
 
-<span class="n">get_python_info</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.
-</code></pre></div></div>
+get_python_info()
+</code></pre>
+<pre><code>Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.
+</code></pre>
 
-<p>In such cases, you may have already noticed that we can readily skip the <code class="highlighter-rouge">return</code> statement. In reality, in such cases, what happens is that Python interpreter adds an invisible <code class="highlighter-rouge">return None</code> statement at the end of the function. <code class="highlighter-rouge">None</code> is a special reserved keyword of Python that represents <strong>nothing</strong> or <strong>empty data</strong> in Python. It is almost equivalent to the keyword <strong>void</strong> in languages like Java, C, and C++ and mimics the behavior of <strong>subroutine</strong> procedures in the Fortran language.</p>
+<p>In such cases, you may have already noticed that we can readily skip the <code>return</code> statement. In reality, in such cases, what happens is that Python interpreter adds an invisible <code>return None</code> statement at the end of the function. <code>None</code> is a special reserved keyword of Python that represents <strong>nothing</strong> or <strong>empty data</strong> in Python. It is almost equivalent to the keyword <strong>void</strong> in languages like Java, C, and C++ and mimics the behavior of <strong>subroutine</strong> procedures in the Fortran language.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_python_info</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span> <span class="s">"Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data."</span> <span class="p">)</span>
-    <span class="k">return</span> <span class="bp">None</span>
-</code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_python_info</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data.
-</code></pre></div></div>
+<pre><code class="language-python">def get_python_info():
+    print( "Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data." )
+    return None
+</code></pre>
+<pre><code class="language-python">get_python_info()
+</code></pre>
+<pre><code>Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data.
+</code></pre>
 
-<p>If you set a variable equal to this function, the value of the variable will be <code class="highlighter-rouge">None</code>, because the function returns nothing on the output.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">variable</span> <span class="o">=</span> <span class="n">get_python_info</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoneType
+<p>If you set a variable equal to this function, the value of the variable will be <code>None</code>, because the function returns nothing on the output.</p>
+<pre><code class="language-python">variable = get_python_info()
+type(variable)
+print(variable)
+</code></pre>
+<pre><code>NoneType
 None
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="functions-with-multiple-input-arguments">Functions with multiple input arguments</h3>
 
 <p>Functions can take almost as many input arguments as we wish. Consider the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">exponent</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">base</span><span class="o">**</span><span class="n">exponent</span>
-</code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>32
-</code></pre></div></div>
+<pre><code class="language-python">def power(base,exponent):
+    return base**exponent
+</code></pre>
+<pre><code class="language-python">power(2,5)
+</code></pre>
+<pre><code>32
+</code></pre>
 
 <h4 id="the-order-of-input-arguments-both-does-and-does-not-matter">The order of input arguments both does and does not matter!</h4>
 
 <p>Note that in the previous code, calling the function with the wrong order of input parameters can lead to a catastrophe and wrong output.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">power</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>25
-</code></pre></div></div>
+<pre><code class="language-python">power(5,2)
+</code></pre>
+<pre><code>25
+</code></pre>
 
 <p>However, a really cool feature for function input arguments is that, when calling the function, you can also name the argument variable, and if you name them all, then the order by which the arguments appear becomes irrelevant.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">power</span><span class="p">(</span><span class="n">exponent</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>32
-</code></pre></div></div>
+<pre><code class="language-python">power(exponent=5,base=2)
+</code></pre>
+<pre><code>32
+</code></pre>
 
 <h3 id="functions-with-multiple-output-return-values">Functions with multiple output (return values)</h3>
 
 <p>Python functions can return more than one value. For this purpose, tuple variable types become a handy tool. Recall that making a tuple is as simple as writing a sequence of comma-separated values/variable, like the following.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mytuple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-<span class="n">mytuple</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1, 2)
+<pre><code class="language-python">mytuple = 1, 2
+mytuple
+type(mytuple)
+</code></pre>
+<pre><code>(1, 2)
 tuple
-</code></pre></div></div>
+</code></pre>
 
 <p>Now, if you need to write a function that has multiple return value, you can simply return them all in one sequence of comma-separated values/variables. For example, suppose a function takes in two numbers and then outputs the quotient (the result of integer division) and the remainder of the integer division. An example such function would be like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
+<pre><code class="language-python">def get_quotient_remainder(dividend,divisor):
+    return divmod(dividend,divisor)
 
-<span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(3, 2)
-</code></pre></div></div>
+get_quotient_remainder(11,3)
+</code></pre>
+<pre><code>(3, 2)
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c"># By default, the output is a tuple</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tuple
-</code></pre></div></div>
+<pre><code class="language-python">type(get_quotient_remainder(11,3))  # By default, the output is a tuple
+</code></pre>
+<pre><code>tuple
+</code></pre>
 
 <p>By default, the output of this function is a tuple, since we are returning a tuple in the function. But we could also return the output as a list, or any other appropriate format we wish.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">))</span>   <span class="c"># convert the output to list before passing it to main program</span>
+<pre><code class="language-python">def get_quotient_remainder(dividend,divisor):
+    return list(divmod(dividend,divisor))   # convert the output to list before passing it to main program
 
-<span class="nb">type</span><span class="p">(</span><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list
-</code></pre></div></div>
+type(get_quotient_remainder(11,3))
+</code></pre>
+<pre><code>list
+</code></pre>
 
 <p>You can also save the output in a variable as well,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
+<pre><code class="language-python">def get_quotient_remainder(dividend,divisor):
+    return divmod(dividend,divisor)
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c"># You can also name the input variables to make sure you assign them in the correct order.</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(3, 2)
-</code></pre></div></div>
+result = get_quotient_remainder(dividend=11,divisor=3) # You can also name the input variables to make sure you assign them in the correct order.
+print(result)
+</code></pre>
+<pre><code>(3, 2)
+</code></pre>
 
 <p>or save the individual results in separate variables, like,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2
-</code></pre></div></div>
+<pre><code class="language-python">quotient, remainder = get_quotient_remainder(dividend=11,divisor=3)
+print(quotient, remainder)
+</code></pre>
+<pre><code>3 2
+</code></pre>
 
 <p>or save it in the form of a tuple or list,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2
-</code></pre></div></div>
+<pre><code class="language-python">[quotient, remainder] = get_quotient_remainder(dividend=11,divisor=3)
+print(quotient, remainder)
+</code></pre>
+<pre><code>3 2
+</code></pre>
 
 <h3 id="functions-with-optional-input-arguments">Functions with optional input arguments</h3>
 
 <p>Like many other high-level programming languages, Python allows you to have optional arguments in your input, which you can drop when calling the function. However, an optional argument must have a preassigned value in the function, otherwise dropping the variable at the time of function call will lead to a runtime error.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s">"This is the default message."</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span> <span class="s">"divmod({},{}) = "</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">))</span> <span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span> <span class="n">message</span> <span class="p">)</span>
-    <span class="k">return</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="p">)</span>
+<pre><code class="language-python">def get_quotient_remainder(dividend,divisor=10,message="This is the default message."):
+    print( "divmod({},{}) = ".format(divmod(dividend,divisor)) )
+    print( message )
+    return divmod(dividend,divisor)
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c"># the optional input argument 'message' is set to its default value.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>divmod(11,3) = (3, 2)
+result = get_quotient_remainder(dividend=11,divisor=3) # the optional input argument 'message' is set to its default value.
+</code></pre>
+<pre><code>divmod(11,3) = (3, 2)
 This is the default message.
-</code></pre></div></div>
+</code></pre>
 
-<p>The above function, default the value of optional message argument to <code class="highlighter-rouge">"This is the default message."</code> since it is not given at the time of calling the function. The function’s <strong>optional input arguments</strong> whose values are initialized to a default value are more famously known in Python as <strong>keyword arguments</strong>.</p>
+<p>The above function, default the value of optional message argument to <code>"This is the default message."</code> since it is not given at the time of calling the function. The function’s <strong>optional input arguments</strong> whose values are initialized to a default value are more famously known in Python as <strong>keyword arguments</strong>.</p>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> Note that when the optional arguments are named and assigned a value at the time of function call, then their order of appearance in the function call does not matter. Keep in mind that the <strong>ordinary</strong> or <strong>positional</strong> arguments should all appear in order and first before the keyword arguments appear. However, the keyword arguments can appear in any order one may wish.</div>
 <p><br /></p>
 
 <p>For the above example function, the following function calls would be valid,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">dividend</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-<span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">get_quotient_remainder(dividend=11)
+get_quotient_remainder(11,divisor=3)
+</code></pre>
 
 <p>and the following would be invalid,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s">"A new message."</span><span class="p">)</span>   <span class="c"># This is invalid</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;ipython-input-36-27658299aa76&gt;", line 1
+<pre><code class="language-python">get_quotient_remainder(divisor=3,11,message="A new message.")   # This is invalid
+</code></pre>
+<pre><code>  File "&lt;ipython-input-36-27658299aa76&gt;", line 1
     get_quotient_remainder(divisor=3,11,message="A new message.")   # This is invalid, the order is incorrect.
                                     ^
 SyntaxError: positional argument follows keyword argument
-</code></pre></div></div>
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="s">"A new message."</span><span class="p">)</span>   <span class="c"># Also invalid, all arguments after the first named-argument must appear with name as well.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;ipython-input-37-1643cc8d6910&gt;", line 1
+<pre><code class="language-python">get_quotient_remainder(11,divisor=3, "A new message.")   # Also invalid, all arguments after the first named-argument must appear with name as well.
+</code></pre>
+<pre><code>  File "&lt;ipython-input-37-1643cc8d6910&gt;", line 1
     get_quotient_remainder(11,divisor=3,"A new message.")
                                        ^
 SyntaxError: positional argument follows keyword argument
-</code></pre></div></div>
+</code></pre>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> Note that the keyword arguments must be always listed after the positional arguments in the function definition. Note also, as in the above examples, that the sequence of input arguments <strong>at the time of function call</strong> does not matter, so long as the names of all positional and keyword arguments are provided in the function call.</div>
 
 <p>Note also, that the number input arguments at the time of call must be exactly the same as the number of arguments in the function definition.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_quotient_remainder</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="s">"A new message."</span><span class="p">,)</span>  <span class="c"># THis works even though, there is an extra comma at the end of the arguments of the function call.</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>divmod(11,3) = (3, 2)
+<pre><code class="language-python">get_quotient_remainder(11,3, "A new message.",)  # THis works even though, there is an extra comma at the end of the arguments of the function call.
+</code></pre>
+<pre><code>divmod(11,3) = (3, 2)
 A new message.
 
 (3, 2)
-</code></pre></div></div>
+</code></pre>
 
 <p><br /></p>
 
 <h2 id="local-and-global-variables-in-functions">Local and global variables in functions</h2>
 <p>Variables that are defined inside of a function, are by default invisible outside the function scope. For example, let’s consider  Let us reconsider the original function defined at the beginning of the lecture, which takes in a temperature value in Centigrade and converts it to Fahrenheit.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">return</span> <span class="n">converted_value</span>
-</code></pre></div></div>
+<pre><code class="language-python">def c2f(C):
+    converted_value = (9.0/5)*C + 32
+    return converted_value
+</code></pre>
 
-<p>Now, if the variable <code class="highlighter-rouge">converted_value</code> is called outside the function, it will result in a syntax error since it is undefined outside the function scope.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c2f</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>158.0
-</code></pre></div></div>
+<p>Now, if the variable <code>converted_value</code> is called outside the function, it will result in a syntax error since it is undefined outside the function scope.</p>
+<pre><code class="language-python">c2f(70)
+</code></pre>
+<pre><code>158.0
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">converted_value</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameError                                 Traceback (most recent call last)
+<pre><code class="language-python">converted_value
+</code></pre>
+<pre><code>NameError                                 Traceback (most recent call last)
 &lt;ipython-input-42-1aa75d9b79c4&gt; in &lt;module&gt;()
 ----&gt; 1 converted_value
 
 NameError: name 'converted_value' is not defined
-</code></pre></div></div>
+</code></pre>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Local variables are created inside a function and destroyed when the program control goes back to the main code, outside the function.</div>
 
 <p>Now suppose we had the following script,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">converted_value</span>
+<pre><code class="language-python">def c2f(C):
+    converted_value = (9.0/5)*C + 32
+    print('Value of C inside function c2f: {}'.format(C))
+    return converted_value
 
-<span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
-<span class="n">c2f</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C inside the function c2f: 50
+C = 70
+c2f(50)
+print('Value of C outside function c2f: {}'.format(C))
+</code></pre>
+<pre><code>Value of C inside the function c2f: 50
 Value of C outside function c2f: 70
-</code></pre></div></div>
+</code></pre>
 
-<p>Clearly, the two values are not the same, even though the variable names are the same. But, if you really want to access the global variable <code class="highlighter-rouge">C</code> inside of the function, then you will have to use Python’s <code class="highlighter-rouge">global</code> keyword inside the function <strong>before declaring or using the variable</strong> <code class="highlighter-rouge">C</code>,</p>
+<p>Clearly, the two values are not the same, even though the variable names are the same. But, if you really want to access the global variable <code>C</code> inside of the function, then you will have to use Python’s <code>global</code> keyword inside the function <strong>before declaring or using the variable</strong> <code>C</code>,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">C</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="mi">50</span>
-    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">converted_value</span>
+<pre><code class="language-python">def c2f():
+    global C
+    C = 50
+    converted_value = (9.0/5)*C + 32
+    print('Value of C inside function c2f: {}'.format(C))
+    return converted_value
 
-<span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Value of C before calling function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
-<span class="n">c2f</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function c2f: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C before calling function c2f: 70
+C = 70
+print('Value of C before calling function c2f: {}'.format(C))
+c2f()
+print('Value of C outside function c2f: {}'.format(C))
+</code></pre>
+<pre><code>Value of C before calling function c2f: 70
 Value of C inside function c2f: 50
 Value of C outside function c2f: 50
-</code></pre></div></div>
+</code></pre>
 
-<p>In Python, the <code class="highlighter-rouge">global</code> keyword allows you to modify a variable beyond the scope (i.e., function) within which the variable is defined and used. The basic rules regarding the scope of the definitions of variables and the usage of global keyword in Python include the following,</p>
+<p>In Python, the <code>global</code> keyword allows you to modify a variable beyond the scope (i.e., function) within which the variable is defined and used. The basic rules regarding the scope of the definitions of variables and the usage of global keyword in Python include the following,</p>
 
 <ul>
   <li>A variable inside a function has local scope by default, meaning that it is only defined and accessible within that function.</li>
-  <li>If a variable is defined outside of a function in the main Python programming environment, it has the global scope by default without the use of the <code class="highlighter-rouge">global</code> keyword, meaning that it can be accessed from everywhere (if needed). Note that the use of the <code class="highlighter-rouge">global</code> keyword outside a function has no effects.</li>
-  <li>Use <code class="highlighter-rouge">global</code> keyword to manipulate the value of a global variable inside a function.</li>
+  <li>If a variable is defined outside of a function in the main Python programming environment, it has the global scope by default without the use of the <code>global</code> keyword, meaning that it can be accessed from everywhere (if needed). Note that the use of the <code>global</code> keyword outside a function has no effects.</li>
+  <li>Use <code>global</code> keyword to manipulate the value of a global variable inside a function.</li>
 </ul>
 
-<p>In the above example, you can also use Python’s built-in function <code class="highlighter-rouge">globals()</code> which returns a <strong>dictionary</strong> of all global variables in the main program, and then use the key <code class="highlighter-rouge">'C'</code> to get its value inside the function.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dict
-</code></pre></div></div>
+<p>In the above example, you can also use Python’s built-in function <code>globals()</code> which returns a <strong>dictionary</strong> of all global variables in the main program, and then use the key <code>'C'</code> to get its value inside the function.</p>
+<pre><code class="language-python">type(globals())
+</code></pre>
+<pre><code>dict
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>70
-</code></pre></div></div>
+<pre><code class="language-python">globals()['C']
+</code></pre>
+<pre><code>70
+</code></pre>
 
 <p>Now, the same function as above, but with the global variable value would give you,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
-    <span class="k">return</span> <span class="n">converted_value</span>
+<pre><code class="language-python">def c2f(C):
+    converted_value = (9.0/5)*globals()['C'] + 32
+    print('Value of C inside function: {}'.format(globals()['C']))
+    return converted_value
 
-<span class="n">C</span> <span class="o">=</span> <span class="mi">70</span>
-<span class="n">c2f</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Value of C outside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Value of C inside the function: 70
+C = 70
+c2f(50)
+print('Value of C outside function: {}'.format(C))
+</code></pre>
+<pre><code>Value of C inside the function: 70
 Value of C outside function: 70
-</code></pre></div></div>
+</code></pre>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> As a general rule, when there are <b>several variables with the same name</b>, Python interpreter <b>first</b> tries to look up the variable name among the <b>local variables</b>, <b>then</b> there is a search among <b>global variables</b>, and <b>finally</b> among built-in <b>Python functions</b>.</div>
 
-<p>In order to declare a variable inside the function global, use the keyword <code class="highlighter-rouge">global</code> as in the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="c"># global variables</span>
-<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># this is a new local variable</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+<p>In order to declare a variable inside the function global, use the keyword <code>global</code> as in the following,</p>
+<pre><code class="language-python">a = 20; b = -2.5 # global variables
+def f1(x):
+    a = 21 # this is a new local variable
+    return a*x + b
 
-<span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># yields 20</span>
+print (a) # yields 20
 
-<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">a</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># the global a is changed</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+def f2(x):
+    global a
+    a = 21 # the global a is changed
+    return a*x + b
 
-<span class="n">f1</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># 20 is printed</span>
-<span class="n">f2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># 21 is printed</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20
+f1(3); print (a) # 20 is printed
+f2(3); print (a) # 21 is printed
+</code></pre>
+<pre><code>20
 20
 21
-</code></pre></div></div>
+</code></pre>
 
-<p>Note that in function <code class="highlighter-rouge">f1</code>, $a = 21$ creates a local variable a. One may think the global <code class="highlighter-rouge">a</code> has changed, but it does not happen. However, in the second function <code class="highlighter-rouge">f2</code>, the globally declared variable is assigned a new value and therefore, the global value of <code class="highlighter-rouge">a</code> outside the function also changes. Test this script yourself and see what you get.</p>
+<p>Note that in function <code>f1</code>, $a = 21$ creates a local variable a. One may think the global <code>a</code> has changed, but it does not happen. However, in the second function <code>f2</code>, the globally declared variable is assigned a new value and therefore, the global value of <code>a</code> outside the function also changes. Test this script yourself and see what you get.</p>
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Be careful with using global variables inside your functions, because if you do not define them prior to using the function, then you get a runtime error.</div>
 
 <p>Here is an example of the error,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">a</span>    <span class="c"># a must be defined outside the function prior to the function call</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+<pre><code class="language-python">def f2(x):
+    global a    # a must be defined outside the function prior to the function call
+    return a*x + b
 
-<span class="n">f2</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameError                                 Traceback (most recent call last)
+f2(3)
+</code></pre>
+<pre><code>NameError                                 Traceback (most recent call last)
 &lt;ipython-input-55-ea6f63a0f6d6&gt; in &lt;module&gt;()
     3     return a*x + b
     4 
@@ -972,18 +972,18 @@ Value of C outside function: 70
     5 f2(3)
 
 NameError: name 'a' is not defined
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="avoid-function-side-effects">Avoid function side-effects</h3>
 
 <p>A function in which the value of a global variable is changed while the global variable is not the intended output of the function is called a <strong>function with side-effects</strong>. Here is an example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">a</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span> <span class="c"># the global a is changed</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
-</code></pre></div></div>
+<pre><code class="language-python">def f2(x):
+    global a
+    a = 21 # the global a is changed
+    return a*x + b
+</code></pre>
 
-<p>In general, any <em>lasting effect</em> that occurs in a function, but not through its <code class="highlighter-rouge">return</code> value, is called a <strong>side effect</strong>. There are three ways to have side effects:</p>
+<p>In general, any <em>lasting effect</em> that occurs in a function, but not through its <code>return</code> value, is called a <strong>side effect</strong>. There are three ways to have side effects:</p>
 <ul>
   <li>Changing the value of a mutable object.</li>
   <li>Changing the binding (the storage space) of a global variable.</li>
@@ -1000,43 +1000,43 @@ NameError: name 'a' is not defined
 
 <h2 id="function-docstring">Function docstring</h2>
 
-<p>There is a convention in Python to insert a documentation string right after the <code class="highlighter-rouge">def</code> line of the function definition (the function header). The documentation string, known as a <strong>doc string</strong> or <strong>docstring</strong>, should contain a short description of the purpose of the function and explain what the different arguments and return values are. Docstrings are usually enclosed in triple-double quotes <code class="highlighter-rouge">"""</code>, which allow the string to span several lines.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="s">"""
+<p>There is a convention in Python to insert a documentation string right after the <code>def</code> line of the function definition (the function header). The documentation string, known as a <strong>doc string</strong> or <strong>docstring</strong>, should contain a short description of the purpose of the function and explain what the different arguments and return values are. Docstrings are usually enclosed in triple-double quotes <code>"""</code>, which allow the string to span several lines.</p>
+<pre><code class="language-python">def c2f(C):
+    """
     This function converts Celsius degrees (C) to Fahrenheit.
     Uses global variable C.
-    """</span>
-    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
-    <span class="k">return</span> <span class="n">converted_value</span>
-</code></pre></div></div>
+    """
+    converted_value = (9.0/5)*globals()['C'] + 32
+    print('Value of C inside function: {}'.format(globals()['C']))
+    return converted_value
+</code></pre>
 
-<p>The docstring is then stored in <code class="highlighter-rouge">__doc__</code> attribute of the function, and can be called like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c2f</span><span class="o">.</span><span class="n">__doc__</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'\n    This function converts Celsius degrees (C) to Fahrenheit.\n    Uses global variable C.\n    '
-</code></pre></div></div>
+<p>The docstring is then stored in <code>__doc__</code> attribute of the function, and can be called like the following,</p>
+<pre><code class="language-python">c2f.__doc__
+</code></pre>
+<pre><code>'\n    This function converts Celsius degrees (C) to Fahrenheit.\n    Uses global variable C.\n    '
+</code></pre>
 
-<p>If you’d like to get the formatted docstring, use Python’s <code class="highlighter-rouge">help()</code> function,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">c2f</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Help on function c2f in module __main__:
+<p>If you’d like to get the formatted docstring, use Python’s <code>help()</code> function,</p>
+<pre><code class="language-python">help(c2f)
+</code></pre>
+<pre><code>Help on function c2f in module __main__:
 
 c2f(C)
     This function converts Celsius degrees (C) to Fahrenheit.
     Uses global variable C.
-</code></pre></div></div>
+</code></pre>
 
-<p>One can also use <code class="highlighter-rouge">"</code> in place of <code class="highlighter-rouge">"""</code>, although less conventional. But then for multiple lines of docstring, one has to use line continuation.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">c2f</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="s">"</span><span class="se">\
-</span><span class="s">    This function converts Celsius degrees (C) to Fahrenheit.</span><span class="se">\
-</span><span class="s">    Uses global variable C.</span><span class="se">\
-</span><span class="s">    "</span>
-    <span class="n">converted_value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Value of C inside function: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s">'C'</span><span class="p">]))</span>
-    <span class="k">return</span> <span class="n">converted_value</span>
-</code></pre></div></div>
+<p>One can also use <code>"</code> in place of <code>"""</code>, although less conventional. But then for multiple lines of docstring, one has to use line continuation.</p>
+<pre><code class="language-python">def c2f(C):
+    "\
+    This function converts Celsius degrees (C) to Fahrenheit.\
+    Uses global variable C.\
+    "
+    converted_value = (9.0/5)*globals()['C'] + 32
+    print('Value of C inside function: {}'.format(globals()['C']))
+    return converted_value
+</code></pre>
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> Note that the docstring must appear before any statement in the function body.</div>
 
 <h2 id="functions-as-input-arguments-to-functions">Functions as input arguments to functions</h2>
@@ -1049,114 +1049,114 @@ c2f(C)
   <li>a Python function that solves a mathematical differential equation, given as input argument.</li>
 </ul>
 
-<p>In such cases, Python functions need to have the mathematical function as an input argument with some name(e.g., <code class="highlighter-rouge">func</code>). Like Fortran, this is straightforward in Python and hardly needs any explanation, but in most other languages special constructions must be used for transferring a function to another function as argument. For example, suppose we want to compute numerically the second-derivative of a user given mathematical function,</p>
+<p>In such cases, Python functions need to have the mathematical function as an input argument with some name(e.g., <code>func</code>). Like Fortran, this is straightforward in Python and hardly needs any explanation, but in most other languages special constructions must be used for transferring a function to another function as argument. For example, suppose we want to compute numerically the second-derivative of a user given mathematical function,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">r</span>
-</code></pre></div></div>
-<p>The <code class="highlighter-rouge">func</code> input argument is like any other argument, i.e., a name for an object, here a function
+<pre><code class="language-python">def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
+</code></pre>
+<p>The <code>func</code> input argument is like any other argument, i.e., a name for an object, here a function
 object that we can call as we normally call functions. An an application, suppose we want to calculate the second derivative of a quadratic function $g(x)$ of the following form at $x=2$,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">r</span>
+<pre><code class="language-python">def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
+def g(x):
+    return x**2 + 4.0*x + 1.0
 
-<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">diff2nd_g</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span> <span class="s">"g’’(x=</span><span class="si">%</span><span class="s">f)=</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diff2nd_g</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g’’(x=2.000000)=2.001954
-</code></pre></div></div>
+x = 2
+diff2nd_g = diff2nd(g, x)
+print ( "g’’(x=%f)=%f" % (x, diff2nd_g) )
+</code></pre>
+<pre><code>g’’(x=2.000000)=2.001954
+</code></pre>
 
 <h2 id="function-composition">Function composition</h2>
 
-<p>The ability to call one function from within another function is called <strong>composition</strong>. Suppose we have a function <code class="highlighter-rouge">distance</code> that calculates the distance between two points on a 2D plane. and another function that takes in value for radius, and then calculates the corresponding area for that radius.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+<p>The ability to call one function from within another function is called <strong>composition</strong>. Suppose we have a function <code>distance</code> that calculates the distance between two points on a 2D plane. and another function that takes in value for radius, and then calculates the corresponding area for that radius.</p>
+<pre><code class="language-python">def distance(x1, y1, x2, y2):
+    from math import sqrt
+    return sqrt( (x2-x1)**2 + (y2-y1)**2 )
 
-<span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
-    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+def area(x1, y1, x2, y2):
+    from math import pi
+    return pi*distance(x1, y1, x2, y2)**2
 
-<span class="n">area</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.141592653589793
-</code></pre></div></div>
+area(0.0,0.0,0.0,1.0)
+</code></pre>
+<pre><code>3.141592653589793
+</code></pre>
 
 <h3 id="recursive-functions">Recursive functions</h3>
 
 <p>Now, note that the function being-called inside the other does not necessarily have to be a different function. It could be the same function calling itself repeatedly, <strong>until a condition is met</strong> (otherwise this would be an endless function call to itself for eternity). For example, a function that would calculate the factorial of an input integer would be like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="nb">float</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'The input number {} is not an integer!'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="k">return</span> <span class="bp">None</span>
-    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<pre><code class="language-python">def factorial(n):
+    if isinstance(n,float):
+        print('The input number {} is not an integer!'.format(n))
+        return None
+    if n==0:
+        return 1
+    elif n==1:
+        return n
+    else:
+        return n*factorial(n-1)
 
-<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">factorial</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24
+factorial(4)
+factorial(4.5)
+</code></pre>
+<pre><code>24
 The input number 4.5 is not an integer!
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="lambda-functions">Lambda functions</h2>
 
-<p>There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined <code class="highlighter-rouge">g(x)</code> in the <a href="#functions-as-input-arguments-to-functions">example above</a>. Here is a compact version of it,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
-</code></pre></div></div>
+<p>There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined <code>g(x)</code> in the <a href="#functions-as-input-arguments-to-functions">example above</a>. Here is a compact version of it,</p>
+<pre><code class="language-python">g = lambda x: x**2 + 4.0*x + 1.0
+</code></pre>
 
 <p>This code is equivalent to the original code that wrote before,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
-</code></pre></div></div>
+<pre><code class="language-python">def g(x):
+    return x**2 + 4.0*x + 1.0
+</code></pre>
 
 <p>In general, a function of the form,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">expression</span>
-</code></pre></div></div>
+<pre><code class="language-python">def g(arg1, arg2, arg3, ...):
+    return expression
+</code></pre>
 
 <p>can be converted to the compact form,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">...</span><span class="p">:</span> <span class="n">expression</span>
-</code></pre></div></div>
+<pre><code class="language-python">g = lambda arg1, arg2, arg3, ...: expression
+</code></pre>
 
-<p>Lambda functions are very useful for defining simple functions in the argument list that is passed to another function. For example, recall our <code class="highlighter-rouge">diff2nd</code> function that we defined in the above,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">r</span>
+<p>Lambda functions are very useful for defining simple functions in the argument list that is passed to another function. For example, recall our <code>diff2nd</code> function that we defined in the above,</p>
+<pre><code class="language-python">def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span>
+def g(x):
+    return x**2 + 4.0*x + 1.0
 
-<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">diff2nd_g</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span> <span class="s">"g’’(x=</span><span class="si">%</span><span class="s">f)=</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diff2nd_g</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g’’(x=2.000000)=2.001954
-</code></pre></div></div>
+x = 2
+diff2nd_g = diff2nd(g, x)
+print ( "g’’(x=%f)=%f" % (x, diff2nd_g) )
+</code></pre>
+<pre><code>g’’(x=2.000000)=2.001954
+</code></pre>
 
-<p>Now instead of defining <code class="highlighter-rouge">g(x)</code> separately when calling <code class="highlighter-rouge">diff2nd</code> function, we can use the following compact form,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diff2nd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">r</span>
+<p>Now instead of defining <code>g(x)</code> separately when calling <code>diff2nd</code> function, we can use the following compact form,</p>
+<pre><code class="language-python">def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
 
-<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="k">print</span> <span class="p">(</span> <span class="s">"g’’(x=</span><span class="si">%</span><span class="s">f)=</span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diff2nd</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g’’(x=2.000000)=2.001954
-</code></pre></div></div>
+x = 2
+print ( "g’’(x=%f)=%f" % (x, diff2nd(lambda x: x**2 + 4.0*x + 1.0, x) ) )
+</code></pre>
+<pre><code>g’’(x=2.000000)=2.001954
+</code></pre>
 
 <p>Lambda functions may also take <strong>keyword arguments</strong>. For example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d2</span> <span class="o">=</span> <span class="n">diff2nd</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.5</span><span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="mf">1.2</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">d2 = diff2nd(lambda t, A=1, a=0.5: -a*2*t*A*exp(-a*t**2), 1.2)
+</code></pre>
 
 <p>This format is particularly useful, if the lambda function contains a constant that is repeatedly used in the expression of the function, the value of which may need to be updated in future runs of the code, or later on in the same code.</p>
 
@@ -1164,33 +1164,33 @@ The input number 4.5 is not an integer!
 
 <p>We have already seen in the above examples, that the returned object of a function can be of any type or size. However, imagine a scenario where your function takes the path to an exteremely large input file, then aims to reads the contents of the file. Given the size of the file, it is likely that the process will be either very slow or impossible, if the computing device does not have enough memory to hold all of the contents of the file and pass a copy of it to the user. The solution in such scenarios, is to use a <strong>generator function</strong>, which instead of <strong>return</strong>ing all of the contents of a collection, it returns one element of it at a time. Consider the following example,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">reverse</span><span class="p">(</span><span class="s">'amir'</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r
+<pre><code class="language-python">def reverse(data):
+    for index in range(len(data)-1, -1, -1):
+        yield data[index]
+for char in reverse('amir'):
+    print(char)
+</code></pre>
+<pre><code>r
 i
 m
 a
-</code></pre></div></div>
+</code></pre>
 
-<p>Notice the use fo the keyword <code class="highlighter-rouge">yield</code> in the above example instead of <code class="highlighter-rouge">return</code>. This leads the function to <strong>yield</strong> a generator and pass it to the user so that it can be called to fetch one value from the input collection. We could have also achieved the same functionality of the above function generator using a normal function,</p>
+<p>Notice the use fo the keyword <code>yield</code> in the above example instead of <code>return</code>. This leads the function to <strong>yield</strong> a generator and pass it to the user so that it can be called to fetch one value from the input collection. We could have also achieved the same functionality of the above function generator using a normal function,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">reverseOriginal</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">reverseData</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">reverseData</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">reverseData</span>
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">reverseOriginal</span><span class="p">(</span><span class="s">'amir'</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r
+<pre><code class="language-python">def reverseOriginal(data):
+    reverseData = []
+    for index in range(len(data)-1, -1, -1):
+        reverseData.append(data[index])
+    return reverseData
+for char in reverseOriginal('amir'):
+    print(char)
+</code></pre>
+<pre><code>r
 i
 m
 a
-</code></pre></div></div>
+</code></pre>
 
 <p>However, the generator function will be far more efficient in terms of memory requirements and speed.</p>
 
@@ -1316,7 +1316,7 @@ a
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

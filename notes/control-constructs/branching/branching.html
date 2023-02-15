@@ -618,283 +618,283 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <p>Consider we are in a class with the following students defined in a dictionary together with their roles in the class.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">class_dict</span>  <span class="o">=</span> <span class="p">{</span> 
-            <span class="p">,</span> <span class="s">'Christian Chrysler'</span>  <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Matthew Bagby'</span>       <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Niyousha Dredger'</span>    <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Pauline Davachi'</span>     <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Marcos Kuffel'</span>       <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Lauren Kumbhare'</span>     <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Shashank Guillen'</span>    <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Hany Moorman'</span>        <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Sarah Mahdy'</span>         <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Andrew Osborne'</span>      <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Joshua Myers'</span>        <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Rebecca Vedovato'</span>    <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Carolina Proni'</span>      <span class="p">:</span> <span class="s">'student'</span>
-            <span class="p">,</span> <span class="s">'Amir Shahmoradi'</span>     <span class="p">:</span> <span class="s">'instructor'</span>
-            <span class="p">}</span>
-</code></pre></div></div>
+<pre><code class="language-python">class_dict  = { 
+            , 'Christian Chrysler'  : 'student'
+            , 'Matthew Bagby'       : 'student'
+            , 'Niyousha Dredger'    : 'student'
+            , 'Pauline Davachi'     : 'student'
+            , 'Marcos Kuffel'       : 'student'
+            , 'Lauren Kumbhare'     : 'student'
+            , 'Shashank Guillen'    : 'student'
+            , 'Hany Moorman'        : 'student'
+            , 'Sarah Mahdy'         : 'student'
+            , 'Andrew Osborne'      : 'student'
+            , 'Joshua Myers'        : 'student'
+            , 'Rebecca Vedovato'    : 'student'
+            , 'Carolina Proni'      : 'student'
+            , 'Amir Shahmoradi'     : 'instructor'
+            }
+</code></pre>
 
-<p>Now suppose we would like to write a Python script that, when executed, asks the user to input the full name of a person in our class and then outputs on screen, the role of the person in class. To do this, first we should get familiar with Python’s built-in function <code class="highlighter-rouge">input()</code>.</p>
+<p>Now suppose we would like to write a Python script that, when executed, asks the user to input the full name of a person in our class and then outputs on screen, the role of the person in class. To do this, first we should get familiar with Python’s built-in function <code>input()</code>.</p>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> In Python 2, the corresponding function is <code>raw_input()</code>. In Python 3, it is now renamed to <code>input()</code>.</div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please enter the full name of the person: Amir Shahmoradi
+<pre><code class="language-python">input("\n Please enter the full name of the person: ")
+</code></pre>
+<pre><code>Please enter the full name of the person: Amir Shahmoradi
 'Amir Shahmoradi'
-</code></pre></div></div>
+</code></pre>
 
-<p>The function <code class="highlighter-rouge">input()</code> is a Python built-in function that outputs the input string inside parentheses to the output screen, and then waits for the user to enter an input. This function reads a line from input, and converts it to a <strong>string</strong> (stripping a trailing newline), and returns that. One can also put the user’s input directly into a variable, which is the normal way of using this function.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">input_variable</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please enter the full name of the person: Amir Shahmoradi
-</code></pre></div></div>
+<p>The function <code>input()</code> is a Python built-in function that outputs the input string inside parentheses to the output screen, and then waits for the user to enter an input. This function reads a line from input, and converts it to a <strong>string</strong> (stripping a trailing newline), and returns that. One can also put the user’s input directly into a variable, which is the normal way of using this function.</p>
+<pre><code class="language-python">input_variable = input("\n Please enter the full name of the person: ")
+</code></pre>
+<pre><code>Please enter the full name of the person: Amir Shahmoradi
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">&lt;</span><span class="n">press</span> <span class="n">tab</span><span class="o">&gt;</span>
-    <span class="nb">input</span>          <span class="n">input_key</span>      <span class="n">input_variable</span>
-</code></pre></div></div>
+<pre><code class="language-python">print(input&lt;press tab&gt;
+    input          input_key      input_variable
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">input_variable</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amir Shahmoradi
-</code></pre></div></div>
+<pre><code class="language-python">print(input_variable)
+</code></pre>
+<pre><code>Amir Shahmoradi
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">input_variable</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
-</code></pre></div></div>
+<pre><code class="language-python">type(input_variable)
+</code></pre>
+<pre><code>str
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">input_variable</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please enter the full name of the person: 1234
-</code></pre></div></div>
+<pre><code class="language-python">input_variable = input("\n Please enter the full name of the person: ")
+</code></pre>
+<pre><code>Please enter the full name of the person: 1234
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">input_variable</span><span class="p">)</span>   <span class="c"># whatever type the input is, it will be converted to a string by Python interpreter</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
-</code></pre></div></div>
+<pre><code class="language-python">type(input_variable)   # whatever type the input is, it will be converted to a string by Python interpreter
+</code></pre>
+<pre><code>str
+</code></pre>
 
-<p>Now, back to our originally stated problem in the above, we want to write a program that takes in the name of a person from the command line and then tells the user some information about them, depending on their name. To achieve this, we need to become familiar with the concept of <strong>branching</strong> in Python.  Specifically, we can achieve our goal by writing an <code class="highlighter-rouge">if-elif</code> statement in Python as in the following python script.</p>
+<p>Now, back to our originally stated problem in the above, we want to write a program that takes in the name of a person from the command line and then tells the user some information about them, depending on their name. To achieve this, we need to become familiar with the concept of <strong>branching</strong> in Python.  Specifically, we can achieve our goal by writing an <code>if-elif</code> statement in Python as in the following python script.</p>
 
-<p>The general syntax for <code class="highlighter-rouge">if</code> blocks in python is the following.</p>
+<p>The general syntax for <code>if</code> blocks in python is the following.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">expression1</span><span class="p">:</span>     <span class="c"># if expression1 is True</span>
-   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>         <span class="c"># execute the required Python statements</span>
-<span class="k">elif</span> <span class="n">expression2</span><span class="p">:</span>   <span class="c"># else if expression2 is True</span>
-   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>         <span class="c"># execute the required Python statements</span>
-<span class="k">elif</span> <span class="n">expression3</span><span class="p">:</span>   <span class="c"># else if expression3 is True</span>
-   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>         <span class="c"># execute the required Python statements</span>
-<span class="k">else</span><span class="p">:</span>               <span class="c"># else if neither of the above was True</span>
-   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">if expression1:     # if expression1 is True
+   statement(s)         # execute the required Python statements
+elif expression2:   # else if expression2 is True
+   statement(s)         # execute the required Python statements
+elif expression3:   # else if expression3 is True
+   statement(s)         # execute the required Python statements
+else:               # else if neither of the above was True
+   statement(s)
+</code></pre>
 
 <p>Note that the indentations at the beginning of each of the statements are necessary, otherwise the Python interpreter will give you a syntax error. However, it is important to note also that the number of indentations is arbitrary.</p>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> I highly recommend you to be consistent in indentations of your Python code. The whole point of Python is to write a highly-human-readable code. This requires you to write your code in the most consistent way possible. For example, I recommend you to always use either 2,3, or 4 white-space characters for indentations in your code (4-spaces is ideal in my opinion for Python and most other programming languages). Also, <b>AVOID USING <a href="https://en.wikipedia.org/wiki/Tab_key" target="_blank">TAB CHARACTER</a> AS INDENTATION IN YOUR CODES</b> unless your editor automatically converts it to a pre-specified number of white-space characters. The <code>tab</code> character can create a huge mess in your Python codes, and some extra work to clean them up. <a href="http://www.secnetix.de/olli/Python/block_indentation.hawk" target="_blank">Here</a> is a good resource to learn more about indentations in Python.</div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
-<span class="n">class_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'nicholas dhana'</span>     <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'bradley driver'</span>     <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'sagar boeker'</span>       <span class="p">:</span> <span class="s">'student'</span> 
-             <span class="p">,</span> <span class="s">'travis bridges'</span>     <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'eric garcia'</span>        <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'christian gagliano'</span> <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'matthew janssen'</span>    <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'lucero goree'</span>       <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'jake herrera'</span>       <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'michael lewis'</span>      <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'colin langford'</span>     <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'mark mendiola'</span>      <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'emilio loveland'</span>    <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'kreshel philley'</span>    <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'russell nguyen'</span>     <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'caleb robbins'</span>      <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'joseph phillips'</span>    <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'bradley varier'</span>     <span class="p">:</span> <span class="s">'student'</span>
-             <span class="p">,</span> <span class="s">'vivek smith'</span>        <span class="p">:</span> <span class="s">'assistant'</span>
-             <span class="p">,</span> <span class="s">'amir shahmoradi'</span>    <span class="p">:</span> <span class="s">'instructor'</span>
-             <span class="p">}</span>
-<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s"> Please enter the full name of the person: "</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">class_dict</span><span class="p">:</span>    <span class="c"># First make sure the name is in our dictionary</span>
-    <span class="k">if</span> <span class="n">class_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="s">'instructor'</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span> <span class="s">'</span><span class="se">\n</span><span class="s">The name you enetered: {} belongs to the instructor of this course. His office hours are Mondays 3-4 p.m.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">elif</span> <span class="n">class_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="s">'assistant'</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span> <span class="s">'</span><span class="se">\n</span><span class="s">The name you enetered: {} belongs to the Teaching Assistant of this course.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">elif</span> <span class="n">class_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="s">'student'</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span> <span class="s">'</span><span class="se">\n</span><span class="s">The name you enetered: {} belongs to one of the students of our class.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">The name you entered: {} does not correspond to any real person in this class. Make sure you are not looking for a ghost, as our class is ghost-free.</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">#!/usr/bin/env python
+class_dict = { 'nicholas dhana'     : 'student'
+             , 'bradley driver'     : 'student'
+             , 'sagar boeker'       : 'student' 
+             , 'travis bridges'     : 'student'
+             , 'eric garcia'        : 'student'
+             , 'christian gagliano' : 'student'
+             , 'matthew janssen'    : 'student'
+             , 'lucero goree'       : 'student'
+             , 'jake herrera'       : 'student'
+             , 'michael lewis'      : 'student'
+             , 'colin langford'     : 'student'
+             , 'mark mendiola'      : 'student'
+             , 'emilio loveland'    : 'student'
+             , 'kreshel philley'    : 'student'
+             , 'russell nguyen'     : 'student'
+             , 'caleb robbins'      : 'student'
+             , 'joseph phillips'    : 'student'
+             , 'bradley varier'     : 'student'
+             , 'vivek smith'        : 'assistant'
+             , 'amir shahmoradi'    : 'instructor'
+             }
+name = input("\n Please enter the full name of the person: ")
+if name in class_dict:    # First make sure the name is in our dictionary
+    if class_dict[name] == 'instructor':
+        print( '\nThe name you enetered: {} belongs to the instructor of this course. His office hours are Mondays 3-4 p.m.\n'.format(name) )
+    elif class_dict[name] == 'assistant':
+        print( '\nThe name you enetered: {} belongs to the Teaching Assistant of this course.\n'.format(name) )
+    elif class_dict[name] == 'student':
+        print( '\nThe name you enetered: {} belongs to one of the students of our class.\n'.format(name) )
+else:
+    print('\nThe name you entered: {} does not correspond to any real person in this class. Make sure you are not looking for a ghost, as our class is ghost-free.\n'.format(name) )
+</code></pre>
 
 <p>Now, if we run the <a href="class_roster.py" target="_blank">file</a> containing this script, we will get something like the following,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./class_roster.py
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please enter the full name of the person: amir shahmoradi
+<pre><code class="language-bash">$ ./class_roster.py
+</code></pre>
+<pre><code>Please enter the full name of the person: amir shahmoradi
 The name you entered: amir shahmoradi belongs to the instructor of this course. His office hours are on Mondays at 5-6 p.m.
-</code></pre></div></div>
+</code></pre>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./class_roster.py
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please enter the full name of the person: Harry Potter
+<pre><code class="language-bash">$ ./class_roster.py
+</code></pre>
+<pre><code>Please enter the full name of the person: Harry Potter
 The name you entered: Harry Potter does not correspond to any real person in our class. Make sure you are not looking for a ghost, as our class is ghost-free.
-</code></pre></div></div>
+</code></pre>
 
-<p>Conditional <code class="highlighter-rouge">if</code> statement is the only built-in branching method in Python. However, it can be written in several different sytaxes, each of which can be useful in some circumstances:</p>
+<p>Conditional <code>if</code> statement is the only built-in branching method in Python. However, it can be written in several different sytaxes, each of which can be useful in some circumstances:</p>
 
 <p><strong>1.</strong> One-line conditional <strong>statement</strong>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span> <span class="n">statement</span>
-</code></pre></div></div>
+<pre><code class="language-python">if condition: statement
+</code></pre>
 
 <p>For example:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">'sqrt(2) &lt; 2</span><span class="se">\n</span><span class="s">Of course that was obvious!'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqrt(2) &lt; 2
+<pre><code class="language-python">if sqrt(2) &lt; 2: print('sqrt(2) &lt; 2\nOf course that was obvious!')
+</code></pre>
+<pre><code>sqrt(2) &lt; 2
 Of course, that was obvious!
-</code></pre></div></div>
+</code></pre>
 
 <p><strong>2.</strong> multiple line (as stated above) conditional <strong>statement</strong>:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
-    <span class="n">block</span> <span class="n">statements</span>
-<span class="k">elif</span><span class="p">:</span>
-    <span class="n">block</span> <span class="n">statements</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">block</span> <span class="n">statements</span>
-</code></pre></div></div>
+<pre><code class="language-python">if condition:
+    block statements
+elif:
+    block statements
+else:
+    block statements
+</code></pre>
 
 <p><strong>3.</strong> Inline conditional <strong>expression</strong>: This is a particularly useful syntax for conditional value assignments in Python.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expression1</span> <span class="k">if</span> <span class="n">condition_is_met</span> <span class="k">else</span> <span class="n">expression2</span>
-</code></pre></div></div>
+<pre><code class="language-python">expression1 if condition_is_met else expression2
+</code></pre>
 
 <p>For example, instead of writing,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">value1</span>
-<span class="k">else</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">value2</span>
-</code></pre></div></div>
+<pre><code class="language-python">if condition:
+    a = value1
+else
+    a = value2
+</code></pre>
 
 <p>one can summarize it all in one line,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">value1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">value2</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">a = (value1 if condition else value2)
+</code></pre>
 
 <p>Note that the paratheses are not necessary, however, they are recommended for clarity. Here is an example code,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Input the name: '</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">'This person is the course instructor'</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'amir'</span> <span class="k">else</span> <span class="s">'This person is not the course instructor'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input the name: amir
+<pre><code class="language-python">name = input('Input the name: ')
+print( 'This person is the course instructor' if name == 'amir' else 'This person is not the course instructor')
+</code></pre>
+<pre><code>Input the name: amir
 This person is the course instructor
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="non-boolean-conditions-in-if-statements">Non-boolean conditions in if-statements</h3>
 
 <p>There is a rather interesting feature of conditions in Python if-statements, that allows the programmer to use a non-boolean variable or value type directly in place of the condition in if-statement. What really happens here is that Python interpreter converts the non-boolean type to a boolean value, when it occurs in place of an if-statement condition.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">5.6</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'The condition in this if-statement is automatically converted from float to boolean'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The condition in this if-statement is automatically converted from float to boolean
-</code></pre></div></div>
+<pre><code class="language-python">if 5.6:
+    print('The condition in this if-statement is automatically converted from float to boolean')
+</code></pre>
+<pre><code>The condition in this if-statement is automatically converted from float to boolean
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">0.0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'A float value of zero is converted to False'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">if 0.0:
+    print('A float value of zero is converted to False')
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="mf">0.0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'A float value of zero is converted to False'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A float value of zero is converted to False
-</code></pre></div></div>
+<pre><code class="language-python">if not 0.0:
+    print('A float value of zero is converted to False')
+</code></pre>
+<pre><code>A float value of zero is converted to False
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">0.000000000000000000000000000000000000000000000000000000000000000000001</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value of any precision is converted to True'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A float value of zero is converted to False
-</code></pre></div></div>
+<pre><code class="language-python">if 0.000000000000000000000000000000000000000000000000000000000000000000001:
+    print('Any non-zero float value of any precision is converted to True')
+</code></pre>
+<pre><code>A float value of zero is converted to False
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">1.e-323</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value of any precision is converted to True'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Any non-zero float value of any precision is converted to True
-</code></pre></div></div>
+<pre><code class="language-python">if 1.e-323:
+    print('Any non-zero float value of any precision is converted to True')
+</code></pre>
+<pre><code>Any non-zero float value of any precision is converted to True
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mf">1.e-324</span><span class="p">:</span> <span class="c"># make sure you don't go beyond computer precision</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value smaller than the computer precision will be set to 0'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">if 1.e-324: # make sure you don't go beyond computer precision
+    print('Any non-zero float value smaller than the computer precision will be set to 0')
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="mf">1.e-324</span><span class="p">:</span> <span class="c"># make sure you don't go beyond computer precision</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Any non-zero float value smaller than the computer precision will be set to 0'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Any non-zero float value smaller than the computer precision will be set to 0
-</code></pre></div></div>
+<pre><code class="language-python">if not 1.e-324: # make sure you don't go beyond computer precision
+    print('Any non-zero float value smaller than the computer precision will be set to 0')
+</code></pre>
+<pre><code>Any non-zero float value smaller than the computer precision will be set to 0
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mi">12</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'The same rules also hold for integers.'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The same rules also hold for integers.
-</code></pre></div></div>
+<pre><code class="language-python">if 12:
+    print('The same rules also hold for integers.')
+</code></pre>
+<pre><code>The same rules also hold for integers.
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">""</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'An empty string is converted to boolean False'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">if "":
+    print('An empty string is converted to boolean False')
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="s">""</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'An empty string is converted to boolean False'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>An empty string is converted to boolean False
-</code></pre></div></div>
+<pre><code class="language-python">if not "":
+    print('An empty string is converted to boolean False')
+</code></pre>
+<pre><code>An empty string is converted to boolean False
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">" "</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'A non-empty string is converted to boolean True'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A non-empty string is converted to boolean True
-</code></pre></div></div>
+<pre><code class="language-python">if " ":
+    print('A non-empty string is converted to boolean True')
+</code></pre>
+<pre><code>A non-empty string is converted to boolean True
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">[]:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'An empty list is converted to boolean False'</span><span class="p">)</span>
-</code></pre></div></div>
+<pre><code class="language-python">if []:
+    print('An empty list is converted to boolean False')
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="p">[]:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'An empty list is converted to boolean False'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>An empty list is converted to boolean False
-</code></pre></div></div>
+<pre><code class="language-python">if not []:
+    print('An empty list is converted to boolean False')
+</code></pre>
+<pre><code>An empty list is converted to boolean False
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'A non-empty list is converted to boolean True'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A non-empty list is converted to boolean True
-</code></pre></div></div>
+<pre><code class="language-python">if [1]:
+    print('A non-empty list is converted to boolean True')
+</code></pre>
+<pre><code>A non-empty list is converted to boolean True
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="p">{}:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'The same rules also hold for sets and dictionaries.'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The same rules also hold for sets and dictionaries.
-</code></pre></div></div>
+<pre><code class="language-python">if not {}:
+    print('The same rules also hold for sets and dictionaries.')
+</code></pre>
+<pre><code>The same rules also hold for sets and dictionaries.
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">}:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'The same rules also hold for sets and dictionaries.'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The same rules also hold for sets and dictionaries.
-</code></pre></div></div>
+<pre><code class="language-python">if {1:2}:
+    print('The same rules also hold for sets and dictionaries.')
+</code></pre>
+<pre><code>The same rules also hold for sets and dictionaries.
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'The keyword None is also equivalent to False.'</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The keyword None is also equivalent to False.
-</code></pre></div></div>
+<pre><code class="language-python">if not None:
+    print('The keyword None is also equivalent to False.')
+</code></pre>
+<pre><code>The keyword None is also equivalent to False.
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">bool</span><span class="p">(</span><span class="s">"amir"</span><span class="p">)</span> <span class="c"># You can always get the boolean-conversion of a given value or type using Python's built-in function bool().</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
-</code></pre></div></div>
+<pre><code class="language-python">bool("amir") # You can always get the boolean-conversion of a given value or type using Python's built-in function bool().
+</code></pre>
+<pre><code>True
+</code></pre>
 
 <h2 id="exercise">Exercise</h2>
 
@@ -999,7 +999,7 @@ This person is the course instructor
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

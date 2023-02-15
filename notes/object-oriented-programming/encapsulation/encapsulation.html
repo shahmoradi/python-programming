@@ -625,56 +625,56 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <p>Mathematically speaking, however, $y$ also depends on two other parameters, $v_0$ and $g$, although it is unnatural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0,g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are the parameters of the projectile motion model that we have proposed in the above. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is done on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.</p>
 
 <p>It would then be better to write $y(t;v_0)$. Here is an implementation of this function,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">getHeight</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">initVelocity</span><span class="p">):</span>
-    <span class="n">gravityConstant</span> <span class="o">=</span> <span class="mf">9.81</span>
-    <span class="k">return</span> <span class="n">initVelocity</span> <span class="o">*</span> <span class="n">time</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">gravityConstant</span><span class="o">*</span><span class="n">time</span><span class="o">**</span><span class="mi">2</span>
-</code></pre></div></div>
+<pre><code class="language-python">def getHeight(time,initVelocity):
+    gravityConstant = 9.81
+    return initVelocity * time - 0.5*gravityConstant*time**2
+</code></pre>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">getHeight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5.095  
-</code></pre></div></div>
+<pre><code class="language-python">getHeight(1,10)
+</code></pre>
+<pre><code>5.095  
+</code></pre>
 
 <p>This function gives the height of the projectile as a function of time. Now suppose we want to differentiate height ($y(t)$) with respect to time ($t$) in order to obtain the velocity at the given moment in time. We could write the following generic code for differentiation to do so,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">getDiff</span><span class="p">(</span><span class="n">getFunc</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">deltaX</span> <span class="o">=</span> <span class="mf">1.e-5</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="n">getFunc</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">deltaX</span><span class="p">)</span> <span class="o">-</span> <span class="n">getFunc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="n">deltaX</span>
-</code></pre></div></div>
+<pre><code class="language-python">def getDiff(getFunc, x, deltaX = 1.e-5):
+    return ( getFunc(x+deltaX) - getFunc(x) ) / deltaX
+</code></pre>
 
-<p>But, here is the catch with this problem of differentiation. The <code class="highlighter-rouge">getDiff()</code> function works with any function <code class="highlighter-rouge">getFunc()</code> that takes <strong>only</strong> one argument. In other words, if we want to input <code class="highlighter-rouge">getHeight()</code> to <code class="highlighter-rouge">getDiff()</code>, then we will have to redefine <code class="highlighter-rouge">getHeight()</code> so that it takes only one argument.  You may wonder why not change <code class="highlighter-rouge">getDiff()</code>. For this simple problem, this could be a solution. But, for larger problems, you are more likely to use the sophisticated routines and modules that have been already developed by the community. Many of these routines and libraries are not aware of the specific problem that you are dealing with. Therefore, they write generic library functions that take an input function with a specific interface, in this case, a differentiation function that takes an input differential function that only has one input parameter. This situation is frequently encountered in the case with high-performance integration routines.</p>
+<p>But, here is the catch with this problem of differentiation. The <code>getDiff()</code> function works with any function <code>getFunc()</code> that takes <strong>only</strong> one argument. In other words, if we want to input <code>getHeight()</code> to <code>getDiff()</code>, then we will have to redefine <code>getHeight()</code> so that it takes only one argument.  You may wonder why not change <code>getDiff()</code>. For this simple problem, this could be a solution. But, for larger problems, you are more likely to use the sophisticated routines and modules that have been already developed by the community. Many of these routines and libraries are not aware of the specific problem that you are dealing with. Therefore, they write generic library functions that take an input function with a specific interface, in this case, a differentiation function that takes an input differential function that only has one input parameter. This situation is frequently encountered in the case with high-performance integration routines.</p>
 
-<p>One, perhaps bad, solution to the above problem is to use <strong>global variables</strong>. To do so, we can define a <strong>wrapper</strong> function that wraps around <code class="highlighter-rouge">getHeight()</code> and hides the extra input parameter <code class="highlighter-rouge">initVelocity</code> from the view of <code class="highlighter-rouge">getDiff()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># wrapper function for getHeight</span>
-<span class="k">def</span> <span class="nf">getHeightWrapper</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">getHeight</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">initVelocity</span><span class="p">)</span>
-</code></pre></div></div>
+<p>One, perhaps bad, solution to the above problem is to use <strong>global variables</strong>. To do so, we can define a <strong>wrapper</strong> function that wraps around <code>getHeight()</code> and hides the extra input parameter <code>initVelocity</code> from the view of <code>getDiff()</code>,</p>
+<pre><code class="language-python"># wrapper function for getHeight
+def getHeightWrapper(time):
+    return getHeight(time,initVelocity)
+</code></pre>
 
-<p>This function will work only if <code class="highlighter-rouge">initVelocity</code> is a global variable, initialized before any attempts to call the function <code class="highlighter-rouge">getHeightWrapper()</code>. Here is an example call where <code class="highlighter-rouge">getDiff()</code> differentiates y,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">initVelocity</span> <span class="o">=</span> <span class="mi">10</span> <span class="c"># note that initVelocity has be passed globally</span>
-<span class="n">getHeightWrapper</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5.095  
-</code></pre></div></div>
+<p>This function will work only if <code>initVelocity</code> is a global variable, initialized before any attempts to call the function <code>getHeightWrapper()</code>. Here is an example call where <code>getDiff()</code> differentiates y,</p>
+<pre><code class="language-python">initVelocity = 10 # note that initVelocity has be passed globally
+getHeightWrapper(1)
+</code></pre>
+<pre><code>5.095  
+</code></pre>
 
-<p>Now, we can pass this wrapper function to <code class="highlighter-rouge">getDiff()</code> to take its derivative with respect to time,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">initVelocity</span> <span class="o">=</span> <span class="mi">10</span> <span class="c"># note that initVelocity has be passed globally</span>
-<span class="n">getDiff</span><span class="p">(</span><span class="n">getHeightWrapper</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.18995094990259528  
-</code></pre></div></div>
+<p>Now, we can pass this wrapper function to <code>getDiff()</code> to take its derivative with respect to time,</p>
+<pre><code class="language-python">initVelocity = 10 # note that initVelocity has be passed globally
+getDiff(getHeightWrapper,1)
+</code></pre>
+<pre><code>0.18995094990259528  
+</code></pre>
 
-<p>The use of global variables is generally considered bad programming. Why global variables are problematic in the present case can be illustrated when there is a need to work with several versions of a function. Suppose we want to work with two versions of <code class="highlighter-rouge">getHeight(time,initVelocity)</code>, one with <code class="highlighter-rouge">initVelocity=10</code> and one with <code class="highlighter-rouge">initVelocity=5</code>. Every time we call <code class="highlighter-rouge">getHeight()</code>, we must remember which version of the function we work with, and set <code class="highlighter-rouge">initVelocity</code> accordingly prior to the call,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">initVelocity</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">print</span><span class="p">(</span> <span class="n">getDiff</span><span class="p">(</span><span class="n">getHeightWrapper</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">initVelocity</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span> <span class="n">getDiff</span><span class="p">(</span><span class="n">getHeightWrapper</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.18995094990259528  
+<p>The use of global variables is generally considered bad programming. Why global variables are problematic in the present case can be illustrated when there is a need to work with several versions of a function. Suppose we want to work with two versions of <code>getHeight(time,initVelocity)</code>, one with <code>initVelocity=10</code> and one with <code>initVelocity=5</code>. Every time we call <code>getHeight()</code>, we must remember which version of the function we work with, and set <code>initVelocity</code> accordingly prior to the call,</p>
+<pre><code class="language-python">initVelocity = 10
+print( getDiff(getHeightWrapper,1) )
+initVelocity = 5
+print( getDiff(getHeightWrapper,1) )
+</code></pre>
+<pre><code>0.18995094990259528  
 -4.810049050085752  
-</code></pre></div></div>
+</code></pre>
 
-<p>Another problem is that the variable names such as <code class="highlighter-rouge">initVelocity</code> are now exposed in the code and could potentially overwrite (or get overwritten by) some other variables. In the best case scenario, such name clashes will cause a syntax or runtime error, but frequently, they go unnoticed in the code causing the program to yield wrong results which, depending on the context in which they occur, <a href="https://en.wikipedia.org/wiki/Mariner_1" target="_blank">could be devastating</a>.</p>
+<p>Another problem is that the variable names such as <code>initVelocity</code> are now exposed in the code and could potentially overwrite (or get overwritten by) some other variables. In the best case scenario, such name clashes will cause a syntax or runtime error, but frequently, they go unnoticed in the code causing the program to yield wrong results which, depending on the context in which they occur, <a href="https://en.wikipedia.org/wiki/Mariner_1" target="_blank">could be devastating</a>.</p>
 
-<p>Another major problem with global variables is that they could cause <strong>side effects</strong>. For example, if the value of <code class="highlighter-rouge">initVelocity</code> is mistakenly changed inside the function <code class="highlighter-rouge">getHeight()</code> it will remain unnoticed and <strong>the change affects other parts of the program in an unintentional way</strong>. This is one reason why a golden rule of programming tells us to <strong>limit the use of global variables as much as possible</strong>.</p>
+<p>Another major problem with global variables is that they could cause <strong>side effects</strong>. For example, if the value of <code>initVelocity</code> is mistakenly changed inside the function <code>getHeight()</code> it will remain unnoticed and <strong>the change affects other parts of the program in an unintentional way</strong>. This is one reason why a golden rule of programming tells us to <strong>limit the use of global variables as much as possible</strong>.</p>
 
 <p><strong>So, is there a good remedy?</strong> The answer is yes: the class concept solves all the problems described above.</p>
 
@@ -682,89 +682,89 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
 <p>A class contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer. However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.</p>
 
-<p>Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables <code class="highlighter-rouge">initVelocity</code> and <code class="highlighter-rouge">gravityConstant</code>, constitute the data. A Python function, say <code class="highlighter-rouge">getHeight(time)</code>, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data <code class="highlighter-rouge">initVelocity</code> and <code class="highlighter-rouge">gravityConstant</code>, while <code class="highlighter-rouge">time</code> is an argument. A programmer experienced with classes will then suggest collecting the data <code class="highlighter-rouge">initVelocity</code> and <code class="highlighter-rouge">gravityConstant</code>, and the function <code class="highlighter-rouge">getHeight(time)</code>, together as a <strong>class</strong>.</p>
+<p>Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables <code>initVelocity</code> and <code>gravityConstant</code>, constitute the data. A Python function, say <code>getHeight(time)</code>, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data <code>initVelocity</code> and <code>gravityConstant</code>, while <code>time</code> is an argument. A programmer experienced with classes will then suggest collecting the data <code>initVelocity</code> and <code>gravityConstant</code>, and the function <code>getHeight(time)</code>, together as a <strong>class</strong>.</p>
 
-<p>A class usually has another function, called <strong>constructor</strong> for <strong>initializing the data</strong>. The constructor is always named <code class="highlighter-rouge">__init__</code>. Every <strong>class must have a name</strong>, often <strong>starting with a capital</strong> letter. For our problem here, we can choose <code class="highlighter-rouge">Projectile</code> as the name of the class since it represents a (vertical) projectile motion. The next step is to implement this class in Python. A complete class code <code class="highlighter-rouge">Projectile</code> for our problem here in Python could look like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Projectile</span><span class="p">():</span>
+<p>A class usually has another function, called <strong>constructor</strong> for <strong>initializing the data</strong>. The constructor is always named <code>__init__</code>. Every <strong>class must have a name</strong>, often <strong>starting with a capital</strong> letter. For our problem here, we can choose <code>Projectile</code> as the name of the class since it represents a (vertical) projectile motion. The next step is to implement this class in Python. A complete class code <code>Projectile</code> for our problem here in Python could look like the following,</p>
+<pre><code class="language-python">class Projectile():
 
-    <span class="n">gravityConstant</span> <span class="o">=</span> <span class="mf">9.81</span>
+    gravityConstant = 9.81
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initVelocity</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">initVelocity</span> <span class="o">=</span> <span class="n">initVelocity</span>
+    def __init__(self, initVelocity):
+        self.initVelocity = initVelocity
 
-    <span class="k">def</span> <span class="nf">getHeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">time</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initVelocity</span> <span class="o">*</span> <span class="n">time</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">gravityConstant</span> <span class="o">*</span> <span class="n">time</span><span class="o">**</span><span class="mi">2</span>
-</code></pre></div></div>
+    def getHeight(self,time):
+        return self.initVelocity * time - 0.5 * self.gravityConstant * time**2
+</code></pre>
 
-<p><strong>A class creates a new data type</strong>, here of name <code class="highlighter-rouge">Projectile</code>, so when we use the class to make objects, those objects are of type <code class="highlighter-rouge">Projectile()</code>. <strong>All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes</strong>, and each time the user creates on these variable types, one instance of these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an <strong>instance</strong>. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance of <code class="highlighter-rouge">Projectile()</code> bound to the variable named <code class="highlighter-rouge">projectile</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">projectile</span> <span class="o">=</span> <span class="n">Projectile</span><span class="p">(</span><span class="n">initVelocity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div></div>
+<p><strong>A class creates a new data type</strong>, here of name <code>Projectile</code>, so when we use the class to make objects, those objects are of type <code>Projectile()</code>. <strong>All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes</strong>, and each time the user creates on these variable types, one instance of these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an <strong>instance</strong>. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance of <code>Projectile()</code> bound to the variable named <code>projectile</code>,</p>
+<pre><code class="language-python">projectile = Projectile(initVelocity=10)
+</code></pre>
 
-<p>Seemingly, we <em>call the class <code class="highlighter-rouge">Projectile()</code> as if it were a function</em>. Indeed, <code class="highlighter-rouge">Projectile(3)</code> is automatically translated by Python to a call to the constructor <code class="highlighter-rouge">__init__()</code> in class <code class="highlighter-rouge">Projectile</code>. The arguments in the call, here <code class="highlighter-rouge">initVelocity</code>, are always passed on as arguments to <code class="highlighter-rouge">__init__()</code> after the <code class="highlighter-rouge">self</code> argument. That is, <code class="highlighter-rouge">initVelocity</code> gets the value <code class="highlighter-rouge">10</code> and <code class="highlighter-rouge">self</code> is just dropped in the call. This may be confusing, but it is a rule that the <code class="highlighter-rouge">self</code> argument is never used in calls to functions in classes. With the instance <code class="highlighter-rouge">projectile</code>, we can compute the value of y(t=0.1;v_0=10) by the statement,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">height</span> <span class="o">=</span> <span class="n">projectile</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.95095
-</code></pre></div></div>
+<p>Seemingly, we <em>call the class <code>Projectile()</code> as if it were a function</em>. Indeed, <code>Projectile(3)</code> is automatically translated by Python to a call to the constructor <code>__init__()</code> in class <code>Projectile</code>. The arguments in the call, here <code>initVelocity</code>, are always passed on as arguments to <code>__init__()</code> after the <code>self</code> argument. That is, <code>initVelocity</code> gets the value <code>10</code> and <code>self</code> is just dropped in the call. This may be confusing, but it is a rule that the <code>self</code> argument is never used in calls to functions in classes. With the instance <code>projectile</code>, we can compute the value of y(t=0.1;v_0=10) by the statement,</p>
+<pre><code class="language-python">height = projectile.getHeight(0.1)
+print(height)
+</code></pre>
+<pre><code>0.95095
+</code></pre>
 
-<p>Note that the <code class="highlighter-rouge">self</code> input argument is dropped in the call to <code class="highlighter-rouge">getHeight()</code>. To access functions and variables in a class, one must prefix the function and variable names by the name of the instance and a dot: the value function is reached as <code class="highlighter-rouge">projectile.getHeight</code>, and the variables are reached as <code class="highlighter-rouge">projectile.initVelocity</code> and <code class="highlighter-rouge">projectile.gravityConstant</code>. One could, for example, print the value of <code class="highlighter-rouge">initVelocity</code> in the instance <code class="highlighter-rouge">projectile</code> by writing,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">projectile</span><span class="o">.</span><span class="n">initVelocity</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
-</code></pre></div></div>
+<p>Note that the <code>self</code> input argument is dropped in the call to <code>getHeight()</code>. To access functions and variables in a class, one must prefix the function and variable names by the name of the instance and a dot: the value function is reached as <code>projectile.getHeight</code>, and the variables are reached as <code>projectile.initVelocity</code> and <code>projectile.gravityConstant</code>. One could, for example, print the value of <code>initVelocity</code> in the instance <code>projectile</code> by writing,</p>
+<pre><code class="language-python">print(projectile.initVelocity)
+</code></pre>
+<pre><code>10
+</code></pre>
 
-<p>We have already introduced the term <strong>instance</strong> for an object of a specific class. <strong>Functions</strong> in classes are commonly called <strong>methods</strong>, and <strong>variables (data)</strong> in classes are called <strong>data attributes</strong>. Methods are also known as <strong>method attributes</strong>. For example, in our sample class <code class="highlighter-rouge">Projectile</code> we have two methods or method attributes, <code class="highlighter-rouge">__init__()</code> and <code class="highlighter-rouge">getHeight()</code>, two data attributes, <code class="highlighter-rouge">initVelocity</code> and <code class="highlighter-rouge">gravityConstant</code>, and four attributes in total (<code class="highlighter-rouge">__init__</code>, <code class="highlighter-rouge">getHeight</code>, <code class="highlighter-rouge">initVelocity</code>, <code class="highlighter-rouge">gravityConstant</code>). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, <strong>the constructor must have the name <code class="highlighter-rouge">__init__()</code>, otherwise it is not automatically called when new instances are created</strong>. You can do whatever you want in whatever method, but it is a common convention to <strong>use the constructor for initializing the variables in the class</strong>.</p>
+<p>We have already introduced the term <strong>instance</strong> for an object of a specific class. <strong>Functions</strong> in classes are commonly called <strong>methods</strong>, and <strong>variables (data)</strong> in classes are called <strong>data attributes</strong>. Methods are also known as <strong>method attributes</strong>. For example, in our sample class <code>Projectile</code> we have two methods or method attributes, <code>__init__()</code> and <code>getHeight()</code>, two data attributes, <code>initVelocity</code> and <code>gravityConstant</code>, and four attributes in total (<code>__init__</code>, <code>getHeight</code>, <code>initVelocity</code>, <code>gravityConstant</code>). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, <strong>the constructor must have the name <code>__init__()</code>, otherwise it is not automatically called when new instances are created</strong>. You can do whatever you want in whatever method, but it is a common convention to <strong>use the constructor for initializing the variables in the class</strong>.</p>
 
-<p>With this class, we can now call <code class="highlighter-rouge">getDiff()</code> to take the derivative of the height of the projectile motion we have defined, <em>without the need to create global variables</em>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">projectile</span> <span class="o">=</span> <span class="n">Projectile</span><span class="p">(</span><span class="n">initVelocity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="n">getDiff</span><span class="p">(</span><span class="n">projectile</span><span class="o">.</span><span class="n">getHeight</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.18995094990259528
-</code></pre></div></div>
+<p>With this class, we can now call <code>getDiff()</code> to take the derivative of the height of the projectile motion we have defined, <em>without the need to create global variables</em>,</p>
+<pre><code class="language-python">projectile = Projectile(initVelocity=10)
+print( getDiff(projectile.getHeight,1) )
+</code></pre>
+<pre><code>0.18995094990259528
+</code></pre>
 
-<p>Now, it may seem a bit redundant to type <code class="highlighter-rouge">projectile.getHeight()</code> to get the height. Amazingly, Python provides a neat shortcut for such instances via the <code class="highlighter-rouge">__call__()</code> method to create <strong>callable</strong> objects.</p>
+<p>Now, it may seem a bit redundant to type <code>projectile.getHeight()</code> to get the height. Amazingly, Python provides a neat shortcut for such instances via the <code>__call__()</code> method to create <strong>callable</strong> objects.</p>
 
 <h2 id="callable-objects">Callable objects</h2>
 
-<p>If you recall, computing the value of the mathematical function represented by class <code class="highlighter-rouge">Projectile</code>, with <code class="highlighter-rouge">projectile</code> as the name of the instance, is performed by writing <code class="highlighter-rouge">projectile.getHeight()</code>. If we could write just <code class="highlighter-rouge">projectile()</code>, the <code class="highlighter-rouge">projectile</code> instance would look like an ordinary function. Such a syntax is indeed possible and offered by the special method named <code class="highlighter-rouge">__call__</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Projectile</span><span class="p">():</span>
+<p>If you recall, computing the value of the mathematical function represented by class <code>Projectile</code>, with <code>projectile</code> as the name of the instance, is performed by writing <code>projectile.getHeight()</code>. If we could write just <code>projectile()</code>, the <code>projectile</code> instance would look like an ordinary function. Such a syntax is indeed possible and offered by the special method named <code>__call__</code>,</p>
+<pre><code class="language-python">class Projectile():
 
-    <span class="n">gravityConstant</span> <span class="o">=</span> <span class="mf">9.81</span>
+    gravityConstant = 9.81
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initVelocity</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">initVelocity</span> <span class="o">=</span> <span class="n">initVelocity</span>
+    def __init__(self, initVelocity):
+        self.initVelocity = initVelocity
 
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+    def __call__(self, time):
+        return self.getHeight(time)
 
-    <span class="k">def</span> <span class="nf">getHeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">time</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initVelocity</span> <span class="o">*</span> <span class="n">time</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">gravityConstant</span> <span class="o">*</span> <span class="n">time</span><span class="o">**</span><span class="mi">2</span>
-</code></pre></div></div>
+    def getHeight(self,time):
+        return self.initVelocity * time - 0.5 * self.gravityConstant * time**2
+</code></pre>
 
 <p>then writing,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">projectile</span> <span class="o">=</span> <span class="n">Projectile</span><span class="p">(</span><span class="n">initVelocity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">projectile</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">projectile</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5.095  
+<pre><code class="language-python">projectile = Projectile(initVelocity=10)
+print(projectile(1))
+print(projectile.getHeight(1))
+</code></pre>
+<pre><code>5.095  
 5.095  
-</code></pre></div></div>
+</code></pre>
 
-<p>would yield identical results. With this <code class="highlighter-rouge">__call__</code> method, the <code class="highlighter-rouge">getHeight</code> method could be even considered as redundant and the class could be written more concisely as,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Projectile</span><span class="p">():</span>
-    <span class="n">gravityConstant</span> <span class="o">=</span> <span class="mf">9.81</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initVelocity</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">initVelocity</span> <span class="o">=</span> <span class="n">initVelocity</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initVelocity</span> <span class="o">*</span> <span class="n">time</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">gravityConstant</span> <span class="o">*</span> <span class="n">time</span><span class="o">**</span><span class="mi">2</span>
-</code></pre></div></div>
+<p>would yield identical results. With this <code>__call__</code> method, the <code>getHeight</code> method could be even considered as redundant and the class could be written more concisely as,</p>
+<pre><code class="language-python">class Projectile():
+    gravityConstant = 9.81
+    def __init__(self, initVelocity): self.initVelocity = initVelocity
+    def __call__(self, time): return self.initVelocity * time - 0.5 * self.gravityConstant * time**2
+</code></pre>
 
-<p>A good programming convention is to <strong>include a <code class="highlighter-rouge">__call__</code> method in all classes that represent a mathematical function</strong>. Objects that are instances of classes with <code class="highlighter-rouge">__call__</code> methods are said to be <strong>callable objects</strong>, just as plain functions are callable objects as well. The call syntax for callable objects is the same, regardless of whether the object is a function or a class instance.</p>
+<p>A good programming convention is to <strong>include a <code>__call__</code> method in all classes that represent a mathematical function</strong>. Objects that are instances of classes with <code>__call__</code> methods are said to be <strong>callable objects</strong>, just as plain functions are callable objects as well. The call syntax for callable objects is the same, regardless of whether the object is a function or a class instance.</p>
 
-<p>You can always test if an instance is callable or not by <code class="highlighter-rouge">callable()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">projectile</span> <span class="o">=</span> <span class="n">Projectile</span><span class="p">(</span><span class="n">initVelocity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="nb">callable</span><span class="p">(</span><span class="n">projectile</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True  
-</code></pre></div></div>
+<p>You can always test if an instance is callable or not by <code>callable()</code>,</p>
+<pre><code class="language-python">projectile = Projectile(initVelocity=10)
+callable(projectile)
+</code></pre>
+<pre><code>True  
+</code></pre>
 
     
     
@@ -862,7 +862,7 @@ the script runs before the sidebar code runs and the class never gets inserted.
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>June 30, 2020<br/>
             

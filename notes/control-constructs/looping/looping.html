@@ -621,18 +621,18 @@ the script runs before the sidebar code runs and the class never gets inserted.
 <h3 id="while-loop">While loop</h3>
 
 <p>One such statement is the while-loop:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="n">this_logical_statement_holds_true</span> <span class="p">:</span> 
-    <span class="n">perform_statements</span>
-</code></pre></div></div>
+<pre><code class="language-python">while this_logical_statement_holds_true : 
+    perform_statements
+</code></pre>
 
 <p>For example, here is a code that prints all positive integers smaller than a given input integer,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'input a positive integer: '</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">'Here are all positive integers smaller than {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span>
-<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input a positive integer: 7
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+while n &gt; 1:
+    n -= 1
+    print(n)
+</code></pre>
+<pre><code>input a positive integer: 7
 Here are all positive integers smaller than 7
 6
 5
@@ -640,17 +640,17 @@ Here are all positive integers smaller than 7
 3
 2
 1
-</code></pre></div></div>
+</code></pre>
 
 <p>Another useful way of writing while-loops is the following (using the example above),</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'input a positive integer: '</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">'Here are all positive integers smaller than {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">break</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input a positive integer: 7
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+while True:
+    n -= 1
+    print(n)
+    if n == 1: break
+</code></pre>
+<pre><code>input a positive integer: 7
 Here are all positive integers smaller than 7
 6
 5
@@ -658,20 +658,20 @@ Here are all positive integers smaller than 7
 3
 2
 1
-</code></pre></div></div>
+</code></pre>
 
-<p>In this case, the loop will continue forever, unless the condition <code class="highlighter-rouge">n==1</code> is met at some point during the iteration.</p>
+<p>In this case, the loop will continue forever, unless the condition <code>n==1</code> is met at some point during the iteration.</p>
 
 <h3 id="for-loop">For loop</h3>
 
 <p>If you are from a Fortran, C, C++ background you may be already accustomed to counting loops than while loops. Python does not have a direct method for counting loops, however, there is a for-loop syntax that loops over the elements of a list or tuple. For example, if we wanted to rewrite the above code using for-loop, one solution would be like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'input a positive integer: '</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">'Here are all positive integers smaller than {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">my_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">my_range</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input a positive integer: 7
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+my_range = range(n-1,0,-1)
+for n in my_range:
+    print(n)
+</code></pre>
+<pre><code>input a positive integer: 7
 Here are all positive integers smaller than 7
 7
 6
@@ -680,16 +680,16 @@ Here are all positive integers smaller than 7
 3
 2
 1
-</code></pre></div></div>
+</code></pre>
 
-<p>Here the Python’s builtin function <code class="highlighter-rouge">range([start,] stop [, step])</code> creates a list of integer that starts from <code class="highlighter-rouge">start</code> to <code class="highlighter-rouge">end</code> <em>but not including <code class="highlighter-rouge">end</code></em>, with a distance of size <code class="highlighter-rouge">step</code> between the elements. Here is another way of doing the same thing as in the above example,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'input a positive integer: '</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span> <span class="s">'Here are all positive integers smaller than {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input a positive integer: 7
+<p>Here the Python’s builtin function <code>range([start,] stop [, step])</code> creates a list of integer that starts from <code>start</code> to <code>end</code> <em>but not including <code>end</code></em>, with a distance of size <code>step</code> between the elements. Here is another way of doing the same thing as in the above example,</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+mylist = list(range(n-1,0,-1))
+for n in mylist:
+    print(n)
+</code></pre>
+<pre><code>input a positive integer: 7
 Here are all positive integers smaller than 7
 6
 5
@@ -697,92 +697,92 @@ Here are all positive integers smaller than 7
 3
 2
 1
-</code></pre></div></div>
+</code></pre>
 
-<p>Note how I have used the <code class="highlighter-rouge">range</code> function in order to get the same output as in the previous example.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'input a positive integer: '</span><span class="p">))</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input a positive integer: 7  
+<p>Note how I have used the <code>range</code> function in order to get the same output as in the previous example.</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+mylist = list(range(n-1,0,-1))
+print(mylist)
+</code></pre>
+<pre><code>input a positive integer: 7  
 [6, 5, 4, 3, 2, 1]
-</code></pre></div></div>
+</code></pre>
 
 <h4 id="for-loop-with-list-indices">​For-loop with list indices</h4>
 
 <p>Instead of iterating over a list directly, as illustrated above, one could iterate over the indices of a list,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s">'amir'</span><span class="p">,</span><span class="s">'jake'</span><span class="p">,</span><span class="s">'lecero'</span><span class="p">,</span><span class="s">'mike'</span><span class="p">,</span><span class="s">'travis'</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>amir
+<pre><code class="language-python">mylist = ['amir','jake','lecero','mike','travis']
+for i in range(len(mylist)):
+    print(mylist[i])
+</code></pre>
+<pre><code>amir
 jake
 lecero
 mike
 travis
-</code></pre></div></div>
+</code></pre>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Iterating over list indices, instead of list elements, is particularly useful, when you have to work with multiple lists in a for-loop.</div>
 
 <h4 id="manipulating-lists-using-for-loop">Manipulating lists using for-loop</h4>
 
 <p>Note that when you want to change the elements of a list in a for-loop, you have to change the list itself, and not simply the for-loop variable.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mydigits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mydigits</span><span class="p">:</span>
-    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-<span class="n">mydigits</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1, 3, 5, 7, 9]
-</code></pre></div></div>
+<pre><code class="language-python">mydigits = [1,3,5,7,9]
+for i in mydigits:
+    i -= 1
+mydigits
+</code></pre>
+<pre><code>[1, 3, 5, 7, 9]
+</code></pre>
 
 <p>The above code won’t change the values in the list, instead only the for-loop variable. If you want to change the list itself, you have to operate on the list elements directly,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mydigits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mydigits</span><span class="p">)):</span>
-    <span class="n">mydigits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
-<span class="n">mydigits</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0, 2, 4, 6, 8]
-</code></pre></div></div>
+<pre><code class="language-python">mydigits = [1,3,5,7,9]
+for i in range(len(mydigits)):
+    mydigits[i] -= 1
+mydigits
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
 
 <h4 id="list-comprehension">List comprehension</h4>
 
 <p>Frequently in Python programming, you may need to create long lists of regularly-ordered item. As a result, Python has a special concise syntax for such tasks, called <strong>list comprehension</strong> which uses for-loop. For example, suppose you have a list of odd digits as in the example above, and you want to create a list of even digits from it. You could achieve this using the following simple syntax,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">odd_digits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
-<span class="n">even_digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">odd_digits</span><span class="p">]</span>
-<span class="n">even_digits</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0, 2, 4, 6, 8]
-</code></pre></div></div>
+<pre><code class="language-python">odd_digits = [1,3,5,7,9]
+even_digits = [i-1 for i in odd_digits]
+even_digits
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
 
 <h4 id="simultaneous-looping-over-multiple-lists">Simultaneous looping over multiple lists</h4>
 
-<p>Suppose you have two or more lists of the same length over the elements of which you want to perform a specific set of tasks simultaneously. To do so, it suffices to create a <strong>list of tuples</strong> using Python’s builtin function <code class="highlighter-rouge">zip</code> and loop over the tuple elements of this list. For example, let’s assume that you wanted to create a list of the addition of individual elements in the above two lists: <code class="highlighter-rouge">odd_digits</code> and <code class="highlighter-rouge">even_digits</code>. One way to do it would be the following,</p>
+<p>Suppose you have two or more lists of the same length over the elements of which you want to perform a specific set of tasks simultaneously. To do so, it suffices to create a <strong>list of tuples</strong> using Python’s builtin function <code>zip</code> and loop over the tuple elements of this list. For example, let’s assume that you wanted to create a list of the addition of individual elements in the above two lists: <code>odd_digits</code> and <code>even_digits</code>. One way to do it would be the following,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sum_even_odd</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">odd_digits</span><span class="p">,</span><span class="n">even_digits</span><span class="p">):</span>
-    <span class="n">sum_even_odd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span> 
-<span class="n">sum_even_odd</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1, 5, 9, 13, 17]
-</code></pre></div></div>
+<pre><code class="language-python">sum_even_odd = []
+for i,j in zip(odd_digits,even_digits):
+    sum_even_odd.append(i+j) 
+sum_even_odd
+</code></pre>
+<pre><code>[1, 5, 9, 13, 17]
+</code></pre>
 
 <h4 id="looping-over-dictionary-items">​Looping over dictionary items</h4>
 
 <p>Dictionaries in Python are composed on key-value pairs, therefore looping over them is slight different than looping over lists,</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">'amir'</span><span class="p">:</span><span class="s">'teacher'</span><span class="p">,</span><span class="s">'jake'</span><span class="p">:</span><span class="s">'student'</span><span class="p">,</span><span class="s">'lecero'</span><span class="p">:</span><span class="s">'student'</span><span class="p">,</span><span class="s">'mike'</span><span class="p">:</span><span class="s">'student'</span><span class="p">,</span><span class="s">'travis'</span><span class="p">:</span><span class="s">'student'</span><span class="p">}</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">name_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span> <span class="s">"{0} is a {1}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="p">)</span> <span class="p">)</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>amir is a teacher.
+<pre><code class="language-python">name_dict = {'amir':'teacher','jake':'student','lecero':'student','mike':'student','travis':'student'}
+for key, value in name_dict.items():
+    print( "{0} is a {1}.".format(key,value) )
+</code></pre>
+<pre><code>amir is a teacher.
 jake is a student.
 lecero is a student.
 mike is a student.
 travis is a student.
-</code></pre></div></div>
+</code></pre>
 
-<p>Here in order to extract the key-value pairs from inside the dictionary, we have used the <code class="highlighter-rouge">items()</code> method belonging to dictionary objects in Python.</p>
+<p>Here in order to extract the key-value pairs from inside the dictionary, we have used the <code>items()</code> method belonging to dictionary objects in Python.</p>
 
 <h2 id="exercise">Exercise</h2>
 
@@ -904,7 +904,7 @@ travis is a student.
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             

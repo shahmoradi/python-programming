@@ -641,58 +641,58 @@ the script runs before the sidebar code runs and the class never gets inserted.
   <li><a href="https://docs.pytest.org/en/latest/" target="_blank"><strong>pytest</strong></a></li>
 </ol>
 
-<p>which automate as much as possible the process of testing all of your codes, whenever required. The last, <code class="highlighter-rouge">pytest</code> appears to be the most popular unit testing framework as of today.</p>
+<p>which automate as much as possible the process of testing all of your codes, whenever required. The last, <code>pytest</code> appears to be the most popular unit testing framework as of today.</p>
 
 <h2 id="conventions-for-test-functions">Conventions for test functions</h2>
 
 <p>The simplest way of using the testing frameworks (e.g., pytest or nose) is to write a set of test functions, scattered around in files, such that pytest or nose can automatically find and run all of these test functions. To achieve the goal, the test functions need to follow certain conventions:</p>
 <ol>
-  <li>The name of a test function starts with <code class="highlighter-rouge">test_</code>.</li>
+  <li>The name of a test function starts with <code>test_</code>.</li>
   <li>A test function cannot take any arguments.</li>
   <li>Any test must be formulated as a boolean condition.</li>
-  <li>An <code class="highlighter-rouge">AssertionError</code> exception is raised if the boolean condition is <code class="highlighter-rouge">False</code> (i.e., when the test fails).<br />
+  <li>An <code>AssertionError</code> exception is raised if the boolean condition is <code>False</code> (i.e., when the test fails).<br />
 <br /></li>
 </ol>
 
 <h2 id="testing-function-accuracy">Testing function accuracy</h2>
 
 <p>Suppose we have written the following function which runs the Newton’s method for solving an algebraic equation of the form $f(x)=0$, and we would like to write a test function that ensures its correct behavior.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-7</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># iteration counter</span>
-    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span>
-</code></pre></div></div>
+<pre><code class="language-python">def newton(f, dfdx, x, eps=1E-7):
+    n = 0 # iteration counter
+    while abs(f(x)) &gt; eps:
+        x = x - f(x)/dfdx(x)
+        n += 1
+    return x, f(x), n
+</code></pre>
 
-<p>Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code class="highlighter-rouge">newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code class="highlighter-rouge">newton</code> is a float that depends on the machine precision, we cannot expect the function to output the same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the <code class="highlighter-rouge">sin(x)</code> function as the test input function to <code class="highlighter-rouge">newton()</code>,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_newton_sin</span><span class="p">():</span>
+<p>Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code>newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code>newton</code> is a float that depends on the machine precision, we cannot expect the function to output the same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the <code>sin(x)</code> function as the test input function to <code>newton()</code>,</p>
+<pre><code class="language-python">def test_newton_sin():
     
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
+    from math import sin, cos, pi
 
-    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    def f(x):
+        return sin(x)
     
-    <span class="k">def</span> <span class="nf">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    def dfdx(x):
+        return cos(x)
     
-    <span class="n">x_ref</span> <span class="o">=</span> <span class="mf">0.000769691024206</span>
-    <span class="n">f_x_ref</span> <span class="o">=</span> <span class="mf">0.000769690948209</span>
-    <span class="n">n_ref</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="o">=-</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-2</span><span class="p">)</span>
-    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1E-15</span> <span class="c"># tolerance for comparing real numbers</span>
-    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_ref</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="p">,</span> <span class="s">"The test for the value of x_0 failed"</span> <span class="c"># is x correct?</span>
-    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f_x_ref</span> <span class="o">-</span> <span class="n">f_x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="p">,</span> <span class="s">"The test for the function value failed"</span> <span class="c"># is f_x correct?</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">,</span> <span class="s">"The test for the number of iterations failed"</span> <span class="c"># is f_x correct? # is n correct?</span>
-</code></pre></div></div>
+    x_ref = 0.000769691024206
+    f_x_ref = 0.000769690948209
+    n_ref = 3
+    x, f_x, n = newton(f, dfdx, x=-pi/3, eps=1E-2)
+    tol = 1E-15 # tolerance for comparing real numbers
+    assert abs(x_ref - x) &lt; tol , "The test for the value of x_0 failed" # is x correct?
+    assert abs(f_x_ref - f_x) &lt; tol , "The test for the function value failed" # is f_x correct?
+    assert n == 3 , "The test for the number of iterations failed" # is f_x correct? # is n correct?
+</code></pre>
 
-<p>Note that in the above test function, the function name begins with <code class="highlighter-rouge">test_</code>, takes no arguments, and raises an <code class="highlighter-rouge">assertionError</code> at the end. Now if you run the test,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_newton_sin</span><span class="p">()</span>
-</code></pre></div></div>
+<p>Note that in the above test function, the function name begins with <code>test_</code>, takes no arguments, and raises an <code>assertionError</code> at the end. Now if you run the test,</p>
+<pre><code class="language-python">test_newton_sin()
+</code></pre>
 
-<p>you will notice that the function passed the test. However, if in the above test, we set <code class="highlighter-rouge">eps=1E-10</code>, and run the test again, you will get an assertion error like the following,</p>
+<p>you will notice that the function passed the test. However, if in the above test, we set <code>eps=1E-10</code>, and run the test again, you will get an assertion error like the following,</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
+<pre><code>---------------------------------------------------------------------------
 AssertionError                            Traceback (most recent call last)
 &lt;ipython-input-20-8be9faac8d8e&gt; in &lt;module&gt;()
 ----&gt; 1 test_newton_sin()
@@ -705,14 +705,14 @@ AssertionError                            Traceback (most recent call last)
      18     assert n == 3 , "The test for the number of iterations failed" # is f_x correct? # is n correct?
 
 AssertionError: The test for the value of x_0 failed
-</code></pre></div></div>
+</code></pre>
 
-<p>One could also write exact tests for the function <code class="highlighter-rouge">newton</code> which test for an exact result which is known a priori, for example, a mathematical linear input function to <code class="highlighter-rouge">newton</code>.<br />
+<p>One could also write exact tests for the function <code>newton</code> which test for an exact result which is known a priori, for example, a mathematical linear input function to <code>newton</code>.<br />
 <br /></p>
 
 <h2 id="testing-function-robustness">Testing function robustness</h2>
 
-<p>The above <code class="highlighter-rouge">newton</code> function is very basic and suffers from several problems:</p>
+<p>The above <code>newton</code> function is very basic and suffers from several problems:</p>
 <ul>
   <li>for divergent iterations, it will iterate forever,</li>
   <li>it can divide by zero in f(x)/dfdx(x),</li>
@@ -721,35 +721,35 @@ AssertionError: The test for the value of x_0 failed
 </ul>
 
 <p>A more robust implementation dealing with these potential problems would look like the following:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-7</span><span class="p">,</span> <span class="n">maxit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span> <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span> <span class="s">'f is </span><span class="si">%</span><span class="s">s, should be function or class with __call__'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">dfdx</span><span class="p">):</span> <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span> <span class="s">'dfdx is </span><span class="si">%</span><span class="s">s, should be function or class with __call__'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">dfdx</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">maxit</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span> <span class="s">'maxit is </span><span class="si">%</span><span class="s">s, must be int'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">maxit</span><span class="p">)</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="n">maxit</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span> <span class="s">'maxit=</span><span class="si">%</span><span class="s">d &lt;= 0, must be &gt; 0'</span> <span class="o">%</span> <span class="n">maxit</span> <span class="p">)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># iteration counter</span>
-    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">eps</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">maxit</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k">except</span> <span class="nb">ZeroDivisionError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nb">ZeroDivisionError</span><span class="p">(</span> <span class="s">'dfdx(</span><span class="si">%</span><span class="s">g)=</span><span class="si">%</span><span class="s">g - cannot divide by zero'</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">)</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span>
-</code></pre></div></div>
+<pre><code class="language-python">def Newton(f, dfdx, x, eps=1E-7, maxit=100):
+    if not callable(f): raise TypeError( 'f is %s, should be function or class with __call__' % type(f) )
+    if not callable(dfdx): raise TypeError( 'dfdx is %s, should be function or class with __call__' % type(dfdx) )
+    if not isinstance(maxit, int): raise TypeError( 'maxit is %s, must be int' % type(maxit) )
+    if maxit &lt;= 0: raise ValueError( 'maxit=%d &lt;= 0, must be &gt; 0' % maxit )
+    n = 0 # iteration counter
+    while abs(f(x)) &gt; eps and n &lt; maxit:
+        try:
+            x = x - f(x)/float(dfdx(x))
+        except ZeroDivisionError:
+            raise ZeroDivisionError( 'dfdx(%g)=%g - cannot divide by zero' % (x, dfdx(x)) )
+        n += 1
+    return x, f(x), n
+</code></pre>
 
-<p>Now, for this more robust code (than the earlier version: <code class="highlighter-rouge">newton</code>), we have to also write a set of tests, examining the robustness of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of <code class="highlighter-rouge">Newton</code> subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in Newton’s method. So we can set <code class="highlighter-rouge">maxit=12</code> in our robust <code class="highlighter-rouge">Newton</code> code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_Newton_divergence</span><span class="p">():</span>
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">tanh</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">tanh</span>
-    <span class="n">dfdx</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">10.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<p>Now, for this more robust code (than the earlier version: <code>newton</code>), we have to also write a set of tests, examining the robustness of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of <code>Newton</code> subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in Newton’s method. So we can set <code>maxit=12</code> in our robust <code>Newton</code> code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,</p>
+<pre><code class="language-python">def test_Newton_divergence():
+    from math import tanh
+    f = tanh
+    dfdx = lambda x: 10./(1 + x**2)
     
-    <span class="n">x</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1E-4</span><span class="p">,</span> <span class="n">maxit</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">12</span>
-    <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1E+50</span>
-</code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_Newton_divergence</span><span class="p">()</span>
-</code></pre></div></div>
+    x, f_x, n = Newton(f, dfdx, 20, eps=1E-4, maxit=12)
+    assert n == 12
+    assert x &gt; 1E+50
+</code></pre>
+<pre><code class="language-python">test_Newton_divergence()
+</code></pre>
 
-<p>The example above only tests for the robustness of <code class="highlighter-rouge">Newton()</code> in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.</p>
+<p>The example above only tests for the robustness of <code>Newton()</code> in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.</p>
 
 <h2 id="summary-unit-testing">Summary: unit testing</h2>
 
@@ -855,7 +855,7 @@ AssertionError: The test for the value of x_0 failed
 
         <div class="col-lg-12 footer">
             &copy;2023 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
-            Site last generated: February 3, 2023 <br />
+            Site last generated: February 15, 2023 <br />
             
                 <span>Page last updated:</span>July 9, 2019<br/>
             
