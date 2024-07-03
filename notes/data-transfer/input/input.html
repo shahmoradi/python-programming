@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This note aims at providing an overview of data-input methods in Python.">
+<meta name="keywords" content="datainputIO,  data, input, IO, python">
+<title>Data input methods | Data Science with Python</title>
+<link rel="stylesheet" href="/python/css/prismOkaidia.css">
+<script src="/python/js/prismOkaidia.js"></script>
+<!--
+<link rel="stylesheet" href="/python/css/syntax.css">
+-->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/python/css/bootstrap.min.css">
+
+
+
+<link rel="stylesheet" href="/python/css/customstyles.css">
+<link rel="stylesheet" href="/python/css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="/python/css/theme-cdslab.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/python/js/jquery.navgoco.min.js"></script>
+<!-- make sidebar non-accordion -->
+<script src="/python/js/lockScrollbarPosition.js"></script>
+<!-- make sidebar non-accordion -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.sidenav').navgoco({
+              accordion: false,
+              caret: '<span class="caret"></span>',
+              openClass: 'open',
+              save: true,
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+    });
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<!--
+-->
+<script src="/python/js/toc.js"></script>
+<script src="/python/js/customscripts.js"></script>
+<link rel="shortcut icon" href="/python/images/favicon.ico">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="" href="/python/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+    </head>
+    <body>
+        <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div id="sticky" class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-book fa-lg navbar-brand" href="/python/index.html">&nbsp;<span class="projectTitle"> Data Science with Python</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CDSLab<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/#about" target="_blank" rel="noopener">About</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.cdslab.org/people" target="_blank" rel="noopener">People</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.cdslab.org/research" target="_blank" rel="noopener">Research</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.cdslab.org/matlab/" target="_blank" rel="noopener">MATLAB Programming</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.cdslab.org/python/" target="_blank" rel="noopener">Python Programming</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">UTA<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/" target="_blank" rel="noopener">College of Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/science/data-science/" target="_blank" rel="noopener">Data Science</a></li>
+                                
+                                
+                                
+                                <li><a href="https://www.uta.edu/physics/" target="_blank" rel="noopener">Physics</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                    
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="keyword search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/python/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: "/python/search.json",
+                                searchResultTemplate: '<li><a href="https://www.cdslab.org/python{url}" title="Data input methods">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div id="main">
+                <!-- Content Row -->
+                <div class="row">
+                    
+                    
+                        <!-- Sidebar Column -->
+                        <div class="col-md-3" id="tg-sb-sidebar">
+                            
+<ul id="mysidebar" class="sidenav">
+    <!--
+    -->
+    <li class="sidebarTitle">Table of Pages </li>
+    
+        
+            
+                <li>
+                    <a title="Overview" href="#"><b>Overview</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Preface" href="/python/notes/overview/preface/preface.html">Preface</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 1" href="/python/notes/overview/release-note-1/release-note-1.html">Release note 1</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 2" href="/python/notes/overview/release-note-2/release-note-2.html">Release note 2</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 3" href="/python/notes/overview/release-note-3/release-note-3.html">Release note 3</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Release note 4" href="/python/notes/overview/release-note-4/release-note-4.html">Release note 4</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Preliminary foundations" href="#"><b>Preliminary foundations</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Version control system" href="/python/notes/preliminary-foundations/version-control-system/version-control-system.html">Version control system</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Computer hardware" href="/python/notes/preliminary-foundations/computer-hardware/computer-hardware.html">Computer hardware</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Computer programming" href="/python/notes/preliminary-foundations/computer-programming/computer-programming.html">Computer programming</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Programming history" href="/python/notes/preliminary-foundations/programming-history/programming-history.html">Programming history</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Python for beginners" href="/python/notes/preliminary-foundations/python-for-beginners/python-for-beginners.html">Python for beginners</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Values, variables, and types" href="#"><b>Values, variables, and types</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="First program" href="/python/notes/values-variables-types/first-program/first-program.html">First program</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Values" href="/python/notes/values-variables-types/values/values.html">Values</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Variables" href="/python/notes/values-variables-types/variables/variables.html">Variables</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Control constructs" href="#"><b>Control constructs</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Branching" href="/python/notes/control-constructs/branching/branching.html">Branching</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Looping" href="/python/notes/control-constructs/looping/looping.html">Looping</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Program units" href="#"><b>Program units</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Functions" href="/python/notes/program-units/functions/functions.html">Functions</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Modules" href="/python/notes/program-units/modules/modules.html">Modules</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Data transfer (I/O)" href="#"><b>Data transfer (I/O)</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li class="active"><a title="Data input methods" href="/python/notes/data-transfer/input/input.html">Data input methods</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Data output methods" href="/python/notes/data-transfer/output/output.html">Data output methods</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Errors and exceptions" href="#"><b>Errors and exceptions</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Exception handling" href="/python/notes/exceptions-errors/exception-handling/exception-handling.html">Exception handling</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Unit testing" href="/python/notes/exceptions-errors/unit-testing/unit-testing.html">Unit testing</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Object-oriented programming" href="#"><b>Object-oriented programming</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Instantiation" href="/python/notes/object-oriented-programming/instantiation/instantiation.html">Instantiation</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Encapsulation" href="/python/notes/object-oriented-programming/encapsulation/encapsulation.html">Encapsulation</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Inheritance" href="/python/notes/object-oriented-programming/inheritance/inheritance.html">Inheritance</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Polymorphism" href="/python/notes/object-oriented-programming/polymorphism/polymorphism.html">Polymorphism</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Abstraction" href="/python/notes/object-oriented-programming/abstraction/abstraction.html">Abstraction</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Scientific Computing" href="#"><b>Scientific Computing</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Vectorization and array computing" href="/python/notes/scientific-computing/vectorization/vectorization.html">Vectorization and array computing</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Interoperation" href="/python/notes/scientific-computing/interoperation/interoperation.html">Interoperation</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Visualization Techniques" href="#"><b>Visualization Techniques</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Overview" href="/python/notes/visualization/overview/overview.html">Overview</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="2D plotting" href="/python/notes/visualization/2d/2d.html">2D plotting</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="3D plotting" href="/python/notes/visualization/3d/3d.html">3D plotting</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li>
+                    <a title="Probabilistic Modeling" href="#"><b>Probabilistic Modeling</b></a>
+                    <ul>
+                        
+                                
+                                    
+                                        <li><a title="Random numbers" href="/python/notes/probabilistic-modeling/random-numbers/random-numbers.html">Random numbers</a></li>
+                                    
+                                    
+                                
+                        
+                                
+                                    
+                                        <li><a title="Monte Carlo" href="/python/notes/probabilistic-modeling/monte-carlo/monte-carlo.html">Monte Carlo</a></li>
+                                    
+                                    
+                                
+                        
+                    </ul>
+                </li>
+            
+        
+    
+    <!-- if you aren't using the accordion, uncomment this block:
+    -->
+    <p class="external">
+        <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+    </p>
+</ul>
+<!--
+This highlights the active parent class in the navgoco sidebar. 
+This is critical so that the parent expands when you're viewing a page.
+This must appear below the sidebar code above.
+Otherwise, if placed inside customscripts.js,
+the script runs before the sidebar code runs and the class never gets inserted.
+-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+                        </div>
+                        
+                    
+                    <!-- Content Column -->
+                    <div class="col-md-9" id="tg-sb-content">
+                        <div class="post-header">
+   <h1 class="post-title-main">Data input methods</h1>
+</div>
+
+<div class="post-content">
+    
+        <div class="summary">This note aims at providing an overview of data-input methods in Python.</div>
+    
+    
+        <br>
+        
+<script>
+    $( document ).ready(function() {
+        // Handler for .ready() called.
+        $('#toc').toc({ minimumHeaders: 0 
+                      , listType: 'ol'
+                      , showSpeed: 0
+                      , headers: 'h2,h3,h4,h5,h6'
+        });
+        /* the following offset helps account for the space taken up by the floating toolbar. */
+        $('#toc').on('click', 'a', function() {
+            var target = $(this.getAttribute('href')), scroll_target = target.offset().top$(window).scrollTop(scroll_target - 10);
+            return false
+        })
+    });
+</script>
+
+<div id="toc"></div>
+
+    
+    
+    <p>So far, we have indirectly discussed several methods of getting input information from the user, and several methods of outputting the result in a Python program. This note attempts to formalize all the previous discussions and introduce more general efficient methods of the code interaction with users. Let’s begin with example code, explaining the meaning of input/output (I/O) in Python,</p>
+<pre><code class="language-python">from math import exp
+a = 0.1
+b = 1
+x = 0.6
+y = a*exp(b*x)
+print(y)
+</code></pre>
+<pre><code>0.1822118800390509
+</code></pre>
+
+<p>In the above code, $a,b,x$ are examples of input data to code, and $y$ is an example of code output. In such case as in the above, the input data is said to be <strong>hardcoded</strong> in the program.</p>
+
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> 
+    <b>In general, in any programming language, including Python you should always avoid hardcoding input information into your program.</b><br /><br />
+    If data is hardcoded, then every time it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.</div>
+
+<p>In general, input data can be fed to a program in four different ways:</p>
+<ol>
+  <li>let the user answer questions in a dialog in the <strong>terminal window</strong>,</li>
+  <li>let the user provide input on the <strong>command line</strong>,</li>
+  <li>let the user provide input data in a <strong>file</strong>,</li>
+  <li>let the user write input data in a <strong>graphical interface</strong>.</li>
+</ol>
+
+<h2 id="input-data-from-the-terminal-window">Input data from the terminal window</h2>
+
+<p>We have already introduced and used this method frequently in previous notes, via the Python’s builtin function <code>input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
+<pre><code class="language-python">from math import exp
+a,b,x = input('input the values for a,b,x (comma separated): ').split(",")
+y = float(a)*exp(float(b)*float(x))
+print(y)
+</code></pre>
+<pre><code>input the values for a,b,x (comma separated): 0.1,1,0.6
+0.1822118800390509
+</code></pre>
+
+<h2 id="input-data-from-the-command-line">Input data from the command line</h2>
+
+<p>This approach, which we discussed in the previous notes, is most popular in Unix-like environments, where most users are accustomed to using the Bash command line. However, it can be readily used in the Windows environment as well. For this approach, there is a Python module <code>sys</code> that can accomplish what we desire,</p>
+<pre><code class="language-python">from math import exp
+import sys
+a,b,x = sys.argv[1],sys.argv[2],sys.argv[3]
+y = float(a)*exp(float(b)*float(x))
+print(y)
+</code></pre>
+
+<p>Now if you save this code in a file named <a href="input_via_sys.py" target="_blank">input_via_sys.py</a>, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,</p>
+<pre><code class="language-bash">$ python input_via_sys.py 0.1 1 0.6
+0.1822118800390509
+</code></pre>
+
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> 
+    <b>Pay attention to the convention for the input command-line arguments.</b><br /><br />
+        <b>1.</b> As you see in the above example, the name of the program is considered as the first command line argument (<code>sys.argv[0]</code>). Also the arguments must be separated by a white space, and should appear in the proper order.<br /><br />
+        <b>2.</b> If one value has a white space (e.g., a string value with white space character in it), then it has to be contained in quotation marks <code>''</code> or <code>""</code>.<br /><br />
+        <b>3.</b> Also note that all input command-line arguments are taken as string values. Therefore, you will have to convert them to the proper type (e.g., float, int, …) once they are read from the command line.</div>
+
+<p><br /></p>
+
+<h3 id="variable-number-of-command-line-arguments">Variable number of command line arguments</h3>
+
+<p>If the number of input arguments on the command line is not known a priori, then you can get a list of all input arguments using <code>sys.argv[1:]</code> and then use a for-loop to loop over individual elements of it, or use <code>len()</code> function to find the total number of input arguments.<br />
+<br /></p>
+
+<h3 id="option-value-pairs-as-command-line-input">Option-value pairs as command-line input</h3>
+
+<p>Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
+\(y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.\)
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code>argparse</code> Python module. Details of the usage of this module go beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
+
+<h2 id="input-data-from-a-file">Input data from a file</h2>
+
+<p>In cases where the input data is large, the command-line arguments and input from a terminal window are not efficient anymore. In such cases, the most common approach is to let the code read input data from a file, the path to which is most often given to the code from the command line or the terminal window.</p>
+
+<h3 id="reading-a-file-line-by-line">Reading a file line by line</h3>
+
+<p>To read a file, say <a href="data.in" target="_blank">this file</a>, one first needs to open it,</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+type(myfile)
+</code></pre>
+<pre><code>_io.TextIOWrapper
+</code></pre>
+
+<pre><code class="language-python">myfile.&lt;press tab&gt;
+     myfile.buffer         myfile.detach         myfile.fileno         myfile.line_buffering myfile.newlines       myfile.readline       myfile.seekable       myfile.writable
+     myfile.close          myfile.encoding       myfile.flush          myfile.mode           myfile.read           myfile.readlines      myfile.tell           myfile.write
+     myfile.closed         myfile.errors         myfile.isatty         myfile.name           myfile.readable       myfile.seek           myfile.truncate       myfile.writelines
+</code></pre>
+
+<p>The function <code>open</code> creates a file object, stored in the variable <code>myfile</code>. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
+
+<p>Now you can use a for loop to read the data in this file line by line:</p>
+
+<pre><code class="language-python">for line in myfile:
+    print(line)
+</code></pre>
+<pre><code>1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+
+<p>What is printed here, is actually the content of <code>data.in</code> file, line by line.</p>
+
+<h3 id="alternative-method-of-reading-a-data-file">Alternative method of reading a data file</h3>
+
+<p>Instead of reading one line at a time, as in the above, we can load all lines into a single list of strings,</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+lines = myfile.readlines()
+type(lines)
+</code></pre>
+<pre><code>list
+</code></pre>
+
+<p>Note that each element of <code>line</code> contains one line of the file.</p>
+
+<pre><code class="language-python">lines
+</code></pre>
+<pre><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
+
+<p>The action of the method <code>readlines()</code> is equivalent to a for-loop like the following,</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+lines = []
+for line in myfile:
+    lines.append(line)
+lines
+</code></pre>
+<pre><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
+
+<p>or this <em>list comprehension</em> format,</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+lines = [line for line in myfile]
+lines
+</code></pre>
+<pre><code>['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
+
+<p>Now suppose you were to calculate the mean of the numbers in <a href="data.in" target="_blank">this file</a>. You could simply use the following list comprehension code to do so,</p>
+
+<pre><code class="language-python">mean = sum([float(line) for line in lines])/len(lines)
+print(mean)
+</code></pre>
+<pre><code>22.375
+</code></pre>
+
+<p>Note that once you read the file, you can close it using,</p>
+
+<pre><code class="language-python">myfile.close()
+</code></pre>
+
+<h3 id="the-with-statement">The <em>with</em> statement</h3>
+
+<p>Frequently in modern Python code, you may see the <code>with</code> statement for reading a file, like the following,</p>
+
+<pre><code class="language-python">with open('data.in', 'r') as myfile:
+    for line in myfile:
+        print(line)
+</code></pre>
+<pre><code>1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+
+<p>This is technically equivalent to,</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+for line in myfile:
+    print(line)
+myfile.close()
+</code></pre>
+<pre><code>1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+
+<p>The difference here is that with the modern <code>with</code> statement, there is no need to close the file in the end.</p>
+
+<h3 id="the-old-while-true-construction">The old <em>while True</em> construction</h3>
+
+<p>The call <code>myfile.readline()</code> returns a string containing the text at the current line. Adding a new <code>myfile.readline()</code> will read the next line. If the file reaches the end, then <code>myfile.readline()</code> returns an empty string, the end of the file has reached and the code must stop the further reading of the file. The traditional way of telling the code to stop at the end of the file is a <code>while</code> loop like the following,</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+while True:
+    line = myfile.readline()
+    if not line:
+        break
+    print(line)
+</code></pre>
+<pre><code>1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+
+<h3 id="reading-an-entire-file-as-a-single-string">Reading an entire file as a single string</h3>
+
+<p>While the <code>readlines()</code> method returns a list of lines in the file, the <code>read()</code> method returns a string containing the entire content of the file.</p>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+s = myfile.read()
+s
+</code></pre>
+<pre><code>'1\n3\n4\n5\n6\n7\n88\n65\n'
+</code></pre>
+
+<pre><code class="language-python">print(s)
+</code></pre>
+<pre><code>1
+3
+4
+5
+6
+7
+88
+65
+</code></pre>
+
+<p>The major advantage of this method of reading file content is that you can then immediately apply string methods directly on the file content.</p>
+
+<pre><code class="language-python">myfile = open('data.in', 'r')
+numbers = [float(x) for x in myfile.read().split()]
+mean = sum(numbers)/len(numbers)
+print(mean)
+</code></pre>
+<pre><code>22.375
+</code></pre>
+
+<h3 id="reading-data-from-special-data-files">Reading data from special data files</h3>
+
+<p>It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly <code>*.csv</code> and Microsoft Excel files (e.g., <code>*.xls</code> data files), or also frequently, from an <code>*.xml</code> data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be <a href="http://www.python-excel.org/" target="_blank">this webpage</a>, also <a href="http://pbpython.com/excel-pandas-comp.html" target="_blank">Pandas module</a>.</p>
+
+<p>For CSV files, Python standard library has a solution. Suppose you want to read <a href="data_input.csv" target="_blank">this CSV file</a>. A Python solution would be the following,</p>
+<pre><code class="language-python">import csv
+with open('data_input.csv','r') as myfile:
+    for counter, row in enumerate(csv.reader(myfile)):
+        print(row)
+        if counter&gt;10: break
+</code></pre>
+<pre><code>['pdb', 'pdb_id', 'chain', 'site', 'zr4s_JTT', 'r4s_JTT', 'zr4s_JC', 'r4s_JC']
+['132L_A', '132L', 'A', '2', '-0.3133', '1.02', '0.04475', '1.188']
+['132L_A', '132L', 'A', '3', '0.8385', '1.955', '0.2036', '1.311']
+['132L_A', '132L', 'A', '4', '2.093', '2.973', '1.451', '2.272']
+['132L_A', '132L', 'A', '5', '-0.8878', '0.5537', '-0.7985', '0.5382']
+['132L_A', '132L', 'A', '6', '-1.443', '0.1028', '-1.426', '0.05416']
+['132L_A', '132L', 'A', '7', '-0.1195', '1.177', '-0.07917', '1.093']
+['132L_A', '132L', 'A', '8', '-0.7236', '0.6869', '-0.8997', '0.4602']
+['132L_A', '132L', 'A', '9', '-1.107', '0.3755', '-0.8971', '0.4622']
+['132L_A', '132L', 'A', '10', '0.7076', '1.848', '0.7369', '1.722']
+['132L_A', '132L', 'A', '11', '0.9573', '2.051', '0.8809', '1.833']
+['132L_A', '132L', 'A', '12', '-0.8315', '0.5993', '-0.9243', '0.4413']
+</code></pre>
+
+<p>Note how I have used Python <code>enumerate()</code> function to control the number of lines that is read from the file (The file contains more than 70000 lines of data!).</p>
+
+<p>Similarly, if you wanted to write a CSV file, you can use <code>csv.writer()</code> method,</p>
+<pre><code class="language-python">with open('data_input.csv','r') as infile, open('data_output.csv', 'w') as outfile:
+    for counter, row in enumerate(csv.reader(infile)):
+        csv.writer(outfile).writerow(row)
+        if counter&gt;10: break
+</code></pre>
+
+<p>The output of the code is the file <a href="data_output.csv" target="_blank">data_output.csv</a> (If you run this code on Windows machines, you may get an extra empty line between each row in the CSV file).</p>
+
+<p>For <code>*.xml</code> files, Python standard library has a package <a href="https://docs.python.org/3/library/xml.etree.elementtree.html" target="_blank">ElementTree</a>, which you can use for both parsing and writing xml data files.</p>
+
+<h3 id="reading-data-from-the-world-wide-web">Reading data from the World Wide Web</h3>
+
+<p>Nowadays, a lot of data repositories are available online to the public community, and you may encounter problems that need to parse data from an online repository. Such problems happen almost daily in a scientific research career, even in High-Performance Computing, and Python’s capability to easily handle such data-IO problems is indeed one of the main reasons for its popularity.</p>
+
+<p>For many of the most famous repositories, such as the <a href="http://www.rcsb.org/pdb/home/home.do" target="_blank">Protein databank</a>, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., <a href="http://biopython.org/wiki/Biopython" target="_blank">Biopython</a>).</p>
+
+<p>Nevertheless, at some point in your research or career, you may need to read data from a web address by yourself. Frequently, the online data is contained in an <code>HTML</code> file, like the contents of this very page that you are reading right now. Suppose you wanted to extract the contents of an HTML page, say, The Astronomy Picture of the Day (APOD), which has the URL: <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">https://apod.nasa.gov/apod/astropix.html</a>. A simple solution would be the following via Python’s standard function <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
+
+<pre><code class="language-python">import urllib.request as ur
+myurl = 'https://apod.nasa.gov/apod/astropix.html'
+with ur.urlopen(myurl) as webfile:
+    webcontent = [line.decode("utf-8") for line in webfile.readlines()]
+</code></pre>
+
+<p>Now the variable <code>webcontent</code> is a list, whose elements are each row in the HTML file for this page.</p>
+
+<pre><code class="language-python">webcontent[0:10]
+</code></pre>
+<pre><code>['&lt;!doctype html&gt;\n',
+ '&lt;html&gt;\n',
+ '&lt;head&gt;\n',
+ '&lt;title&gt;Astronomy Picture of the Day\n',
+ '&lt;/title&gt; \n',
+ '&lt;!-- gsfc meta tags --&gt;\n',
+ '&lt;meta name="orgcode" content="661"&gt;\n',
+ '&lt;meta name="rno" content="phillip.a.newman"&gt;\n',
+ '&lt;meta name="content-owner" content="Jerry.T.Bonnell.1"&gt;\n',
+ '&lt;meta name="webmaster" content="Stephen.F.Fantasia.1"&gt;\n']
+</code></pre>
+
+<p>Note that the content of the file is read in <code>byte</code> format. Therefore, to convert it to a string, one has to apply <code>.decode("utf-8")</code> on each line, as we did in the above. Similar to opening a file on a hard disk, one can also use <code>.read()</code> and <code>.readline()</code> methods to read the contents of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,</p>
+
+<pre><code class="language-python">import urllib.request as ur
+myurl = 'https://apod.nasa.gov/apod/astropix.html'
+ur.urlretrieve(myurl, filename='apod.html')
+</code></pre>
+
+<p>This will output the file named <a href="apod.html" target="_blank">apod.html</a> in your current working directory of Python’s Interpreter that you are using.</p>
+
+<p>The file that we just imported from the web does not contain any scientific <em>raw research data</em> (of course, it is highly scientific content, but in the form of astronomical news, not data). Later on, we will see real-world scientific examples that show the value of Python’s ability to parse the contents of web pages.</p>
+
+<h2 id="converting-user-input-to-live-python-objects">Converting user input to live Python objects</h2>
+
+<p>One of the cool features in Python I/O is that you can provide text containing valid Python code as input to a program and then
+turn that text into <em>live Python objects</em> as if the text were lines of code written directly into the program beforehand. This is a very powerful tool for letting users specify function formulas, for instance, as input to a program. The program code itself has no knowledge about the kind of function the user wants to work with, yet at run time the user’s desired formula enters the computations. To achieve the goal, one can use Python’s <strong>magic functions</strong>, a.k.a. <strong>special methods</strong>.</p>
+
+<h3 id="the-magic-eval-function">The magic <em>eval</em> function</h3>
+
+<p>The <code>eval</code> function takes a <strong>string as argument</strong> and <strong>evaluates</strong> this string as a <strong>Python expression</strong>. The result of an expression is an <strong>object</strong>. For example,</p>
+
+<pre><code class="language-python">eval('1+2')
+</code></pre>
+<pre><code>3
+</code></pre>
+
+<p>This is equivalent to typing,</p>
+
+<pre><code class="language-python">1+2
+</code></pre>
+<pre><code>3
+</code></pre>
+
+<p>or another example,</p>
+
+<pre><code class="language-python">a = 1
+b = 2
+c = eval('a+b')
+c
+</code></pre>
+<pre><code>3
+</code></pre>
+
+<p>or,</p>
+
+<pre><code class="language-python">from math import sqrt
+eval('sqrt(4)')
+</code></pre>
+<pre><code>2.0
+</code></pre>
+
+<p>But, note that in all of the above examples, the <code>eval</code> function <strong>evaluates</strong> a Python expression, that is, this function <strong>can not execute</strong> a Python statement.</p>
+
+<p>Now the cool thing about this function is that you can directly apply it to the user input. For example, suppose the user is asked to input a Python expression and then the code is supposed to evaluate the input just like a simple calculator,</p>
+
+<pre><code class="language-python">eval(input('Input an arithmetic expression to evaluate: '))
+</code></pre>
+<pre><code>Input an arithmetic expression to evaluate: 2 + 3.0/5 + exp(7)
+1099.2331584284584
+</code></pre>
+
+<h3 id="the-magic-exec-function">The magic <em>exec</em> function</h3>
+
+<p>Similar to the <code>eval</code> function, there is also an <code>exec</code> magic function that executes a string containing an arbitrary
+Python code, not just a Python expression. This is a powerful idea since it now enables the user to write a formula as input to the program, available to the program in the form of a string object. The program can then convert this formula to a callable Python code, or function, using the magic <code>exec</code> function.</p>
+
+<pre><code class="language-python">exec('import math')
+exec('a=1; b=2; c=a+b')
+a,b,c
+</code></pre>
+<pre><code>(1, 2, 3)
+</code></pre>
+
+<p>One could even input a full function definition to the exec function,</p>
+
+<pre><code class="language-python">myFuncString = input('Input a Python function definition of interest: ')
+f = exec(myFuncString)
+</code></pre>
+<pre><code>Input a Python function definition of interest, named func: def func(x): return 2*x + 1  
+</code></pre>
+
+<pre><code class="language-python">func(x=1)
+</code></pre>
+<pre><code>3
+</code></pre>
+
+<p>Now, since this is such a useful functionality in Python, there is already a package written <code>scitools</code>, that converts an input expression to a Python function,</p>
+
+<pre><code class="language-python">from scitools.StringFunction import StringFunction
+myfuncString = input('Input a Python expression to build your requested Python function: ')
+myfunc = StringFunction(myfuncString)
+</code></pre>
+
+<p>The only major caveat with this module is that, at the moment, it only works with Python 2.x, and not Python 3. So, the above code will not work on your Python 3 platform.</p>
+
+    
+    
+        
+    <div style="margin-top:3rem">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+    
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+</div>
+<hr class="shaded"/>
+<footer>
+    <div class="row">
+        <div class="social-icons">
+
+    
+    <span class="social-icon">
+        <a href="https://facebook.com/cdslab" target="_blank">
+            <span class="fa-stack fa-lg">
+                
+                
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-xs"></i>
+            </span>
+        </a>
+    </span>
+    
+
+    
+    <span class="social-icon">
+        <a href="https://github.com/cdslaborg" target="_blank">
+            <span class="fa-stack fa-lg">
+                
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-xs"></i>
+            </span>
+        </a>
+    </span>
+    
+
+    
+
+    
+    <span class="social-icon">
+        <a href="https://instagram.com/cdslaborg" target="_blank">
+            <span class="fa-stack fa-lg">
+                
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-instagram fa-stack-xs"></i>
+            </span>
+        </a>
+    </span>
+    
+
+    
+    <span class="social-icon">
+        <a href="https://medium.com/cdslab" target="_blank">
+            <span class="fa-stack fa-lg">
+                
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-medium fa-stack-xs"></i>
+                <!--
+                -->
+            </span>
+        </a>
+    </span>
+    
+
+    
+    <span class="social-icon">
+        <a href="https://twitter.com/cdslaborg" target="_blank">
+            <span class="fa-stack fa-lg">
+                
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-xs"></i>
+            </span>
+        </a>
+    </span>
+    
+
+</div>
+
+        <div class="col-lg-12 footer">
+            &copy;2024 <a href="https://www.cdslab.org" target="_blank">Computational Data Science Lab</a><br />
+            Site last generated: July 3, 2024 <br />
+            
+                <span>Page last updated:</span>July 9, 2019<br/>
+            
+        <p>
+            <a href="https://www.cdslab.org" target="_blank"><img class="footerlogo" src="/python/images/logo.png" }}" alt="cdslab.org" /></a>
+            <!-- Start of statc -->
+<div style="color: #ffffff; float: none; width: 100%;">
+    <span style="font-size:0.8em">visitor count: 
+        <script type="text/javascript">
+            var sc_project=12046867; 
+            var sc_invisible=0; 
+            var sc_security="c4544640"; 
+            var sc_text=3; 
+            var scJsHost = "https://";
+            document.write("<sc"+"ript type='text/javascript' src='" +
+            scJsHost+
+            "statcounter.com/counter/counter.js'></"+"script>");
+        </script>
+    </span>
+</div>
+<!-- End of statc -->
+        </p>
+        </div>
+    </div>
+    <!--Mathjax LaTeX engine-->
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            config: ["MMLorHTML.js"],
+            extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+            jax: ["input/TeX"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            TeX: {
+                TagSide: "right",
+                TagIndent: ".8em",
+                MultLineWidth: "85%",
+                equationNumbers: {
+                autoNumber: "AMS",
+                },
+                unicode: {
+                fonts: "STIXGeneral,'Arial Unicode MS'" 
+                }
+            },
+            showProcessingMessages: false
+        });
+    </script>
+    <style TYPE="text/css">
+        code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+            }
+        });
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</footer>
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /#main -->
+        </div>
+        
+    </body>
+    
+</html>
